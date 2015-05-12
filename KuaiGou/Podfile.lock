@@ -20,7 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - GVUserDefaults (0.9.5)
+  - GVUserDefaults (1.0.1)
   - MBProgressHUD (0.9.1)
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
@@ -36,8 +36,8 @@ PODS:
   - VTAcknowledgementsViewController (0.13)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5.0)
-  - GVUserDefaults (~> 0.9.5)
+  - AFNetworking (~> 2.5.3)
+  - GVUserDefaults (~> 1.0.1)
   - MBProgressHUD (~> 0.9)
   - ObjectiveRecord (~> 1.5.0)
   - pop (~> 1.0.7)
@@ -50,7 +50,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  GVUserDefaults: bd3efc5beab8f501d17e566eddc7acd6f2425c2a
+  GVUserDefaults: acb40729f70984008d0650e49d7e422f1bbfa597
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c

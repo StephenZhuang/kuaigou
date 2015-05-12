@@ -50,9 +50,9 @@
 
 // GVUserDefaults
 #define COCOAPODS_POD_AVAILABLE_GVUserDefaults
-#define COCOAPODS_VERSION_MAJOR_GVUserDefaults 0
-#define COCOAPODS_VERSION_MINOR_GVUserDefaults 9
-#define COCOAPODS_VERSION_PATCH_GVUserDefaults 5
+#define COCOAPODS_VERSION_MAJOR_GVUserDefaults 1
+#define COCOAPODS_VERSION_MINOR_GVUserDefaults 0
+#define COCOAPODS_VERSION_PATCH_GVUserDefaults 1
 
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
