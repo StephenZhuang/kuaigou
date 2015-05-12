@@ -10,4 +10,6 @@
 
 @interface UIViewController (KGStoryboard)
 + (instancetype)viewControllerFromStoryboard:(NSString *)storyboardName;
+- (void)addBackButton;
+- (void)kg_viewDidLoad;
 @end

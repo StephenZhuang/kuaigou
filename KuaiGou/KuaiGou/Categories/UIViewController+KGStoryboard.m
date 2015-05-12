@@ -74,9 +74,6 @@
 - (void)kg_viewDidLoad
 {
     [self kg_viewDidLoad];
-//    if (![self isKindOfClass:[UINavigationController class]] && ![self isKindOfClass:[KGTabBarController class]]) {
-        [self addBackButton];
-//    }
-//    [self.view setBackgroundColor: [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]];
+    [self addBackButton];
 }
 @end

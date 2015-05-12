@@ -9,5 +9,9 @@
 #import "KGHomeViewController.h"
 
 @implementation KGHomeViewController
-
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+//    [self addBackButton];
+}
 @end
