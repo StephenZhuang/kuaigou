@@ -1,7 +1,7 @@
 platform :ios, '7.0'
 pod 'AFNetworking', '~> 2.5.3'
-pod "MBProgressHUD", "~>0.9"
-pod "SDWebImage", "~>3.7.1"
+pod 'MBProgressHUD', '~> 0.9'
+pod 'SDWebImage', '~> 3.7.1'
 pod 'GVUserDefaults', '~> 1.0.1'
 pod 'ObjectiveRecord', '~> 1.5.0'
 pod 'PureLayout', '~> 2.0.3'
@@ -10,3 +10,6 @@ pod 'pop', '~> 1.0.7'
 pod 'VTAcknowledgementsViewController', '~> 0.13'
 pod 'UITableView+FDTemplateLayoutCell', '~> 1.1-beta'
 pod 'UIView+FDCollapsibleConstraints', '~> 1.0'
+pod 'MJRefresh', '~> 1.4.6'
+pod 'MJExtension', '~> 2.0.2'
+pod 'RDVTabBarController', '~> 1.1.9'

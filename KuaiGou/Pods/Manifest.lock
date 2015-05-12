@@ -22,11 +22,14 @@ PODS:
     - AFNetworking/NSURLSession
   - GVUserDefaults (1.0.1)
   - MBProgressHUD (0.9.1)
+  - MJExtension (2.0.2)
+  - MJRefresh (1.4.6)
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
   - ObjectiveSugar (1.1.0)
   - pop (1.0.7)
   - PureLayout (2.0.6)
+  - RDVTabBarController (1.1.9)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
@@ -39,9 +42,12 @@ DEPENDENCIES:
   - AFNetworking (~> 2.5.3)
   - GVUserDefaults (~> 1.0.1)
   - MBProgressHUD (~> 0.9)
+  - MJExtension (~> 2.0.2)
+  - MJRefresh (~> 1.4.6)
   - ObjectiveRecord (~> 1.5.0)
   - pop (~> 1.0.7)
   - PureLayout (~> 2.0.3)
+  - RDVTabBarController (~> 1.1.9)
   - SDWebImage (~> 3.7.1)
   - UITableView+FDTemplateLayoutCell (~> 1.1-beta)
   - UIView+FDCollapsibleConstraints (~> 1.0)
@@ -52,10 +58,13 @@ SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   GVUserDefaults: acb40729f70984008d0650e49d7e422f1bbfa597
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MJExtension: d6cdbac494bdbb8943701944106ed57ada3ad773
+  MJRefresh: 2eaa3fd8f67fbb86497840fb0167446f7eb61dc7
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
+  RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   UITableView+FDTemplateLayoutCell: 058bc73b876f3bf0fb7f0bcb31c92af7ecd2587c
   UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd
