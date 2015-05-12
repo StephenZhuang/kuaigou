@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <RDVTabBarController.h>
-#import <RDVTabBarItem.h>
 
 @interface AppDelegate ()
 
@@ -32,37 +30,34 @@
 #pragma mark - Methods
 
 - (void)setupViewControllers {
-    UIViewController *firstViewController = [[UIViewController alloc] init];
-    UIViewController *firstNavigationController = [[UINavigationController alloc]
-                                                   initWithRootViewController:firstViewController];
+    UIViewController *nav1 = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateInitialViewController];
+    nav1.title = @"首页";
+    UIViewController *nav2 = [[UIStoryboard storyboardWithName:@"Nearby" bundle:nil] instantiateInitialViewController];
+    nav2.title = @"附近";
+    UIViewController *nav3 = [[UIStoryboard storyboardWithName:@"Chat" bundle:nil] instantiateInitialViewController];
+    nav3.title = @"快聊";
+    UIViewController *nav4 = [[UIStoryboard storyboardWithName:@"Mine" bundle:nil] instantiateInitialViewController];
+    nav4.title = @"我的";
+    UIViewController *vc = [[UIViewController alloc] init];
     
-    UIViewController *secondViewController = [[UIViewController alloc] init];
-    UIViewController *secondNavigationController = [[UINavigationController alloc]
-                                                    initWithRootViewController:secondViewController];
-    
-    UIViewController *thirdViewController = [[UIViewController alloc] init];
-    UIViewController *thirdNavigationController = [[UINavigationController alloc]
-                                                   initWithRootViewController:thirdViewController];
-    
-    RDVTabBarController *tabBarController = [[RDVTabBarController alloc] init];
-    [tabBarController setViewControllers:@[firstNavigationController, secondNavigationController,
-                                           thirdNavigationController]];
+    KGTabBarController *tabBarController = [[KGTabBarController alloc] init];
+    [tabBarController setViewControllers:@[nav1,nav2,vc,nav3,nav4]];
     
     [self customizeTabBarForController:tabBarController];
     self.window.rootViewController = tabBarController;
 }
 
-- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
+- (void)customizeTabBarForController:(KGTabBarController *)tabBarController {
     UIImage *finishedImage = [UIImage imageNamed:@""];
     UIImage *unfinishedImage = [UIImage imageNamed:@""];
-    NSArray *tabBarItemImages = @[@"first", @"", @"third"];
+    NSArray *tabBarItemImages = @[@"bt_menu_home",@"bt_menu_nearby", @"bt_menu_release", @"bt_menu_talk",@"bt_menu_me"];
     
     NSInteger index = 0;
     for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
         [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
-        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_s",
                                                       [tabBarItemImages objectAtIndex:index]]];
-        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_normal",
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_n",
                                                         [tabBarItemImages objectAtIndex:index]]];
         [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
         
@@ -73,32 +68,10 @@
 - (void)customizeInterface {
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
     
-    UIImage *backgroundImage = nil;
-    NSDictionary *textAttributes = nil;
-    
-    if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
-        backgroundImage = [UIImage imageNamed:@"navigationbar_background_tall"];
-        
-        textAttributes = @{
-                           NSFontAttributeName: [UIFont boldSystemFontOfSize:18],
-                           NSForegroundColorAttributeName: [UIColor blackColor],
-                           };
-    } else {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
-        backgroundImage = [UIImage imageNamed:@"navigationbar_background"];
-        
-        textAttributes = @{
-                           UITextAttributeFont: [UIFont boldSystemFontOfSize:18],
-                           UITextAttributeTextColor: [UIColor blackColor],
-                           UITextAttributeTextShadowColor: [UIColor clearColor],
-                           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero],
-                           };
-#endif
-    }
-    
-    [navigationBarAppearance setBackgroundImage:backgroundImage
-                                  forBarMetrics:UIBarMetricsDefault];
-    [navigationBarAppearance setTitleTextAttributes:textAttributes];
+    [navigationBarAppearance setBarTintColor: [UIColor colorWithRed:99/255.0 green:186/255.0 blue:106/255.0 alpha:1.0]];
+    NSDictionary* attrs = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    [navigationBarAppearance setTitleTextAttributes:attrs];
+    [navigationBarAppearance setTintColor:[UIColor whiteColor]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

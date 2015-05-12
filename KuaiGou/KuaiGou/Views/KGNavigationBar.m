@@ -20,7 +20,7 @@
 
 - (void)awakeFromNib
 {
-    [self setBarTintColor: [UIColor colorWithRed:1/255.0 green:1/255.0 blue:1/255.0 alpha:1.0]];
+    [self setBarTintColor: [UIColor colorWithRed:99/255.0 green:186/255.0 blue:106/255.0 alpha:1.0]];
     NSDictionary* attrs = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     [self setTitleTextAttributes:attrs];
     [self setTintColor:[UIColor whiteColor]];

@@ -9,5 +9,5 @@
 #import "GVUserDefaults.h"
 
 @interface GVUserDefaults (KGUtil)
-
+@property (nonatomic , assign) BOOL isLogin;
 @end

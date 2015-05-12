@@ -1,13 +1,13 @@
 //
-//  GVUserDefaults+KGUtil.m
+//  KGChatListViewController.h
 //  KuaiGou
 //
 //  Created by Stephen Zhuang on 15/5/12.
 //  Copyright (c) 2015年 Hatlab. All rights reserved.
 //
 
-#import "GVUserDefaults+KGUtil.h"
+#import <UIKit/UIKit.h>
 
-@implementation GVUserDefaults (KGUtil)
-@dynamic isLogin;
+@interface KGChatListViewController : UIViewController
+
 @end
