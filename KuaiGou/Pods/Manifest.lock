@@ -30,6 +30,7 @@ PODS:
   - pop (1.0.7)
   - PureLayout (2.0.6)
   - RDVTabBarController (1.1.9)
+  - Reveal-iOS-SDK (1.5.1)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - pop (~> 1.0.7)
   - PureLayout (~> 2.0.3)
   - RDVTabBarController (~> 1.1.9)
+  - Reveal-iOS-SDK
   - SDWebImage (~> 3.7.1)
   - UITableView+FDTemplateLayoutCell (~> 1.1-beta)
   - UIView+FDCollapsibleConstraints (~> 1.0)
@@ -65,6 +67,7 @@ SPEC CHECKSUMS:
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
+  Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   UITableView+FDTemplateLayoutCell: 058bc73b876f3bf0fb7f0bcb31c92af7ecd2587c
   UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd

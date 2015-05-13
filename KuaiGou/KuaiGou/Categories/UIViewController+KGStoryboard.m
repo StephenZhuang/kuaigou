@@ -8,6 +8,7 @@
 
 #import "UIViewController+KGStoryboard.h"
 #import <objc/runtime.h>
+#import "KGHomeViewController.h"
 
 @implementation UIViewController (KGStoryboard)
 + (instancetype)viewControllerFromStoryboard:(NSString *)storyboardName
@@ -21,7 +22,8 @@
     item.tintColor = [UIColor whiteColor];
     self.navigationItem.backBarButtonItem = item;
     
-    [self.view setBackgroundColor: [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]];
+//    [self.view setBackgroundColor: [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]];
+    [self.view setBackgroundColor:[UIColor redColor]];
 }
 
 + (void)load {
@@ -74,6 +76,9 @@
 - (void)kg_viewDidLoad
 {
     [self kg_viewDidLoad];
-    [self addBackButton];
+    NSLog(@"%@",[self class]);
+//    if ([self isKindOfClass:[UIInputViewController class]]) {
+        [self addBackButton];
+//    }
 }
 @end

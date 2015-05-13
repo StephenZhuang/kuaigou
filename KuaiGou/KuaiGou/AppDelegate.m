@@ -48,8 +48,8 @@
 }
 
 - (void)customizeTabBarForController:(KGTabBarController *)tabBarController {
-    UIImage *finishedImage = [UIImage imageNamed:@""];
-    UIImage *unfinishedImage = [UIImage imageNamed:@""];
+    UIImage *finishedImage = [UIImage new];
+    UIImage *unfinishedImage = [UIImage new];
     NSArray *tabBarItemImages = @[@"bt_menu_home",@"bt_menu_nearby", @"bt_menu_release", @"bt_menu_talk",@"bt_menu_me"];
     
     NSInteger index = 0;
