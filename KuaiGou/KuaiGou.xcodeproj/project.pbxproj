@@ -17,6 +17,8 @@
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
 		77376C6E1B00ADFE00DA19D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6C1B00ADFE00DA19D8 /* LaunchScreen.xib */; };
 		77376C7A1B00ADFE00DA19D8 /* KuaiGouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C791B00ADFE00DA19D8 /* KuaiGouTests.m */; };
+		774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E51B03433D0075FB50 /* KGApiClient.m */; };
+		774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E91B0348530075FB50 /* KGResponseObject.m */; };
 		77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD45571B01AFBB0094326D /* GVUserDefaults+KGUtil.m */; };
 		77AD455B1B01B01A0094326D /* KGMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD455A1B01B01A0094326D /* KGMineViewController.m */; };
 		77AD455E1B01B02D0094326D /* KGChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD455D1B01B02D0094326D /* KGChatListViewController.m */; };
@@ -60,6 +62,10 @@
 		77376C731B00ADFE00DA19D8 /* KuaiGouTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KuaiGouTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C781B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C791B00ADFE00DA19D8 /* KuaiGouTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KuaiGouTests.m; sourceTree = "<group>"; };
+		774EC8E41B03433D0075FB50 /* KGApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGApiClient.h; sourceTree = "<group>"; };
+		774EC8E51B03433D0075FB50 /* KGApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGApiClient.m; sourceTree = "<group>"; };
+		774EC8E81B0348530075FB50 /* KGResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGResponseObject.h; sourceTree = "<group>"; };
+		774EC8E91B0348530075FB50 /* KGResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGResponseObject.m; sourceTree = "<group>"; };
 		77AD45521B01AE5C0094326D /* Kuaigou-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kuaigou-prefix.pch"; sourceTree = "<group>"; };
 		77AD45541B01AF2B0094326D /* MagicalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalMacro.h; sourceTree = "<group>"; };
 		77AD45551B01AF2B0094326D /* VersionMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionMacro.h; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 		77376C5C1B00ADFE00DA19D8 /* KuaiGou */ = {
 			isa = PBXGroup;
 			children = (
+				774EC8E71B0348240075FB50 /* Model */,
+				774EC8E31B0343120075FB50 /* HTTPClient */,
 				77AD45531B01AF2B0094326D /* Macro */,
 				770669401B01AA1F004E1396 /* Categories */,
 				770669411B01AA1F004E1396 /* Controllers */,
@@ -271,6 +279,24 @@
 				77376C781B00ADFE00DA19D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		774EC8E31B0343120075FB50 /* HTTPClient */ = {
+			isa = PBXGroup;
+			children = (
+				774EC8E41B03433D0075FB50 /* KGApiClient.h */,
+				774EC8E51B03433D0075FB50 /* KGApiClient.m */,
+			);
+			path = HTTPClient;
+			sourceTree = "<group>";
+		};
+		774EC8E71B0348240075FB50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				774EC8E81B0348530075FB50 /* KGResponseObject.h */,
+				774EC8E91B0348530075FB50 /* KGResponseObject.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		77AD45531B01AF2B0094326D /* Macro */ = {
@@ -465,9 +491,11 @@
 				77AD45641B01B04E0094326D /* KGHomeViewController.m in Sources */,
 				77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */,
 				77AD45741B01F2EB0094326D /* UIViewController+KGStoryboard.m in Sources */,
+				774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */,
 				77AD45791B01F4770094326D /* KGReleaseViewController.m in Sources */,
 				77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */,
 				77AD45681B01EB6F0094326D /* KGTabBarController.m in Sources */,
+				774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */,
 				77AD45711B01F2400094326D /* KGLoginViewController.m in Sources */,
 				77376C601B00ADFE00DA19D8 /* main.m in Sources */,
 				77AD45611B01B0410094326D /* KGNearbyViewController.m in Sources */,
@@ -591,6 +619,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KuaiGou",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KuaiGou/Kuaigou-prefix.pch";
@@ -607,6 +639,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/KuaiGou",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/KuaiGou/Kuaigou-prefix.pch";

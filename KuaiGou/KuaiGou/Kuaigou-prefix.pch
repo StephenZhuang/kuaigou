@@ -19,5 +19,6 @@
 #import <UMengAnalytics-NO-IDFA/MobClick.h>
 #import "KGTabBarController.h"
 #import "UIViewController+KGStoryboard.h"
+#import "KGApiClient.h"
 #endif
 #endif

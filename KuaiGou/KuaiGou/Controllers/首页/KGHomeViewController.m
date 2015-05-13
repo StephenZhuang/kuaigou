@@ -12,6 +12,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self addBackButton];
+    
+    [[KGApiClient sharedClient] POST:@"/api/v1/version" parameters:nil success:^(NSURLSessionDataTask *task, id data) {
+        NSLog(@"%@",data);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        NSLog(@"errorinfo : %@",errorInfo);
+    }];
 }
 @end
