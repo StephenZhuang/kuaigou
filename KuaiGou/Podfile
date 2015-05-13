@@ -13,4 +13,5 @@ pod 'UIView+FDCollapsibleConstraints', '~> 1.0'
 pod 'MJRefresh', '~> 1.4.6'
 pod 'MJExtension', '~> 2.0.2'
 pod 'RDVTabBarController', '~> 1.1.9'
+pod 'Qiniu', '~> 7.0.9.1'
 pod 'Reveal-iOS-SDK', :configurations => ['Debug']

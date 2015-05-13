@@ -90,6 +90,13 @@
 #define COCOAPODS_VERSION_MINOR_PureLayout 0
 #define COCOAPODS_VERSION_PATCH_PureLayout 6
 
+// Qiniu
+#define COCOAPODS_POD_AVAILABLE_Qiniu
+// This library does not follow semantic-versioning,
+// so we were not able to define version macros.
+// Please contact the author.
+// Version: 7.0.9.1.
+
 // RDVTabBarController
 #define COCOAPODS_POD_AVAILABLE_RDVTabBarController
 #define COCOAPODS_VERSION_MAJOR_RDVTabBarController 1
