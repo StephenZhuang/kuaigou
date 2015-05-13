@@ -22,8 +22,7 @@
     item.tintColor = [UIColor whiteColor];
     self.navigationItem.backBarButtonItem = item;
     
-//    [self.view setBackgroundColor: [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]];
-    [self.view setBackgroundColor:[UIColor redColor]];
+    [self.view setBackgroundColor: [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]];
 }
 
 + (void)load {
@@ -33,34 +32,31 @@
         
         // When swizzling a class method, use the following:
         // Class class = object_getClass((id)self);
-//        NSArray *originSelectorArray = @[NSStringFromSelector(@selector(viewDidLoad)),NSStringFromSelector(@selector(viewWillAppear:)),NSStringFromSelector(@selector(viewWillDisappear:))];
-//        NSArray *swizzledSelectorArray = @[NSStringFromSelector(@selector(kg_viewDidLoad)),NSStringFromSelector(@selector(kg_viewWillAppear:)),NSStringFromSelector(@selector(kg_viewWillDisappear:))];
-        
-//        for (int i = 0; i < originSelectorArray.count; i++) {
-//            SEL originalSelector = NSSelectorFromString(originSelectorArray[i]);
-//            SEL swizzledSelector = NSSelectorFromString(swizzledSelectorArray[i]);
-        SEL originalSelector = @selector(viewDidLoad);
-        SEL swizzledSelector = @selector(kg_viewDidLoad);
-        
-            Method originalMethod = class_getInstanceMethod(class, originalSelector);
-            Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-            
-            BOOL didAddMethod =
-            class_addMethod(class,
-                            originalSelector,
-                            method_getImplementation(swizzledMethod),
-                            method_getTypeEncoding(swizzledMethod));
-            
-            if (didAddMethod) {
-                class_replaceMethod(class,
-                                    swizzledSelector,
-                                    method_getImplementation(originalMethod),
-                                    method_getTypeEncoding(originalMethod));
-            } else {
-                method_exchangeImplementations(originalMethod, swizzledMethod);
-            } 
-//        }
+        swizzleMethod(class, @selector(viewDidLoad), @selector(kg_viewDidLoad));
+        swizzleMethod(class, @selector(viewWillAppear:), @selector(kg_viewWillAppear:));
+        swizzleMethod(class, @selector(viewWillDisappear:), @selector(kg_viewWillDisappear:));
     });
+}
+
+void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector)
+{
+    Method originalMethod = class_getInstanceMethod(class, originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+    
+    BOOL didAddMethod =
+    class_addMethod(class,
+                    originalSelector,
+                    method_getImplementation(swizzledMethod),
+                    method_getTypeEncoding(swizzledMethod));
+    
+    if (didAddMethod) {
+        class_replaceMethod(class,
+                            swizzledSelector,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
 }
 
 - (void)kg_viewWillAppear:(BOOL)animated
@@ -76,9 +72,8 @@
 - (void)kg_viewDidLoad
 {
     [self kg_viewDidLoad];
-    NSLog(@"%@",[self class]);
-//    if ([self isKindOfClass:[UIInputViewController class]]) {
+    if (![self isKindOfClass:NSClassFromString(@"UIInputWindowController")]) {
         [self addBackButton];
-//    }
+    }
 }
 @end
