@@ -21,15 +21,18 @@
         NSLog(@"errorinfo : %@",errorInfo);
     }];
     
-//    UIImage *image = [UIImage imageNamed:@"bt_fav_h"];
-//    NSData *data = UIImagePNGRepresentation(image);
-//    
-//    image = [UIImage imageNamed:@"bg_usercenter_head_def"];
-//    NSData *data2 = UIImagePNGRepresentation(image);
-//    
-//    [[KGUploadManager sharedInstance] uploadWithData:@[data,data2] completion:^(BOOL success, NSString *uploadAddress, NSString *errorInfo) {
-//        
-//    }];
+    UIImage *image = [UIImage imageNamed:@"bt_fav_h"];
+    NSData *data = UIImagePNGRepresentation(image);
+    
+    image = [UIImage imageNamed:@"bg_usercenter_head_def"];
+    NSData *data2 = UIImagePNGRepresentation(image);
+    
+    image = [UIImage imageNamed:@"bt_date"];
+    NSData *data3 = UIImagePNGRepresentation(image);
+    
+    [[KGUploadManager sharedInstance] uploadWithData:@[data,data2,data3] completion:^(BOOL success, NSString *uploadAddress, NSString *errorInfo) {
+        
+    }];
     
     NSString *imageUrl = [KGImageUrlHelper imageUrlWithKey:@"FnZI9YDNrS06QYdHNaJYS8wQccgu"];
     NSLog(@"imageurl = %@",imageUrl);

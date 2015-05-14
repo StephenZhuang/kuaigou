@@ -25,13 +25,21 @@
     [self getQiniuUploadTokenWithCompletetion:^(BOOL success, NSString *token) {
         if (success) {
             QNUploadManager *upManager = [[QNUploadManager alloc] init];
-            for(NSData *data in dataArray) {
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            
+            dispatch_apply([dataArray count], queue, ^(size_t index){
+                NSData *data = [dataArray objectAtIndex:index];
                 [upManager putData:data key:nil token:token
                           complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
                               NSLog(@"%@", info);
                               NSLog(@"%@", resp);
+                              [array addObject:[resp objectForKey:@"key"]];
                           } option:nil];
-            }
+            });
+
+            NSLog(@"array = %@",array);
 
         } else {
             !completetion?:completetion(NO,@"",token);
