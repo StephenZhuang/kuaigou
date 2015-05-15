@@ -31,7 +31,11 @@
     NSData *data3 = UIImagePNGRepresentation(image);
     
     [[KGUploadManager sharedInstance] uploadWithData:@[data,data2,data3] completion:^(BOOL success, NSString *uploadAddress, NSString *errorInfo) {
-        
+        if (success) {
+            NSLog(@"uploadAddress = %@",uploadAddress);
+        } else {
+            NSLog(@"error = %@" , errorInfo);
+        }
     }];
     
     NSString *imageUrl = [KGImageUrlHelper imageUrlWithKey:@"FnZI9YDNrS06QYdHNaJYS8wQccgu"];

@@ -25,21 +25,29 @@
     [self getQiniuUploadTokenWithCompletetion:^(BOOL success, NSString *token) {
         if (success) {
             QNUploadManager *upManager = [[QNUploadManager alloc] init];
-            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+            dispatch_group_t group = dispatch_group_create();
             
-            NSMutableArray *array = [[NSMutableArray alloc] init];
+            __block NSMutableArray *array = [[NSMutableArray alloc] init];
             
-            dispatch_apply([dataArray count], queue, ^(size_t index){
-                NSData *data = [dataArray objectAtIndex:index];
+            for (NSData *data in dataArray) {
+                dispatch_group_enter(group);
                 [upManager putData:data key:nil token:token
                           complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
                               NSLog(@"%@", info);
                               NSLog(@"%@", resp);
                               [array addObject:[resp objectForKey:@"key"]];
+                              dispatch_group_leave(group);
                           } option:nil];
+            }
+
+            dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                if (array.count == dataArray.count) {
+                    !completetion?:completetion(YES,[array componentsJoinedByString:@","],@"");
+                } else {
+                    !completetion?:completetion(NO,@"",@"上传出错，请重试");
+                }
             });
 
-            NSLog(@"array = %@",array);
 
         } else {
             !completetion?:completetion(NO,@"",token);
