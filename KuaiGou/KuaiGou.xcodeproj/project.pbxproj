@@ -22,6 +22,7 @@
 		773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880361B049ABC00A66961 /* KGImageUrlHelper.m */; };
 		774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E51B03433D0075FB50 /* KGApiClient.m */; };
 		774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E91B0348530075FB50 /* KGResponseObject.m */; };
+		77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */; };
 		77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD45571B01AFBB0094326D /* GVUserDefaults+KGUtil.m */; };
 		77AD455B1B01B01A0094326D /* KGMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD455A1B01B01A0094326D /* KGMineViewController.m */; };
 		77AD455E1B01B02D0094326D /* KGChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD455D1B01B02D0094326D /* KGChatListViewController.m */; };
@@ -75,6 +76,8 @@
 		774EC8E51B03433D0075FB50 /* KGApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGApiClient.m; sourceTree = "<group>"; };
 		774EC8E81B0348530075FB50 /* KGResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGResponseObject.h; sourceTree = "<group>"; };
 		774EC8E91B0348530075FB50 /* KGResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGResponseObject.m; sourceTree = "<group>"; };
+		77590EE81B09E4DE0086E2C9 /* NSString+ZXMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXMD5.h"; sourceTree = "<group>"; };
+		77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXMD5.m"; sourceTree = "<group>"; };
 		77AD45521B01AE5C0094326D /* Kuaigou-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kuaigou-prefix.pch"; sourceTree = "<group>"; };
 		77AD45541B01AF2B0094326D /* MagicalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalMacro.h; sourceTree = "<group>"; };
 		77AD45551B01AF2B0094326D /* VersionMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionMacro.h; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 		770669401B01AA1F004E1396 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				77590EE81B09E4DE0086E2C9 /* NSString+ZXMD5.h */,
+				77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */,
 				77AD45561B01AFBB0094326D /* GVUserDefaults+KGUtil.h */,
 				77AD45571B01AFBB0094326D /* GVUserDefaults+KGUtil.m */,
 				77AD45721B01F2EB0094326D /* UIViewController+KGStoryboard.h */,
@@ -515,6 +520,7 @@
 				77AD45711B01F2400094326D /* KGLoginViewController.m in Sources */,
 				77376C601B00ADFE00DA19D8 /* main.m in Sources */,
 				77AD45611B01B0410094326D /* KGNearbyViewController.m in Sources */,
+				77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */,
 				773880311B047B4000A66961 /* KGUploadManager.m in Sources */,
 				773880341B04995100A66961 /* NSString+KGhmac_sha1.m in Sources */,
 				77AD456C1B01F1360094326D /* KGLoginManager.m in Sources */,

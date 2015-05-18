@@ -7,6 +7,7 @@
 //
 
 #import "KGLoginViewController.h"
+#import "KGLoginManager.h"
 
 @interface KGLoginViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"登录";
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelAction)];
     self.navigationItem.rightBarButtonItem = item;
 }
@@ -29,6 +31,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)loginAction:(id)sender
+{
+    [self.view endEditing:YES];
+    NSString *username = [_usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *password = [_passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    [[KGLoginManager sharedInstance] loginWithUsername:username password:password];
+}
+
+#pragma -mark textfield delegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == _usernameTextField) {
+        [_passwordTextField becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+    }
+    return YES;
 }
 
 /*

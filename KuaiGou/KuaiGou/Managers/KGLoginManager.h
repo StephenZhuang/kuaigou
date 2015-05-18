@@ -11,4 +11,6 @@
 @interface KGLoginManager : NSObject
 + (instancetype)sharedInstance;
 - (BOOL)isLogin;
+
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password;
 @end

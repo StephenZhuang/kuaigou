@@ -7,6 +7,7 @@
 //
 
 #import "KGLoginManager.h"
+#import "NSString+ZXMD5.h"
 
 @implementation KGLoginManager
 + (instancetype)sharedInstance
@@ -22,5 +23,18 @@
 - (BOOL)isLogin
 {
     return [GVUserDefaults standardUserDefaults].isLogin;
+}
+
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:username forKey:@"phone"];
+    [parameters setObject:[password md5] forKey:@"password"];
+    
+    [[KGApiClient sharedClient] POST:@"/api/v1/account/login" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        NSLog(@"success");
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        NSLog(@"failure");
+    }];
 }
 @end

@@ -70,6 +70,9 @@ static NSString * const KGAPIBaseURLString = @"http://www.kgapp.net/";
                        success:(void (^)(NSURLSessionDataTask *task, id data))success
                        failure:(void (^)(NSURLSessionDataTask *task, NSString *errorInfo))failure
 {
+    if (parameters) {
+        URLString = [URLString stringByAppendingString:@"?"];
+    }
     return [super POST:URLString parameters:parameters success:^(NSURLSessionDataTask *task , id responseObject) {
         
         [self postSuccessLog:task responseObject:responseObject parameters:parameters];
