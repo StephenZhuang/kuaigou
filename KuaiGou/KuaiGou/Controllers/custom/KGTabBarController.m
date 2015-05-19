@@ -16,9 +16,11 @@
 {
     if (index == 2 || index == 3 || index == 4) {
         if ([[KGLoginManager sharedInstance] isLogin]) {
-            KGReleaseViewController *vc = [KGReleaseViewController viewControllerFromStoryboard:@"Release"];
-            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-            [self.navigationController presentViewController:nav animated:YES completion:nil];
+            if (index == 2) {                
+                KGReleaseViewController *vc = [KGReleaseViewController viewControllerFromStoryboard:@"Release"];
+                UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:nav animated:YES completion:nil];
+            }
         } else {
             KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard:@"Login"];
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

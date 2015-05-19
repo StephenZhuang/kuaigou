@@ -27,6 +27,7 @@
 		773880311B047B4000A66961 /* KGUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880301B047B4000A66961 /* KGUploadManager.m */; };
 		773880341B04995100A66961 /* NSString+KGhmac_sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880331B04995100A66961 /* NSString+KGhmac_sha1.m */; };
 		773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880361B049ABC00A66961 /* KGImageUrlHelper.m */; };
+		774E928F1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */; };
 		774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E51B03433D0075FB50 /* KGApiClient.m */; };
 		774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E91B0348530075FB50 /* KGResponseObject.m */; };
 		77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */; };
@@ -92,6 +93,8 @@
 		773880331B04995100A66961 /* NSString+KGhmac_sha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KGhmac_sha1.m"; sourceTree = "<group>"; };
 		773880351B049ABC00A66961 /* KGImageUrlHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGImageUrlHelper.h; sourceTree = "<group>"; };
 		773880361B049ABC00A66961 /* KGImageUrlHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGImageUrlHelper.m; sourceTree = "<group>"; };
+		774E928D1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGRegisterPasswordViewControlelr.h; sourceTree = "<group>"; };
+		774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGRegisterPasswordViewControlelr.m; sourceTree = "<group>"; };
 		774EC8E41B03433D0075FB50 /* KGApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGApiClient.h; sourceTree = "<group>"; };
 		774EC8E51B03433D0075FB50 /* KGApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGApiClient.m; sourceTree = "<group>"; };
 		774EC8E81B0348530075FB50 /* KGResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGResponseObject.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				77AD45701B01F2400094326D /* KGLoginViewController.m */,
 				77050A441B0AE297009FCA6A /* KGRegisterViewController.h */,
 				77050A451B0AE297009FCA6A /* KGRegisterViewController.m */,
+				774E928D1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.h */,
+				774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */,
 			);
 			path = "登录注册";
 			sourceTree = "<group>";
@@ -553,6 +558,7 @@
 				77050A461B0AE297009FCA6A /* KGRegisterViewController.m in Sources */,
 				77AD455B1B01B01A0094326D /* KGMineViewController.m in Sources */,
 				770669541B01AC41004E1396 /* KGNavigationBar.m in Sources */,
+				774E928F1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m in Sources */,
 				77050A3A1B0ACB68009FCA6A /* KGUser.m in Sources */,
 				77050A3F1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.m in Sources */,
 				77AD45641B01B04E0094326D /* KGHomeViewController.m in Sources */,

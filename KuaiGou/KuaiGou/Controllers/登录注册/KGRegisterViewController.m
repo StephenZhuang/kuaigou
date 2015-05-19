@@ -11,6 +11,7 @@
 #import "KGLoginManager.h"
 #import "MBProgressHUD+ZXAdditon.h"
 #import "ZXValidateHelper.h"
+#import "KGRegisterPasswordViewControlelr.h"
 
 @implementation KGRegisterViewController
 - (void) viewDidLoad
@@ -37,6 +38,7 @@
             if (success) {
                 [hud hide:YES];
                 NSLog(@"验证码：%@",code);
+                codeString = code;
                 [self startCount];
             } else {
                 [hud turnToError:code];
@@ -49,7 +51,16 @@
 
 - (IBAction)netxAction:(id)sender
 {
-    
+    [self.view endEditing:YES];
+    NSString *code = [_codeTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *phone = [_usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if ([code isEqualToString:codeString]) {
+        KGRegisterPasswordViewControlelr *vc = [KGRegisterPasswordViewControlelr viewControllerFromStoryboard:@"Login"];
+        vc.phone = phone;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        [MBProgressHUD showError:@"验证码不正确" toView:self.view];
+    }
 }
 
 #pragma -mark private method

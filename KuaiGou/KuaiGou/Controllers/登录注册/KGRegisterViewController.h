@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface KGRegisterViewController : UIViewController<UITextFieldDelegate>
+{
+    NSString *codeString;
+}
 @property (nonatomic , weak) IBOutlet UITextField *usernameTextField;
 @property (nonatomic , weak) IBOutlet UITextField *codeTextField;
 @property (nonatomic , weak) IBOutlet UIButton *countDownButton;

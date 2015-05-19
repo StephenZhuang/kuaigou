@@ -40,7 +40,7 @@
         KGUser *user = [KGUser objectWithKeyValues:data];
         self.user = user;
         self.isLogin = YES;
-        [GVUserDefaults standardUserDefaults].user = data;
+        [GVUserDefaults standardUserDefaults].user = [user keyValues];
         !completion?:completion(YES,@"");
     } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
         !completion?:completion(NO,errorInfo);
@@ -72,6 +72,19 @@
     
     [[KGApiClient sharedClient] POST:@"/api/v1/account/reg/step1" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
         !completion?:completion(YES,data);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo);
+    }];
+}
+
+- (void)registerWithPhone:(NSString *)phone password:(NSString *)password completion:(void(^)(BOOL success,NSString *errorInfo))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:phone forKey:@"phone"];
+    [parameters setObject:[password md5] forKey:@"password"];
+    
+    [[KGApiClient sharedClient] POST:@"/api/v1/account/reg/step2" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        !completion?:completion(YES,@"");
     } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
         !completion?:completion(NO,errorInfo);
     }];
