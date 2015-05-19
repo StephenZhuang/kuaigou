@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KGUser.h"
 
 @interface KGLoginManager : NSObject
-+ (instancetype)sharedInstance;
-- (BOOL)isLogin;
+@property (nonatomic , strong) KGUser *user;
+@property (nonatomic , assign) BOOL isLogin;
 
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password;
++ (instancetype)sharedInstance;
+
+- (void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(void(^)(BOOL success,NSString *errorInfo))completion;
+- (void)logoutWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion;
 @end

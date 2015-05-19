@@ -8,6 +8,7 @@
 
 #import "KGLoginViewController.h"
 #import "KGLoginManager.h"
+#import "MBProgressHUD+ZXAdditon.h"
 
 @interface KGLoginViewController ()
 
@@ -38,7 +39,16 @@
     [self.view endEditing:YES];
     NSString *username = [_usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *password = [_passwordTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    [[KGLoginManager sharedInstance] loginWithUsername:username password:password];
+    
+    MBProgressHUD *hud = [MBProgressHUD showWaiting:@"登录中" toView:self.view];
+    [[KGLoginManager sharedInstance] loginWithUsername:username password:password completion:^(BOOL success, NSString *errorInfo) {
+        if (success) {
+            [hud turnToSuccess:@""];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            [hud turnToError:errorInfo];
+        }
+    }];
 }
 
 #pragma -mark textfield delegate

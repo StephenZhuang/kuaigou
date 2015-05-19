@@ -15,30 +15,30 @@
 {
     [super viewDidLoad];
     
-    [[KGApiClient sharedClient] POST:@"/api/v1/sys" parameters:nil success:^(NSURLSessionDataTask *task, id data) {
-        NSLog(@"%@",data);
-    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
-        NSLog(@"errorinfo : %@",errorInfo);
-    }];
-    
-    UIImage *image = [UIImage imageNamed:@"bt_fav_h"];
-    NSData *data = UIImagePNGRepresentation(image);
-    
-    image = [UIImage imageNamed:@"bg_usercenter_head_def"];
-    NSData *data2 = UIImagePNGRepresentation(image);
-    
-    image = [UIImage imageNamed:@"bt_date"];
-    NSData *data3 = UIImagePNGRepresentation(image);
-    
-    [[KGUploadManager sharedInstance] uploadWithData:@[data,data2,data3] completion:^(BOOL success, NSString *uploadAddress, NSString *errorInfo) {
-        if (success) {
-            NSLog(@"uploadAddress = %@",uploadAddress);
-        } else {
-            NSLog(@"error = %@" , errorInfo);
-        }
-    }];
-    
-    NSString *imageUrl = [KGImageUrlHelper imageUrlWithKey:@"FnZI9YDNrS06QYdHNaJYS8wQccgu"];
-    NSLog(@"imageurl = %@",imageUrl);
+//    [[KGApiClient sharedClient] POST:@"/api/v1/sys" parameters:nil success:^(NSURLSessionDataTask *task, id data) {
+//        NSLog(@"%@",data);
+//    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+//        NSLog(@"errorinfo : %@",errorInfo);
+//    }];
+//    
+//    UIImage *image = [UIImage imageNamed:@"bt_fav_h"];
+//    NSData *data = UIImagePNGRepresentation(image);
+//    
+//    image = [UIImage imageNamed:@"bg_usercenter_head_def"];
+//    NSData *data2 = UIImagePNGRepresentation(image);
+//    
+//    image = [UIImage imageNamed:@"bt_date"];
+//    NSData *data3 = UIImagePNGRepresentation(image);
+//    
+//    [[KGUploadManager sharedInstance] uploadWithData:@[data,data2,data3] completion:^(BOOL success, NSString *uploadAddress, NSString *errorInfo) {
+//        if (success) {
+//            NSLog(@"uploadAddress = %@",uploadAddress);
+//        } else {
+//            NSLog(@"error = %@" , errorInfo);
+//        }
+//    }];
+//    
+//    NSString *imageUrl = [KGImageUrlHelper imageUrlWithKey:@"FnZI9YDNrS06QYdHNaJYS8wQccgu"];
+//    NSLog(@"imageurl = %@",imageUrl);
 }
 @end

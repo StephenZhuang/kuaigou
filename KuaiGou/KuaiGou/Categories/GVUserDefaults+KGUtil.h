@@ -10,4 +10,5 @@
 
 @interface GVUserDefaults (KGUtil)
 @property (nonatomic , assign) BOOL isLogin;
+@property (nonatomic , strong) NSDictionary *user;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "KGLoginManager.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,11 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    if ([KGLoginManager sharedInstance].isLogin) {
+        [KGLoginManager sharedInstance].user = [KGUser objectWithKeyValues:[GVUserDefaults standardUserDefaults].user];
+    }
+    
     [self setupViewControllers];
     [self.window makeKeyAndVisible];
     

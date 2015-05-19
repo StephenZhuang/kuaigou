@@ -7,7 +7,18 @@
 //
 
 #import "KGMineViewController.h"
+#import "KGLoginManager.h"
 
 @implementation KGMineViewController
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
 
+- (IBAction)logoutAction:(id)sender
+{
+    [[KGLoginManager sharedInstance] logoutWithCompletion:^(BOOL success, NSString *errorInfo) {
+        
+    }];
+}
 @end
