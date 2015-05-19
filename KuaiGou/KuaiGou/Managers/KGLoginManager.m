@@ -64,4 +64,16 @@
 //        }];
     }
 }
+
+- (void)checkPhone:(NSString *)phone completion:(void(^)(BOOL success,NSString *code))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:phone forKey:@"phone"];
+    
+    [[KGApiClient sharedClient] POST:@"/api/v1/account/reg/step1" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        !completion?:completion(YES,data);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo);
+    }];
+}
 @end

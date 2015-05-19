@@ -11,6 +11,9 @@
 		77050A3F1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 77050A3D1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.m */; };
 		77050A401B0AD388009FCA6A /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77050A3E1B0AD388009FCA6A /* ProgressHUD.bundle */; };
 		77050A431B0AD96A009FCA6A /* UIImage+SZBundleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 77050A421B0AD96A009FCA6A /* UIImage+SZBundleImage.m */; };
+		77050A461B0AE297009FCA6A /* KGRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77050A451B0AE297009FCA6A /* KGRegisterViewController.m */; };
+		77050A491B0AE72D009FCA6A /* ZXCountTimeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 77050A481B0AE72D009FCA6A /* ZXCountTimeHelper.m */; };
+		77050A4C1B0AE8EC009FCA6A /* ZXValidateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 77050A4B1B0AE8EC009FCA6A /* ZXValidateHelper.m */; };
 		7706694B1B01AB70004E1396 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7706694A1B01AB70004E1396 /* Mine.storyboard */; };
 		7706694D1B01ABAC004E1396 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7706694C1B01ABAC004E1396 /* Chat.storyboard */; };
 		7706694F1B01ABBA004E1396 /* Nearby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7706694E1B01ABBA004E1396 /* Nearby.storyboard */; };
@@ -61,6 +64,12 @@
 		77050A3E1B0AD388009FCA6A /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		77050A411B0AD96A009FCA6A /* UIImage+SZBundleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SZBundleImage.h"; sourceTree = "<group>"; };
 		77050A421B0AD96A009FCA6A /* UIImage+SZBundleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SZBundleImage.m"; sourceTree = "<group>"; };
+		77050A441B0AE297009FCA6A /* KGRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGRegisterViewController.h; sourceTree = "<group>"; };
+		77050A451B0AE297009FCA6A /* KGRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGRegisterViewController.m; sourceTree = "<group>"; };
+		77050A471B0AE72D009FCA6A /* ZXCountTimeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXCountTimeHelper.h; sourceTree = "<group>"; };
+		77050A481B0AE72D009FCA6A /* ZXCountTimeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXCountTimeHelper.m; sourceTree = "<group>"; };
+		77050A4A1B0AE8EC009FCA6A /* ZXValidateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXValidateHelper.h; sourceTree = "<group>"; };
+		77050A4B1B0AE8EC009FCA6A /* ZXValidateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXValidateHelper.m; sourceTree = "<group>"; };
 		7706694A1B01AB70004E1396 /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		7706694C1B01ABAC004E1396 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		7706694E1B01ABBA004E1396 /* Nearby.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Nearby.storyboard; sourceTree = "<group>"; };
@@ -195,6 +204,8 @@
 				77AD456D1B01F2300094326D /* Login.storyboard */,
 				77AD456F1B01F23F0094326D /* KGLoginViewController.h */,
 				77AD45701B01F2400094326D /* KGLoginViewController.m */,
+				77050A441B0AE297009FCA6A /* KGRegisterViewController.h */,
+				77050A451B0AE297009FCA6A /* KGRegisterViewController.m */,
 			);
 			path = "登录注册";
 			sourceTree = "<group>";
@@ -232,6 +243,10 @@
 		770669471B01AA1F004E1396 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				77050A4A1B0AE8EC009FCA6A /* ZXValidateHelper.h */,
+				77050A4B1B0AE8EC009FCA6A /* ZXValidateHelper.m */,
+				77050A471B0AE72D009FCA6A /* ZXCountTimeHelper.h */,
+				77050A481B0AE72D009FCA6A /* ZXCountTimeHelper.m */,
 				773880351B049ABC00A66961 /* KGImageUrlHelper.h */,
 				773880361B049ABC00A66961 /* KGImageUrlHelper.m */,
 			);
@@ -532,8 +547,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77050A491B0AE72D009FCA6A /* ZXCountTimeHelper.m in Sources */,
 				77AD455E1B01B02D0094326D /* KGChatListViewController.m in Sources */,
 				773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */,
+				77050A461B0AE297009FCA6A /* KGRegisterViewController.m in Sources */,
 				77AD455B1B01B01A0094326D /* KGMineViewController.m in Sources */,
 				770669541B01AC41004E1396 /* KGNavigationBar.m in Sources */,
 				77050A3A1B0ACB68009FCA6A /* KGUser.m in Sources */,
@@ -551,6 +568,7 @@
 				77AD45611B01B0410094326D /* KGNearbyViewController.m in Sources */,
 				77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */,
 				77050A431B0AD96A009FCA6A /* UIImage+SZBundleImage.m in Sources */,
+				77050A4C1B0AE8EC009FCA6A /* ZXValidateHelper.m in Sources */,
 				773880311B047B4000A66961 /* KGUploadManager.m in Sources */,
 				773880341B04995100A66961 /* NSString+KGhmac_sha1.m in Sources */,
 				77AD456C1B01F1360094326D /* KGLoginManager.m in Sources */,

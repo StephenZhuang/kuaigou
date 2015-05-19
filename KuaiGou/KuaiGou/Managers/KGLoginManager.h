@@ -17,4 +17,5 @@
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(void(^)(BOOL success,NSString *errorInfo))completion;
 - (void)logoutWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion;
+- (void)checkPhone:(NSString *)phone completion:(void(^)(BOOL success,NSString *code))completion;
 @end
