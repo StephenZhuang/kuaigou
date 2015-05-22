@@ -14,5 +14,5 @@ static NSString * const QNAppKey = @"NJ3LNnMA03K4hKgaLzSr-6zFCYWypHS-EnHzC8NL";
 @interface KGUploadManager : NSObject
 + (instancetype)sharedInstance;
 
-- (void)uploadWithData:(NSArray *)dataArray completion:(void(^)(BOOL success ,NSString *uploadAddress, NSString *errorInfo))completetion;
+- (void)uploadWithData:(NSArray *)dataArray completion:(void(^)(BOOL success ,NSString *uploadAddress, NSString *errorInfo))completion;
 @end

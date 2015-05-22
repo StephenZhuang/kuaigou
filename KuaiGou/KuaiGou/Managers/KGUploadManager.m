@@ -20,7 +20,7 @@
     return _sharedInstance;
 }
 
-- (void)uploadWithData:(NSArray *)dataArray completion:(void(^)(BOOL success ,NSString *uploadAddress, NSString *errorInfo))completetion
+- (void)uploadWithData:(NSArray *)dataArray completion:(void(^)(BOOL success ,NSString *uploadAddress, NSString *errorInfo))completion
 {
     [self getQiniuUploadTokenWithCompletetion:^(BOOL success, NSString *token) {
         if (success) {
@@ -42,15 +42,15 @@
 
             dispatch_group_notify(group, dispatch_get_main_queue(), ^{
                 if (array.count == dataArray.count) {
-                    !completetion?:completetion(YES,[array componentsJoinedByString:@","],@"");
+                    !completion?:completion(YES,[array componentsJoinedByString:@","],@"");
                 } else {
-                    !completetion?:completetion(NO,@"",@"上传出错，请重试");
+                    !completion?:completion(NO,@"",@"上传出错，请重试");
                 }
             });
 
 
         } else {
-            !completetion?:completetion(NO,@"",token);
+            !completion?:completion(NO,@"",token);
         }
     }];
 }
