@@ -31,6 +31,7 @@
 		774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E51B03433D0075FB50 /* KGApiClient.m */; };
 		774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E91B0348530075FB50 /* KGResponseObject.m */; };
 		77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */; };
+		777AFCAC1B1C6D4E00A4C182 /* KGGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 777AFCAB1B1C6D4E00A4C182 /* KGGoods.m */; };
 		77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD45571B01AFBB0094326D /* GVUserDefaults+KGUtil.m */; };
 		77AD455B1B01B01A0094326D /* KGMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD455A1B01B01A0094326D /* KGMineViewController.m */; };
 		77AD455E1B01B02D0094326D /* KGChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD455D1B01B02D0094326D /* KGChatListViewController.m */; };
@@ -101,6 +102,8 @@
 		774EC8E91B0348530075FB50 /* KGResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGResponseObject.m; sourceTree = "<group>"; };
 		77590EE81B09E4DE0086E2C9 /* NSString+ZXMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXMD5.h"; sourceTree = "<group>"; };
 		77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXMD5.m"; sourceTree = "<group>"; };
+		777AFCAA1B1C6D4E00A4C182 /* KGGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGGoods.h; sourceTree = "<group>"; };
+		777AFCAB1B1C6D4E00A4C182 /* KGGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGGoods.m; sourceTree = "<group>"; };
 		77AD45521B01AE5C0094326D /* Kuaigou-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Kuaigou-prefix.pch"; sourceTree = "<group>"; };
 		77AD45541B01AF2B0094326D /* MagicalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MagicalMacro.h; sourceTree = "<group>"; };
 		77AD45551B01AF2B0094326D /* VersionMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionMacro.h; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 				774EC8E91B0348530075FB50 /* KGResponseObject.m */,
 				77050A381B0ACB68009FCA6A /* KGUser.h */,
 				77050A391B0ACB68009FCA6A /* KGUser.m */,
+				777AFCAA1B1C6D4E00A4C182 /* KGGoods.h */,
+				777AFCAB1B1C6D4E00A4C182 /* KGGoods.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -561,6 +566,7 @@
 				774E928F1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m in Sources */,
 				77050A3A1B0ACB68009FCA6A /* KGUser.m in Sources */,
 				77050A3F1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.m in Sources */,
+				777AFCAC1B1C6D4E00A4C182 /* KGGoods.m in Sources */,
 				77AD45641B01B04E0094326D /* KGHomeViewController.m in Sources */,
 				77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */,
 				77AD45741B01F2EB0094326D /* UIViewController+KGStoryboard.m in Sources */,
