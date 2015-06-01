@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KGReleaseViewController : UIViewController
-
+@interface KGReleaseViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic , weak) IBOutlet UITableView *tableView;
 @end
