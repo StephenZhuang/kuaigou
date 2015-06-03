@@ -10,6 +10,18 @@
 #import "KGLoginManager.h"
 
 @implementation KGGoods
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.catid = -1;
+        self.catpid = -1;
+        self.trademodeid = 1;
+        self.discount = 1;
+    }
+    return self;
+}
+
 + (void)addGoodsWithGoods:(KGGoods *)goods
                completion:(void(^)(BOOL success,NSString *errorInfo))completion
 {

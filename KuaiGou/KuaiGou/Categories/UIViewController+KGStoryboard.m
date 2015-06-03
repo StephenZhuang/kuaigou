@@ -72,7 +72,8 @@ void swizzleMethod(Class class, SEL originalSelector, SEL swizzledSelector)
 - (void)kg_viewDidLoad
 {
     [self kg_viewDidLoad];
-    if (![self isKindOfClass:NSClassFromString(@"UIInputWindowController")]) {
+//    NSLog(@"%@",[self class]);
+    if (![self isKindOfClass:NSClassFromString(@"UIInputWindowController")] && ![self isKindOfClass:NSClassFromString(@"_UIAlertShimPresentingViewController")] && ![self isKindOfClass:NSClassFromString(@"UIAlertController")]) {
         [self addBackButton];
     }
 }
