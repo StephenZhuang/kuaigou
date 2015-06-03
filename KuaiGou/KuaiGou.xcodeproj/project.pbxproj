@@ -64,6 +64,8 @@
 		77FB2BBB1B1EF9210091560D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BBA1B1EF9210091560D /* SystemConfiguration.framework */; };
 		77FB2BBD1B1EF92E0091560D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BBC1B1EF92E0091560D /* CoreGraphics.framework */; };
 		77FB2BBF1B1EF9370091560D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BBE1B1EF9370091560D /* Security.framework */; };
+		77FB2BC51B1F16AB0091560D /* KGSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2BC41B1F16AB0091560D /* KGSwitchCell.m */; };
+		77FB2BC81B1F16E30091560D /* KGProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2BC71B1F16E30091560D /* KGProgressCell.m */; };
 		E1E9EAC45E11C58E516EC596 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB8456D71D88851ECD5672D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -179,6 +181,10 @@
 		77FB2BBA1B1EF9210091560D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		77FB2BBC1B1EF92E0091560D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		77FB2BBE1B1EF9370091560D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		77FB2BC31B1F16AB0091560D /* KGSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGSwitchCell.h; sourceTree = "<group>"; };
+		77FB2BC41B1F16AB0091560D /* KGSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGSwitchCell.m; sourceTree = "<group>"; };
+		77FB2BC61B1F16E30091560D /* KGProgressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGProgressCell.h; sourceTree = "<group>"; };
+		77FB2BC71B1F16E30091560D /* KGProgressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGProgressCell.m; sourceTree = "<group>"; };
 		96145DE760521C6FF7178703 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FBB8456D71D88851ECD5672D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -483,6 +489,10 @@
 				77FB2B841B1ECFB50091560D /* KGTextViewCell.m */,
 				77FB2B861B1ED0140091560D /* KGStockCell.h */,
 				77FB2B871B1ED0140091560D /* KGStockCell.m */,
+				77FB2BC31B1F16AB0091560D /* KGSwitchCell.h */,
+				77FB2BC41B1F16AB0091560D /* KGSwitchCell.m */,
+				77FB2BC61B1F16E30091560D /* KGProgressCell.h */,
+				77FB2BC71B1F16E30091560D /* KGProgressCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -696,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77050A491B0AE72D009FCA6A /* ZXCountTimeHelper.m in Sources */,
+				77FB2BC81B1F16E30091560D /* KGProgressCell.m in Sources */,
 				77FB2B7F1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m in Sources */,
 				77AD455E1B01B02D0094326D /* KGChatListViewController.m in Sources */,
 				773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */,
@@ -724,6 +735,7 @@
 				77AD45611B01B0410094326D /* KGNearbyViewController.m in Sources */,
 				77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */,
 				77050A431B0AD96A009FCA6A /* UIImage+SZBundleImage.m in Sources */,
+				77FB2BC51B1F16AB0091560D /* KGSwitchCell.m in Sources */,
 				77050A4C1B0AE8EC009FCA6A /* ZXValidateHelper.m in Sources */,
 				773880311B047B4000A66961 /* KGUploadManager.m in Sources */,
 				773880341B04995100A66961 /* NSString+KGhmac_sha1.m in Sources */,

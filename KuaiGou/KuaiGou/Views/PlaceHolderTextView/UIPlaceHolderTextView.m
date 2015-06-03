@@ -24,7 +24,7 @@
     
     [super awakeFromNib];
     
-    [self setPlaceholder:@""];
+//    [self setPlaceholder:@""];
     
     [self setPlaceholderColor:[UIColor lightGrayColor]];
     
@@ -42,7 +42,7 @@
         
     {
         
-        [self setPlaceholder:@""];
+//        [self setPlaceholder:@""];
         
         [self setPlaceholderColor:[UIColor lightGrayColor]];
         

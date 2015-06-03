@@ -25,6 +25,7 @@
         [KGLoginManager sharedInstance].user = [KGUser objectWithKeyValues:[GVUserDefaults standardUserDefaults].user];
     }
     
+    [self setUpBaiduMap];
     [self setupViewControllers];
     [self.window makeKeyAndVisible];
     
@@ -78,6 +79,16 @@
     NSDictionary* attrs = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     [navigationBarAppearance setTitleTextAttributes:attrs];
     [navigationBarAppearance setTintColor:[UIColor whiteColor]];
+}
+
+- (void)setUpBaiduMap
+{
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:@"oWcp7OOD73HLECFhpMQSZW2r"  generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

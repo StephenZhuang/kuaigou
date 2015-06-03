@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "KGGoods.h"
+#import <BaiduMapAPI/BMapKit.h>
 
-@interface KGReleaseSecondViewController : UIViewController
+@interface KGReleaseSecondViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UIActionSheetDelegate,BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate,UITextViewDelegate,CLLocationManagerDelegate>
 @property (nonatomic , strong) KGGoods *goods;
 @property (nonatomic , strong) NSMutableArray *imageArray;
+@property (nonatomic , weak) IBOutlet UITableView *tableView;
+@property (nonatomic , strong) NSArray *tradeModeArray;
+@property (nonatomic , strong) BMKLocationService *locationService;
+@property (nonatomic , strong) BMKGeoCodeSearch *searcher;
 @end
