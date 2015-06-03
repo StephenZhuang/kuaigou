@@ -50,6 +50,9 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="nextAction:" destination="G3Z-Hz-VzT" eventType="touchUpInside" id="L5B-8F-l0R"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -336,6 +339,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEZ-xb-r1L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1314" y="230"/>
+        </scene>
+        <!--Release Second View Controller-->
+        <scene sceneID="RcE-nr-Z93">
+            <objects>
+                <viewController storyboardIdentifier="KGReleaseSecondViewController" id="pMN-qO-skJ" customClass="KGReleaseSecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zIQ-cb-Dgc"/>
+                        <viewControllerLayoutGuide type="bottom" id="h10-Uc-30k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MHw-Pp-fkS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQ7-lr-Kla" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1959" y="230"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w3d-jA-iWU">

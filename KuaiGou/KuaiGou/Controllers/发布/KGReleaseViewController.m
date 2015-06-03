@@ -12,6 +12,8 @@
 #import "KGTextViewCell.h"
 #import "ZXImagePickCell.h"
 #import "SZCalendarPicker.h"
+#import "MBProgressHUD+ZXAdditon.h"
+#import "KGReleaseSecondViewController.h"
 
 @interface KGReleaseViewController ()
 
@@ -31,6 +33,20 @@
 - (void)cancelAction
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)nextAction:(id)sender
+{
+    [self.view endEditing:YES];
+    if (self.goods.title.length <= 0 || self.goods.effdate.length <= 0 || self.imageArray.count == 0) {
+        [MBProgressHUD showError:@"请将内容填写完整" toView:self.view];
+        return;
+    }
+    
+    KGReleaseSecondViewController *vc = [KGReleaseSecondViewController viewControllerFromStoryboard:@"Release"];
+    vc.goods = self.goods;
+    vc.imageArray = self.imageArray;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
