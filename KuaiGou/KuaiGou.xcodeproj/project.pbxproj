@@ -56,7 +56,14 @@
 		77FB2BA31B1EDA140091560D /* SZCalendarPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B9C1B1EDA140091560D /* SZCalendarPicker.m */; };
 		77FB2BA41B1EDA140091560D /* SZCalendarPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77FB2B9D1B1EDA140091560D /* SZCalendarPicker.xib */; };
 		77FB2BA51B1EDA140091560D /* UIColor+ZXLazy.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B9F1B1EDA140091560D /* UIColor+ZXLazy.m */; };
-		77FB2BAF1B1EF5FE0091560D /* KGReleaseSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2BAE1B1EF5FE0091560D /* KGReleaseSecondViewController.m */; };
+		77FB2BAF1B1EF5FE0091560D /* KGReleaseSecondViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2BAE1B1EF5FE0091560D /* KGReleaseSecondViewController.mm */; };
+		77FB2BB31B1EF6CF0091560D /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BB21B1EF6CF0091560D /* BaiduMapAPI.framework */; };
+		77FB2BB51B1EF9030091560D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BB41B1EF9030091560D /* CoreLocation.framework */; };
+		77FB2BB71B1EF90D0091560D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BB61B1EF90D0091560D /* OpenGLES.framework */; };
+		77FB2BB91B1EF91A0091560D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BB81B1EF91A0091560D /* QuartzCore.framework */; };
+		77FB2BBB1B1EF9210091560D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BBA1B1EF9210091560D /* SystemConfiguration.framework */; };
+		77FB2BBD1B1EF92E0091560D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BBC1B1EF92E0091560D /* CoreGraphics.framework */; };
+		77FB2BBF1B1EF9370091560D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB2BBE1B1EF9370091560D /* Security.framework */; };
 		E1E9EAC45E11C58E516EC596 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB8456D71D88851ECD5672D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -164,7 +171,14 @@
 		77FB2B9E1B1EDA140091560D /* UIColor+ZXLazy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZXLazy.h"; sourceTree = "<group>"; };
 		77FB2B9F1B1EDA140091560D /* UIColor+ZXLazy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZXLazy.m"; sourceTree = "<group>"; };
 		77FB2BAD1B1EF5FE0091560D /* KGReleaseSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGReleaseSecondViewController.h; sourceTree = "<group>"; };
-		77FB2BAE1B1EF5FE0091560D /* KGReleaseSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGReleaseSecondViewController.m; sourceTree = "<group>"; };
+		77FB2BAE1B1EF5FE0091560D /* KGReleaseSecondViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = KGReleaseSecondViewController.mm; sourceTree = "<group>"; };
+		77FB2BB21B1EF6CF0091560D /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
+		77FB2BB41B1EF9030091560D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		77FB2BB61B1EF90D0091560D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		77FB2BB81B1EF91A0091560D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		77FB2BBA1B1EF9210091560D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		77FB2BBC1B1EF92E0091560D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		77FB2BBE1B1EF9370091560D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		96145DE760521C6FF7178703 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FBB8456D71D88851ECD5672D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -174,6 +188,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77FB2BBF1B1EF9370091560D /* Security.framework in Frameworks */,
+				77FB2BBD1B1EF92E0091560D /* CoreGraphics.framework in Frameworks */,
+				77FB2BBB1B1EF9210091560D /* SystemConfiguration.framework in Frameworks */,
+				77FB2BB91B1EF91A0091560D /* QuartzCore.framework in Frameworks */,
+				77FB2BB71B1EF90D0091560D /* OpenGLES.framework in Frameworks */,
+				77FB2BB51B1EF9030091560D /* CoreLocation.framework in Frameworks */,
+				77FB2BB31B1EF6CF0091560D /* BaiduMapAPI.framework in Frameworks */,
 				E1E9EAC45E11C58E516EC596 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +363,7 @@
 		77376C5C1B00ADFE00DA19D8 /* KuaiGou */ = {
 			isa = PBXGroup;
 			children = (
+				77FB2BB01B1EF6CF0091560D /* vendors */,
 				774EC8E71B0348240075FB50 /* Model */,
 				774EC8E31B0343120075FB50 /* HTTPClient */,
 				77AD45531B01AF2B0094326D /* Macro */,
@@ -439,7 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				77FB2BAD1B1EF5FE0091560D /* KGReleaseSecondViewController.h */,
-				77FB2BAE1B1EF5FE0091560D /* KGReleaseSecondViewController.m */,
+				77FB2BAE1B1EF5FE0091560D /* KGReleaseSecondViewController.mm */,
 				77FB2B791B1EAF020091560D /* view */,
 				77AD45751B01F4660094326D /* Release.storyboard */,
 				77AD45771B01F4770094326D /* KGReleaseViewController.h */,
@@ -489,9 +511,31 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		77FB2BB01B1EF6CF0091560D /* vendors */ = {
+			isa = PBXGroup;
+			children = (
+				77FB2BB11B1EF6CF0091560D /* BaiduMap */,
+			);
+			path = vendors;
+			sourceTree = "<group>";
+		};
+		77FB2BB11B1EF6CF0091560D /* BaiduMap */ = {
+			isa = PBXGroup;
+			children = (
+				77FB2BB21B1EF6CF0091560D /* BaiduMapAPI.framework */,
+			);
+			path = BaiduMap;
+			sourceTree = "<group>";
+		};
 		8D58DB108BB1C03F4DD1E850 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77FB2BBE1B1EF9370091560D /* Security.framework */,
+				77FB2BBC1B1EF92E0091560D /* CoreGraphics.framework */,
+				77FB2BBA1B1EF9210091560D /* SystemConfiguration.framework */,
+				77FB2BB81B1EF91A0091560D /* QuartzCore.framework */,
+				77FB2BB61B1EF90D0091560D /* OpenGLES.framework */,
+				77FB2BB41B1EF9030091560D /* CoreLocation.framework */,
 				FBB8456D71D88851ECD5672D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -663,7 +707,7 @@
 				77FB2B7C1B1EAF020091560D /* ZXImagePickCell.m in Sources */,
 				77050A3A1B0ACB68009FCA6A /* KGUser.m in Sources */,
 				77050A3F1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.m in Sources */,
-				77FB2BAF1B1EF5FE0091560D /* KGReleaseSecondViewController.m in Sources */,
+				77FB2BAF1B1EF5FE0091560D /* KGReleaseSecondViewController.mm in Sources */,
 				777AFCAC1B1C6D4E00A4C182 /* KGGoods.m in Sources */,
 				77AD45641B01B04E0094326D /* KGHomeViewController.m in Sources */,
 				77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */,
@@ -810,6 +854,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KuaiGou",
+					"$(PROJECT_DIR)/KuaiGou/vendors/BaiduMap",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -830,6 +875,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KuaiGou",
+					"$(PROJECT_DIR)/KuaiGou/vendors/BaiduMap",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
