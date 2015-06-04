@@ -26,6 +26,7 @@
 		771B624E1B1FFD3B0057FD19 /* JXBAdPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B624D1B1FFD3B0057FD19 /* JXBAdPageView.m */; };
 		771B62511B20038F0057FD19 /* KGAds.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62501B20038F0057FD19 /* KGAds.m */; };
 		771B62551B2025920057FD19 /* KGImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62541B2025920057FD19 /* KGImageCell.m */; };
+		771B62581B203E1E0057FD19 /* KGCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62571B203E1E0057FD19 /* KGCategoryCollectionViewCell.m */; };
 		77376C601B00ADFE00DA19D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C5F1B00ADFE00DA19D8 /* main.m */; };
 		77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C621B00ADFE00DA19D8 /* AppDelegate.m */; };
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
@@ -121,6 +122,8 @@
 		771B62501B20038F0057FD19 /* KGAds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGAds.m; sourceTree = "<group>"; };
 		771B62531B2025920057FD19 /* KGImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGImageCell.h; sourceTree = "<group>"; };
 		771B62541B2025920057FD19 /* KGImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGImageCell.m; sourceTree = "<group>"; };
+		771B62561B203E1E0057FD19 /* KGCategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		771B62571B203E1E0057FD19 /* KGCategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCategoryCollectionViewCell.m; sourceTree = "<group>"; };
 		77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuaiGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C5E1B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C5F1B00ADFE00DA19D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 			children = (
 				771B62531B2025920057FD19 /* KGImageCell.h */,
 				771B62541B2025920057FD19 /* KGImageCell.m */,
+				771B62561B203E1E0057FD19 /* KGCategoryCollectionViewCell.h */,
+				771B62571B203E1E0057FD19 /* KGCategoryCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -785,6 +790,7 @@
 				77AD45681B01EB6F0094326D /* KGTabBarController.m in Sources */,
 				77FB2B881B1ED0140091560D /* KGStockCell.m in Sources */,
 				771B62511B20038F0057FD19 /* KGAds.m in Sources */,
+				771B62581B203E1E0057FD19 /* KGCategoryCollectionViewCell.m in Sources */,
 				77FB2BA51B1EDA140091560D /* UIColor+ZXLazy.m in Sources */,
 				774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */,
 				77AD45711B01F2400094326D /* KGLoginViewController.m in Sources */,

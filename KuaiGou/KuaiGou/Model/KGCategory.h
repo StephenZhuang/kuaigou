@@ -18,4 +18,8 @@
 
 + (void)getChildCategoryWithPid:(NSInteger)pid
                      completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
+
++ (void)getSevenCategoryWithCompletion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
+
++ (void)getAllCategoryWithCompletion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
 @end

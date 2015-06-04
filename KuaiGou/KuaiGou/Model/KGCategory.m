@@ -29,4 +29,24 @@
         !completion?:completion(NO,errorInfo,nil);
     }];
 }
+
++ (void)getSevenCategoryWithCompletion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion
+{
+    [[KGApiClient sharedClient] POST:@"/api/v1/cat/seven" parameters:nil success:^(NSURLSessionDataTask *task, id data) {
+        NSArray *array = [KGCategory objectArrayWithKeyValuesArray:data];
+        !completion?:completion(YES,@"",array);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo,nil);
+    }];
+}
+
++ (void)getAllCategoryWithCompletion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion
+{
+    [[KGApiClient sharedClient] POST:@"/api/v1/cat" parameters:nil success:^(NSURLSessionDataTask *task, id data) {
+        NSArray *array = [KGCategory objectArrayWithKeyValuesArray:data];
+        !completion?:completion(YES,@"",array);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo,nil);
+    }];
+}
 @end
