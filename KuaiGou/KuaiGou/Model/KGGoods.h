@@ -42,4 +42,10 @@
 
 + (void)deleteGoodsWithItemid:(NSString *)itemid
                    completion:(void(^)(BOOL success,NSString *errorInfo))completion;
+
++ (void)collectGoodsWithItemid:(NSString *)itemid
+                    completion:(void(^)(BOOL success,NSString *errorInfo))completion;
+
++ (void)uncollectGoodsWithItemid:(NSString *)itemid
+                      completion:(void(^)(BOOL success,NSString *errorInfo))completion;
 @end

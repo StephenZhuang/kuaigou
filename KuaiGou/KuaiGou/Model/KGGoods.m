@@ -66,4 +66,32 @@
         !completion?:completion(NO,errorInfo);
     }];
 }
+
++ (void)collectGoodsWithItemid:(NSString *)itemid
+                    completion:(void(^)(BOOL success,NSString *errorInfo))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:[KGLoginManager sharedInstance].user.token forKey:@"token"];
+    [parameters setObject:itemid forKey:@"itemid"];
+    
+    [[KGApiClient sharedClient] POST:@"/api/v1/item/fav" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        !completion?:completion(YES,@"");
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo);
+    }];
+}
+
++ (void)uncollectGoodsWithItemid:(NSString *)itemid
+                      completion:(void(^)(BOOL success,NSString *errorInfo))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:[KGLoginManager sharedInstance].user.token forKey:@"token"];
+    [parameters setObject:itemid forKey:@"itemid"];
+    
+    [[KGApiClient sharedClient] POST:@"/api/v1/item/unfav" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        !completion?:completion(YES,@"");
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo);
+    }];
+}
 @end
