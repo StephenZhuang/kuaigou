@@ -55,24 +55,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IgR-Y3-h58" id="SUx-pX-srB">
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_product_def" translatesAutoresizingMaskIntoConstraints="NO" id="p5W-BW-zR3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="layer.contentsGravity" value="kCAGravityResizeAspectFill"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="p5W-BW-zR3" firstAttribute="top" secondItem="SUx-pX-srB" secondAttribute="top" id="Kfm-Lw-tt5"/>
-                                                <constraint firstAttribute="trailing" secondItem="p5W-BW-zR3" secondAttribute="trailing" id="bdS-6x-0lX"/>
-                                                <constraint firstItem="p5W-BW-zR3" firstAttribute="leading" secondItem="SUx-pX-srB" secondAttribute="leading" id="owf-kv-7En"/>
-                                                <constraint firstAttribute="bottom" secondItem="p5W-BW-zR3" secondAttribute="bottom" id="x83-O9-BBd"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="logoImage" destination="p5W-BW-zR3" id="zk7-Ps-LKt"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -117,7 +100,4 @@
             <point key="canvasLocation" x="637" y="230"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bg_product_def" width="65" height="65"/>
-    </resources>
 </document>

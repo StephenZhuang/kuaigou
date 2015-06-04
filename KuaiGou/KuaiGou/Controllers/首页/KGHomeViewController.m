@@ -86,9 +86,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     KGAds *ads = [self.adsArray objectAtIndex:indexPath.section];
-    KGImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KGImageCell"];
+    KGImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KGImageCell" forIndexPath:indexPath];
     [cell.logoImage sd_setImageWithURL:[NSURL URLWithString:[KGImageUrlHelper imageUrlWithKey:ads.adspic]] placeholderImage:[UIImage imageNamed:@"bg_product_def"]];
-    NSLog(@"============%@",@(self.tableView.frame.size.width));
+    NSLog(@"============%@",@(cell.contentView.frame.size.width));
+    NSLog(@"============%@",@(cell.logoImage.frame.size.width));
     return cell;
 }
 

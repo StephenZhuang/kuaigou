@@ -37,7 +37,7 @@ PODS:
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
   - TPKeyboardAvoiding (1.2.6)
-  - UITableView+FDTemplateLayoutCell (1.1-beta)
+  - UITableView+FDTemplateLayoutCell (1.3)
   - UIView+FDCollapsibleConstraints (1.1)
   - UMengAnalytics-NO-IDFA (3.4.7)
   - VTAcknowledgementsViewController (0.13)
@@ -56,8 +56,8 @@ DEPENDENCIES:
   - Reveal-iOS-SDK
   - SDWebImage (~> 3.7.1)
   - TPKeyboardAvoiding (~> 1.2.6)
-  - UITableView+FDTemplateLayoutCell (~> 1.1-beta)
-  - UIView+FDCollapsibleConstraints (~> 1.0)
+  - UITableView+FDTemplateLayoutCell (~> 1.3)
+  - UIView+FDCollapsibleConstraints (~> 1.1)
   - UMengAnalytics-NO-IDFA (~> 3.4.5)
   - VTAcknowledgementsViewController (~> 0.13)
 
@@ -76,7 +76,7 @@ SPEC CHECKSUMS:
   Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
-  UITableView+FDTemplateLayoutCell: 058bc73b876f3bf0fb7f0bcb31c92af7ecd2587c
+  UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
   UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd
   UMengAnalytics-NO-IDFA: 68a71671c10067315339fc3fd1283be416f02a8b
   VTAcknowledgementsViewController: f2391b007c3abafd3b3afccda7d8914a59b44309

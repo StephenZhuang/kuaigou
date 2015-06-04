@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface KGImageCell : UITableViewCell
-@property (nonatomic , weak) IBOutlet UIImageView *logoImage;
+@property (nonatomic , strong) UIImageView *logoImage;
 @end
