@@ -24,6 +24,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
+    [self setupYunxin];
     if ([KGLoginManager sharedInstance].isLogin) {
         [KGLoginManager sharedInstance].user = [KGUser objectWithKeyValues:[GVUserDefaults standardUserDefaults].user];
         [[KGLoginManager sharedInstance] doYunxinLoginWithUsername:[GVUserDefaults standardUserDefaults].username password:[GVUserDefaults standardUserDefaults].password];

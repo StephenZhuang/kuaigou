@@ -132,7 +132,7 @@ M80TimerHolderDelegate>
     _inputView.actionDelegate = self;
     _inputView.maxTextLength = MaxTextInputLenth;
     [self.view addSubview:_inputView];
-    [self setUpNav];
+//    [self setUpNav];
     [self updateTeamAnnouncement];
     
 }
@@ -173,6 +173,7 @@ M80TimerHolderDelegate>
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
 }
 
 - (void)initHandlerAndDataSource
