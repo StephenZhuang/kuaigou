@@ -23,6 +23,9 @@
 		771B62441B1FE4920057FD19 /* KGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62431B1FE4920057FD19 /* KGCategory.m */; };
 		771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62461B1FEF380057FD19 /* UIImage+Resize.m */; };
 		771B624A1B1FEFAA0057FD19 /* UIImage+KGCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62491B1FEFAA0057FD19 /* UIImage+KGCompress.m */; };
+		771B624E1B1FFD3B0057FD19 /* JXBAdPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B624D1B1FFD3B0057FD19 /* JXBAdPageView.m */; };
+		771B62511B20038F0057FD19 /* KGAds.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62501B20038F0057FD19 /* KGAds.m */; };
+		771B62551B2025920057FD19 /* KGImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62541B2025920057FD19 /* KGImageCell.m */; };
 		77376C601B00ADFE00DA19D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C5F1B00ADFE00DA19D8 /* main.m */; };
 		77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C621B00ADFE00DA19D8 /* AppDelegate.m */; };
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
@@ -112,6 +115,12 @@
 		771B62461B1FEF380057FD19 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		771B62481B1FEFAA0057FD19 /* UIImage+KGCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KGCompress.h"; sourceTree = "<group>"; };
 		771B62491B1FEFAA0057FD19 /* UIImage+KGCompress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KGCompress.m"; sourceTree = "<group>"; };
+		771B624C1B1FFD3B0057FD19 /* JXBAdPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXBAdPageView.h; sourceTree = "<group>"; };
+		771B624D1B1FFD3B0057FD19 /* JXBAdPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXBAdPageView.m; sourceTree = "<group>"; };
+		771B624F1B20038F0057FD19 /* KGAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGAds.h; sourceTree = "<group>"; };
+		771B62501B20038F0057FD19 /* KGAds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGAds.m; sourceTree = "<group>"; };
+		771B62531B2025920057FD19 /* KGImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGImageCell.h; sourceTree = "<group>"; };
+		771B62541B2025920057FD19 /* KGImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGImageCell.m; sourceTree = "<group>"; };
 		77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuaiGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C5E1B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C5F1B00ADFE00DA19D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -320,6 +329,7 @@
 		770669461B01AA1F004E1396 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				771B62521B2025780057FD19 /* View */,
 				770669501B01ABC1004E1396 /* Home.storyboard */,
 				77AD45621B01B04E0094326D /* KGHomeViewController.h */,
 				77AD45631B01B04E0094326D /* KGHomeViewController.m */,
@@ -354,12 +364,31 @@
 		770669491B01AA1F004E1396 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				771B624B1B1FFD3B0057FD19 /* JXBAdPageView */,
 				77FB2B951B1EDA140091560D /* SZCalendarPicker */,
 				777AFCAD1B1C80E600A4C182 /* PlaceHolderTextView */,
 				770669521B01AC41004E1396 /* KGNavigationBar.h */,
 				770669531B01AC41004E1396 /* KGNavigationBar.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		771B624B1B1FFD3B0057FD19 /* JXBAdPageView */ = {
+			isa = PBXGroup;
+			children = (
+				771B624C1B1FFD3B0057FD19 /* JXBAdPageView.h */,
+				771B624D1B1FFD3B0057FD19 /* JXBAdPageView.m */,
+			);
+			path = JXBAdPageView;
+			sourceTree = "<group>";
+		};
+		771B62521B2025780057FD19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				771B62531B2025920057FD19 /* KGImageCell.h */,
+				771B62541B2025920057FD19 /* KGImageCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		77376C511B00ADFE00DA19D8 = {
@@ -450,6 +479,8 @@
 				777AFCAB1B1C6D4E00A4C182 /* KGGoods.m */,
 				771B62421B1FE4920057FD19 /* KGCategory.h */,
 				771B62431B1FE4920057FD19 /* KGCategory.m */,
+				771B624F1B20038F0057FD19 /* KGAds.h */,
+				771B62501B20038F0057FD19 /* KGAds.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -736,6 +767,7 @@
 				77050A461B0AE297009FCA6A /* KGRegisterViewController.m in Sources */,
 				77AD455B1B01B01A0094326D /* KGMineViewController.m in Sources */,
 				770669541B01AC41004E1396 /* KGNavigationBar.m in Sources */,
+				771B62551B2025920057FD19 /* KGImageCell.m in Sources */,
 				774E928F1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m in Sources */,
 				77FB2B7C1B1EAF020091560D /* ZXImagePickCell.m in Sources */,
 				77050A3A1B0ACB68009FCA6A /* KGUser.m in Sources */,
@@ -744,6 +776,7 @@
 				777AFCAC1B1C6D4E00A4C182 /* KGGoods.m in Sources */,
 				77AD45641B01B04E0094326D /* KGHomeViewController.m in Sources */,
 				77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */,
+				771B624E1B1FFD3B0057FD19 /* JXBAdPageView.m in Sources */,
 				77AD45741B01F2EB0094326D /* UIViewController+KGStoryboard.m in Sources */,
 				771B62441B1FE4920057FD19 /* KGCategory.m in Sources */,
 				774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */,
@@ -751,6 +784,7 @@
 				77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */,
 				77AD45681B01EB6F0094326D /* KGTabBarController.m in Sources */,
 				77FB2B881B1ED0140091560D /* KGStockCell.m in Sources */,
+				771B62511B20038F0057FD19 /* KGAds.m in Sources */,
 				77FB2BA51B1EDA140091560D /* UIColor+ZXLazy.m in Sources */,
 				774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */,
 				77AD45711B01F2400094326D /* KGLoginViewController.m in Sources */,

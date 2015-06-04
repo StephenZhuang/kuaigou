@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JXBAdPageView.h"
 
-@interface KGHomeViewController : UIViewController
-
+@interface KGHomeViewController : UIViewController<JXBAdPageViewDelegate,UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic , weak) IBOutlet JXBAdPageView *adsView;
+@property (nonatomic , strong) NSMutableArray *adsArray;
+@property (nonatomic , strong) NSMutableArray *dataArray;
+@property (nonatomic , weak) IBOutlet UITableView *tableView;
 @end
