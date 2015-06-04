@@ -11,12 +11,50 @@
 #import "KGProgressCell.h"
 #import "KGTextViewCell.h"
 #import "KGCategoryViewController.h"
+#import "MBProgressHUD+ZXAdditon.h"
+#import "KGUploadManager.h"
 
 @implementation KGReleaseSecondViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"发布";
+}
+
+- (IBAction)releaseAction:(id)sender
+{
+    if (self.goods.address.length == 0) {
+        [MBProgressHUD showText:@"请填写地址" toView:self.view];
+        return;
+    }
+    
+    MBProgressHUD *hud = [MBProgressHUD showWaiting:@"上传中" toView:nil];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 耗时的操作
+        NSMutableArray *dataArray = [KGUploadManager dataArrayFromImageArray:self.imageArray];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 更新界面
+            [[KGUploadManager sharedInstance] uploadWithData:dataArray completion:^(BOOL success, NSString *uploadAddress, NSString *errorInfo) {
+                if (success) {
+                    self.goods.image = uploadAddress;
+                    [KGGoods addGoodsWithGoods:self.goods completion:^(BOOL success, NSString *errorInfo) {
+                        if (success) {
+                            [hud turnToSuccess:@"发布成功"];
+                            [self dismissViewControllerAnimated:YES completion:^{
+                                
+                            }];
+                        } else {
+                            [hud turnToError:errorInfo];
+                        }
+                    }];
+                } else {
+                    [hud turnToError:@"上传失败，请重试"];
+                }
+            }];
+        });
+    });
+    
 }
 
 #pragma mark - tableview delegate

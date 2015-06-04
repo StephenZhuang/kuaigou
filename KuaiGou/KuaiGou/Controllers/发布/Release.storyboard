@@ -384,7 +384,7 @@
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="nextAction:" destination="G3Z-Hz-VzT" eventType="touchUpInside" id="OON-2y-GT3"/>
+                                                <action selector="releaseAction:" destination="pMN-qO-skJ" eventType="touchUpInside" id="ez6-Kp-pbb"/>
                                             </connections>
                                         </button>
                                     </subviews>

@@ -8,6 +8,8 @@
 
 #import "KGUploadManager.h"
 #import <QiniuSDK.h>
+#import "UIImage+KGCompress.h"
+#import "KGLoginManager.h"
 
 @implementation KGUploadManager
 + (instancetype)sharedInstance
@@ -57,11 +59,21 @@
 
 - (void)getQiniuUploadTokenWithCompletetion:(void(^)(BOOL success, NSString *token))completetion
 {
-    [[KGApiClient sharedClient] POST:@"api/v1/app/qntoken" parameters:nil success:^(NSURLSessionDataTask *task, id data) {
+    [[KGApiClient sharedClient] POST:@"api/v1/app/qntoken" parameters:@{@"token":[KGLoginManager sharedInstance].user.token} success:^(NSURLSessionDataTask *task, id data) {
         !completetion?:completetion(YES,data);
     } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
         !completetion?:completetion(NO,errorInfo);
     }];
+}
+
++ (NSMutableArray *)dataArrayFromImageArray:(NSMutableArray *)imageArray
+{
+    NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+    for (UIImage *image in imageArray) {
+        NSData *data = [image toData];
+        [dataArray addObject:data];
+    }
+    return dataArray;
 }
 
 @end

@@ -15,4 +15,5 @@ static NSString * const QNAppKey = @"NJ3LNnMA03K4hKgaLzSr-6zFCYWypHS-EnHzC8NL";
 + (instancetype)sharedInstance;
 
 - (void)uploadWithData:(NSArray *)dataArray completion:(void(^)(BOOL success ,NSString *uploadAddress, NSString *errorInfo))completion;
++ (NSMutableArray *)dataArrayFromImageArray:(NSMutableArray *)imageArray;
 @end

@@ -21,6 +21,8 @@
 		770669541B01AC41004E1396 /* KGNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 770669531B01AC41004E1396 /* KGNavigationBar.m */; };
 		771B62411B1FE0880057FD19 /* KGCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62401B1FE0880057FD19 /* KGCategoryViewController.m */; };
 		771B62441B1FE4920057FD19 /* KGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62431B1FE4920057FD19 /* KGCategory.m */; };
+		771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62461B1FEF380057FD19 /* UIImage+Resize.m */; };
+		771B624A1B1FEFAA0057FD19 /* UIImage+KGCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62491B1FEFAA0057FD19 /* UIImage+KGCompress.m */; };
 		77376C601B00ADFE00DA19D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C5F1B00ADFE00DA19D8 /* main.m */; };
 		77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C621B00ADFE00DA19D8 /* AppDelegate.m */; };
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
@@ -106,6 +108,10 @@
 		771B62401B1FE0880057FD19 /* KGCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCategoryViewController.m; sourceTree = "<group>"; };
 		771B62421B1FE4920057FD19 /* KGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategory.h; sourceTree = "<group>"; };
 		771B62431B1FE4920057FD19 /* KGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCategory.m; sourceTree = "<group>"; };
+		771B62451B1FEF380057FD19 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		771B62461B1FEF380057FD19 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		771B62481B1FEFAA0057FD19 /* UIImage+KGCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KGCompress.h"; sourceTree = "<group>"; };
+		771B62491B1FEFAA0057FD19 /* UIImage+KGCompress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KGCompress.m"; sourceTree = "<group>"; };
 		77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuaiGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C5E1B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C5F1B00ADFE00DA19D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -236,6 +242,10 @@
 		770669401B01AA1F004E1396 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				771B62451B1FEF380057FD19 /* UIImage+Resize.h */,
+				771B62461B1FEF380057FD19 /* UIImage+Resize.m */,
+				771B62481B1FEFAA0057FD19 /* UIImage+KGCompress.h */,
+				771B62491B1FEFAA0057FD19 /* UIImage+KGCompress.m */,
 				77050A3B1B0AD388009FCA6A /* MBProgressHUD */,
 				77590EE81B09E4DE0086E2C9 /* NSString+ZXMD5.h */,
 				77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */,
@@ -715,6 +725,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771B624A1B1FEFAA0057FD19 /* UIImage+KGCompress.m in Sources */,
 				77050A491B0AE72D009FCA6A /* ZXCountTimeHelper.m in Sources */,
 				77FB2BC81B1F16E30091560D /* KGProgressCell.m in Sources */,
 				77FB2B7F1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m in Sources */,
@@ -756,6 +767,7 @@
 				77FB2B851B1ECFB50091560D /* KGTextViewCell.m in Sources */,
 				77AD456C1B01F1360094326D /* KGLoginManager.m in Sources */,
 				77FB2B821B1ECF7F0091560D /* KGTextFieldCell.m in Sources */,
+				771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

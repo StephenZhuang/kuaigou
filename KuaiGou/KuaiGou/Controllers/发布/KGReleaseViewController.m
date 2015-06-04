@@ -38,10 +38,10 @@
 - (IBAction)nextAction:(id)sender
 {
     [self.view endEditing:YES];
-//    if (self.goods.title.length <= 0 || self.goods.effdate.length <= 0 || self.imageArray.count == 0) {
-//        [MBProgressHUD showError:@"请将内容填写完整" toView:self.view];
-//        return;
-//    }
+    if (self.goods.title.length <= 0 || self.goods.effdate.length <= 0 || self.imageArray.count == 0) {
+        [MBProgressHUD showError:@"请将内容填写完整" toView:self.view];
+        return;
+    }
     
     KGReleaseSecondViewController *vc = [KGReleaseSecondViewController viewControllerFromStoryboard:@"Release"];
     vc.goods = self.goods;
@@ -117,8 +117,12 @@
         cell.textField.text = [NSString stringWithFormat:@"%.2f",self.goods.price];
         return cell;
     } else if (indexPath.section == 2) {
+        __weak __typeof(&*self)weakSelf = self;
         KGStockCell *cell = [tableView dequeueReusableCellWithIdentifier:@"stock"];
         cell.textField.text = [NSString stringWithFormat:@"%@",@(self.goods.stock)];
+        cell.stockChange = ^(NSInteger stock) {
+            weakSelf.goods.stock = stock;
+        };
         return cell;
     } else if (indexPath.section == 3) {
         KGTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:@"date"];
