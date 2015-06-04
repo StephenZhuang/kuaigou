@@ -15,7 +15,13 @@
 @property (nonatomic , assign) float price;
 @property (nonatomic , assign) NSInteger stock;
 @property (nonatomic , copy) NSString *effdate;
+/**
+ *  一级分类
+ */
 @property (nonatomic , assign) NSInteger catpid;
+/**
+ *  二级分类
+ */
 @property (nonatomic , assign) NSInteger catid;
 @property (nonatomic , copy) NSString *isdiscount;
 @property (nonatomic , assign) float discount;
@@ -28,6 +34,8 @@
 @property (nonatomic , copy) NSString *status;
 @property (nonatomic , copy) NSString *image;
 @property (nonatomic , copy) NSString *userid;
+
+@property (nonatomic , copy) NSString *catNames;
 
 + (void)addGoodsWithGoods:(KGGoods *)goods
                completion:(void(^)(BOOL success,NSString *errorInfo))completion;

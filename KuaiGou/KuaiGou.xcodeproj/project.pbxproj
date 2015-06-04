@@ -19,6 +19,8 @@
 		7706694F1B01ABBA004E1396 /* Nearby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7706694E1B01ABBA004E1396 /* Nearby.storyboard */; };
 		770669511B01ABC1004E1396 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770669501B01ABC1004E1396 /* Home.storyboard */; };
 		770669541B01AC41004E1396 /* KGNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 770669531B01AC41004E1396 /* KGNavigationBar.m */; };
+		771B62411B1FE0880057FD19 /* KGCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62401B1FE0880057FD19 /* KGCategoryViewController.m */; };
+		771B62441B1FE4920057FD19 /* KGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62431B1FE4920057FD19 /* KGCategory.m */; };
 		77376C601B00ADFE00DA19D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C5F1B00ADFE00DA19D8 /* main.m */; };
 		77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C621B00ADFE00DA19D8 /* AppDelegate.m */; };
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
@@ -100,6 +102,10 @@
 		770669501B01ABC1004E1396 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		770669521B01AC41004E1396 /* KGNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNavigationBar.h; sourceTree = "<group>"; };
 		770669531B01AC41004E1396 /* KGNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGNavigationBar.m; sourceTree = "<group>"; };
+		771B623F1B1FE0880057FD19 /* KGCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategoryViewController.h; sourceTree = "<group>"; };
+		771B62401B1FE0880057FD19 /* KGCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCategoryViewController.m; sourceTree = "<group>"; };
+		771B62421B1FE4920057FD19 /* KGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategory.h; sourceTree = "<group>"; };
+		771B62431B1FE4920057FD19 /* KGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCategory.m; sourceTree = "<group>"; };
 		77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuaiGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C5E1B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C5F1B00ADFE00DA19D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -432,6 +438,8 @@
 				77050A391B0ACB68009FCA6A /* KGUser.m */,
 				777AFCAA1B1C6D4E00A4C182 /* KGGoods.h */,
 				777AFCAB1B1C6D4E00A4C182 /* KGGoods.m */,
+				771B62421B1FE4920057FD19 /* KGCategory.h */,
+				771B62431B1FE4920057FD19 /* KGCategory.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -466,12 +474,14 @@
 		77AD45691B01EE2C0094326D /* 发布 */ = {
 			isa = PBXGroup;
 			children = (
+				77FB2B791B1EAF020091560D /* view */,
 				77FB2BAD1B1EF5FE0091560D /* KGReleaseSecondViewController.h */,
 				77FB2BAE1B1EF5FE0091560D /* KGReleaseSecondViewController.mm */,
-				77FB2B791B1EAF020091560D /* view */,
 				77AD45751B01F4660094326D /* Release.storyboard */,
 				77AD45771B01F4770094326D /* KGReleaseViewController.h */,
 				77AD45781B01F4770094326D /* KGReleaseViewController.m */,
+				771B623F1B1FE0880057FD19 /* KGCategoryViewController.h */,
+				771B62401B1FE0880057FD19 /* KGCategoryViewController.m */,
 			);
 			path = "发布";
 			sourceTree = "<group>";
@@ -709,6 +719,7 @@
 				77FB2BC81B1F16E30091560D /* KGProgressCell.m in Sources */,
 				77FB2B7F1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m in Sources */,
 				77AD455E1B01B02D0094326D /* KGChatListViewController.m in Sources */,
+				771B62411B1FE0880057FD19 /* KGCategoryViewController.m in Sources */,
 				773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */,
 				777AFCB01B1C80E600A4C182 /* UIPlaceHolderTextView.m in Sources */,
 				77050A461B0AE297009FCA6A /* KGRegisterViewController.m in Sources */,
@@ -723,6 +734,7 @@
 				77AD45641B01B04E0094326D /* KGHomeViewController.m in Sources */,
 				77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */,
 				77AD45741B01F2EB0094326D /* UIViewController+KGStoryboard.m in Sources */,
+				771B62441B1FE4920057FD19 /* KGCategory.m in Sources */,
 				774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */,
 				77AD45791B01F4770094326D /* KGReleaseViewController.m in Sources */,
 				77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */,

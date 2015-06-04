@@ -10,6 +10,7 @@
 #import "KGSWitchCell.h"
 #import "KGProgressCell.h"
 #import "KGTextViewCell.h"
+#import "KGCategoryViewController.h"
 
 @implementation KGReleaseSecondViewController
 - (void)viewDidLoad
@@ -69,7 +70,7 @@
     if (indexPath.section == 0) {
         KGProgressCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KGProgressCell"];
         [cell.titileLabel setText:@"类目"];
-        [cell.contentLabel setText:@"选择类目"];
+        [cell.contentLabel setText:self.goods.catNames.length>0?self.goods.catNames:@"选择类目"];
         [cell.slider setHidden:YES];
         return cell;
     } else if (indexPath.section == 1) {
@@ -132,7 +133,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 3) {
+    if (indexPath.section == 0) {
+        __weak __typeof(&*self)weakSelf = self;
+        KGCategoryViewController *vc = [KGCategoryViewController viewControllerFromStoryboard:@"Release"];
+        vc.categoryBlock = ^(NSInteger catpid,NSInteger catid,NSString *name) {
+            weakSelf.goods.catid = catid;
+            weakSelf.goods.catpid = catpid;
+            weakSelf.goods.catNames = name;
+            [weakSelf.tableView reloadData];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } else if (indexPath.section == 3) {
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"交易方式" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:self.tradeModeArray[0],self.tradeModeArray[1],self.tradeModeArray[2], nil];
         [actionSheet showInView:self.view];
     }
@@ -151,10 +163,6 @@
 #pragma mark - location
 - (IBAction)location:(id)sender
 {
-//    [BMKLocationServicesetLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
-//    //指定最小距离更新(米)，默认：kCLDistanceFilterNone
-//    [BMKLocationServicesetLocationDistanceFilter:100.f];
-
     //初始化BMKLocationService
     self.locationService.delegate = self;
     //启动LocationService
@@ -185,9 +193,9 @@
 }
 
 //接收反向地理编码结果
--(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
+- (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
   if (error == BMK_SEARCH_NO_ERROR) {
-      self.goods.address = [NSString stringWithFormat:@"%@",result.address];
+      self.goods.address = result.address;
       [self.tableView reloadData];
   }
   else {
