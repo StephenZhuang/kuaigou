@@ -20,7 +20,21 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - CocoaLumberjack (2.0.0):
+    - CocoaLumberjack/Default (= 2.0.0)
+    - CocoaLumberjack/Extensions (= 2.0.0)
+  - CocoaLumberjack/Core (2.0.0)
+  - CocoaLumberjack/Default (2.0.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.0.0):
+    - CocoaLumberjack/Default
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
   - GVUserDefaults (1.0.1)
+  - M80AttributedLabel (1.3.1)
   - MBProgressHUD (0.9.1)
   - MJExtension (2.0.2)
   - MJRefresh (1.4.6)
@@ -32,10 +46,14 @@ PODS:
   - Qiniu (7.0.9.1):
     - AFNetworking (~> 2.0)
   - RDVTabBarController (1.1.9)
+  - Reachability (3.1.1)
   - Reveal-iOS-SDK (1.5.1)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
+  - SVProgressHUD (1.1.3)
+  - tinyxml (2.1.0)
+  - Toast (2.4)
   - TPKeyboardAvoiding (1.2.6)
   - UITableView+FDTemplateLayoutCell (1.3)
   - UIView+FDCollapsibleConstraints (1.1)
@@ -44,7 +62,10 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.3)
+  - CocoaLumberjack (~> 2.0.0-rc2)
+  - FMDB (~> 2.5)
   - GVUserDefaults (~> 1.0.1)
+  - M80AttributedLabel (~> 1.3.1)
   - MBProgressHUD (~> 0.9)
   - MJExtension (~> 2.0.2)
   - MJRefresh (~> 1.4.6)
@@ -53,8 +74,12 @@ DEPENDENCIES:
   - PureLayout (~> 2.0.3)
   - Qiniu (~> 7.0.9.1)
   - RDVTabBarController (~> 1.1.9)
+  - Reachability (~> 3.1.1)
   - Reveal-iOS-SDK
   - SDWebImage (~> 3.7.1)
+  - SVProgressHUD (~> 1.1.2)
+  - tinyxml (~> 2.1.0)
+  - Toast (~> 2.4)
   - TPKeyboardAvoiding (~> 1.2.6)
   - UITableView+FDTemplateLayoutCell (~> 1.3)
   - UIView+FDCollapsibleConstraints (~> 1.1)
@@ -63,7 +88,10 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GVUserDefaults: acb40729f70984008d0650e49d7e422f1bbfa597
+  M80AttributedLabel: 7bb3456dcdf847b111fac6695e7c40650ab2b6d2
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJExtension: d6cdbac494bdbb8943701944106ed57ada3ad773
   MJRefresh: 2eaa3fd8f67fbb86497840fb0167446f7eb61dc7
@@ -73,8 +101,12 @@ SPEC CHECKSUMS:
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
   Qiniu: cd281425298a3f30495135ab9a9442bf400dab28
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
+  Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
   Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
+  tinyxml: 41d718babd106ac5d39d4e98b43c835d3b9080d8
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
   TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
   UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
   UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd

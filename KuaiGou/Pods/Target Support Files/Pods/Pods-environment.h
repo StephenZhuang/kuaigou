@@ -48,11 +48,59 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_UIKit 5
 #define COCOAPODS_VERSION_PATCH_AFNetworking_UIKit 3
 
+// CocoaLumberjack
+#define COCOAPODS_POD_AVAILABLE_CocoaLumberjack
+#define COCOAPODS_VERSION_MAJOR_CocoaLumberjack 2
+#define COCOAPODS_VERSION_MINOR_CocoaLumberjack 0
+#define COCOAPODS_VERSION_PATCH_CocoaLumberjack 0
+
+// CocoaLumberjack/Core
+#define COCOAPODS_POD_AVAILABLE_CocoaLumberjack_Core
+#define COCOAPODS_VERSION_MAJOR_CocoaLumberjack_Core 2
+#define COCOAPODS_VERSION_MINOR_CocoaLumberjack_Core 0
+#define COCOAPODS_VERSION_PATCH_CocoaLumberjack_Core 0
+
+// CocoaLumberjack/Default
+#define COCOAPODS_POD_AVAILABLE_CocoaLumberjack_Default
+#define COCOAPODS_VERSION_MAJOR_CocoaLumberjack_Default 2
+#define COCOAPODS_VERSION_MINOR_CocoaLumberjack_Default 0
+#define COCOAPODS_VERSION_PATCH_CocoaLumberjack_Default 0
+
+// CocoaLumberjack/Extensions
+#define COCOAPODS_POD_AVAILABLE_CocoaLumberjack_Extensions
+#define COCOAPODS_VERSION_MAJOR_CocoaLumberjack_Extensions 2
+#define COCOAPODS_VERSION_MINOR_CocoaLumberjack_Extensions 0
+#define COCOAPODS_VERSION_PATCH_CocoaLumberjack_Extensions 0
+
+// FMDB
+#define COCOAPODS_POD_AVAILABLE_FMDB
+#define COCOAPODS_VERSION_MAJOR_FMDB 2
+#define COCOAPODS_VERSION_MINOR_FMDB 5
+#define COCOAPODS_VERSION_PATCH_FMDB 0
+
+// FMDB/common
+#define COCOAPODS_POD_AVAILABLE_FMDB_common
+#define COCOAPODS_VERSION_MAJOR_FMDB_common 2
+#define COCOAPODS_VERSION_MINOR_FMDB_common 5
+#define COCOAPODS_VERSION_PATCH_FMDB_common 0
+
+// FMDB/standard
+#define COCOAPODS_POD_AVAILABLE_FMDB_standard
+#define COCOAPODS_VERSION_MAJOR_FMDB_standard 2
+#define COCOAPODS_VERSION_MINOR_FMDB_standard 5
+#define COCOAPODS_VERSION_PATCH_FMDB_standard 0
+
 // GVUserDefaults
 #define COCOAPODS_POD_AVAILABLE_GVUserDefaults
 #define COCOAPODS_VERSION_MAJOR_GVUserDefaults 1
 #define COCOAPODS_VERSION_MINOR_GVUserDefaults 0
 #define COCOAPODS_VERSION_PATCH_GVUserDefaults 1
+
+// M80AttributedLabel
+#define COCOAPODS_POD_AVAILABLE_M80AttributedLabel
+#define COCOAPODS_VERSION_MAJOR_M80AttributedLabel 1
+#define COCOAPODS_VERSION_MINOR_M80AttributedLabel 3
+#define COCOAPODS_VERSION_PATCH_M80AttributedLabel 1
 
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
@@ -103,6 +151,12 @@
 #define COCOAPODS_VERSION_MINOR_RDVTabBarController 1
 #define COCOAPODS_VERSION_PATCH_RDVTabBarController 9
 
+// Reachability
+#define COCOAPODS_POD_AVAILABLE_Reachability
+#define COCOAPODS_VERSION_MAJOR_Reachability 3
+#define COCOAPODS_VERSION_MINOR_Reachability 1
+#define COCOAPODS_VERSION_PATCH_Reachability 1
+
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3
@@ -115,11 +169,23 @@
 #define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
 #define COCOAPODS_VERSION_PATCH_SDWebImage_Core 2
 
+// SVProgressHUD
+#define COCOAPODS_POD_AVAILABLE_SVProgressHUD
+#define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
+#define COCOAPODS_VERSION_MINOR_SVProgressHUD 1
+#define COCOAPODS_VERSION_PATCH_SVProgressHUD 3
+
 // TPKeyboardAvoiding
 #define COCOAPODS_POD_AVAILABLE_TPKeyboardAvoiding
 #define COCOAPODS_VERSION_MAJOR_TPKeyboardAvoiding 1
 #define COCOAPODS_VERSION_MINOR_TPKeyboardAvoiding 2
 #define COCOAPODS_VERSION_PATCH_TPKeyboardAvoiding 6
+
+// Toast
+#define COCOAPODS_POD_AVAILABLE_Toast
+#define COCOAPODS_VERSION_MAJOR_Toast 2
+#define COCOAPODS_VERSION_MINOR_Toast 4
+#define COCOAPODS_VERSION_PATCH_Toast 0
 
 // UITableView+FDTemplateLayoutCell
 #define COCOAPODS_POD_AVAILABLE_UITableView_FDTemplateLayoutCell
@@ -150,6 +216,12 @@
 #define COCOAPODS_VERSION_MAJOR_pop 1
 #define COCOAPODS_VERSION_MINOR_pop 0
 #define COCOAPODS_VERSION_PATCH_pop 7
+
+// tinyxml
+#define COCOAPODS_POD_AVAILABLE_tinyxml
+#define COCOAPODS_VERSION_MAJOR_tinyxml 2
+#define COCOAPODS_VERSION_MINOR_tinyxml 1
+#define COCOAPODS_VERSION_PATCH_tinyxml 0
 
 // Debug build configuration
 #ifdef DEBUG

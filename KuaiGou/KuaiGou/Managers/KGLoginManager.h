@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "KGUser.h"
 
-@interface KGLoginManager : NSObject
+@interface KGLoginManager : NSObject<NIMLoginManagerDelegate>
 @property (nonatomic , strong) KGUser *user;
 @property (nonatomic , assign) BOOL isLogin;
 
@@ -19,4 +19,6 @@
 - (void)logoutWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion;
 - (void)checkPhone:(NSString *)phone completion:(void(^)(BOOL success,NSString *code))completion;
 - (void)registerWithPhone:(NSString *)phone password:(NSString *)password completion:(void(^)(BOOL success,NSString *errorInfo))completion;
+
+- (void)doYunxinLoginWithUsername:(NSString *)username password:(NSString *)password;
 @end

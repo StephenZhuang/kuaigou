@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "KGLoginManager.h"
+#import "NIMSDK.h"
+#import "LogManager.h"
+
 
 @interface AppDelegate ()
 
@@ -23,6 +26,7 @@
     
     if ([KGLoginManager sharedInstance].isLogin) {
         [KGLoginManager sharedInstance].user = [KGUser objectWithKeyValues:[GVUserDefaults standardUserDefaults].user];
+        [[KGLoginManager sharedInstance] doYunxinLoginWithUsername:[GVUserDefaults standardUserDefaults].username password:[GVUserDefaults standardUserDefaults].password];
     }
     
     [self setUpBaiduMap];
@@ -91,6 +95,39 @@
     }
 }
 
+- (void)setupYunxin
+{
+#ifdef DEBUG
+    [[NIMSDK sharedSDK] registerWithAppID:@"8eab09ecf072d611ca65fac1ba6a5098"
+                                  cerName:@"DEVELOPER"];
+#else
+    [[NIMSDK sharedSDK] registerWithAppID:@"8eab09ecf072d611ca65fac1ba6a5098"
+                                  cerName:@"ENTERPRISE"];
+#endif
+    
+    [[LogManager sharedManager] start];
+    
+    [self registerAPNs];
+}
+
+#pragma mark - misc
+- (void)registerAPNs
+{
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)])
+    {
+        UIUserNotificationType types = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types
+                                                                                 categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        UIRemoteNotificationType types = UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeBadge;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
+    }
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -99,6 +136,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSInteger count = [[[NIMSDK sharedSDK] conversationManager] allUnreadCount];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:count];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -113,4 +152,15 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    [[NIMSDK sharedSDK] updateApnsToken:deviceToken];
+}
+
+
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    DDLogDebug(@"fail to get apns token :%@",error);
+}
 @end

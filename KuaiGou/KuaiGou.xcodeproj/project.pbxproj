@@ -34,6 +34,125 @@
 		771B627F1B20525A0057FD19 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 771B627E1B20525A0057FD19 /* libz.dylib */; };
 		771B62811B2052620057FD19 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 771B62801B2052620057FD19 /* libstdc++.6.0.9.dylib */; };
 		771B62831B20526A0057FD19 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 771B62821B20526A0057FD19 /* libsqlite3.0.dylib */; };
+		771B63891B205C560057FD19 /* M80AttributedLabel+NIM.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62871B205C560057FD19 /* M80AttributedLabel+NIM.m */; };
+		771B638A1B205C560057FD19 /* NSDictionary+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62891B205C560057FD19 /* NSDictionary+Json.m */; };
+		771B638B1B205C560057FD19 /* NSString+NIMDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B628B1B205C560057FD19 /* NSString+NIMDemo.m */; };
+		771B638C1B205C560057FD19 /* UIActionSheet+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B628D1B205C560057FD19 /* UIActionSheet+Block.m */; };
+		771B638D1B205C560057FD19 /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B628F1B205C560057FD19 /* UIAlertView+Block.m */; };
+		771B638E1B205C560057FD19 /* UIResponder+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62911B205C560057FD19 /* UIResponder+Router.m */; };
+		771B638F1B205C560057FD19 /* UITableView+ScrollToBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62931B205C560057FD19 /* UITableView+ScrollToBottom.m */; };
+		771B63901B205C560057FD19 /* UIView+NIMDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62951B205C560057FD19 /* UIView+NIMDemo.m */; };
+		771B63911B205C560057FD19 /* AvatarImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62981B205C560057FD19 /* AvatarImageView.m */; };
+		771B63921B205C560057FD19 /* BadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B629A1B205C560057FD19 /* BadgeView.m */; };
+		771B63931B205C560057FD19 /* CustomLeftBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B629C1B205C560057FD19 /* CustomLeftBarView.m */; };
+		771B63941B205C560057FD19 /* LoadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B629E1B205C560057FD19 /* LoadProgressView.m */; };
+		771B63951B205C560057FD19 /* MarginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62A01B205C560057FD19 /* MarginButton.m */; };
+		771B63961B205C560057FD19 /* PageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62A21B205C560057FD19 /* PageView.m */; };
+		771B63971B205C560057FD19 /* CardMemberItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62A81B205C560057FD19 /* CardMemberItem.m */; };
+		771B63981B205C560057FD19 /* TeamCardOperationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62AA1B205C560057FD19 /* TeamCardOperationItem.m */; };
+		771B63991B205C560057FD19 /* TeamCardRowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62AC1B205C560057FD19 /* TeamCardRowItem.m */; };
+		771B639A1B205C560057FD19 /* UsrInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62AE1B205C560057FD19 /* UsrInfoData.m */; };
+		771B639B1B205C560057FD19 /* RegularTeamMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62B11B205C560057FD19 /* RegularTeamMemberCell.m */; };
+		771B639C1B205C560057FD19 /* TeamAnnouncementListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62B31B205C560057FD19 /* TeamAnnouncementListCell.m */; };
+		771B639D1B205C560057FD19 /* TeamAnnouncementListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62B41B205C560057FD19 /* TeamAnnouncementListCell.xib */; };
+		771B639E1B205C560057FD19 /* TeamButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62B61B205C560057FD19 /* TeamButtonCell.m */; };
+		771B639F1B205C560057FD19 /* TeamCardHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62B81B205C560057FD19 /* TeamCardHeaderCell.m */; };
+		771B63A01B205C560057FD19 /* BaseCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62BB1B205C560057FD19 /* BaseCardViewController.m */; };
+		771B63A11B205C560057FD19 /* CreateNormalTeamCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62BD1B205C560057FD19 /* CreateNormalTeamCardViewController.m */; };
+		771B63A21B205C560057FD19 /* CreateRegularTeamCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62BF1B205C560057FD19 /* CreateRegularTeamCardViewController.m */; };
+		771B63A31B205C560057FD19 /* CreateTeamAnnouncement.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62C11B205C560057FD19 /* CreateTeamAnnouncement.m */; };
+		771B63A41B205C560057FD19 /* CreateTeamAnnouncement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62C21B205C560057FD19 /* CreateTeamAnnouncement.xib */; };
+		771B63A51B205C560057FD19 /* JionTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62C41B205C560057FD19 /* JionTeamViewController.m */; };
+		771B63A61B205C560057FD19 /* JionTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62C51B205C560057FD19 /* JionTeamViewController.xib */; };
+		771B63A71B205C560057FD19 /* NormalTeamCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62C71B205C560057FD19 /* NormalTeamCardViewController.m */; };
+		771B63A81B205C560057FD19 /* RegularTeamCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62C91B205C560057FD19 /* RegularTeamCardViewController.m */; };
+		771B63A91B205C560057FD19 /* RegularTeamCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62CA1B205C560057FD19 /* RegularTeamCardViewController.xib */; };
+		771B63AA1B205C560057FD19 /* SearchTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62CC1B205C560057FD19 /* SearchTeamViewController.m */; };
+		771B63AB1B205C560057FD19 /* SearchTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62CD1B205C560057FD19 /* SearchTeamViewController.xib */; };
+		771B63AC1B205C560057FD19 /* TeamAnnouncementListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62CF1B205C560057FD19 /* TeamAnnouncementListViewController.m */; };
+		771B63AD1B205C560057FD19 /* TeamAnnouncementListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62D01B205C560057FD19 /* TeamAnnouncementListViewController.xib */; };
+		771B63AE1B205C560057FD19 /* TeamListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62D21B205C560057FD19 /* TeamListViewController.m */; };
+		771B63AF1B205C560057FD19 /* TeamListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62D31B205C560057FD19 /* TeamListViewController.xib */; };
+		771B63B01B205C560057FD19 /* TeamMemberCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62D51B205C560057FD19 /* TeamMemberCardViewController.m */; };
+		771B63B11B205C560057FD19 /* TeamMemberCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62D61B205C560057FD19 /* TeamMemberCardViewController.xib */; };
+		771B63B21B205C560057FD19 /* TeamMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62D81B205C560057FD19 /* TeamMemberListViewController.m */; };
+		771B63B31B205C560057FD19 /* ContactsData.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62DC1B205C560057FD19 /* ContactsData.m */; };
+		771B63B41B205C560057FD19 /* GroupedContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62DE1B205C560057FD19 /* GroupedContacts.m */; };
+		771B63B51B205C560057FD19 /* GroupedDataCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62E01B205C560057FD19 /* GroupedDataCollection.m */; };
+		771B63B61B205C560057FD19 /* GroupedUsrInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62E21B205C560057FD19 /* GroupedUsrInfo.m */; };
+		771B63B71B205C560057FD19 /* ContactDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62E51B205C560057FD19 /* ContactDataCell.m */; };
+		771B63B81B205C560057FD19 /* ContactDataItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62E71B205C560057FD19 /* ContactDataItem.m */; };
+		771B63B91B205C560057FD19 /* ContactPickedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62EA1B205C560057FD19 /* ContactPickedView.m */; };
+		771B63BA1B205C560057FD19 /* ContactUtilCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62EC1B205C560057FD19 /* ContactUtilCell.m */; };
+		771B63BB1B205C560057FD19 /* ContactUtilItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62EE1B205C560057FD19 /* ContactUtilItem.m */; };
+		771B63BC1B205C560057FD19 /* ContactSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62F31B205C560057FD19 /* ContactSelectViewController.m */; };
+		771B63BD1B205C560057FD19 /* ContactSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62F41B205C560057FD19 /* ContactSelectViewController.xib */; };
+		771B63BE1B205C560057FD19 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62F61B205C560057FD19 /* ContactViewController.m */; };
+		771B63BF1B205C560057FD19 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62F71B205C560057FD19 /* ContactViewController.xib */; };
+		771B63C01B205C560057FD19 /* SystemNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62FA1B205C560057FD19 /* SystemNotificationCell.m */; };
+		771B63C11B205C560057FD19 /* SystemNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62FB1B205C560057FD19 /* SystemNotificationCell.xib */; };
+		771B63C21B205C560057FD19 /* SystemNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62FD1B205C560057FD19 /* SystemNotificationViewController.m */; };
+		771B63C31B205C560057FD19 /* SystemNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B62FE1B205C560057FD19 /* SystemNotificationViewController.xib */; };
+		771B63C41B205C560057FD19 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63011B205C560057FD19 /* SettingViewController.m */; };
+		771B63C51B205C560057FD19 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B63021B205C560057FD19 /* SettingViewController.xib */; };
+		771B63C81B205C560057FD19 /* SessionCellActionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B630A1B205C560057FD19 /* SessionCellActionHandler.m */; };
+		771B63C91B205C560057FD19 /* SessionViewLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B630D1B205C560057FD19 /* SessionViewLayoutManager.m */; };
+		771B63CA1B205C560057FD19 /* UserCommandSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B630F1B205C560057FD19 /* UserCommandSender.m */; };
+		771B63CB1B205C560057FD19 /* LocationPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63121B205C560057FD19 /* LocationPoint.m */; };
+		771B63CC1B205C560057FD19 /* SessionMsgConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63151B205C560057FD19 /* SessionMsgConverter.m */; };
+		771B63CD1B205C560057FD19 /* SessionMsgDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63171B205C560057FD19 /* SessionMsgDatasource.m */; };
+		771B63CE1B205C560057FD19 /* SessionMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63191B205C560057FD19 /* SessionMsgModel.m */; };
+		771B63CF1B205C560057FD19 /* AudioRecordIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B631D1B205C560057FD19 /* AudioRecordIndicatorView.m */; };
+		771B63D01B205C560057FD19 /* InputEmoticonButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B631F1B205C560057FD19 /* InputEmoticonButton.m */; };
+		771B63D11B205C560057FD19 /* InputEmoticonContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63211B205C560057FD19 /* InputEmoticonContainerView.m */; };
+		771B63D21B205C560057FD19 /* InputEmoticonTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63231B205C560057FD19 /* InputEmoticonTabView.m */; };
+		771B63D31B205C560057FD19 /* InputMoreContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63251B205C560057FD19 /* InputMoreContainerView.m */; };
+		771B63D41B205C560057FD19 /* InputView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 771B63271B205C560057FD19 /* InputView.mm */; };
+		771B63D51B205C560057FD19 /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B63281B205C560057FD19 /* InputView.xib */; };
+		771B63D61B205C560057FD19 /* NIMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B632B1B205C560057FD19 /* NIMTextView.m */; };
+		771B63D71B205C560057FD19 /* CustomSessionViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63301B205C560057FD19 /* CustomSessionViewHelper.m */; };
+		771B63D81B205C560057FD19 /* SessionAudioContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63321B205C560057FD19 /* SessionAudioContentView.m */; };
+		771B63D91B205C560057FD19 /* SessionCustomContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63341B205C560057FD19 /* SessionCustomContentView.m */; };
+		771B63DA1B205C560057FD19 /* SessionImageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63361B205C560057FD19 /* SessionImageContentView.m */; };
+		771B63DB1B205C560057FD19 /* SessionLocationContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63381B205C560057FD19 /* SessionLocationContentView.m */; };
+		771B63DC1B205C560057FD19 /* SessionMessageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B633A1B205C560057FD19 /* SessionMessageContentView.m */; };
+		771B63DD1B205C560057FD19 /* SessionMsgCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B633C1B205C560057FD19 /* SessionMsgCellFactory.m */; };
+		771B63DE1B205C560057FD19 /* SessionNotificationContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B633E1B205C560057FD19 /* SessionNotificationContentView.m */; };
+		771B63DF1B205C560057FD19 /* SessionTextContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63401B205C560057FD19 /* SessionTextContentView.m */; };
+		771B63E01B205C560057FD19 /* SessionUnknowContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63421B205C560057FD19 /* SessionUnknowContentView.m */; };
+		771B63E11B205C560057FD19 /* SessionVideoContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63441B205C560057FD19 /* SessionVideoContentView.m */; };
+		771B63E21B205C560057FD19 /* SessionMsgModel+SessionCellLayoutProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63461B205C560057FD19 /* SessionMsgModel+SessionCellLayoutProtocol.m */; };
+		771B63E31B205C560057FD19 /* SessionTipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63481B205C560057FD19 /* SessionTipCell.m */; };
+		771B63E41B205C560057FD19 /* SessionTipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B63491B205C560057FD19 /* SessionTipCell.xib */; };
+		771B63E51B205C560057FD19 /* SessionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B634B1B205C560057FD19 /* SessionViewCell.m */; };
+		771B63E61B205C560057FD19 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B634F1B205C560057FD19 /* GalleryViewController.m */; };
+		771B63E71B205C560057FD19 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B63501B205C560057FD19 /* GalleryViewController.xib */; };
+		771B63E81B205C560057FD19 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63531B205C560057FD19 /* LocationViewController.m */; };
+		771B63E91B205C560057FD19 /* LocationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B63541B205C560057FD19 /* LocationViewController.xib */; };
+		771B63EA1B205C560057FD19 /* SessionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63561B205C560057FD19 /* SessionViewController.m */; };
+		771B63EB1B205C560057FD19 /* SessionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B63571B205C560057FD19 /* SessionViewController.xib */; };
+		771B63EC1B205C560057FD19 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B635A1B205C560057FD19 /* VideoViewController.m */; };
+		771B63ED1B205C560057FD19 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B635B1B205C560057FD19 /* VideoViewController.xib */; };
+		771B63EE1B205C560057FD19 /* SessionListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63601B205C560057FD19 /* SessionListCell.m */; };
+		771B63EF1B205C560057FD19 /* SessionListHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63621B205C560057FD19 /* SessionListHeader.m */; };
+		771B63F01B205C560057FD19 /* SessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63651B205C560057FD19 /* SessionListViewController.m */; };
+		771B63F11B205C560057FD19 /* SessionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B63661B205C560057FD19 /* SessionListViewController.xib */; };
+		771B63F21B205C560057FD19 /* ContactUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63691B205C560057FD19 /* ContactUtil.m */; };
+		771B63F31B205C560057FD19 /* EmoticonManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 771B636C1B205C560057FD19 /* EmoticonManager.mm */; };
+		771B63F41B205C560057FD19 /* EmoticonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B636E1B205C560057FD19 /* EmoticonParser.m */; };
+		771B63F51B205C560057FD19 /* FileLocationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63701B205C560057FD19 /* FileLocationHelper.m */; };
+		771B63F61B205C560057FD19 /* LogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63721B205C560057FD19 /* LogManager.m */; };
+		771B63F71B205C560057FD19 /* LogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63741B205C560057FD19 /* LogViewController.m */; };
+		771B63F81B205C560057FD19 /* LogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771B63751B205C560057FD19 /* LogViewController.xib */; };
+		771B63F91B205C560057FD19 /* M80TimerHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63771B205C560057FD19 /* M80TimerHolder.m */; };
+		771B63FA1B205C560057FD19 /* NIMHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63791B205C560057FD19 /* NIMHttpRequest.m */; };
+		771B63FB1B205C560057FD19 /* NIMKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B637B1B205C560057FD19 /* NIMKeychain.m */; };
+		771B63FC1B205C560057FD19 /* NIMNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B637D1B205C560057FD19 /* NIMNotificationCenter.m */; };
+		771B63FD1B205C560057FD19 /* NIMService.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B637F1B205C560057FD19 /* NIMService.m */; };
+		771B63FE1B205C560057FD19 /* SessionUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63811B205C560057FD19 /* SessionUtil.m */; };
+		771B63FF1B205C560057FD19 /* PinyinConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 771B63841B205C560057FD19 /* PinyinConverter.mm */; };
+		771B64001B205C560057FD19 /* SpellingCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 771B63861B205C560057FD19 /* SpellingCenter.mm */; };
+		771B64011B205C560057FD19 /* TokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B63881B205C560057FD19 /* TokenManager.m */; };
 		77376C601B00ADFE00DA19D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C5F1B00ADFE00DA19D8 /* main.m */; };
 		77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C621B00ADFE00DA19D8 /* AppDelegate.m */; };
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
@@ -163,6 +282,231 @@
 		771B627E1B20525A0057FD19 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		771B62801B2052620057FD19 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		771B62821B20526A0057FD19 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		771B62861B205C560057FD19 /* M80AttributedLabel+NIM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "M80AttributedLabel+NIM.h"; sourceTree = "<group>"; };
+		771B62871B205C560057FD19 /* M80AttributedLabel+NIM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "M80AttributedLabel+NIM.m"; sourceTree = "<group>"; };
+		771B62881B205C560057FD19 /* NSDictionary+Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Json.h"; sourceTree = "<group>"; };
+		771B62891B205C560057FD19 /* NSDictionary+Json.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Json.m"; sourceTree = "<group>"; };
+		771B628A1B205C560057FD19 /* NSString+NIMDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NIMDemo.h"; sourceTree = "<group>"; };
+		771B628B1B205C560057FD19 /* NSString+NIMDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NIMDemo.m"; sourceTree = "<group>"; };
+		771B628C1B205C560057FD19 /* UIActionSheet+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Block.h"; sourceTree = "<group>"; };
+		771B628D1B205C560057FD19 /* UIActionSheet+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Block.m"; sourceTree = "<group>"; };
+		771B628E1B205C560057FD19 /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
+		771B628F1B205C560057FD19 /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		771B62901B205C560057FD19 /* UIResponder+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Router.h"; sourceTree = "<group>"; };
+		771B62911B205C560057FD19 /* UIResponder+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Router.m"; sourceTree = "<group>"; };
+		771B62921B205C560057FD19 /* UITableView+ScrollToBottom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+ScrollToBottom.h"; sourceTree = "<group>"; };
+		771B62931B205C560057FD19 /* UITableView+ScrollToBottom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ScrollToBottom.m"; sourceTree = "<group>"; };
+		771B62941B205C560057FD19 /* UIView+NIMDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+NIMDemo.h"; sourceTree = "<group>"; };
+		771B62951B205C560057FD19 /* UIView+NIMDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+NIMDemo.m"; sourceTree = "<group>"; };
+		771B62971B205C560057FD19 /* AvatarImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarImageView.h; sourceTree = "<group>"; };
+		771B62981B205C560057FD19 /* AvatarImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarImageView.m; sourceTree = "<group>"; };
+		771B62991B205C560057FD19 /* BadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeView.h; sourceTree = "<group>"; };
+		771B629A1B205C560057FD19 /* BadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeView.m; sourceTree = "<group>"; };
+		771B629B1B205C560057FD19 /* CustomLeftBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLeftBarView.h; sourceTree = "<group>"; };
+		771B629C1B205C560057FD19 /* CustomLeftBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLeftBarView.m; sourceTree = "<group>"; };
+		771B629D1B205C560057FD19 /* LoadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadProgressView.h; sourceTree = "<group>"; };
+		771B629E1B205C560057FD19 /* LoadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadProgressView.m; sourceTree = "<group>"; };
+		771B629F1B205C560057FD19 /* MarginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarginButton.h; sourceTree = "<group>"; };
+		771B62A01B205C560057FD19 /* MarginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarginButton.m; sourceTree = "<group>"; };
+		771B62A11B205C560057FD19 /* PageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
+		771B62A21B205C560057FD19 /* PageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
+		771B62A61B205C560057FD19 /* CardDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDataSourceProtocol.h; sourceTree = "<group>"; };
+		771B62A71B205C560057FD19 /* CardMemberItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMemberItem.h; sourceTree = "<group>"; };
+		771B62A81B205C560057FD19 /* CardMemberItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMemberItem.m; sourceTree = "<group>"; };
+		771B62A91B205C560057FD19 /* TeamCardOperationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCardOperationItem.h; sourceTree = "<group>"; };
+		771B62AA1B205C560057FD19 /* TeamCardOperationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCardOperationItem.m; sourceTree = "<group>"; };
+		771B62AB1B205C560057FD19 /* TeamCardRowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCardRowItem.h; sourceTree = "<group>"; };
+		771B62AC1B205C560057FD19 /* TeamCardRowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCardRowItem.m; sourceTree = "<group>"; };
+		771B62AD1B205C560057FD19 /* UsrInfoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsrInfoData.h; sourceTree = "<group>"; };
+		771B62AE1B205C560057FD19 /* UsrInfoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsrInfoData.m; sourceTree = "<group>"; };
+		771B62B01B205C560057FD19 /* RegularTeamMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularTeamMemberCell.h; sourceTree = "<group>"; };
+		771B62B11B205C560057FD19 /* RegularTeamMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularTeamMemberCell.m; sourceTree = "<group>"; };
+		771B62B21B205C560057FD19 /* TeamAnnouncementListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamAnnouncementListCell.h; sourceTree = "<group>"; };
+		771B62B31B205C560057FD19 /* TeamAnnouncementListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamAnnouncementListCell.m; sourceTree = "<group>"; };
+		771B62B41B205C560057FD19 /* TeamAnnouncementListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamAnnouncementListCell.xib; sourceTree = "<group>"; };
+		771B62B51B205C560057FD19 /* TeamButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamButtonCell.h; sourceTree = "<group>"; };
+		771B62B61B205C560057FD19 /* TeamButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamButtonCell.m; sourceTree = "<group>"; };
+		771B62B71B205C560057FD19 /* TeamCardHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCardHeaderCell.h; sourceTree = "<group>"; };
+		771B62B81B205C560057FD19 /* TeamCardHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCardHeaderCell.m; sourceTree = "<group>"; };
+		771B62BA1B205C560057FD19 /* BaseCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCardViewController.h; sourceTree = "<group>"; };
+		771B62BB1B205C560057FD19 /* BaseCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCardViewController.m; sourceTree = "<group>"; };
+		771B62BC1B205C560057FD19 /* CreateNormalTeamCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateNormalTeamCardViewController.h; sourceTree = "<group>"; };
+		771B62BD1B205C560057FD19 /* CreateNormalTeamCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNormalTeamCardViewController.m; sourceTree = "<group>"; };
+		771B62BE1B205C560057FD19 /* CreateRegularTeamCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateRegularTeamCardViewController.h; sourceTree = "<group>"; };
+		771B62BF1B205C560057FD19 /* CreateRegularTeamCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateRegularTeamCardViewController.m; sourceTree = "<group>"; };
+		771B62C01B205C560057FD19 /* CreateTeamAnnouncement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTeamAnnouncement.h; sourceTree = "<group>"; };
+		771B62C11B205C560057FD19 /* CreateTeamAnnouncement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateTeamAnnouncement.m; sourceTree = "<group>"; };
+		771B62C21B205C560057FD19 /* CreateTeamAnnouncement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateTeamAnnouncement.xib; sourceTree = "<group>"; };
+		771B62C31B205C560057FD19 /* JionTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JionTeamViewController.h; sourceTree = "<group>"; };
+		771B62C41B205C560057FD19 /* JionTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JionTeamViewController.m; sourceTree = "<group>"; };
+		771B62C51B205C560057FD19 /* JionTeamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JionTeamViewController.xib; sourceTree = "<group>"; };
+		771B62C61B205C560057FD19 /* NormalTeamCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalTeamCardViewController.h; sourceTree = "<group>"; };
+		771B62C71B205C560057FD19 /* NormalTeamCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalTeamCardViewController.m; sourceTree = "<group>"; };
+		771B62C81B205C560057FD19 /* RegularTeamCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularTeamCardViewController.h; sourceTree = "<group>"; };
+		771B62C91B205C560057FD19 /* RegularTeamCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularTeamCardViewController.m; sourceTree = "<group>"; };
+		771B62CA1B205C560057FD19 /* RegularTeamCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegularTeamCardViewController.xib; sourceTree = "<group>"; };
+		771B62CB1B205C560057FD19 /* SearchTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTeamViewController.h; sourceTree = "<group>"; };
+		771B62CC1B205C560057FD19 /* SearchTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTeamViewController.m; sourceTree = "<group>"; };
+		771B62CD1B205C560057FD19 /* SearchTeamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchTeamViewController.xib; sourceTree = "<group>"; };
+		771B62CE1B205C560057FD19 /* TeamAnnouncementListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamAnnouncementListViewController.h; sourceTree = "<group>"; };
+		771B62CF1B205C560057FD19 /* TeamAnnouncementListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamAnnouncementListViewController.m; sourceTree = "<group>"; };
+		771B62D01B205C560057FD19 /* TeamAnnouncementListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamAnnouncementListViewController.xib; sourceTree = "<group>"; };
+		771B62D11B205C560057FD19 /* TeamListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamListViewController.h; sourceTree = "<group>"; };
+		771B62D21B205C560057FD19 /* TeamListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamListViewController.m; sourceTree = "<group>"; };
+		771B62D31B205C560057FD19 /* TeamListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamListViewController.xib; sourceTree = "<group>"; };
+		771B62D41B205C560057FD19 /* TeamMemberCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamMemberCardViewController.h; sourceTree = "<group>"; };
+		771B62D51B205C560057FD19 /* TeamMemberCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamMemberCardViewController.m; sourceTree = "<group>"; };
+		771B62D61B205C560057FD19 /* TeamMemberCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamMemberCardViewController.xib; sourceTree = "<group>"; };
+		771B62D71B205C560057FD19 /* TeamMemberListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamMemberListViewController.h; sourceTree = "<group>"; };
+		771B62D81B205C560057FD19 /* TeamMemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamMemberListViewController.m; sourceTree = "<group>"; };
+		771B62DB1B205C560057FD19 /* ContactsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsData.h; sourceTree = "<group>"; };
+		771B62DC1B205C560057FD19 /* ContactsData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsData.m; sourceTree = "<group>"; };
+		771B62DD1B205C560057FD19 /* GroupedContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupedContacts.h; sourceTree = "<group>"; };
+		771B62DE1B205C560057FD19 /* GroupedContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupedContacts.m; sourceTree = "<group>"; };
+		771B62DF1B205C560057FD19 /* GroupedDataCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupedDataCollection.h; sourceTree = "<group>"; };
+		771B62E01B205C560057FD19 /* GroupedDataCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupedDataCollection.m; sourceTree = "<group>"; };
+		771B62E11B205C560057FD19 /* GroupedUsrInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupedUsrInfo.h; sourceTree = "<group>"; };
+		771B62E21B205C560057FD19 /* GroupedUsrInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupedUsrInfo.m; sourceTree = "<group>"; };
+		771B62E41B205C560057FD19 /* ContactDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDataCell.h; sourceTree = "<group>"; };
+		771B62E51B205C560057FD19 /* ContactDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDataCell.m; sourceTree = "<group>"; };
+		771B62E61B205C560057FD19 /* ContactDataItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDataItem.h; sourceTree = "<group>"; };
+		771B62E71B205C560057FD19 /* ContactDataItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDataItem.m; sourceTree = "<group>"; };
+		771B62E81B205C560057FD19 /* ContactDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDefines.h; sourceTree = "<group>"; };
+		771B62E91B205C560057FD19 /* ContactPickedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactPickedView.h; sourceTree = "<group>"; };
+		771B62EA1B205C560057FD19 /* ContactPickedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactPickedView.m; sourceTree = "<group>"; };
+		771B62EB1B205C560057FD19 /* ContactUtilCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUtilCell.h; sourceTree = "<group>"; };
+		771B62EC1B205C560057FD19 /* ContactUtilCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUtilCell.m; sourceTree = "<group>"; };
+		771B62ED1B205C560057FD19 /* ContactUtilItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUtilItem.h; sourceTree = "<group>"; };
+		771B62EE1B205C560057FD19 /* ContactUtilItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUtilItem.m; sourceTree = "<group>"; };
+		771B62F11B205C560057FD19 /* ContactDemoDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDemoDefine.h; sourceTree = "<group>"; };
+		771B62F21B205C560057FD19 /* ContactSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactSelectViewController.h; sourceTree = "<group>"; };
+		771B62F31B205C560057FD19 /* ContactSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactSelectViewController.m; sourceTree = "<group>"; };
+		771B62F41B205C560057FD19 /* ContactSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactSelectViewController.xib; sourceTree = "<group>"; };
+		771B62F51B205C560057FD19 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		771B62F61B205C560057FD19 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		771B62F71B205C560057FD19 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
+		771B62F91B205C560057FD19 /* SystemNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemNotificationCell.h; sourceTree = "<group>"; };
+		771B62FA1B205C560057FD19 /* SystemNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemNotificationCell.m; sourceTree = "<group>"; };
+		771B62FB1B205C560057FD19 /* SystemNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemNotificationCell.xib; sourceTree = "<group>"; };
+		771B62FC1B205C560057FD19 /* SystemNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemNotificationViewController.h; sourceTree = "<group>"; };
+		771B62FD1B205C560057FD19 /* SystemNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemNotificationViewController.m; sourceTree = "<group>"; };
+		771B62FE1B205C560057FD19 /* SystemNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemNotificationViewController.xib; sourceTree = "<group>"; };
+		771B63001B205C560057FD19 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		771B63011B205C560057FD19 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		771B63021B205C560057FD19 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		771B63091B205C560057FD19 /* SessionCellActionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionCellActionHandler.h; sourceTree = "<group>"; };
+		771B630A1B205C560057FD19 /* SessionCellActionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionCellActionHandler.m; sourceTree = "<group>"; };
+		771B630B1B205C560057FD19 /* SessionLogicDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionLogicDelegate.h; sourceTree = "<group>"; };
+		771B630C1B205C560057FD19 /* SessionViewLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewLayoutManager.h; sourceTree = "<group>"; };
+		771B630D1B205C560057FD19 /* SessionViewLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewLayoutManager.m; sourceTree = "<group>"; };
+		771B630E1B205C560057FD19 /* UserCommandSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommandSender.h; sourceTree = "<group>"; };
+		771B630F1B205C560057FD19 /* UserCommandSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommandSender.m; sourceTree = "<group>"; };
+		771B63111B205C560057FD19 /* LocationPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPoint.h; sourceTree = "<group>"; };
+		771B63121B205C560057FD19 /* LocationPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPoint.m; sourceTree = "<group>"; };
+		771B63131B205C560057FD19 /* SessionFileStatusProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionFileStatusProtocol.h; sourceTree = "<group>"; };
+		771B63141B205C560057FD19 /* SessionMsgConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMsgConverter.h; sourceTree = "<group>"; };
+		771B63151B205C560057FD19 /* SessionMsgConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionMsgConverter.m; sourceTree = "<group>"; };
+		771B63161B205C560057FD19 /* SessionMsgDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMsgDatasource.h; sourceTree = "<group>"; };
+		771B63171B205C560057FD19 /* SessionMsgDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionMsgDatasource.m; sourceTree = "<group>"; };
+		771B63181B205C560057FD19 /* SessionMsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMsgModel.h; sourceTree = "<group>"; };
+		771B63191B205C560057FD19 /* SessionMsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionMsgModel.m; sourceTree = "<group>"; };
+		771B631C1B205C560057FD19 /* AudioRecordIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioRecordIndicatorView.h; sourceTree = "<group>"; };
+		771B631D1B205C560057FD19 /* AudioRecordIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioRecordIndicatorView.m; sourceTree = "<group>"; };
+		771B631E1B205C560057FD19 /* InputEmoticonButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputEmoticonButton.h; sourceTree = "<group>"; };
+		771B631F1B205C560057FD19 /* InputEmoticonButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputEmoticonButton.m; sourceTree = "<group>"; };
+		771B63201B205C560057FD19 /* InputEmoticonContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputEmoticonContainerView.h; sourceTree = "<group>"; };
+		771B63211B205C560057FD19 /* InputEmoticonContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputEmoticonContainerView.m; sourceTree = "<group>"; };
+		771B63221B205C560057FD19 /* InputEmoticonTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputEmoticonTabView.h; sourceTree = "<group>"; };
+		771B63231B205C560057FD19 /* InputEmoticonTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputEmoticonTabView.m; sourceTree = "<group>"; };
+		771B63241B205C560057FD19 /* InputMoreContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputMoreContainerView.h; sourceTree = "<group>"; };
+		771B63251B205C560057FD19 /* InputMoreContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputMoreContainerView.m; sourceTree = "<group>"; };
+		771B63261B205C560057FD19 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		771B63271B205C560057FD19 /* InputView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = InputView.mm; sourceTree = "<group>"; };
+		771B63281B205C560057FD19 /* InputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
+		771B63291B205C560057FD19 /* NIMInputViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMInputViewDelegate.h; sourceTree = "<group>"; };
+		771B632A1B205C560057FD19 /* NIMTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMTextView.h; sourceTree = "<group>"; };
+		771B632B1B205C560057FD19 /* NIMTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMTextView.m; sourceTree = "<group>"; };
+		771B632D1B205C560057FD19 /* SessionCellLayoutConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionCellLayoutConstant.h; sourceTree = "<group>"; };
+		771B632F1B205C560057FD19 /* CustomSessionViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSessionViewHelper.h; sourceTree = "<group>"; };
+		771B63301B205C560057FD19 /* CustomSessionViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSessionViewHelper.m; sourceTree = "<group>"; };
+		771B63311B205C560057FD19 /* SessionAudioContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionAudioContentView.h; sourceTree = "<group>"; };
+		771B63321B205C560057FD19 /* SessionAudioContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionAudioContentView.m; sourceTree = "<group>"; };
+		771B63331B205C560057FD19 /* SessionCustomContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionCustomContentView.h; sourceTree = "<group>"; };
+		771B63341B205C560057FD19 /* SessionCustomContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionCustomContentView.m; sourceTree = "<group>"; };
+		771B63351B205C560057FD19 /* SessionImageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionImageContentView.h; sourceTree = "<group>"; };
+		771B63361B205C560057FD19 /* SessionImageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionImageContentView.m; sourceTree = "<group>"; };
+		771B63371B205C560057FD19 /* SessionLocationContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionLocationContentView.h; sourceTree = "<group>"; };
+		771B63381B205C560057FD19 /* SessionLocationContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionLocationContentView.m; sourceTree = "<group>"; };
+		771B63391B205C560057FD19 /* SessionMessageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMessageContentView.h; sourceTree = "<group>"; };
+		771B633A1B205C560057FD19 /* SessionMessageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionMessageContentView.m; sourceTree = "<group>"; };
+		771B633B1B205C560057FD19 /* SessionMsgCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionMsgCellFactory.h; sourceTree = "<group>"; };
+		771B633C1B205C560057FD19 /* SessionMsgCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionMsgCellFactory.m; sourceTree = "<group>"; };
+		771B633D1B205C560057FD19 /* SessionNotificationContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionNotificationContentView.h; sourceTree = "<group>"; };
+		771B633E1B205C560057FD19 /* SessionNotificationContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionNotificationContentView.m; sourceTree = "<group>"; };
+		771B633F1B205C560057FD19 /* SessionTextContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTextContentView.h; sourceTree = "<group>"; };
+		771B63401B205C560057FD19 /* SessionTextContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTextContentView.m; sourceTree = "<group>"; };
+		771B63411B205C560057FD19 /* SessionUnknowContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionUnknowContentView.h; sourceTree = "<group>"; };
+		771B63421B205C560057FD19 /* SessionUnknowContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionUnknowContentView.m; sourceTree = "<group>"; };
+		771B63431B205C560057FD19 /* SessionVideoContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionVideoContentView.h; sourceTree = "<group>"; };
+		771B63441B205C560057FD19 /* SessionVideoContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionVideoContentView.m; sourceTree = "<group>"; };
+		771B63451B205C560057FD19 /* SessionMsgModel+SessionCellLayoutProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SessionMsgModel+SessionCellLayoutProtocol.h"; sourceTree = "<group>"; };
+		771B63461B205C560057FD19 /* SessionMsgModel+SessionCellLayoutProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SessionMsgModel+SessionCellLayoutProtocol.m"; sourceTree = "<group>"; };
+		771B63471B205C560057FD19 /* SessionTipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionTipCell.h; sourceTree = "<group>"; };
+		771B63481B205C560057FD19 /* SessionTipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionTipCell.m; sourceTree = "<group>"; };
+		771B63491B205C560057FD19 /* SessionTipCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionTipCell.xib; sourceTree = "<group>"; };
+		771B634A1B205C560057FD19 /* SessionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewCell.h; sourceTree = "<group>"; };
+		771B634B1B205C560057FD19 /* SessionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewCell.m; sourceTree = "<group>"; };
+		771B634E1B205C560057FD19 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		771B634F1B205C560057FD19 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		771B63501B205C560057FD19 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		771B63521B205C560057FD19 /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		771B63531B205C560057FD19 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		771B63541B205C560057FD19 /* LocationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
+		771B63551B205C560057FD19 /* SessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionViewController.h; sourceTree = "<group>"; };
+		771B63561B205C560057FD19 /* SessionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionViewController.m; sourceTree = "<group>"; };
+		771B63571B205C560057FD19 /* SessionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionViewController.xib; sourceTree = "<group>"; };
+		771B63591B205C560057FD19 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		771B635A1B205C560057FD19 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		771B635B1B205C560057FD19 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		771B635F1B205C560057FD19 /* SessionListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionListCell.h; sourceTree = "<group>"; };
+		771B63601B205C560057FD19 /* SessionListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionListCell.m; sourceTree = "<group>"; };
+		771B63611B205C560057FD19 /* SessionListHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionListHeader.h; sourceTree = "<group>"; };
+		771B63621B205C560057FD19 /* SessionListHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionListHeader.m; sourceTree = "<group>"; };
+		771B63641B205C560057FD19 /* SessionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionListViewController.h; sourceTree = "<group>"; };
+		771B63651B205C560057FD19 /* SessionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionListViewController.m; sourceTree = "<group>"; };
+		771B63661B205C560057FD19 /* SessionListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionListViewController.xib; sourceTree = "<group>"; };
+		771B63681B205C560057FD19 /* ContactUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUtil.h; sourceTree = "<group>"; };
+		771B63691B205C560057FD19 /* ContactUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUtil.m; sourceTree = "<group>"; };
+		771B636B1B205C560057FD19 /* EmoticonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmoticonManager.h; sourceTree = "<group>"; };
+		771B636C1B205C560057FD19 /* EmoticonManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EmoticonManager.mm; sourceTree = "<group>"; };
+		771B636D1B205C560057FD19 /* EmoticonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmoticonParser.h; sourceTree = "<group>"; };
+		771B636E1B205C560057FD19 /* EmoticonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmoticonParser.m; sourceTree = "<group>"; };
+		771B636F1B205C560057FD19 /* FileLocationHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileLocationHelper.h; sourceTree = "<group>"; };
+		771B63701B205C560057FD19 /* FileLocationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileLocationHelper.m; sourceTree = "<group>"; };
+		771B63711B205C560057FD19 /* LogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogManager.h; sourceTree = "<group>"; };
+		771B63721B205C560057FD19 /* LogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogManager.m; sourceTree = "<group>"; };
+		771B63731B205C560057FD19 /* LogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogViewController.h; sourceTree = "<group>"; };
+		771B63741B205C560057FD19 /* LogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogViewController.m; sourceTree = "<group>"; };
+		771B63751B205C560057FD19 /* LogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogViewController.xib; sourceTree = "<group>"; };
+		771B63761B205C560057FD19 /* M80TimerHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80TimerHolder.h; sourceTree = "<group>"; };
+		771B63771B205C560057FD19 /* M80TimerHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80TimerHolder.m; sourceTree = "<group>"; };
+		771B63781B205C560057FD19 /* NIMHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMHttpRequest.h; sourceTree = "<group>"; };
+		771B63791B205C560057FD19 /* NIMHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMHttpRequest.m; sourceTree = "<group>"; };
+		771B637A1B205C560057FD19 /* NIMKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMKeychain.h; sourceTree = "<group>"; };
+		771B637B1B205C560057FD19 /* NIMKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMKeychain.m; sourceTree = "<group>"; };
+		771B637C1B205C560057FD19 /* NIMNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMNotificationCenter.h; sourceTree = "<group>"; };
+		771B637D1B205C560057FD19 /* NIMNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMNotificationCenter.m; sourceTree = "<group>"; };
+		771B637E1B205C560057FD19 /* NIMService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NIMService.h; sourceTree = "<group>"; };
+		771B637F1B205C560057FD19 /* NIMService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NIMService.m; sourceTree = "<group>"; };
+		771B63801B205C560057FD19 /* SessionUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionUtil.h; sourceTree = "<group>"; };
+		771B63811B205C560057FD19 /* SessionUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionUtil.m; sourceTree = "<group>"; };
+		771B63831B205C560057FD19 /* PinyinConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinConverter.h; sourceTree = "<group>"; };
+		771B63841B205C560057FD19 /* PinyinConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PinyinConverter.mm; sourceTree = "<group>"; };
+		771B63851B205C560057FD19 /* SpellingCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpellingCenter.h; sourceTree = "<group>"; };
+		771B63861B205C560057FD19 /* SpellingCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SpellingCenter.mm; sourceTree = "<group>"; };
+		771B63871B205C560057FD19 /* TokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TokenManager.h; sourceTree = "<group>"; };
+		771B63881B205C560057FD19 /* TokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokenManager.m; sourceTree = "<group>"; };
+		771B64021B206CD20057FD19 /* GlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacro.h; sourceTree = "<group>"; };
 		77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuaiGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C5E1B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C5F1B00ADFE00DA19D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -358,6 +702,7 @@
 		770669441B01AA1F004E1396 /* 聊天 */ = {
 			isa = PBXGroup;
 			children = (
+				771B62841B205C560057FD19 /* Classes */,
 				7706694C1B01ABAC004E1396 /* Chat.storyboard */,
 				77AD455C1B01B02D0094326D /* KGChatListViewController.h */,
 				77AD455D1B01B02D0094326D /* KGChatListViewController.m */,
@@ -499,6 +844,493 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		771B62841B205C560057FD19 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				771B62851B205C560057FD19 /* Category */,
+				771B62961B205C560057FD19 /* CustomUI */,
+				771B62A31B205C560057FD19 /* Sections */,
+				771B63671B205C560057FD19 /* Util */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		771B62851B205C560057FD19 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				771B62861B205C560057FD19 /* M80AttributedLabel+NIM.h */,
+				771B62871B205C560057FD19 /* M80AttributedLabel+NIM.m */,
+				771B62881B205C560057FD19 /* NSDictionary+Json.h */,
+				771B62891B205C560057FD19 /* NSDictionary+Json.m */,
+				771B628A1B205C560057FD19 /* NSString+NIMDemo.h */,
+				771B628B1B205C560057FD19 /* NSString+NIMDemo.m */,
+				771B628C1B205C560057FD19 /* UIActionSheet+Block.h */,
+				771B628D1B205C560057FD19 /* UIActionSheet+Block.m */,
+				771B628E1B205C560057FD19 /* UIAlertView+Block.h */,
+				771B628F1B205C560057FD19 /* UIAlertView+Block.m */,
+				771B62901B205C560057FD19 /* UIResponder+Router.h */,
+				771B62911B205C560057FD19 /* UIResponder+Router.m */,
+				771B62921B205C560057FD19 /* UITableView+ScrollToBottom.h */,
+				771B62931B205C560057FD19 /* UITableView+ScrollToBottom.m */,
+				771B62941B205C560057FD19 /* UIView+NIMDemo.h */,
+				771B62951B205C560057FD19 /* UIView+NIMDemo.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		771B62961B205C560057FD19 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				771B62971B205C560057FD19 /* AvatarImageView.h */,
+				771B62981B205C560057FD19 /* AvatarImageView.m */,
+				771B62991B205C560057FD19 /* BadgeView.h */,
+				771B629A1B205C560057FD19 /* BadgeView.m */,
+				771B629B1B205C560057FD19 /* CustomLeftBarView.h */,
+				771B629C1B205C560057FD19 /* CustomLeftBarView.m */,
+				771B629D1B205C560057FD19 /* LoadProgressView.h */,
+				771B629E1B205C560057FD19 /* LoadProgressView.m */,
+				771B629F1B205C560057FD19 /* MarginButton.h */,
+				771B62A01B205C560057FD19 /* MarginButton.m */,
+				771B62A11B205C560057FD19 /* PageView.h */,
+				771B62A21B205C560057FD19 /* PageView.m */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		771B62A31B205C560057FD19 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				771B62A41B205C560057FD19 /* Card */,
+				771B62D91B205C560057FD19 /* Contact */,
+				771B63071B205C560057FD19 /* Session */,
+				771B635C1B205C560057FD19 /* SessionList */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		771B62A41B205C560057FD19 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				771B62A51B205C560057FD19 /* Model */,
+				771B62AF1B205C560057FD19 /* View */,
+				771B62B91B205C560057FD19 /* ViewController */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		771B62A51B205C560057FD19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				771B62A61B205C560057FD19 /* CardDataSourceProtocol.h */,
+				771B62A71B205C560057FD19 /* CardMemberItem.h */,
+				771B62A81B205C560057FD19 /* CardMemberItem.m */,
+				771B62A91B205C560057FD19 /* TeamCardOperationItem.h */,
+				771B62AA1B205C560057FD19 /* TeamCardOperationItem.m */,
+				771B62AB1B205C560057FD19 /* TeamCardRowItem.h */,
+				771B62AC1B205C560057FD19 /* TeamCardRowItem.m */,
+				771B62AD1B205C560057FD19 /* UsrInfoData.h */,
+				771B62AE1B205C560057FD19 /* UsrInfoData.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		771B62AF1B205C560057FD19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				771B62B01B205C560057FD19 /* RegularTeamMemberCell.h */,
+				771B62B11B205C560057FD19 /* RegularTeamMemberCell.m */,
+				771B62B21B205C560057FD19 /* TeamAnnouncementListCell.h */,
+				771B62B31B205C560057FD19 /* TeamAnnouncementListCell.m */,
+				771B62B41B205C560057FD19 /* TeamAnnouncementListCell.xib */,
+				771B62B51B205C560057FD19 /* TeamButtonCell.h */,
+				771B62B61B205C560057FD19 /* TeamButtonCell.m */,
+				771B62B71B205C560057FD19 /* TeamCardHeaderCell.h */,
+				771B62B81B205C560057FD19 /* TeamCardHeaderCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		771B62B91B205C560057FD19 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				771B62BA1B205C560057FD19 /* BaseCardViewController.h */,
+				771B62BB1B205C560057FD19 /* BaseCardViewController.m */,
+				771B62BC1B205C560057FD19 /* CreateNormalTeamCardViewController.h */,
+				771B62BD1B205C560057FD19 /* CreateNormalTeamCardViewController.m */,
+				771B62BE1B205C560057FD19 /* CreateRegularTeamCardViewController.h */,
+				771B62BF1B205C560057FD19 /* CreateRegularTeamCardViewController.m */,
+				771B62C01B205C560057FD19 /* CreateTeamAnnouncement.h */,
+				771B62C11B205C560057FD19 /* CreateTeamAnnouncement.m */,
+				771B62C21B205C560057FD19 /* CreateTeamAnnouncement.xib */,
+				771B62C31B205C560057FD19 /* JionTeamViewController.h */,
+				771B62C41B205C560057FD19 /* JionTeamViewController.m */,
+				771B62C51B205C560057FD19 /* JionTeamViewController.xib */,
+				771B62C61B205C560057FD19 /* NormalTeamCardViewController.h */,
+				771B62C71B205C560057FD19 /* NormalTeamCardViewController.m */,
+				771B62C81B205C560057FD19 /* RegularTeamCardViewController.h */,
+				771B62C91B205C560057FD19 /* RegularTeamCardViewController.m */,
+				771B62CA1B205C560057FD19 /* RegularTeamCardViewController.xib */,
+				771B62CB1B205C560057FD19 /* SearchTeamViewController.h */,
+				771B62CC1B205C560057FD19 /* SearchTeamViewController.m */,
+				771B62CD1B205C560057FD19 /* SearchTeamViewController.xib */,
+				771B62CE1B205C560057FD19 /* TeamAnnouncementListViewController.h */,
+				771B62CF1B205C560057FD19 /* TeamAnnouncementListViewController.m */,
+				771B62D01B205C560057FD19 /* TeamAnnouncementListViewController.xib */,
+				771B62D11B205C560057FD19 /* TeamListViewController.h */,
+				771B62D21B205C560057FD19 /* TeamListViewController.m */,
+				771B62D31B205C560057FD19 /* TeamListViewController.xib */,
+				771B62D41B205C560057FD19 /* TeamMemberCardViewController.h */,
+				771B62D51B205C560057FD19 /* TeamMemberCardViewController.m */,
+				771B62D61B205C560057FD19 /* TeamMemberCardViewController.xib */,
+				771B62D71B205C560057FD19 /* TeamMemberListViewController.h */,
+				771B62D81B205C560057FD19 /* TeamMemberListViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		771B62D91B205C560057FD19 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				771B62DA1B205C560057FD19 /* Model */,
+				771B62E31B205C560057FD19 /* View */,
+				771B62EF1B205C560057FD19 /* ViewController */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		771B62DA1B205C560057FD19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				771B62DB1B205C560057FD19 /* ContactsData.h */,
+				771B62DC1B205C560057FD19 /* ContactsData.m */,
+				771B62DD1B205C560057FD19 /* GroupedContacts.h */,
+				771B62DE1B205C560057FD19 /* GroupedContacts.m */,
+				771B62DF1B205C560057FD19 /* GroupedDataCollection.h */,
+				771B62E01B205C560057FD19 /* GroupedDataCollection.m */,
+				771B62E11B205C560057FD19 /* GroupedUsrInfo.h */,
+				771B62E21B205C560057FD19 /* GroupedUsrInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		771B62E31B205C560057FD19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				771B62E41B205C560057FD19 /* ContactDataCell.h */,
+				771B62E51B205C560057FD19 /* ContactDataCell.m */,
+				771B62E61B205C560057FD19 /* ContactDataItem.h */,
+				771B62E71B205C560057FD19 /* ContactDataItem.m */,
+				771B62E81B205C560057FD19 /* ContactDefines.h */,
+				771B62E91B205C560057FD19 /* ContactPickedView.h */,
+				771B62EA1B205C560057FD19 /* ContactPickedView.m */,
+				771B62EB1B205C560057FD19 /* ContactUtilCell.h */,
+				771B62EC1B205C560057FD19 /* ContactUtilCell.m */,
+				771B62ED1B205C560057FD19 /* ContactUtilItem.h */,
+				771B62EE1B205C560057FD19 /* ContactUtilItem.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		771B62EF1B205C560057FD19 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				771B62F01B205C560057FD19 /* Contact */,
+				771B62F81B205C560057FD19 /* Notification */,
+				771B62FF1B205C560057FD19 /* Setting */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		771B62F01B205C560057FD19 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				771B62F11B205C560057FD19 /* ContactDemoDefine.h */,
+				771B62F21B205C560057FD19 /* ContactSelectViewController.h */,
+				771B62F31B205C560057FD19 /* ContactSelectViewController.m */,
+				771B62F41B205C560057FD19 /* ContactSelectViewController.xib */,
+				771B62F51B205C560057FD19 /* ContactViewController.h */,
+				771B62F61B205C560057FD19 /* ContactViewController.m */,
+				771B62F71B205C560057FD19 /* ContactViewController.xib */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
+		771B62F81B205C560057FD19 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				771B62F91B205C560057FD19 /* SystemNotificationCell.h */,
+				771B62FA1B205C560057FD19 /* SystemNotificationCell.m */,
+				771B62FB1B205C560057FD19 /* SystemNotificationCell.xib */,
+				771B62FC1B205C560057FD19 /* SystemNotificationViewController.h */,
+				771B62FD1B205C560057FD19 /* SystemNotificationViewController.m */,
+				771B62FE1B205C560057FD19 /* SystemNotificationViewController.xib */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		771B62FF1B205C560057FD19 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				771B63001B205C560057FD19 /* SettingViewController.h */,
+				771B63011B205C560057FD19 /* SettingViewController.m */,
+				771B63021B205C560057FD19 /* SettingViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		771B63071B205C560057FD19 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				771B63081B205C560057FD19 /* Handler */,
+				771B63101B205C560057FD19 /* Model */,
+				771B631A1B205C560057FD19 /* View */,
+				771B634C1B205C560057FD19 /* ViewController */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		771B63081B205C560057FD19 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				771B63091B205C560057FD19 /* SessionCellActionHandler.h */,
+				771B630A1B205C560057FD19 /* SessionCellActionHandler.m */,
+				771B630B1B205C560057FD19 /* SessionLogicDelegate.h */,
+				771B630C1B205C560057FD19 /* SessionViewLayoutManager.h */,
+				771B630D1B205C560057FD19 /* SessionViewLayoutManager.m */,
+				771B630E1B205C560057FD19 /* UserCommandSender.h */,
+				771B630F1B205C560057FD19 /* UserCommandSender.m */,
+			);
+			path = Handler;
+			sourceTree = "<group>";
+		};
+		771B63101B205C560057FD19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				771B63111B205C560057FD19 /* LocationPoint.h */,
+				771B63121B205C560057FD19 /* LocationPoint.m */,
+				771B63131B205C560057FD19 /* SessionFileStatusProtocol.h */,
+				771B63141B205C560057FD19 /* SessionMsgConverter.h */,
+				771B63151B205C560057FD19 /* SessionMsgConverter.m */,
+				771B63161B205C560057FD19 /* SessionMsgDatasource.h */,
+				771B63171B205C560057FD19 /* SessionMsgDatasource.m */,
+				771B63181B205C560057FD19 /* SessionMsgModel.h */,
+				771B63191B205C560057FD19 /* SessionMsgModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		771B631A1B205C560057FD19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				771B631B1B205C560057FD19 /* Input */,
+				771B632C1B205C560057FD19 /* SessionCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		771B631B1B205C560057FD19 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				771B631C1B205C560057FD19 /* AudioRecordIndicatorView.h */,
+				771B631D1B205C560057FD19 /* AudioRecordIndicatorView.m */,
+				771B631E1B205C560057FD19 /* InputEmoticonButton.h */,
+				771B631F1B205C560057FD19 /* InputEmoticonButton.m */,
+				771B63201B205C560057FD19 /* InputEmoticonContainerView.h */,
+				771B63211B205C560057FD19 /* InputEmoticonContainerView.m */,
+				771B63221B205C560057FD19 /* InputEmoticonTabView.h */,
+				771B63231B205C560057FD19 /* InputEmoticonTabView.m */,
+				771B63241B205C560057FD19 /* InputMoreContainerView.h */,
+				771B63251B205C560057FD19 /* InputMoreContainerView.m */,
+				771B63261B205C560057FD19 /* InputView.h */,
+				771B63271B205C560057FD19 /* InputView.mm */,
+				771B63281B205C560057FD19 /* InputView.xib */,
+				771B63291B205C560057FD19 /* NIMInputViewDelegate.h */,
+				771B632A1B205C560057FD19 /* NIMTextView.h */,
+				771B632B1B205C560057FD19 /* NIMTextView.m */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
+		771B632C1B205C560057FD19 /* SessionCell */ = {
+			isa = PBXGroup;
+			children = (
+				771B632D1B205C560057FD19 /* SessionCellLayoutConstant.h */,
+				771B632E1B205C560057FD19 /* SessionCententView */,
+				771B63451B205C560057FD19 /* SessionMsgModel+SessionCellLayoutProtocol.h */,
+				771B63461B205C560057FD19 /* SessionMsgModel+SessionCellLayoutProtocol.m */,
+				771B63471B205C560057FD19 /* SessionTipCell.h */,
+				771B63481B205C560057FD19 /* SessionTipCell.m */,
+				771B63491B205C560057FD19 /* SessionTipCell.xib */,
+				771B634A1B205C560057FD19 /* SessionViewCell.h */,
+				771B634B1B205C560057FD19 /* SessionViewCell.m */,
+			);
+			path = SessionCell;
+			sourceTree = "<group>";
+		};
+		771B632E1B205C560057FD19 /* SessionCententView */ = {
+			isa = PBXGroup;
+			children = (
+				771B632F1B205C560057FD19 /* CustomSessionViewHelper.h */,
+				771B63301B205C560057FD19 /* CustomSessionViewHelper.m */,
+				771B63311B205C560057FD19 /* SessionAudioContentView.h */,
+				771B63321B205C560057FD19 /* SessionAudioContentView.m */,
+				771B63331B205C560057FD19 /* SessionCustomContentView.h */,
+				771B63341B205C560057FD19 /* SessionCustomContentView.m */,
+				771B63351B205C560057FD19 /* SessionImageContentView.h */,
+				771B63361B205C560057FD19 /* SessionImageContentView.m */,
+				771B63371B205C560057FD19 /* SessionLocationContentView.h */,
+				771B63381B205C560057FD19 /* SessionLocationContentView.m */,
+				771B63391B205C560057FD19 /* SessionMessageContentView.h */,
+				771B633A1B205C560057FD19 /* SessionMessageContentView.m */,
+				771B633B1B205C560057FD19 /* SessionMsgCellFactory.h */,
+				771B633C1B205C560057FD19 /* SessionMsgCellFactory.m */,
+				771B633D1B205C560057FD19 /* SessionNotificationContentView.h */,
+				771B633E1B205C560057FD19 /* SessionNotificationContentView.m */,
+				771B633F1B205C560057FD19 /* SessionTextContentView.h */,
+				771B63401B205C560057FD19 /* SessionTextContentView.m */,
+				771B63411B205C560057FD19 /* SessionUnknowContentView.h */,
+				771B63421B205C560057FD19 /* SessionUnknowContentView.m */,
+				771B63431B205C560057FD19 /* SessionVideoContentView.h */,
+				771B63441B205C560057FD19 /* SessionVideoContentView.m */,
+			);
+			path = SessionCententView;
+			sourceTree = "<group>";
+		};
+		771B634C1B205C560057FD19 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				771B634D1B205C560057FD19 /* Gallery */,
+				771B63511B205C560057FD19 /* Location */,
+				771B63551B205C560057FD19 /* SessionViewController.h */,
+				771B63561B205C560057FD19 /* SessionViewController.m */,
+				771B63571B205C560057FD19 /* SessionViewController.xib */,
+				771B63581B205C560057FD19 /* Video */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		771B634D1B205C560057FD19 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				771B634E1B205C560057FD19 /* GalleryViewController.h */,
+				771B634F1B205C560057FD19 /* GalleryViewController.m */,
+				771B63501B205C560057FD19 /* GalleryViewController.xib */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
+		771B63511B205C560057FD19 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				771B63521B205C560057FD19 /* LocationViewController.h */,
+				771B63531B205C560057FD19 /* LocationViewController.m */,
+				771B63541B205C560057FD19 /* LocationViewController.xib */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		771B63581B205C560057FD19 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				771B63591B205C560057FD19 /* VideoViewController.h */,
+				771B635A1B205C560057FD19 /* VideoViewController.m */,
+				771B635B1B205C560057FD19 /* VideoViewController.xib */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		771B635C1B205C560057FD19 /* SessionList */ = {
+			isa = PBXGroup;
+			children = (
+				771B635D1B205C560057FD19 /* View */,
+				771B63631B205C560057FD19 /* ViewController */,
+			);
+			path = SessionList;
+			sourceTree = "<group>";
+		};
+		771B635D1B205C560057FD19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				771B635E1B205C560057FD19 /* SessionListCell */,
+				771B63611B205C560057FD19 /* SessionListHeader.h */,
+				771B63621B205C560057FD19 /* SessionListHeader.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		771B635E1B205C560057FD19 /* SessionListCell */ = {
+			isa = PBXGroup;
+			children = (
+				771B635F1B205C560057FD19 /* SessionListCell.h */,
+				771B63601B205C560057FD19 /* SessionListCell.m */,
+			);
+			path = SessionListCell;
+			sourceTree = "<group>";
+		};
+		771B63631B205C560057FD19 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				771B63641B205C560057FD19 /* SessionListViewController.h */,
+				771B63651B205C560057FD19 /* SessionListViewController.m */,
+				771B63661B205C560057FD19 /* SessionListViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		771B63671B205C560057FD19 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				771B63681B205C560057FD19 /* ContactUtil.h */,
+				771B63691B205C560057FD19 /* ContactUtil.m */,
+				771B636A1B205C560057FD19 /* Emoticon */,
+				771B636F1B205C560057FD19 /* FileLocationHelper.h */,
+				771B63701B205C560057FD19 /* FileLocationHelper.m */,
+				771B63711B205C560057FD19 /* LogManager.h */,
+				771B63721B205C560057FD19 /* LogManager.m */,
+				771B63731B205C560057FD19 /* LogViewController.h */,
+				771B63741B205C560057FD19 /* LogViewController.m */,
+				771B63751B205C560057FD19 /* LogViewController.xib */,
+				771B63761B205C560057FD19 /* M80TimerHolder.h */,
+				771B63771B205C560057FD19 /* M80TimerHolder.m */,
+				771B63781B205C560057FD19 /* NIMHttpRequest.h */,
+				771B63791B205C560057FD19 /* NIMHttpRequest.m */,
+				771B637A1B205C560057FD19 /* NIMKeychain.h */,
+				771B637B1B205C560057FD19 /* NIMKeychain.m */,
+				771B637C1B205C560057FD19 /* NIMNotificationCenter.h */,
+				771B637D1B205C560057FD19 /* NIMNotificationCenter.m */,
+				771B637E1B205C560057FD19 /* NIMService.h */,
+				771B637F1B205C560057FD19 /* NIMService.m */,
+				771B63801B205C560057FD19 /* SessionUtil.h */,
+				771B63811B205C560057FD19 /* SessionUtil.m */,
+				771B63821B205C560057FD19 /* Spelling */,
+				771B63871B205C560057FD19 /* TokenManager.h */,
+				771B63881B205C560057FD19 /* TokenManager.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		771B636A1B205C560057FD19 /* Emoticon */ = {
+			isa = PBXGroup;
+			children = (
+				771B636B1B205C560057FD19 /* EmoticonManager.h */,
+				771B636C1B205C560057FD19 /* EmoticonManager.mm */,
+				771B636D1B205C560057FD19 /* EmoticonParser.h */,
+				771B636E1B205C560057FD19 /* EmoticonParser.m */,
+			);
+			path = Emoticon;
+			sourceTree = "<group>";
+		};
+		771B63821B205C560057FD19 /* Spelling */ = {
+			isa = PBXGroup;
+			children = (
+				771B63831B205C560057FD19 /* PinyinConverter.h */,
+				771B63841B205C560057FD19 /* PinyinConverter.mm */,
+				771B63851B205C560057FD19 /* SpellingCenter.h */,
+				771B63861B205C560057FD19 /* SpellingCenter.mm */,
+			);
+			path = Spelling;
+			sourceTree = "<group>";
+		};
 		77376C511B00ADFE00DA19D8 = {
 			isa = PBXGroup;
 			children = (
@@ -605,6 +1437,7 @@
 		77AD45531B01AF2B0094326D /* Macro */ = {
 			isa = PBXGroup;
 			children = (
+				771B64021B206CD20057FD19 /* GlobalMacro.h */,
 				77AD45541B01AF2B0094326D /* MagicalMacro.h */,
 				77AD45551B01AF2B0094326D /* VersionMacro.h */,
 			);
@@ -809,17 +1642,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771B63C31B205C560057FD19 /* SystemNotificationViewController.xib in Resources */,
+				771B63AB1B205C560057FD19 /* SearchTeamViewController.xib in Resources */,
+				771B63AF1B205C560057FD19 /* TeamListViewController.xib in Resources */,
 				770669511B01ABC1004E1396 /* Home.storyboard in Resources */,
+				771B63F11B205C560057FD19 /* SessionListViewController.xib in Resources */,
+				771B63EB1B205C560057FD19 /* SessionViewController.xib in Resources */,
+				771B63C11B205C560057FD19 /* SystemNotificationCell.xib in Resources */,
+				771B63F81B205C560057FD19 /* LogViewController.xib in Resources */,
+				771B63E71B205C560057FD19 /* GalleryViewController.xib in Resources */,
 				77376C6E1B00ADFE00DA19D8 /* LaunchScreen.xib in Resources */,
 				77AD45761B01F4660094326D /* Release.storyboard in Resources */,
+				771B63A41B205C560057FD19 /* CreateTeamAnnouncement.xib in Resources */,
 				77AD456E1B01F2300094326D /* Login.storyboard in Resources */,
 				77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */,
 				77050A401B0AD388009FCA6A /* ProgressHUD.bundle in Resources */,
 				7706694D1B01ABAC004E1396 /* Chat.storyboard in Resources */,
+				771B63E91B205C560057FD19 /* LocationViewController.xib in Resources */,
 				7706694B1B01AB70004E1396 /* Mine.storyboard in Resources */,
+				771B63AD1B205C560057FD19 /* TeamAnnouncementListViewController.xib in Resources */,
+				771B639D1B205C560057FD19 /* TeamAnnouncementListCell.xib in Resources */,
+				771B63BF1B205C560057FD19 /* ContactViewController.xib in Resources */,
+				771B63BD1B205C560057FD19 /* ContactSelectViewController.xib in Resources */,
+				771B63D51B205C560057FD19 /* InputView.xib in Resources */,
+				771B63A61B205C560057FD19 /* JionTeamViewController.xib in Resources */,
+				771B63B11B205C560057FD19 /* TeamMemberCardViewController.xib in Resources */,
+				771B63E41B205C560057FD19 /* SessionTipCell.xib in Resources */,
 				7706694F1B01ABBA004E1396 /* Nearby.storyboard in Resources */,
+				771B63A91B205C560057FD19 /* RegularTeamCardViewController.xib in Resources */,
+				771B63C51B205C560057FD19 /* SettingViewController.xib in Resources */,
 				77FB2BA01B1EDA140091560D /* bt_next@2x.png in Resources */,
 				77FB2BA41B1EDA140091560D /* SZCalendarPicker.xib in Resources */,
+				771B63ED1B205C560057FD19 /* VideoViewController.xib in Resources */,
 				77FB2BA11B1EDA140091560D /* bt_previous@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -872,52 +1726,150 @@
 			buildActionMask = 2147483647;
 			files = (
 				771B624A1B1FEFAA0057FD19 /* UIImage+KGCompress.m in Sources */,
+				771B63921B205C560057FD19 /* BadgeView.m in Sources */,
 				77050A491B0AE72D009FCA6A /* ZXCountTimeHelper.m in Sources */,
 				77FB2BC81B1F16E30091560D /* KGProgressCell.m in Sources */,
+				771B63931B205C560057FD19 /* CustomLeftBarView.m in Sources */,
+				771B63DF1B205C560057FD19 /* SessionTextContentView.m in Sources */,
+				771B63F21B205C560057FD19 /* ContactUtil.m in Sources */,
 				77FB2B7F1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m in Sources */,
+				771B63B21B205C560057FD19 /* TeamMemberListViewController.m in Sources */,
 				77AD455E1B01B02D0094326D /* KGChatListViewController.m in Sources */,
+				771B63DB1B205C560057FD19 /* SessionLocationContentView.m in Sources */,
+				771B63FB1B205C560057FD19 /* NIMKeychain.m in Sources */,
 				771B62411B1FE0880057FD19 /* KGCategoryViewController.m in Sources */,
 				773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */,
+				771B63D91B205C560057FD19 /* SessionCustomContentView.m in Sources */,
+				771B638A1B205C560057FD19 /* NSDictionary+Json.m in Sources */,
+				771B63E51B205C560057FD19 /* SessionViewCell.m in Sources */,
+				771B63D21B205C560057FD19 /* InputEmoticonTabView.m in Sources */,
+				771B639A1B205C560057FD19 /* UsrInfoData.m in Sources */,
+				771B63CB1B205C560057FD19 /* LocationPoint.m in Sources */,
+				771B63D41B205C560057FD19 /* InputView.mm in Sources */,
+				771B63B41B205C560057FD19 /* GroupedContacts.m in Sources */,
+				771B639C1B205C560057FD19 /* TeamAnnouncementListCell.m in Sources */,
+				771B63D61B205C560057FD19 /* NIMTextView.m in Sources */,
+				771B63AC1B205C560057FD19 /* TeamAnnouncementListViewController.m in Sources */,
 				777AFCB01B1C80E600A4C182 /* UIPlaceHolderTextView.m in Sources */,
+				771B638D1B205C560057FD19 /* UIAlertView+Block.m in Sources */,
+				771B63A21B205C560057FD19 /* CreateRegularTeamCardViewController.m in Sources */,
 				77050A461B0AE297009FCA6A /* KGRegisterViewController.m in Sources */,
+				771B63A81B205C560057FD19 /* RegularTeamCardViewController.m in Sources */,
+				771B63E61B205C560057FD19 /* GalleryViewController.m in Sources */,
 				77AD455B1B01B01A0094326D /* KGMineViewController.m in Sources */,
+				771B638F1B205C560057FD19 /* UITableView+ScrollToBottom.m in Sources */,
+				771B63951B205C560057FD19 /* MarginButton.m in Sources */,
+				771B63901B205C560057FD19 /* UIView+NIMDemo.m in Sources */,
+				771B639F1B205C560057FD19 /* TeamCardHeaderCell.m in Sources */,
+				771B63BA1B205C560057FD19 /* ContactUtilCell.m in Sources */,
 				770669541B01AC41004E1396 /* KGNavigationBar.m in Sources */,
+				771B63E81B205C560057FD19 /* LocationViewController.m in Sources */,
 				771B62551B2025920057FD19 /* KGImageCell.m in Sources */,
 				774E928F1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m in Sources */,
 				77FB2B7C1B1EAF020091560D /* ZXImagePickCell.m in Sources */,
 				77050A3A1B0ACB68009FCA6A /* KGUser.m in Sources */,
+				771B63971B205C560057FD19 /* CardMemberItem.m in Sources */,
 				77050A3F1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.m in Sources */,
+				771B63A31B205C560057FD19 /* CreateTeamAnnouncement.m in Sources */,
+				771B63EF1B205C560057FD19 /* SessionListHeader.m in Sources */,
+				771B63E11B205C560057FD19 /* SessionVideoContentView.m in Sources */,
+				771B639E1B205C560057FD19 /* TeamButtonCell.m in Sources */,
+				771B63DE1B205C560057FD19 /* SessionNotificationContentView.m in Sources */,
 				77FB2BAF1B1EF5FE0091560D /* KGReleaseSecondViewController.mm in Sources */,
+				771B63B31B205C560057FD19 /* ContactsData.m in Sources */,
+				771B64001B205C560057FD19 /* SpellingCenter.mm in Sources */,
+				771B63F61B205C560057FD19 /* LogManager.m in Sources */,
+				771B63FD1B205C560057FD19 /* NIMService.m in Sources */,
+				771B63EE1B205C560057FD19 /* SessionListCell.m in Sources */,
 				777AFCAC1B1C6D4E00A4C182 /* KGGoods.m in Sources */,
 				77AD45641B01B04E0094326D /* KGHomeViewController.m in Sources */,
+				771B63A11B205C560057FD19 /* CreateNormalTeamCardViewController.m in Sources */,
+				771B63A01B205C560057FD19 /* BaseCardViewController.m in Sources */,
 				77AD45581B01AFBB0094326D /* GVUserDefaults+KGUtil.m in Sources */,
 				771B624E1B1FFD3B0057FD19 /* JXBAdPageView.m in Sources */,
 				77AD45741B01F2EB0094326D /* UIViewController+KGStoryboard.m in Sources */,
+				771B63CF1B205C560057FD19 /* AudioRecordIndicatorView.m in Sources */,
 				771B62441B1FE4920057FD19 /* KGCategory.m in Sources */,
+				771B638E1B205C560057FD19 /* UIResponder+Router.m in Sources */,
+				771B63981B205C560057FD19 /* TeamCardOperationItem.m in Sources */,
 				774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */,
+				771B63D31B205C560057FD19 /* InputMoreContainerView.m in Sources */,
+				771B63B61B205C560057FD19 /* GroupedUsrInfo.m in Sources */,
+				771B63F51B205C560057FD19 /* FileLocationHelper.m in Sources */,
+				771B63BE1B205C560057FD19 /* ContactViewController.m in Sources */,
 				77AD45791B01F4770094326D /* KGReleaseViewController.m in Sources */,
+				771B63DA1B205C560057FD19 /* SessionImageContentView.m in Sources */,
 				77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */,
+				771B63D71B205C560057FD19 /* CustomSessionViewHelper.m in Sources */,
+				771B63F41B205C560057FD19 /* EmoticonParser.m in Sources */,
+				771B63B81B205C560057FD19 /* ContactDataItem.m in Sources */,
 				77AD45681B01EB6F0094326D /* KGTabBarController.m in Sources */,
+				771B63B51B205C560057FD19 /* GroupedDataCollection.m in Sources */,
 				77FB2B881B1ED0140091560D /* KGStockCell.m in Sources */,
+				771B638B1B205C560057FD19 /* NSString+NIMDemo.m in Sources */,
+				771B63CC1B205C560057FD19 /* SessionMsgConverter.m in Sources */,
+				771B63B01B205C560057FD19 /* TeamMemberCardViewController.m in Sources */,
+				771B63BB1B205C560057FD19 /* ContactUtilItem.m in Sources */,
 				771B62511B20038F0057FD19 /* KGAds.m in Sources */,
+				771B639B1B205C560057FD19 /* RegularTeamMemberCell.m in Sources */,
+				771B638C1B205C560057FD19 /* UIActionSheet+Block.m in Sources */,
+				771B63FC1B205C560057FD19 /* NIMNotificationCenter.m in Sources */,
 				771B62581B203E1E0057FD19 /* KGCategoryCollectionViewCell.m in Sources */,
+				771B63C81B205C560057FD19 /* SessionCellActionHandler.m in Sources */,
 				77FB2BA51B1EDA140091560D /* UIColor+ZXLazy.m in Sources */,
+				771B63B91B205C560057FD19 /* ContactPickedView.m in Sources */,
+				771B63EA1B205C560057FD19 /* SessionViewController.m in Sources */,
+				771B63F91B205C560057FD19 /* M80TimerHolder.m in Sources */,
+				771B63891B205C560057FD19 /* M80AttributedLabel+NIM.m in Sources */,
+				771B63E01B205C560057FD19 /* SessionUnknowContentView.m in Sources */,
+				771B63F31B205C560057FD19 /* EmoticonManager.mm in Sources */,
 				774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */,
+				771B63961B205C560057FD19 /* PageView.m in Sources */,
+				771B63C01B205C560057FD19 /* SystemNotificationCell.m in Sources */,
+				771B63941B205C560057FD19 /* LoadProgressView.m in Sources */,
+				771B63D81B205C560057FD19 /* SessionAudioContentView.m in Sources */,
+				771B63DD1B205C560057FD19 /* SessionMsgCellFactory.m in Sources */,
+				771B63FA1B205C560057FD19 /* NIMHttpRequest.m in Sources */,
+				771B63FF1B205C560057FD19 /* PinyinConverter.mm in Sources */,
+				771B63F71B205C560057FD19 /* LogViewController.m in Sources */,
+				771B63E21B205C560057FD19 /* SessionMsgModel+SessionCellLayoutProtocol.m in Sources */,
+				771B64011B205C560057FD19 /* TokenManager.m in Sources */,
 				77AD45711B01F2400094326D /* KGLoginViewController.m in Sources */,
 				77376C601B00ADFE00DA19D8 /* main.m in Sources */,
+				771B63A71B205C560057FD19 /* NormalTeamCardViewController.m in Sources */,
 				77AD45611B01B0410094326D /* KGNearbyViewController.m in Sources */,
 				77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */,
+				771B63DC1B205C560057FD19 /* SessionMessageContentView.m in Sources */,
 				77050A431B0AD96A009FCA6A /* UIImage+SZBundleImage.m in Sources */,
+				771B63991B205C560057FD19 /* TeamCardRowItem.m in Sources */,
+				771B63EC1B205C560057FD19 /* VideoViewController.m in Sources */,
+				771B63E31B205C560057FD19 /* SessionTipCell.m in Sources */,
 				77FB2BC51B1F16AB0091560D /* KGSwitchCell.m in Sources */,
+				771B63B71B205C560057FD19 /* ContactDataCell.m in Sources */,
+				771B63CE1B205C560057FD19 /* SessionMsgModel.m in Sources */,
 				77050A4C1B0AE8EC009FCA6A /* ZXValidateHelper.m in Sources */,
 				773880311B047B4000A66961 /* KGUploadManager.m in Sources */,
+				771B63D11B205C560057FD19 /* InputEmoticonContainerView.m in Sources */,
+				771B63CD1B205C560057FD19 /* SessionMsgDatasource.m in Sources */,
 				773880341B04995100A66961 /* NSString+KGhmac_sha1.m in Sources */,
+				771B63CA1B205C560057FD19 /* UserCommandSender.m in Sources */,
+				771B63911B205C560057FD19 /* AvatarImageView.m in Sources */,
 				77FB2BA31B1EDA140091560D /* SZCalendarPicker.m in Sources */,
+				771B63FE1B205C560057FD19 /* SessionUtil.m in Sources */,
+				771B63C41B205C560057FD19 /* SettingViewController.m in Sources */,
+				771B63C21B205C560057FD19 /* SystemNotificationViewController.m in Sources */,
 				77FB2BA21B1EDA140091560D /* SZCalendarCell.m in Sources */,
 				77FB2B851B1ECFB50091560D /* KGTextViewCell.m in Sources */,
+				771B63AE1B205C560057FD19 /* TeamListViewController.m in Sources */,
+				771B63AA1B205C560057FD19 /* SearchTeamViewController.m in Sources */,
+				771B63BC1B205C560057FD19 /* ContactSelectViewController.m in Sources */,
 				77AD456C1B01F1360094326D /* KGLoginManager.m in Sources */,
+				771B63F01B205C560057FD19 /* SessionListViewController.m in Sources */,
 				77FB2B821B1ECF7F0091560D /* KGTextFieldCell.m in Sources */,
 				771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */,
+				771B63A51B205C560057FD19 /* JionTeamViewController.m in Sources */,
+				771B63D01B205C560057FD19 /* InputEmoticonButton.m in Sources */,
+				771B63C91B205C560057FD19 /* SessionViewLayoutManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

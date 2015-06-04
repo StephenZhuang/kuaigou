@@ -11,4 +11,6 @@
 @implementation GVUserDefaults (KGUtil)
 @dynamic isLogin;
 @dynamic user;
+@dynamic username;
+@dynamic password;
 @end
