@@ -24,6 +24,9 @@
 
 
 @implementation ContactDataMember
+@synthesize usrId = _usrId;
+@synthesize iconUrl = _iconUrl;
+@synthesize nick = _nick;
 
 - (CGFloat)uiHeight{
     return ContactDataRowHeight;
@@ -44,7 +47,13 @@
 }
 
 - (NSString *)groupTitle {
-    return [[SpellingCenter sharedCenter] firstLetter:self.nick].capitalizedString;
+    NSString *title = [[SpellingCenter sharedCenter] firstLetter:self.nick].capitalizedString;
+    unichar character = [title characterAtIndex:0];
+    if (character >= 'A' && character <= 'Z') {
+        return title;
+    }else{
+        return @"#";
+    }
 }
 
 - (id)sortKey {

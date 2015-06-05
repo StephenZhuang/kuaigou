@@ -23,6 +23,12 @@ extern NSString *const ContactUpdateDidFinishedNotification;
     self = [super init];
     if(self) {
         self.groupTitleComparator = ^NSComparisonResult(NSString *title1, NSString *title2) {
+            if ([title1 isEqualToString:@"#"]) {
+                return NSOrderedDescending;
+            }
+            if ([title2 isEqualToString:@"#"]) {
+                return NSOrderedAscending;
+            }
             return [title1 compare:title2];
         };
         self.groupMemberComparator = ^NSComparisonResult(NSString *key1, NSString *key2) {

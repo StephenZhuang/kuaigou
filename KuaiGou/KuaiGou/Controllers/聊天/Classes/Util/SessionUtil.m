@@ -7,6 +7,7 @@
 //
 
 #import "SessionUtil.h"
+#import "ContactUtil.h"
 
 double OnedayTimeIntervalValue = 24*60*60;  //一天的秒数
 @implementation SessionUtil
@@ -58,32 +59,6 @@ double OnedayTimeIntervalValue = 24*60*60;  //一天的秒数
     return size;
 }
 
-+(NSString*)showTimeInSession:(NSTimeInterval) messageTime
-{
-    NSString *result = nil;
-  
-    NSCalendarUnit components = (NSCalendarUnit)(NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSHourCalendarUnit | NSMinuteCalendarUnit);
-    NSDateComponents *dateComponents = [self stringFromTimeInterval:messageTime components:components];
-    if ([self isTheSameDay:[[NSDate date] timeIntervalSinceNow] compareTime:dateComponents]) {
-        result = [NSString stringWithFormat:@"%@ %02zd:%02zd",NSLocalizedString(@"今天 ", nil), dateComponents.hour,dateComponents.minute];
-    } else if ([self isTheSameDay:([[NSDate date] timeIntervalSinceNow] - OnedayTimeIntervalValue) compareTime:dateComponents])
-    {
-        result = [NSString stringWithFormat:@"%@ %02zd:%02zd",NSLocalizedString(@"昨天 ", nil), dateComponents.hour,dateComponents.minute];;
-    } else if ([self isTheSameDay:([[NSDate date] timeIntervalSinceNow] - OnedayTimeIntervalValue*2) compareTime:dateComponents])
-    {
-        result = [NSString stringWithFormat:@"%@ %02zd:%02zd",NSLocalizedString(@"前天 ", nil), dateComponents.hour,dateComponents.minute];;
-    } else if ([self isTheSameDay:([[NSDate date] timeIntervalSinceNow] - OnedayTimeIntervalValue*7) compareTime:dateComponents])
-    {
-        result =[NSString stringWithFormat:@"%@ %02zd:%02zd",[self weekdayStr:dateComponents.weekday], dateComponents.hour,dateComponents.minute];;
-        
-    } else
-    {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
-        result = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:messageTime]];
-    }
-    return result;
-}
                                                  
 +(BOOL)isTheSameDay:(NSTimeInterval)currentTime compareTime:(NSDateComponents*)older
 {
@@ -115,7 +90,32 @@ double OnedayTimeIntervalValue = 24*60*60;  //一天的秒数
 }
 
 
-+(NSString*)showTime:(NSTimeInterval) msglastTime
++ (NSString*)showNick:(NSString*)uid inSession:(NIMSession*)session{
+    if (session.sessionType == NIMSessionTypeTeam) {
+         NIMTeamMember *member = [[NIMSDK sharedSDK].teamManager teamMember:uid inTeam:session.sessionId];
+        if (member.nickname.length) {
+            return member.nickname;
+        }
+    }
+    ContactDataMember *contact = [ContactUtil queryContactByUsrId:uid];
+    return contact.nick.length ? contact.nick : uid;
+}
+
++ (NSString*)showNickInMessage:(NIMMessage *)message{
+    NSString *nick = [SessionUtil showNick:message.from inSession:message.session];
+    if (!nick.length) {
+        nick = message.senderName.length ? message.senderName : @"";
+    }
+    return nick;
+}
+
++ (NSString*)showNick:(NSString*)uid teamId:(NSString*)teamId{
+    NIMSession *session = [NIMSession session:teamId type:NIMSessionTypeTeam];
+    return [SessionUtil showNick:uid inSession:session];
+}
+
+
++(NSString*)showTime:(NSTimeInterval) msglastTime showDetail:(BOOL)showDetail
 {
     //今天的时间
     NSDate * nowDate = [NSDate date];
@@ -125,33 +125,65 @@ double OnedayTimeIntervalValue = 24*60*60;  //一天的秒数
     NSDateComponents *nowDateComponents = [[NSCalendar currentCalendar] components:components fromDate:nowDate];
     NSDateComponents *msgDateComponents = [[NSCalendar currentCalendar] components:components fromDate:msgDate];
 
+    NSInteger hour = msgDateComponents.hour;
+    result = [SessionUtil getPeriodOfTime:hour withMinute:msgDateComponents.minute];
+    if (hour > 12)
+    {
+        hour = hour - 12;
+    }
     if(nowDateComponents.day == msgDateComponents.day) //同一天,显示时间
     {
-        NSInteger hour = msgDateComponents.hour;
-        result = [SessionUtil getPeriodOfTime:hour withMinute:msgDateComponents.minute];
-        if (hour > 12)
-        {
-            hour = hour - 12;
-        }
         result = [[NSString alloc] initWithFormat:@"%@ %zd:%02d",result,hour,(int)msgDateComponents.minute];
     }
     else if(nowDateComponents.day == (msgDateComponents.day+1))//昨天
     {
-        result = @"昨天";
+        result = showDetail?  [[NSString alloc] initWithFormat:@"昨天 %zd:%02d",hour,(int)msgDateComponents.minute] : @"昨天";
     }
     else if(nowDateComponents.day == (msgDateComponents.day+2)) //前天
     {
-        result = @"前天";
+        result = showDetail? [[NSString alloc] initWithFormat:@"前天 %zd:%02d",hour,(int)msgDateComponents.minute] : @"前天";
     }
     else if([nowDate timeIntervalSinceDate:msgDate] < 7 * OnedayTimeIntervalValue)//一周内
     {
-        result = [SessionUtil weekdayStr:msgDateComponents.weekday];
+        NSString *weekDay = [SessionUtil weekdayStr:msgDateComponents.weekday];
+        result = showDetail? [weekDay stringByAppendingFormat:@" %zd:%02d",hour,(int)msgDateComponents.minute] : weekDay;
     }
     else//显示日期
     {
-        result = [NSString stringWithFormat:@"%zd-%zd-%zd", msgDateComponents.year, msgDateComponents.month, msgDateComponents.day];
+        NSString *day = [NSString stringWithFormat:@"%zd-%zd-%zd", msgDateComponents.year, msgDateComponents.month, msgDateComponents.day];
+        result = showDetail? [day stringByAppendingFormat:@" %zd:%02d",hour,(int)msgDateComponents.minute]:day;
     }
     return result;
+}
+
++ (NSString *)netcallMessageText:(NIMNotificationObject *)object{
+    NIMNetCallNotificationContent *content = (NIMNetCallNotificationContent *)object.content;
+    NSString *text = @"";
+    NSString *currentAccount = [[NIMSDK sharedSDK].loginManager currentAccount];
+    switch (content.eventType) {
+        case NIMNetCallEventTypeMiss:{
+            text = @"未接听";
+            break;
+        }
+        case NIMNetCallEventTypeBill:{
+            text =  ([object.message.from isEqualToString:currentAccount])? @"通话拨打时长 " : @"通话接听时长 ";
+            NSTimeInterval duration = content.duration;
+            NSString *durationDesc = [NSString stringWithFormat:@"%02d:%02d",(int)duration/60,(int)duration%60];
+            text = [text stringByAppendingString:durationDesc];
+            break;
+        }
+        case NIMNetCallEventTypeReject:{
+            text = ([object.message.from isEqualToString:currentAccount])? @"对方正忙" : @"已拒绝";
+            break;
+        }
+        case NIMNetCallEventTypeNoResponse:{
+            text = @"未接通，已取消";
+            break;
+        }
+        default:
+            break;
+    }
+    return text;
 }
 
 + (NSString *)getPeriodOfTime:(NSInteger)time withMinute:(NSInteger)minute
@@ -178,7 +210,7 @@ double OnedayTimeIntervalValue = 24*60*60;  //一天的秒数
 }
 
 + (NSString *)currentUsrId {
-    return [[NSUserDefaults standardUserDefaults] objectForKey:NIMUSERNAME];
+    return [[[NIMSDK sharedSDK] loginManager] currentAccount];
 }
 
 + (NSString *)currectUsrPassword {

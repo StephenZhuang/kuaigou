@@ -20,7 +20,6 @@
 
 @interface TeamCardMemberItem : NSObject<CardHeaderData>
 
-@property (nonatomic, strong) UsrInfo *usrInfo;
 @property (nonatomic, assign) NIMTeamMemberType type;
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic, readonly, strong) NIMTeam *team;

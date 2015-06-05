@@ -83,4 +83,15 @@
  *  @discussion 如果没有登录成功过,这个接口返回nil
  */
 @property (nonatomic,strong,readonly)   id<NIMApnsManager> apnsManager;
+
+/**
+ *  资源管理器,负责文件上传和下载
+ */
+@property (nonatomic,strong,readonly)   id<NIMResourceManager> resourceManager;
+
+/**
+ *  网络通话管理类
+ */
+@property (nonatomic,strong,readonly)   id<NIMNetCallManager> netCallManager;
+
 @end

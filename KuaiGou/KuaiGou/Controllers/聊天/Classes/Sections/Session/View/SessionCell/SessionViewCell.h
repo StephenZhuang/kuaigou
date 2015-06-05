@@ -28,11 +28,13 @@
 
 @property (nonatomic, strong) UIImageView *audioPlayedIcon; //语音未读红点
 
+@property (nonatomic, assign) BOOL needDelete;//需要长按删除
+
 - (void)reloadData:(SessionMsgModel*)data;
 
 //刷UI
 - (void)refreshSubStatusUI:(NIMMessage*)msgData;
 
-+ (NSString*)cellIdentifierWithMsgType:(NIMMessageType)msgType isFromMe:(BOOL)isFromMe;
++ (NSString*)cellIdentifierWithMsgType:(SessionMsgModel *)model;
 
 @end

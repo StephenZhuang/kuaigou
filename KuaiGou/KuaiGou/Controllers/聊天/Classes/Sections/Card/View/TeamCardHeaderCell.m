@@ -45,7 +45,7 @@
         TeamCardMemberItem *member = data;
         self.titleLabel.text = member.title.length ? member.title : member.memberId;
         switch (member.type) {
-            case NIMTeamMemberTypeCreator:
+            case NIMTeamMemberTypeOwner:
                 self.roleImageView.image = [UIImage imageNamed:@"icon_team_creator"];
                 break;
             case NIMTeamMemberTypeManager:

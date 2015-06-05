@@ -70,6 +70,9 @@
                  @(SessionMessageEventIDPreviewLocation):[SessionCellActionItem actionItem:@"onPreviewLocation"
                                                                                paramString:@"NIMLocationObject"],//点击查看位置
                  
+                 @(SessionMessageEventIDPreviewFile):[SessionCellActionItem actionItem:@"onPreviewFile"
+                                                                               paramString:@"NIMFileObject"],//点击查看位置
+                 
                  @(SessionMessageEventIDRetryReceiveMsg): [SessionCellActionItem actionItem:@"retryReceiveMsg"
                                                                                 paramString:@"NIMMessage"] ,//重收消息
                  
@@ -115,6 +118,7 @@
 
 - (void)retrySendMsg:(NIMMessage*)message
 {
+    message.timestamp = [NSDate date].timeIntervalSince1970;
     [[[NIMSDK sharedSDK] chatManager] resendMessage:message error:nil];
 }
 
@@ -145,5 +149,13 @@
         [self.logicDelegate toLocationVC:object];
     }
 }
+
+- (void)onPreviewFile:(NIMFileObject *)object
+{
+    if (self.logicDelegate && [self.logicDelegate respondsToSelector:@selector(toFileVC:)]) {
+        [self.logicDelegate toFileVC:object];
+    }
+}
+
 
 @end

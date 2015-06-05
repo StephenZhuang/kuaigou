@@ -10,8 +10,11 @@
 #import "ContactUtil.h"
 #import "ContactDataItem.h"
 #import "UsrInfoData.h"
+#import "SessionUtil.h"
+
 @interface TeamCardMemberItem()
 @property (nonatomic,strong) NIMTeamMember *member;
+@property (nonatomic,copy)   NSString      *userId;
 @end;
 
 @implementation TeamCardMemberItem
@@ -20,7 +23,7 @@
     self = [self init];
     if (self) {
         _member  = member;
-        _usrInfo = [[UsrInfoData sharedInstance] queryUsrInfoById:member.userId needRemoteFetch:NO fetchCompleteHandler:nil];
+        _userId  = member.userId;
     }
     return self;
 }
@@ -42,7 +45,7 @@
 }
 
 - (NSString *)title {
-    return _usrInfo.nick ? _usrInfo.nick : _member.userId;
+    return [SessionUtil showNick:self.member.userId teamId:self.member.teamId];
 }
 
 - (NIMTeam *)team {
@@ -124,7 +127,7 @@
 }
 
 - (NSString*)title{
-    return self.member.nick;
+    return self.member.nick.length ? self.member.nick : self.member.usrId;
 }
 
 - (NSString*)memberId{

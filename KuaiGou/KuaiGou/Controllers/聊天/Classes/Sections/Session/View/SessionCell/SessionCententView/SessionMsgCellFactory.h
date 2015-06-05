@@ -15,6 +15,8 @@
 
 + (Class)viewClassFromSessionMessageType:(NIMMessageType)messageType;
 
-+ (UITableViewCell*)cellInTable:(UITableView*)tableView forModel:(SessionMsgModel*)model;
++ (Class)viewClassFromNotificationType:(NSString *)notifyName;
+
++ (UITableViewCell*)cellInTable:(UITableView*)tableView forModel:(id)model;
 
 @end

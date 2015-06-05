@@ -13,6 +13,7 @@
 #import "NSString+NIMDemo.h"
 #import "GroupedDataCollection.h"
 #import "SpellingCenter.h"
+#import "NIMDemoConfig.h"
 
 #define kUsrInfoKeyId @"kUsrInfoKeyId"
 #define kUsrInfoKeyNick @"kUsrInfoKeyNick"
@@ -41,7 +42,13 @@
 }
 
 - (NSString *)groupTitle {
-    return [[SpellingCenter sharedCenter] firstLetter:self.nick].capitalizedString;
+    NSString *title = [[SpellingCenter sharedCenter] firstLetter:self.nick].capitalizedString;
+    unichar character = [title characterAtIndex:0];
+    if (character >= 'A' && character <= 'Z') {
+        return title;
+    }else{
+        return @"#";
+    }
 }
 
 - (id)sortKey {
@@ -119,7 +126,7 @@
 }
 
 - (void)updateUsrInfoByIds:(NSArray *)usrIds completion:(void (^)(NSArray *))handler {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", WebApiBaseURL, @"getUserInfo"]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", [[NIMDemoConfig sharedConfig] apiURL], @"getUserInfo"]];
     NIMHttpRequest *request = [NIMHttpRequest requestWithURL:url];
     NSMutableArray *tmp = [NSMutableArray array];
     for (NSString *uid in usrIds) {

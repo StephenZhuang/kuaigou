@@ -8,6 +8,7 @@
 
 #import "TeamAnnouncementListCell.h"
 #import "UsrInfoData.h"
+#import "SessionUtil.h"
 
 @interface TeamAnnouncementListCell ()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
@@ -33,7 +34,7 @@
     // Configure the view for the selected state
 }
 
-- (void)refreshData:(NSDictionary *)data {
+- (void)refreshData:(NSDictionary *)data team:(NIMTeam *)team{
     NSString *title = [data objectForKey:@"title"];
     _titleLabel.text = title;
     NSString *content = [data objectForKey:@"content"];
@@ -44,8 +45,8 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM-dd HH:mm"];
     NSDate * date = [NSDate dateWithTimeIntervalSince1970:time.integerValue];
-    UsrInfo *creator = [[UsrInfoData sharedInstance] queryUsrInfoById:creatorId needRemoteFetch:YES fetchCompleteHandler:nil];
-    _infoLabel.text = [NSString stringWithFormat:@"%@ %@", creator.nick, [dateFormatter stringFromDate:date]];
+    NSString *nick = [SessionUtil showNick:creatorId teamId:team.teamId];
+    _infoLabel.text = [NSString stringWithFormat:@"%@ %@", nick, [dateFormatter stringFromDate:date]];
 }
 
 @end

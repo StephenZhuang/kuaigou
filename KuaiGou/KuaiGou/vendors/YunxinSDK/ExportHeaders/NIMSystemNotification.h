@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NIMSession.h"
 
 /**
  *  系统通知类型
@@ -66,20 +67,19 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
  *  是否已读
  *  @discussion 修改这个属性并不会修改db中的数据
  */
-@property (nonatomic,assign)       BOOL read;
+@property (nonatomic,assign)                BOOL read;
 
 /**
  *  消息处理状态
  *  @discussion 修改这个属性,后台会自动更新db中对应的数据,SDK调用者可以使用这个值来持久化他们对消息的处理结果,默认为0
  */
-@property (nonatomic,assign)    NSInteger handleStatus;
+@property (nonatomic,assign)                NSInteger handleStatus;
 
 @end
 
 
 /**
  *  自定义系统消息
- *  @discussion 由APP后台发起,经IM服务器透传的系统通知
  */
 @interface NIMCustomSystemNotification : NSObject
 
@@ -89,8 +89,39 @@ typedef NS_ENUM(NSInteger, NIMSystemNotificationType){
 @property (nonatomic,assign,readonly)       NSTimeInterval timestamp;
 
 /**
+ *  通知发起者id
+ */
+@property (nonatomic,copy,readonly)         NSString *sender;
+
+/**
+ *  通知接受者id
+ */
+@property (nonatomic,copy,readonly)         NSString *receiver;
+
+
+/**
+ *  通知接受者类型
+ */
+@property (nonatomic,assign,readonly)       NIMSessionType  receiverType;
+
+/**
  *  透传的消息体内容
  */
-@property (nonatomic,copy,readonly)  NSString    *content;
+@property (nonatomic,copy,readonly)         NSString    *content;
+
+/**
+ *  是否只发送给在线用户
+ *  @discussion 默认为YES 如果这个值为NO,通知接受者如果在通知投递时不在线,那么他会在下次登录时收到这个通知。如果消息接受者是群,则只允许投递到当前在线的用户
+ */
+@property (nonatomic,assign)                BOOL sendToOnlineUsersOnly;
+
+/**
+ *  apns推送文案
+ *  @discussion 默认为nil,用户可以设置当前通知的推送文案
+ */
+@property (nonatomic,copy)                  NSString *apnsContent;
+
+
+- (instancetype)initWithContent:(NSString *)content;
 
 @end

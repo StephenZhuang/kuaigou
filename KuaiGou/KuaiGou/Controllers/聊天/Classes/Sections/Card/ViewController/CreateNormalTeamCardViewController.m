@@ -18,9 +18,9 @@
 
 @property (nonatomic,copy)   UserCardMemberItem *user;
 
-@property (nonatomic,copy)   NSString *groupName;
+@property (nonatomic,copy)   NSString *teamName;
 
-@property (nonatomic,strong) NSMutableArray *groupMembers;
+@property (nonatomic,strong) NSMutableArray *teamMembers;
 
 @end
 
@@ -30,7 +30,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         NSString *currentUserID = [[[NIMSDK sharedSDK] loginManager] currentAccount];
-        _groupMembers = [@[currentUserID] mutableCopy];
+        _teamMembers = [@[currentUserID] mutableCopy];
     }
     return self;
 }
@@ -43,7 +43,7 @@
         ContactDataMember *contactMember = [ContactUtil queryContactByUsrId:userId];
         if(contactMember){
             _user = [[UserCardMemberItem alloc] initWithMember:contactMember];
-            [_groupMembers addObject:_user.memberId];
+            [_teamMembers addObject:_user.memberId];
         }else{
             DDLogError(@"user id error!");
         }
@@ -72,7 +72,7 @@
 }
 
 - (NSString*)title{
-    return @"创建会话";
+    return @"创建普通群";
 }
 
 #pragma mark - Data
@@ -88,8 +88,8 @@
 - (NSArray*)buildBodyData{
     TeamCardRowItem *teamName = [[TeamCardRowItem alloc] init];
     teamName.title             = @"群名称";
-    teamName.subTitle          = self.groupName.length ? self.groupName : @"";
-    teamName.action            = @selector(updateGroupInfoName);
+    teamName.subTitle          = self.teamName.length ? self.teamName : @"";
+    teamName.action            = @selector(updateTeamInfoName);
     teamName.rowHeight         = 50.f;
     teamName.type              = TeamCardRowItemTypeCommon;
     
@@ -117,7 +117,7 @@
 
 
 #pragma mark - UITableViewAction
-- (void)updateGroupInfoName{
+- (void)updateTeamInfoName{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改群名称" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     __block typeof(self) wself = self;
@@ -127,7 +127,7 @@
                 break;
             case 1:{
                 NSString *name = [alert textFieldAtIndex:0].text;
-                wself.groupName = name;
+                wself.teamName = name;
                 [wself refreshTableBody];
                 break;
             }
@@ -138,21 +138,21 @@
 }
 
 - (void)addTeamMember{
-    if (!self.groupName.length) {
-        [self.view makeToast:@"请填写组名"];
+    if (!self.teamName.length) {
+        [self.view makeToast:@"请填写群名称"];
         return;
     }
-    if (!self.groupMembers) {
-        [self.view makeToast:@"组员数据有误"];
+    if (!self.teamMembers) {
+        [self.view makeToast:@"群成员数据有误"];
         return;
     }
     __weak typeof(self) wself = self;
     NIMCreateTeamOption *option = [[NIMCreateTeamOption alloc] init];
-    option.name = self.groupName;
+    option.name = self.teamName;
     option.type = NIMTeamTypeNormal;
     
     [[NIMSDK sharedSDK].teamManager createTeam:option
-                                         users:self.groupMembers
+                                         users:self.teamMembers
                                     completion:^(NSError *error, NSString *teamId) {
         if (!error) {
             UINavigationController *nav = wself.navigationController;
@@ -177,12 +177,12 @@
     }
     switch (self.currentOpera) {
         case CardHeaderOpeatorAdd:{
-            [self.groupMembers addObjectsFromArray:selectedContacts];
+            [self.teamMembers addObjectsFromArray:selectedContacts];
             [self addHeaderDatas:array];
             break;
         }
         case CardHeaderOpeatorRemove:{
-            [self.groupMembers removeObjectsInArray:selectedContacts];
+            [self.teamMembers removeObjectsInArray:selectedContacts];
             [self removeHeaderDatas:array];
             break;
         }

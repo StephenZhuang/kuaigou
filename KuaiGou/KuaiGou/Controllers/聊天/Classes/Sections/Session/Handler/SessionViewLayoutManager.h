@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SessionLogicDelegate.h"
-
+#import "SessionLogicImpl.h"
 @class InputView;
 @class NIMMessage;
-@interface SessionViewLayoutManager : NSObject
+@interface SessionViewLayoutManager : NSObject<SessionLogicLayout>
+
 @property (nonatomic, assign) CGRect viewRect;
 -(instancetype)initWithInputView:(InputView*)inputView tableView:(UITableView*)tableview;
 

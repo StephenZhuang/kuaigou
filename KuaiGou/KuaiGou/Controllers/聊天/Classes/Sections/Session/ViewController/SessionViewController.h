@@ -21,4 +21,6 @@
 @property (nonatomic, strong) SessionCellActionHandler *sessionCellHandler;
 
 - (instancetype)initWithSession:(NIMSession*)session;
+
+
 @end

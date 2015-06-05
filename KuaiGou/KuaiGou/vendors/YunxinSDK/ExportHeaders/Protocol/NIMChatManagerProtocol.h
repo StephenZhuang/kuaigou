@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "NIMMessage.h"
-#import "NIMUserCommand.h"
 
 /**
  *  聊天委托
@@ -41,15 +40,6 @@
 - (void)sendMessage:(NIMMessage *)message
     didCompleteWithError:(NSError *)error;
 
-/**
- *  指令发送完毕回调
- *
- *  @param command 用户指令
- *  @param error   失败原因,如果发送成功则error为nil
- */
-- (void)sendUserCommand:(NIMUserCommand *)command
-   didCompleteWithError:(NSError *)error;
-
 
 /**
  *  收到消息回调
@@ -57,13 +47,6 @@
  *  @param messages 消息列表,内部为NIMMessage
  */
 - (void)onRecvMessages:(NSArray *)messages;
-
-/**
- *  收到用户指令回调
- *
- *  @param command 用户指令
- */
-- (void)onRecvUserCommand:(NIMUserCommand *)command;
 
 
 /**
@@ -118,18 +101,6 @@
                 error:(NSError **)error;
 
 
-/**
- *  发送用户指令
- *
- *  @param command 用户指令
- *  @param session 接收方
- *  @param error   错误 如果在准备发送指令阶段发生错误,这个error会被填充相应的信息
- *
- *  @return 是否调用成功,这里返回的result只是表示当前这个函数调用是否成功,需要后续的回调才能够判断消息是否已经发送至服务器
- */
-- (BOOL)sendUserCommand:(NIMUserCommand *)command
-              toSession:(NIMSession *)session
-                  error:(NSError **)error;
 
 /**
  *  收取消息附件

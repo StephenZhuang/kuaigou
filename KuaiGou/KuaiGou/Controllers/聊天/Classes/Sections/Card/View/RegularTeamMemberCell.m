@@ -10,7 +10,7 @@
 #import "UIView+NIMDemo.h"
 #import "UsrInfoData.h"
 #import "AvatarImageView.h"
-
+#import "SessionUtil.h"
 typedef NS_ENUM(NSInteger, RegularTeamMemberType) {
     RegularTeamMemberTypeInvalid,
     RegularTeamMemberTypeAdd,
@@ -122,7 +122,7 @@ typedef NS_ENUM(NSInteger, RegularTeamMemberType) {
         }
     }
     NSInteger count = 0;
-    if (myTeamInfo.type == NIMTeamMemberTypeCreator || myTeamInfo.type == NIMTeamMemberTypeManager) {
+    if (myTeamInfo.type == NIMTeamMemberTypeOwner || myTeamInfo.type == NIMTeamMemberTypeManager) {
         RegularTeamMemberView *view = _icons[0];
         view.imageName = @"icon_add_normal";
         view.title = @"邀请";
@@ -140,7 +140,7 @@ typedef NS_ENUM(NSInteger, RegularTeamMemberType) {
         view.imageName = info.iconUrl;
         view.member = member;
         view.type  = RegularTeamMemberTypeMember;
-        view.title = info.nick.length ? info.nick : member.userId;
+        view.title = [SessionUtil showNick:member.userId teamId:self.team.teamId];
         [view setNeedsLayout];
     }
 }

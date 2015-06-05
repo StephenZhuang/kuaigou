@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Netease. All rights reserved.
 //
 
-#define WebApiBaseURL @"https://app.netease.im/api"
+#import <Foundation/Foundation.h>
 
 enum NIMHttpRequestCode
 {
@@ -21,7 +21,6 @@ enum NIMHttpRequestCode
 
 typedef void(^CompleteBlock)(NSInteger responseCode, NSDictionary *responseData);
 
-#import <Foundation/Foundation.h>
 
 @interface NIMHttpRequest : NSObject
 @property (nonatomic,strong)    NSData      *responseData;  //已解密的Response

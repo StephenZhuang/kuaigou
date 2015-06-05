@@ -38,13 +38,14 @@ NSInteger LevelmeterViewHeight = 100;
 
 @implementation InputView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame sessionType:(NIMSessionType)sessionType
 {
     self = [[[NSBundle mainBundle] loadNibNamed:@"InputView" owner:nil options:nil] lastObject];
     if (self) {
         [self setFrame:frame];
         _recording = NO;
         _recordPhase = AudioRecordPhaseEnd;
+        _sessionType = sessionType;
         [self initUIComponents];
     }
     return self;
@@ -512,8 +513,12 @@ NSInteger LevelmeterViewHeight = 100;
         CustomMediaButtonData *telphoneBtnData = [[CustomMediaButtonData alloc] initCustomMediaButtonData:@"btn_media_telphone_message_normal" pressedFileName:@"btn_media_telphone_message_pressed" title:@"实时语音" type:MediaButtonAudioChat];
         [moreBtnsData addObject:telphoneBtnData];
         
-        CustomMediaButtonData *videoChatBtnData = [[CustomMediaButtonData alloc] initCustomMediaButtonData:@"btn_bk_media_video_chat_normal" pressedFileName:@"btn_bk_media_video_chat_pressed" title:@"视频通话" type:MediaButtonVideoChat];
+        CustomMediaButtonData *videoChatBtnData = [[CustomMediaButtonData alloc] initCustomMediaButtonData:@"btn_bk_media_video_chat_normal" pressedFileName:@"btn_bk_media_video_chat_pressed" title:@"视频聊天" type:MediaButtonVideoChat];
         [moreBtnsData addObject:videoChatBtnData];
+        
+        CustomMediaButtonData *fileBtnData = [[CustomMediaButtonData alloc] initCustomMediaButtonData:@"bk_media_picture_normal" pressedFileName:@"bk_media_picture_nomal_pressed" title:NSLocalizedString(@"文本传输", nil) type:MediaButtonFileTrans];
+        [moreBtnsData addObject:fileBtnData];
+
     }
     
     return moreBtnsData;

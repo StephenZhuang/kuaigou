@@ -28,16 +28,22 @@
     return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
+- (void)dealloc{
+    [[NIMSDK sharedSDK].teamManager removeDelegate:self];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-    
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.myTeams = [self fetchTeams];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.tableFooterView = [[UIView alloc]init];
+    [[NIMSDK sharedSDK].teamManager addDelegate:self];
+}
+
+- (NSMutableArray *)fetchTeams{
+    //subclass override
+    return nil;
 }
 
 #pragma mark - UITableViewDataSource
@@ -58,14 +64,25 @@
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 30.f;
+    return 55.f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NIMTeam *team = [_myTeams objectAtIndex:indexPath.row];
     NIMSession *session = [NIMSession session:team.teamId type:NIMSessionTypeTeam];
     SessionViewController *vc = [[SessionViewController alloc] initWithSession:session];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - NIMTeamManagerDelegate
+- (void)onTeamUpdated:(NIMTeam *)team{
+    //subclass override
+}
+
+
+- (void)onTeamRemoved:(NIMTeam *)team{
+    //subclass override
 }
 
 @end
@@ -84,13 +101,35 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.navigationItem.title = @"高级群组";
-    self.myTeams = [[NSMutableArray alloc]init];
+}
+
+- (NSMutableArray *)fetchTeams{
+    NSMutableArray *myTeams = [[NSMutableArray alloc]init];
     for (NIMTeam *team in [NIMSDK sharedSDK].teamManager.allMyTeams) {
         if (team.type == NIMTeamTypeAdvanced) {
-            [self.myTeams addObject:team];
+            [myTeams addObject:team];
         }
     }
+    return myTeams;
 }
+
+- (void)onTeamUpdated:(NIMTeam *)team{
+    [super onTeamUpdated:team];
+    if (team.type == NIMTeamTypeAdvanced) {
+        self.myTeams = [self fetchTeams];
+    }
+    [self.tableView reloadData];
+}
+
+
+- (void)onTeamRemoved:(NIMTeam *)team{
+    [super onTeamRemoved:team];
+    if (team.type == NIMTeamTypeAdvanced) {
+        self.myTeams = [self fetchTeams];
+    }
+    [self.tableView reloadData];
+}
+
 
 @end
 
@@ -107,12 +146,33 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.navigationItem.title = @"普通群组";
-    self.myTeams = [[NSMutableArray alloc]init];
+}
+
+- (NSMutableArray *)fetchTeams{
+    NSMutableArray *myTeams = [[NSMutableArray alloc]init];
     for (NIMTeam *team in [NIMSDK sharedSDK].teamManager.allMyTeams) {
         if (team.type == NIMTeamTypeNormal) {
-            [self.myTeams addObject:team];
+            [myTeams addObject:team];
         }
     }
+    return myTeams;
+}
+
+- (void)onTeamUpdated:(NIMTeam *)team{
+    [super onTeamUpdated:team];
+    if (team.type == NIMTeamTypeNormal) {
+        self.myTeams = [self fetchTeams];
+    }
+    [self.tableView reloadData];
+}
+
+
+- (void)onTeamRemoved:(NIMTeam *)team{
+    [super onTeamRemoved:team];
+    if (team.type == NIMTeamTypeNormal) {
+        self.myTeams = [self fetchTeams];
+    }
+    [self.tableView reloadData];
 }
 @end
 

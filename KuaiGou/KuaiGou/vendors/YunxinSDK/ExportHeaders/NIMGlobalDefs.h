@@ -40,6 +40,10 @@ typedef NS_ENUM(NSInteger, NIMMessageType){
      */
     NIMMessageTypeNotification  = 5,
     /**
+     *  文件消息
+     */
+    NIMMessageTypeFile          = 6,
+    /**
      *  自定义消息
      */
     NIMMessageTypeCustom        = 100
@@ -106,6 +110,14 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
      *  播放初始化失败
      */
     NIMLocalErrorCodeAudioPlayErrorInitFailed     = 11,
+    /**
+     *  有正在进行的网络通话
+     */
+    NIMLocalErrorCodeNetCallBusy                  = 12,
+    /**
+     *  这一通网络通话已经被其他端处理过了
+     */
+    NIMLocalErrorCodeNetCallOtherHandled          = 13,
 };
 
 
@@ -113,24 +125,25 @@ typedef NS_ENUM(NSInteger, NIMLocalErrorCode) {
 
 /**
  *  服务器错误码
+ *  @discussion 更多错误详见 http://dev.netease.im/docs/index.php?index=6&title=%E5%85%A8%E5%B1%80%E8%BF%94%E5%9B%9E%E7%A0%81%E8%AF%B4%E6%98%8E
  */
 typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
     /**
-     *  登录IP或MAC被封锁
+     *  客户端版本错误
      */
-    NIMRemoteErrorCodeIpBanError          = 310,
+    NIMRemoteErrorCodeInvalidVersion      = 201,
     /**
-     *  内部帐户不允许在该地址登录
+     *  密码错误
      */
-    NIMRemoteErrorCodeIpNotAllowed        = 315,
+    NIMRemoteErrorCodeInvalidPass         = 302,
     /**
-     *  用户名不存在或密码错误
+     *  参数错误
      */
-    NIMRemoteErrorCodeUIDOrPassError      = 316,
+    NIMRemoteErrorCodeInvalidParam        = 401,
     /**
-     *  用户使用的版本过低
+     *  CRC错误
      */
-    NIMRemoteErrorCodeLowVersion          = 317,
+    NIMRemoteErrorCodeInvalidCRC          = 402,
     /**
      *  用户被封禁
      */
@@ -151,10 +164,6 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      *  请求过程超时
      */
     NIMRemoteErrorCodeTimeoutError        = 408,
-    /**
-     *  帐号或者验证码验证失败
-     */
-    NIMRemoteErrorCodeVerifyError         = 413,
     /**
      *  参数错误
      */
@@ -204,17 +213,17 @@ typedef NS_ENUM(NSInteger, NIMRemoteErrorCode) {
      */
     NIMRemoteErrorCodeUserNotExist        = 510,
     /**
-     *  初始成员不够
+     *  没有操作群的权限
      */
-    NIMRemoteErrorCodeTeamInitFailed      = 403,
+    NIMRemoteErrorCodeTeamAccessError     = 802,
     /**
      *  群组不存在
      */
-    NIMRemoteErrorCodeTeamNotExists       = 802,
+    NIMRemoteErrorCodeTeamNotExists       = 803,
     /**
-     *  没有操作群的权限
+     *  用户不在兴趣组内
      */
-    NIMRemoteErrorCodeTeamAccessError     = 803,
+    NIMRemoteErrorCodeNotInTeam           = 804,
     /**
      *  群类型错误
      */

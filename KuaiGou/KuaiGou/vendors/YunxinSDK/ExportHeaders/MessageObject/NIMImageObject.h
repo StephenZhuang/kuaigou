@@ -90,4 +90,10 @@ typedef enum : NSUInteger
  */
 @property (nonatomic ,strong) NIMImageOption *option;
 
+/**
+ *  文件大小
+ */
+@property (nonatomic, assign, readonly) long long fileLength;
+
+
 @end

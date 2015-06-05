@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "NIMSDK.h"
+#import "NIMNotificationObject.h"
 
 @interface SessionUtil : NSObject
 
@@ -16,14 +17,23 @@
                                   minSize:(CGSize)imageMinSize
                                   maxSize:(CGSize)imageMaxSize;
 
-+ (NSString*)showTimeInSession:(NSTimeInterval) messageTime;
++ (NSString*)showNickInMessage:(NIMMessage *)message;
+
++ (NSString*)showNick:(NSString*)uid inSession:(NIMSession*)session;
+
++ (NSString*)showNick:(NSString*)uid teamId:(NSString*)teamId;
+
 
 //接收时间格式化
-+ (NSString*)showTime:(NSTimeInterval) msglastTime;
++ (NSString*)showTime:(NSTimeInterval) msglastTime showDetail:(BOOL)showDetail;
 
 + (NSString *)currentUsrId;
 
 + (NSString *)currectUsrPassword;
+
+//网络电话回单在消息上显示的内容
++ (NSString *)netcallMessageText:(NIMNotificationObject *)object;
+
 
 + (void)sessionWithInputURL:(NSURL*)inputURL
                   outputURL:(NSURL*)outputURL

@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, TeamAnnouncementSectionType) {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *announcement = _announcements.lastObject;
     TeamAnnouncementListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeamAnnouncementListCell"];
-    [cell refreshData:announcement];
+    [cell refreshData:announcement team:self.team];
     cell.userInteractionEnabled = NO;
     return cell;
 }

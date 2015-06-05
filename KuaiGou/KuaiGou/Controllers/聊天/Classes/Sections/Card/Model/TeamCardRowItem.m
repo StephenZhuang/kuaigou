@@ -1,5 +1,5 @@
 //
-//  GroupCardRowItem.m
+//  TeamCardRowItem.m
 //  NIM
 //
 //  Created by chrisRay on 15/3/5.

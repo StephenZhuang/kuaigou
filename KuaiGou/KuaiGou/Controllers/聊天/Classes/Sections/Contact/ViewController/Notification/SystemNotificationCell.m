@@ -9,6 +9,8 @@
 #import "SystemNotificationCell.h"
 #import "NIMSystemNotification.h"
 #import "ContactUtil.h"
+#import "SessionUtil.h"
+#import "UIView+NIMDemo.h"
 
 @interface SystemNotificationCell ()
 @property (strong, nonatomic) IBOutlet UILabel *messageLabel;
@@ -50,7 +52,8 @@
     } else {
         self.handleInfoLabel.hidden = YES;
     }
-    NSString *source = [[UsrInfoData sharedInstance] queryUsrInfoById:self.notification.sourceID needRemoteFetch:NO fetchCompleteHandler:nil].nick;
+
+    NSString *source = [SessionUtil showNick:self.notification.sourceID inSession:nil];//这里直接显示昵称好了，不需要显示群昵称
     self.textLabel.text = source;
     NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:self.notification.targetID];
     switch (type) {
@@ -89,6 +92,14 @@
 - (IBAction)onRefuse:(id)sender {
     if (_actionDelegate && [_actionDelegate respondsToSelector:@selector(onRefuse:)]){
         [_actionDelegate onRefuse:self.notification];
+    }
+}
+
+#define MaxTextLabelWidth 200.0 * UIScreenWidth / 320.0
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    if (self.textLabel.width > MaxTextLabelWidth) {
+        self.textLabel.width = MaxTextLabelWidth;
     }
 }
 

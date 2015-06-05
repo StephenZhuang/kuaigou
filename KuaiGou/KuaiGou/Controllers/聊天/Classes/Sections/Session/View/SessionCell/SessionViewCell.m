@@ -17,6 +17,8 @@
 #import "AvatarImageView.h"
 #import "ContactUtil.h"
 #import "ContactDataItem.h"
+#import "SessionUtil.h"
+#import "NIMNotificationObject.h"
 
 @interface SessionViewCell ()<PlayAudioUIDelegate>
 {
@@ -82,7 +84,13 @@
 
     //内容view
     NIMMessageType messageType = [self msgTypeWithCellReuseId:self.reuseIdentifier];
-    _bubbleView = [[[SessionMsgCellFactory viewClassFromSessionMessageType:messageType] alloc] initSessionMessageContentView];
+    if (messageType == NIMMessageTypeNotification) {
+        NSString *notifyType = [self notifyTypeWithCellReuseId:self.reuseIdentifier];
+        _bubbleView = [[[SessionMsgCellFactory viewClassFromNotificationType:notifyType] alloc] initSessionMessageContentView];
+    }else{
+        _bubbleView = [[[SessionMsgCellFactory viewClassFromSessionMessageType:messageType] alloc] initSessionMessageContentView];
+    }
+
     if (messageType == NIMMessageTypeAudio) {
         ((SessionAudioContentView*)_bubbleView).audioUIDelegate = self;
     }
@@ -161,9 +169,7 @@
     }
     if([_chatMessage nickNameShow])
     {
-        NSString *senderName = [data.msgData senderName];
-        NSString *nick = [senderName length] ? senderName :
-        [ContactUtil queryContactByUsrId:[data.msgData from]].nick;
+        NSString *nick = [SessionUtil showNickInMessage:data.msgData];
         [_nameLabel setText:nick];
     }
     [_nameLabel setHidden:![_chatMessage nickNameShow]];
@@ -173,6 +179,7 @@
 
 - (void)refreshSubStatusUI:(NIMMessage*)msgData
 {
+    _chatMessage.msgData = msgData;
     BOOL isActivityIndicatorHidden = [_chatMessage activityIndicatorHidden];
     if (isActivityIndicatorHidden) {
          [_traningActivityIndicator stopAnimating];
@@ -192,23 +199,42 @@
     [self addGestureRecognizer:_longPressGesture];
 }
 
-+ (NSString*)cellIdentifierWithMsgType:(NIMMessageType)msgType isFromMe:(BOOL)isFromMe
++ (NSString*)cellIdentifierWithMsgType:(SessionMsgModel *)model
 {
-    return [NSString stringWithFormat:@"messageCell_%@_%@",@(msgType),@(isFromMe)];
+    BOOL isFromMe = model.isFromMe;
+    NIMMessageType msgType = model.msgData.messageType;
+    if (msgType != NIMMessageTypeNotification) {
+        return [NSString stringWithFormat:@"messageCell_%@_%@",@(msgType),@(isFromMe)];
+    }else{
+        NIMNotificationObject *object = model.msgData.messageObject;
+        NSString *notify = NSStringFromClass([object.content class]);
+        return [NSString stringWithFormat:@"messageCell_%@_%@_%@",@(msgType),@(isFromMe),notify];
+    }
+
 }
 
 - (NIMMessageType)msgTypeWithCellReuseId:(NSString*)cellReuseId
 {
     NSArray * components = [cellReuseId componentsSeparatedByString:@"_"];
-    if (components.count == 3) {
+    if (components.count == 3 || components.count == 4) {
         return [components[1] integerValue];
     }
     return NIMMessageTypeCustom;
 }
 
+
+- (NSString *)notifyTypeWithCellReuseId:(NSString*)cellReuseId
+{
+    NSArray * components = [cellReuseId componentsSeparatedByString:@"_"];
+    return components[3];
+}
+
 #pragma mark - cell actions
 - (void)longGesturePress:(UIGestureRecognizer*)gestureRecognizer
 {
+    if (!self.needDelete) {
+        return;
+    }
     if ([gestureRecognizer state] == UIGestureRecognizerStateBegan)
     {
         CGPoint point = [gestureRecognizer locationInView:self];

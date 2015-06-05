@@ -14,7 +14,7 @@
 static const NSInteger MaxNotificationCount = 20;
 static NSString *reuseIdentifier = @"reuseIdentifier";
 
-@interface SystemNotificationViewController ()<NIMSystemNotificationManagerDelegate,NIMSystemNotificationCellDelegate>
+@interface SystemNotificationViewController ()<NIMSystemNotificationManagerDelegate,NIMSystemNotificationCellDelegate,NIMTeamManagerDelegate>
 @property (nonatomic,strong)    NSMutableArray  *notifications;
 @property (nonatomic,assign)    BOOL shouldMarkAsRead;
 @end
@@ -31,16 +31,16 @@ static NSString *reuseIdentifier = @"reuseIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.navigationItem.title = @"系统通知";
     [self.tableView registerNib:[UINib nibWithNibName:@"SystemNotificationCell" bundle:nil]
            forCellReuseIdentifier:reuseIdentifier];
     
     _notifications = [NSMutableArray array];
     
-    id<NIMSystemNotificationManager> manager = [[NIMSDK sharedSDK] systemNotificationManager];
-    [manager addDelegate:self];
+    id<NIMSystemNotificationManager> systemNotificationManager = [[NIMSDK sharedSDK] systemNotificationManager];
+    [systemNotificationManager addDelegate:self];
     
-    NSArray *notifications = [manager fetchSystemNotifications:nil
+    NSArray *notifications = [systemNotificationManager fetchSystemNotifications:nil
                                                          limit:MaxNotificationCount];
     
     if ([notifications count])
@@ -52,13 +52,17 @@ static NSString *reuseIdentifier = @"reuseIdentifier";
             
         }
     }
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setFrame:CGRectMake(0, 0, 320, 40)];
-    [button addTarget:self
-               action:@selector(loadMore:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"载入更多" forState:UIControlStateNormal];
-    self.tableView.tableFooterView = button;
+    if (notifications.count >= MaxNotificationCount) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        [button setFrame:CGRectMake(0, 0, 320, 40)];
+        [button addTarget:self
+                   action:@selector(loadMore:)
+         forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:@"载入更多" forState:UIControlStateNormal];
+        self.tableView.tableFooterView = button;
+    }else{
+        self.tableView.tableFooterView = [[UIView alloc] init];
+    }
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空"
                                                                               style:UIBarButtonItemStylePlain
@@ -131,6 +135,12 @@ static NSString *reuseIdentifier = @"reuseIdentifier";
     }
 }
 
+
+#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
 #pragma mark - SystemNotificationCell
 - (void)onAccept:(NIMSystemNotification *)notification
 {
@@ -139,12 +149,12 @@ static NSString *reuseIdentifier = @"reuseIdentifier";
         case NIMSystemNotificationTypeTeamApply:{
             [[NIMSDK sharedSDK].teamManager passApplyToTeam:notification.targetID userId:notification.sourceID completion:^(NSError *error, NIMTeamApplyStatus applyStatus) {
                 if (!error) {
-                    [wself.view makeToast:@"同意成功"];
+                    [wself.view.window makeToast:@"同意成功"];
                     notification.handleStatus = NotificationHandleTypeOk;
                     [wself.tableView reloadData];
                 }else {
                     if(error.code == NIMRemoteErrorCodeTimeoutError) {
-                        [wself.view makeToast:@"网络问题，请重试"];
+                        [wself.view.window makeToast:@"网络问题，请重试"];
                     } else {
                         notification.handleStatus = NotificationHandleTypeOutOfDate;
                     }
@@ -157,13 +167,17 @@ static NSString *reuseIdentifier = @"reuseIdentifier";
         case NIMSystemNotificationTypeTeamInvite:{
             [[NIMSDK sharedSDK].teamManager acceptInviteWithTeam:notification.targetID invitorId:notification.sourceID completion:^(NSError *error) {
                 if (!error) {
-                    [wself.view makeToast:@"接受成功"];
+                    [wself.view.window makeToast:@"接受成功"];
                     notification.handleStatus = NotificationHandleTypeOk;
                     [wself.tableView reloadData];
                 }else {
                     if(error.code == NIMRemoteErrorCodeTimeoutError) {
-                        [wself.view makeToast:@"网络问题，请重试"];
-                    } else {
+                        [wself.view.window makeToast:@"网络问题，请重试"];
+                    }
+                    else if (error.code == NIMRemoteErrorCodeTeamNotExists) {
+                        [wself.view.window makeToast:@"群不存在"];
+                    }
+                    else {
                         notification.handleStatus = NotificationHandleTypeOutOfDate;
                     }
                     [wself.tableView reloadData];
@@ -184,11 +198,11 @@ static NSString *reuseIdentifier = @"reuseIdentifier";
         case NIMSystemNotificationTypeTeamApply:{
             [[NIMSDK sharedSDK].teamManager rejectApplyToTeam:notification.targetID userId:notification.sourceID rejectReason:@"" completion:^(NSError *error) {
                 if (!error) {
-                    [wself.view makeToast:@"拒绝成功"];
+                    [wself.view.window makeToast:@"拒绝成功"];
                     notification.handleStatus = NotificationHandleTypeNo;
                     [wself.tableView reloadData];
                 }else {
-                    [wself.view makeToast:@"拒绝失败"];
+                    [wself.view.window makeToast:@"拒绝失败"];
                 }
             }];
         }
@@ -197,11 +211,11 @@ static NSString *reuseIdentifier = @"reuseIdentifier";
         case NIMSystemNotificationTypeTeamInvite:{
             [[NIMSDK sharedSDK].teamManager rejectInviteWithTeam:notification.targetID invitorId:notification.sourceID rejectReason:@"" completion:^(NSError *error) {
                 if (!error) {
-                    [wself.view makeToast:@"拒绝成功"];
+                    [wself.view.window makeToast:@"拒绝成功"];
                     notification.handleStatus = NotificationHandleTypeNo;
                     [wself.tableView reloadData];
                 }else {
-                    [wself.view makeToast:@"拒绝失败"];
+                    [wself.view.window makeToast:@"拒绝失败"];
                 }
             }];
 
@@ -211,4 +225,6 @@ static NSString *reuseIdentifier = @"reuseIdentifier";
             break;
     }
 }
+
+
 @end

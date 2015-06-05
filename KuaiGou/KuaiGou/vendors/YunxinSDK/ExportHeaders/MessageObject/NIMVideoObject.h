@@ -25,11 +25,11 @@
  *  视频展示名
  */
 @property (nonatomic, copy) NSString * displayName;
-
 /**
  *  视频MD5
  */
 @property (nonatomic, copy, readonly) NSString * md5;
+
 
 
 /**
@@ -62,6 +62,11 @@
  *  视频时长，毫秒为单位
  */
 @property (nonatomic, assign, readonly) NSInteger duration;
+
+/**
+ *  文件大小
+ */
+@property (nonatomic, assign, readonly) long long fileLength;
 
 
 

@@ -75,6 +75,7 @@ typedef NS_ENUM(NSInteger, NIMTeamApplyStatus) {
  *  @discussion 默认为普通群
  */
 @property (nonatomic,assign)    NIMTeamType     type;
+
 /**
  *  群简介
  */
@@ -96,6 +97,7 @@ typedef NS_ENUM(NSInteger, NIMTeamApplyStatus) {
  *  @discussion 只有高级群才有群验证模式,普通群一律不需要验证
  */
 @property (nonatomic,assign)    NIMTeamJoinMode joinMode;
+
 
 @end
 
@@ -121,9 +123,10 @@ typedef NS_ENUM(NSInteger, NIMTeamApplyStatus) {
 @property (nonatomic,assign,readonly)    NIMTeamType type;
 
 /**
- *  群创建者ID
+ *  群拥有者ID
+ *  @discussion 普通群拥有者就是群创建者,但是高级群可以进行拥有信息的转让
  */
-@property (nonatomic,copy,readonly)      NSString *creator;
+@property (nonatomic,copy,readonly)      NSString *owner;
 
 /**
  *  群介绍
@@ -157,6 +160,22 @@ typedef NS_ENUM(NSInteger, NIMTeamApplyStatus) {
  *  群验证方式
  */
 @property (nonatomic,assign)   NIMTeamJoinMode joinMode;
+
+
+/**
+ *  群服务端自定义信息
+ *  @discussion 应用方可以自行拓展这个字段做个性化配置,客户端不可以修改这个字段
+ */
+@property (nonatomic,copy,readonly)      NSString *serverCustomInfo;
+
+
+/**
+ *  群服务端自定义信息
+ *  @discussion 应用方可以自行拓展这个字段做个性化配置,客户端可以修改这个字段
+ */
+@property (nonatomic,copy,readonly)     NSString *clientCustomInfo;
+
+
 
 @end
 

@@ -9,7 +9,9 @@
 #import "CustomLeftBarView.h"
 #import "BadgeView.h"
 #import "UIView+NIMDemo.h"
-@implementation CustomLeftBarView
+@implementation CustomLeftBarView{
+    UIImageView *_leftBtnView;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -26,22 +28,21 @@
     self.badgeView = [BadgeView viewWithBadgeTip:@""];
     self.badgeView.frame = CGRectMake(20, 8, 0, 0);
     self.badgeView.hidden = YES;
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _leftBtnView = [[UIImageView alloc] initWithFrame:CGRectZero];
     UIImage *buttonNormal = [UIImage imageNamed:@"icon_back_normal"];
     UIImage *buttonPressed= [UIImage imageNamed:@"icon_back_pressed"];
     
-    [leftButton setImage:buttonNormal forState:UIControlStateNormal];
-    [leftButton setImage:buttonPressed forState:UIControlStateHighlighted];
-    [leftButton sizeToFit];
-    leftButton.exclusiveTouch = YES;
-    
-    [leftButton addTarget:self
+    _leftBtnView.image = buttonNormal;
+    _leftBtnView.highlightedImage = buttonPressed;
+    [_leftBtnView sizeToFit];
+
+    [self addTarget:self
                        action:@selector(onLeftButtonPressed:)
              forControlEvents:UIControlEventTouchUpInside];
-    
+    self.exclusiveTouch = YES;
     self.frame = CGRectMake(0.0, 0.0, 50.0, 44.f);
     self.backgroundColor = [UIColor clearColor];
-    [self addSubview:leftButton];
+    [self addSubview:_leftBtnView];
     [self addSubview:self.badgeView];
 }
 
@@ -54,6 +55,11 @@
             [self.delegate onLeftButtonPressed];
         }
     }
+}
+
+- (void)setHighlighted:(BOOL)highlighted{
+    [super setHighlighted:highlighted];
+    [_leftBtnView setHighlighted:highlighted];
 }
 
 - (void)layoutSubviews{

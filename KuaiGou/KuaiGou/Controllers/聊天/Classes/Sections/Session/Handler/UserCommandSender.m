@@ -34,11 +34,12 @@
                                                          error:nil];
         NSString *content = [[NSString alloc] initWithData:data
                                                   encoding:NSUTF8StringEncoding];
-        NIMUserCommand *command = [[NIMUserCommand alloc] initWithContent:content];
-        id<NIMChatManager> chatManager = [[NIMSDK sharedSDK] chatManager];
-        [chatManager sendUserCommand:command
-                           toSession:session
-                               error:nil];
+        
+        NIMCustomSystemNotification *notification = [[NIMCustomSystemNotification alloc] initWithContent:content];
+        notification.sendToOnlineUsersOnly  = YES;
+        [[[NIMSDK sharedSDK] systemNotificationManager] sendCustomNotification:notification
+                                                                     toSession:session
+                                                                    completion:nil];
     }
 }
 @end

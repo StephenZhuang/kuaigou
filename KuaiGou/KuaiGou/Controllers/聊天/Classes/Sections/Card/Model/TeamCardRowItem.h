@@ -1,5 +1,5 @@
 //
-//  GroupCardRowItem.h
+//  TeamCardRowItem.h
 //  NIM
 //
 //  Created by chrisRay on 15/3/5.

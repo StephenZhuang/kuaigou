@@ -80,20 +80,21 @@
 
     self.navigationItem.title  =  _contacts.dataSource.contacts.count ? @"通讯录" :@"请下拉获取好友数据";
 
-    
-//构造显示的数据模型
-    ContactUtilItem *contactUtil = [[ContactUtilItem alloc] init];
-    NSMutableArray * members = [[NSMutableArray alloc] init];
-    for (NSDictionary *item in utils) {
-        ContactUtilMember *utilItem = [[ContactUtilMember alloc] init];
-        utilItem.nick              = item[contactCellUtilTitle];
-        utilItem.iconUrl           = item[contactCellUtilIcon];
-        utilItem.vcName             = item[contactCellUtilVC];
-        [members addObject:utilItem];
+    if (_contacts.dataSource.contacts.count) {
+        //构造显示的数据模型
+        ContactUtilItem *contactUtil = [[ContactUtilItem alloc] init];
+        NSMutableArray * members = [[NSMutableArray alloc] init];
+        for (NSDictionary *item in utils) {
+            ContactUtilMember *utilItem = [[ContactUtilMember alloc] init];
+            utilItem.nick              = item[contactCellUtilTitle];
+            utilItem.iconUrl           = item[contactCellUtilIcon];
+            utilItem.vcName             = item[contactCellUtilVC];
+            [members addObject:utilItem];
+        }
+        contactUtil.members = members;
+        
+        [_contacts addGroupAboveWithTitle:@"" members:contactUtil.members];
     }
-    contactUtil.members = members;
-    
-    [_contacts addGroupAboveWithTitle:@"" members:contactUtil.members];
 }
 
 #pragma mark - GroupedContactsDelegate
@@ -115,6 +116,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if([contactItem respondsToSelector:@selector(usrId)]){
         NSString * friendId   = contactItem.usrId;
+        
         NSString *myId = [[[NIMSDK sharedSDK] loginManager] currentAccount];
         if (friendId && myId && [friendId isEqualToString:myId])
         {
@@ -123,8 +125,6 @@
                         position:CSToastPositionCenter];
             return;
         }
-        
-        
         
         NIMSession * session  = [NIMSession session:friendId type:NIMSessionTypeP2P];
         SessionViewController * vc = [[SessionViewController alloc] initWithSession:session];

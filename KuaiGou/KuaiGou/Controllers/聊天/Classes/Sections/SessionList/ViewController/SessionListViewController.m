@@ -20,7 +20,7 @@
 #define SessionListTitle @"网易云信"
 
 extern NSString *NotificationLogout;
-@interface SessionListViewController ()<NIMConversationManagerDelegate,UIAlertViewDelegate,UIActionSheetDelegate, NIMSystemNotificationManagerDelegate,NIMLoginManagerDelegate>
+@interface SessionListViewController ()<NIMConversationManagerDelegate,UIAlertViewDelegate,UIActionSheetDelegate, NIMSystemNotificationManagerDelegate,NIMLoginManagerDelegate,NIMTeamManagerDelegate>
 
 @property (nonatomic,strong) NSMutableArray * recentSessions;
 
@@ -44,13 +44,14 @@ extern NSString *NotificationLogout;
     [[NIMSDK sharedSDK].conversationManager removeDelegate:self];
     [[NIMSDK sharedSDK].systemNotificationManager removeDelegate:self];
     [[NIMSDK sharedSDK].loginManager removeDelegate:self];
+    [[NIMSDK sharedSDK].teamManager removeDelegate:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[NIMSDK sharedSDK].loginManager addDelegate:self];
-    
+    [[NIMSDK sharedSDK].teamManager addDelegate:self];
     self.tableView.delegate        = self;
     self.tableView.dataSource      = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -60,15 +61,22 @@ extern NSString *NotificationLogout;
     
     self.recentSessions = [[NIMSDK sharedSDK].conversationManager.allRecentSession mutableCopy];
     
-    if (!self.recentSessions) {
+    if (!self.recentSessions.count) {
+        self.emptyTipLabel.hidden = NO;
         self.recentSessions = [NSMutableArray array];
+    }else{
+        self.emptyTipLabel.hidden = YES;
     }
     [[NIMSDK sharedSDK].conversationManager addDelegate:self];
     [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                                                                           target:self
-                                                                                           action:@selector(showActionSheet:)];
+    UIButton *rightBarBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [rightBarBtn setImage:[UIImage imageNamed:@"icon_log_normal"] forState:UIControlStateNormal];
+    [rightBarBtn setImage:[UIImage imageNamed:@"icon_log_pressed"] forState:UIControlStateHighlighted];
+    [rightBarBtn sizeToFit];
+    [rightBarBtn addTarget:self action:@selector(showActionSheet:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBarBtn];
+
     extern NSString *ContactUpdateDidFinishedNotification;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onContactsDidFinishedUpdate:) name:ContactUpdateDidFinishedNotification object:nil];
 }
@@ -169,10 +177,6 @@ extern NSString *NotificationLogout;
     [alert show];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - UIAlertViewDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -226,8 +230,10 @@ extern NSString *NotificationLogout;
         [[NIMSDK sharedSDK].conversationManager deleteRecentSession:recentSession];
         [self.recentSessions removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
         [[[NIMSDK sharedSDK] conversationManager] deleteAllmessagesInSession:recentSession.session];
+        if (!self.recentSessions.count) {
+            self.emptyTipLabel.hidden = NO;
+        }
     }
 }
 #pragma mark - UITableViewDataSource
@@ -251,6 +257,7 @@ extern NSString *NotificationLogout;
 #pragma mark - NIMConversationManagerDelegate
 - (void)didAddRecentSession:(NIMRecentSession *)recentSession
            totalUnreadCount:(NSInteger)totalUnreadCount{
+    self.emptyTipLabel.hidden = YES;
     NSInteger find = [self findRecentSession:recentSession];
     if (find >=0) {
         [self.recentSessions removeObjectAtIndex:find];
@@ -258,7 +265,6 @@ extern NSString *NotificationLogout;
     NSInteger insert = [self findInsertPlace:recentSession];
     [self.recentSessions insertObject:recentSession atIndex:insert];
     [self reload];
-
 }
 
 
@@ -272,14 +278,13 @@ extern NSString *NotificationLogout;
 
 }
 
-
-- (void)didRemoveRecentSession:(NIMRecentSession *)recentSession totalUnreadCount:(NSInteger)totalUnreadCount{
-
+#pragma mark - NIMTeamManagerDelegate
+- (void)onTeamMemberChanged:(NIMTeam *)team{
+    [self.tableView reloadData];
 }
 
 
-
-
+#pragma mark - Misc
 - (NSInteger)findRecentSession:(NIMRecentSession *)recentSession{
     __block NSUInteger matchIdx = -1;
     [self.recentSessions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -294,14 +299,20 @@ extern NSString *NotificationLogout;
 
 - (NSInteger)findInsertPlace:(NIMRecentSession *)recentSession{
     __block NSUInteger matchIdx = 0;
+    __block BOOL find = NO;
     [self.recentSessions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NIMRecentSession *item = obj;
         if (item.lastMessage.timestamp <= recentSession.lastMessage.timestamp) {
             *stop = YES;
+            find  = YES;
             matchIdx = idx;
         }
     }];
-    return matchIdx;
+    if (find) {
+        return matchIdx;
+    }else{
+        return self.recentSessions.count;
+    }
 }
 
 

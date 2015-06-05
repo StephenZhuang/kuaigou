@@ -55,8 +55,7 @@ static NSInteger MaxMessageCount = 20;
         [self addNewMsgTimWithTime:obj.timestamp];
         SessionMsgModel *msgModel = [SessionMsgModelFactory msgModelWithMsg:obj];
         [_msgArray addObject:msgModel];
-        NSInteger msgIndex = [_msgArray count] - 1;
-        [_msgIdDict setObject:@(msgIndex) forKey:msgModel.msgData.messageId];
+        [_msgIdDict setObject:msgModel.msgData forKey:msgModel.msgData.messageId];
     }];
     //设置时间戳
     _oldMsgTimeTag = ((NIMMessage*)[msgDataList firstObject]).timestamp;
@@ -64,11 +63,18 @@ static NSInteger MaxMessageCount = 20;
 
 -(NSInteger)indexAtMsgArray:(NIMMessage*)msg
 {
-    NSInteger index = -1;
-    NSNumber *indexNumber = [_msgIdDict objectForKey:msg.messageId];
-    if (indexNumber) {
-        index = indexNumber.integerValue;
+    __block NSInteger index = -1;
+    if (![_msgIdDict objectForKey:msg.messageId]) {
+        return index;
     }
+    [_msgArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[SessionMsgModel class]]) {
+            if ([[((SessionMsgModel*)obj) msgData].messageId isEqualToString:msg.messageId]) {
+                index = idx;
+                *stop = YES;
+            }
+        }
+    }];
     if (index > -1) {
         [_msgArray replaceObjectAtIndex:index withObject:[SessionMsgModelFactory msgModelWithMsg:msg]];
     }
@@ -94,7 +100,7 @@ static NSInteger MaxMessageCount = 20;
             [_msgArray addObject:[SessionMsgModelFactory msgModelWithMsg:msg]];
             NSInteger msgIndex = [_msgArray count] - 1;
             [toAddArray addObject:@(msgIndex)];
-            [_msgIdDict setObject:@(msgIndex) forKey:msg.messageId];
+            [_msgIdDict setObject:msg forKey:msg.messageId];
         }
     }
     return toAddArray;
@@ -158,33 +164,6 @@ static NSInteger MaxMessageCount = 20;
 }
 
 #pragma mark - update
-- (void)updateOtherMessageHiddReceipt:(SessionMsgModel*)msgModel
-{
-    NSInteger index = [self.msgArray count] -1;
-    for (; index >= 0; index --)
-    {
-        if ([self.msgArray count] <= 0)
-        {
-            break;
-        }
-        id obj = [self.msgArray objectAtIndex:index];
-        if (![obj isKindOfClass:[SessionMsgModel class]])
-        {
-            continue;
-        }
-        SessionMsgModel *data = (SessionMsgModel*)obj;
-        if ([data.msgData.messageId isEqualToString:msgModel.msgData.messageId])
-        {
-            continue;
-        }
-        if (data.showSendMsgStatusView)
-        {
-            data.showSendMsgStatusView = NO;
-            //刷新table
-            //[self reloadTableViewCellBySessionMessageData:data];
-        }
-    }
-}
 
 - (void)deleteAllMessages
 {

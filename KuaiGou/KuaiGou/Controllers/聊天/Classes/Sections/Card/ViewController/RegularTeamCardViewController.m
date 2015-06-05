@@ -22,6 +22,7 @@
 #import "GroupedUsrInfo.h"
 #import "TeamMemberListViewController.h"
 #import "TeamAnnouncementListViewController.h"
+#import "SessionUtil.h"
 
 #pragma mark - Team Header View
 #define CardHeaderHeight 89
@@ -160,21 +161,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     [self reloadData];
 }
 
 - (void)reloadData{
+    self.myTeamInfo = [[NIMSDK sharedSDK].teamManager teamMember:self.myTeamInfo.userId inTeam:self.myTeamInfo.teamId];
     [self buildBodyData];
     [self.tableView reloadData];
     RegularTeamCardHeaderView *headerView = (RegularTeamCardHeaderView*)self.tableView.tableHeaderView;
     headerView.titleLabel.text = self.team.teamName;;
     self.navigationItem.title  = self.team.teamName;
-    if (self.myTeamInfo.type == NIMTeamMemberTypeCreator) {
+    if (self.myTeamInfo.type == NIMTeamMemberTypeOwner) {
         UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(onMore:)];
         self.navigationItem.rightBarButtonItem = buttonItem;
     }else{
@@ -203,8 +200,8 @@
 }
 
 - (void)buildBodyData{
-    BOOL isManager = self.myTeamInfo.type == NIMTeamMemberTypeManager || self.myTeamInfo.type == NIMTeamMemberTypeCreator;
-    BOOL isCreator = self.myTeamInfo.type == NIMTeamMemberTypeCreator;
+    BOOL isManager = self.myTeamInfo.type == NIMTeamMemberTypeManager || self.myTeamInfo.type == NIMTeamMemberTypeOwner;
+    BOOL isOwner   = self.myTeamInfo.type == NIMTeamMemberTypeOwner;
     
     TeamCardRowItem *teamMember = [[TeamCardRowItem alloc] init];
     teamMember.title  = @"群成员";
@@ -219,6 +216,14 @@
     teamName.rowHeight = 50.f;
     teamName.type   = TeamCardRowItemTypeCommon;
     teamName.actionDisabled = !isManager;
+    
+    TeamCardRowItem *teamNick = [[TeamCardRowItem alloc] init];
+    teamNick.title = @"群昵称";
+    teamNick.subTitle = self.myTeamInfo.nickname;
+    teamNick.action = @selector(updateTeamNick);
+    teamNick.rowHeight = 50.f;
+    teamNick.type   = TeamCardRowItemTypeCommon;
+
     
     TeamCardRowItem *teamIntro = [[TeamCardRowItem alloc] init];
     teamIntro.title = @"群介绍";
@@ -257,17 +262,17 @@
     itemAuth.type   = TeamCardRowItemTypeCommon;
 
     
-    if (isCreator) {
+    if (isOwner) {
         self.bodyData = @[
                   @[teamMember],
-                  @[teamName,teamIntro,teamAnnouncement],
+                  @[teamName,teamNick,teamIntro,teamAnnouncement],
                   @[itemAuth],
                   @[itemDismiss]
                  ];
     }else{
         self.bodyData = @[
                  @[teamMember],
-                 @[teamName,teamIntro,teamAnnouncement],
+                 @[teamName,teamNick,teamIntro,teamAnnouncement],
                  @[itemAuth],
                  @[itemQuit]
                  ];
@@ -299,7 +304,7 @@
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     id<CardBodyData> bodyData = [self bodyDataAtIndexPath:indexPath];
     if ([bodyData respondsToSelector:@selector(actionDisabled)] && bodyData.actionDisabled) {
         return;
@@ -365,9 +370,9 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TableCellReuseId];
         CGFloat left = 15.f;
-        UIView *sep = [[UIView alloc] initWithFrame:CGRectMake(left, cell.height, cell.width, 1.f)];
+        UIView *sep = [[UIView alloc] initWithFrame:CGRectMake(left, cell.height-1, cell.width, 1.f)];
         sep.backgroundColor = UIColorFromRGB(0xebebeb);
-        [cell addSubview:sep];
+        [cell.contentView addSubview:sep];
         sep.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     }
     cell.textLabel.text = bodyData.title;
@@ -457,6 +462,7 @@
                 continue;
             }
             UsrInfo *member = [[UsrInfoData sharedInstance] queryUsrInfoById:usr needRemoteFetch:NO fetchCompleteHandler:nil];
+            member.nick = [SessionUtil showNick:member.usrId teamId:self.team.teamId];//重新刷一遍群昵称
             [members addObject:member];
         }
         GroupedUsrInfo *teamContacts = [[GroupedUsrInfo alloc] initWithContacts:members];
@@ -495,7 +501,36 @@
                 break;
         }
     }];
+}
 
+- (void)updateTeamNick{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改群昵称" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    __block typeof(self) wself = self;
+    [alert showAlertWithCompletionHandler:^(NSInteger index) {
+        switch (index) {
+            case 0://取消
+                break;
+            case 1:{
+                NSString *name = [alert textFieldAtIndex:0].text;
+                if (name.length) {
+                    NSString *currentUserId = [NIMSDK sharedSDK].loginManager.currentAccount;
+                    [[NIMSDK sharedSDK].teamManager updateUserNick:currentUserId newNick:name inTeam:self.team.teamId completion:^(NSError *error) {
+                        if (!error) {
+                            wself.myTeamInfo.nickname = name;
+                            [wself.view makeToast:@"修改成功"];
+                            [wself reloadData];
+                        }else{
+                            [wself.view makeToast:@"修改失败"];
+                        }
+                    }];
+                }
+                break;
+            }
+            default:
+                break;
+        }
+    }];
 }
 
 - (void)updateTeamIntro{
@@ -529,7 +564,7 @@
 }
 
 - (void)updateTeamAnnouncement{
-    BOOL isManager = self.myTeamInfo.type == NIMTeamMemberTypeManager || self.myTeamInfo.type == NIMTeamMemberTypeCreator;
+    BOOL isManager = self.myTeamInfo.type == NIMTeamMemberTypeManager || self.myTeamInfo.type == NIMTeamMemberTypeOwner;
     TeamAnnouncementListViewController *vc = [[TeamAnnouncementListViewController alloc] initWithNibName:nil bundle:nil];
     vc.team = self.team;
     vc.canCreateAnnouncement = isManager;

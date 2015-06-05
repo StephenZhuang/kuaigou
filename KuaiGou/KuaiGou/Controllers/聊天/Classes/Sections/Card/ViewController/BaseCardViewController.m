@@ -108,7 +108,7 @@
 - (NSArray*)headerUserIds{
     NSMutableArray * uids = [[NSMutableArray alloc] init];
     for (id<CardHeaderData> data in self.headerData) {
-        if ([data respondsToSelector:@selector(memberId)]) {
+        if ([data respondsToSelector:@selector(memberId)] && data.memberId.length) {
             [uids addObject:data.memberId];
         }
     }

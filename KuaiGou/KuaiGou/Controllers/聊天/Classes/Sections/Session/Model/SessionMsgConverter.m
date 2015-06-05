@@ -8,7 +8,7 @@
 
 #import "SessionMsgConverter.h"
 #import "LocationPoint.h"
-
+#import "NSString+NIMDemo.h"
 @implementation SessionMsgConverter
 
 
@@ -80,6 +80,32 @@
     NIMMessage *message               = [[NIMMessage alloc] init];
     message.messageObject             = customObject;
     message.timestamp                 = [SessionMsgConverter currentTime];
+    return message;
+}
+
+
++ (NIMMessage*)msgWithFilePath:(NSString*)path{
+    NIMFileObject *fileObject = [[NIMFileObject alloc] initWithSourcePath:path];
+    NSString *displayName     = path.lastPathComponent;
+    fileObject.displayName    = displayName;
+    NIMMessage *message       = [[NIMMessage alloc] init];
+    message.messageObject     = fileObject;
+    message.timestamp         = [SessionMsgConverter currentTime];
+    return message;
+}
+
++ (NIMMessage*)msgWithFileData:(NSData*)data extension:(NSString*)extension{
+    NIMFileObject *fileObject = [[NIMFileObject alloc] initWithData:data extension:extension];
+    NSString *displayName;
+    if (extension.length) {
+        displayName     = [NSString stringWithFormat:@"%@.%@",[NSUUID UUID].UUIDString.MD5String,extension];
+    }else{
+        displayName     = [NSString stringWithFormat:@"%@",[NSUUID UUID].UUIDString.MD5String];
+    }
+    fileObject.displayName    = displayName;
+    NIMMessage *message       = [[NIMMessage alloc] init];
+    message.messageObject     = fileObject;
+    message.timestamp         = [SessionMsgConverter currentTime];
     return message;
 }
 

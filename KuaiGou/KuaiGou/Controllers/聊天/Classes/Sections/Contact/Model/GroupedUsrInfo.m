@@ -15,10 +15,10 @@
     self = [super init];
     if(self) {
         self.groupTitleComparator = ^NSComparisonResult(NSString *title1, NSString *title2) {
-            return [title1 compare:title2];
+            return [title1 localizedCompare:title2];
         };
         self.groupMemberComparator = ^NSComparisonResult(NSString *key1, NSString *key2) {
-            return [key1 compare:key2];
+            return [key1 localizedCompare:key2];
         };
     }
     return self;

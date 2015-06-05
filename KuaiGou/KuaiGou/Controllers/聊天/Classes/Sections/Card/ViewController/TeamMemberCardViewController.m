@@ -19,6 +19,7 @@
 
 typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
     TeamMemberCardSectionHead,
+    TeamMemberCardSectionNick,
     TeamMemberCardSectionMemberType,
     TeamMemberCardSectionAction,
     TeamMemberCardSectionCount
@@ -44,15 +45,14 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self) {
-        self.wantsFullScreenLayout = NO;
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title = @"群名片";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -69,7 +69,7 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
 - (NSString *)memberTypeString:(NIMTeamMemberType)type {
     if(type == NIMTeamMemberTypeNormal) {
         return @"普通群员";
-    } else if (type == NIMTeamMemberTypeCreator) {
+    } else if (type == NIMTeamMemberTypeOwner) {
         return @"群主";
     } else if (type == NIMTeamMemberTypeManager) {
         return @"管理员";
@@ -98,7 +98,6 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
                     [wself.view makeToast:@"踢人失败"];
                 }
             }];
-
         }
     }];
 }
@@ -110,6 +109,9 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
     switch (row) {
         case TeamMemberCardSectionHead: {
             return 222;
+        } break;
+        case TeamMemberCardSectionNick: {
+            return 50;
         } break;
         case TeamMemberCardSectionMemberType: {
             return 50;
@@ -127,7 +129,37 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     NSInteger row = indexPath.row;
-    if (row == TeamMemberCardSectionMemberType) {
+    if(row == TeamMemberCardSectionNick) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改群昵称" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+        alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+        __block typeof(self) wself = self;
+        [alert showAlertWithCompletionHandler:^(NSInteger index) {
+            switch (index) {
+                case 0://取消
+                    break;
+                case 1:{
+                    NSString *name = [alert textFieldAtIndex:0].text;
+                    if (name.length) {
+                        [[NIMSDK sharedSDK].teamManager updateUserNick:self.member.memberId newNick:name inTeam:wself.member.team.teamId completion:^(NSError *error) {
+                            if (!error) {
+                                [wself.view makeToast:@"修改成功"];
+                                [wself.tableView reloadData];
+                                if([_delegate respondsToSelector:@selector(onTeamMemberInfoChaneged:)]) {
+                                    [_delegate onTeamMemberInfoChaneged:wself.member];
+                                }
+                            }else{
+                                [wself.view makeToast:@"修改失败"];
+                            }
+                        }];
+                    }
+                    break;
+                }
+                default:
+                    break;
+            }
+        }];
+        
+    } else if (row == TeamMemberCardSectionMemberType) {
         UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"管理员操作" delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles: self.member.type == NIMTeamMemberTypeManager ? @"取消管理员" : @"设为管理员", nil];
         __weak typeof(self) wself = self;
         [sheet showInView:self.view completionHandler:^(NSInteger index) {
@@ -186,9 +218,6 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
     NSInteger row = indexPath.row;
     switch (row) {
         case TeamMemberCardSectionHead: {
-            //self.avatarImageView.image = self.usrInfo.iconUrl ? [UIImage imageNamed:self.usrInfo.iconUrl] : self.member.imageNormal;
-            //self.nameLabel.text = self.usrInfo.nick ? self.usrInfo.nick : self.member.title;
-            //return self.headCell;
             UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TeamMemberCardHeadCell"];
             UIImage *avatar = self.usrInfo.iconUrl ? [UIImage imageNamed:self.usrInfo.iconUrl] : self.member.imageNormal;
             AvatarImageView *avatarView = [[AvatarImageView alloc] initWithFrame:CGRectMake(125, 52, 70, 70)];
@@ -200,7 +229,7 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
             nickLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
             nickLabel.font = [UIFont systemFontOfSize:17];
             nickLabel.textColor = [UIColor colorWithRed:51.0 / 255 green:51.0 / 255 blue:51.0 / 255 alpha:1.0];
-            nickLabel.text = self.usrInfo.nick ? self.usrInfo.nick : self.member.title;
+            nickLabel.text = [SessionUtil showNick:self.member.memberId teamId:self.member.team.teamId];
             [nickLabel sizeToFit];
             nickLabel.centerX = avatarView.centerX;
             nickLabel.top = avatarView.bottom + 10;
@@ -209,12 +238,30 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
             return cell;
             
         } break;
+        case TeamMemberCardSectionNick: {
+            NIMTeamMember *member = [[NIMSDK sharedSDK].teamManager teamMember:self.member.memberId inTeam:self.member.team.teamId];
+            if (member.nickname.length) {
+                self.nickCell.detailTextLabel.text = member.nickname;
+            }else{
+                self.nickCell.detailTextLabel.text = @"未设置";
+            }
+            if(self.viewer.type == NIMTeamMemberTypeNormal && ![self.viewer.memberId isEqualToString:self.member.memberId]){
+                self.nickCell.userInteractionEnabled = NO;
+                self.nickCell.accessoryType = UITableViewCellAccessoryNone;
+            } else {
+                self.nickCell.userInteractionEnabled = YES;
+                self.nickCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
+            return self.nickCell;
+        } break;
         case TeamMemberCardSectionMemberType: {
             self.memberTypeCell.detailTextLabel.text = [self memberTypeString:self.member.type];
-            if(self.viewer.type == NIMTeamMemberTypeCreator && ![self.viewer.usrInfo.usrId isEqualToString:self.member.usrInfo.usrId]) {
+            if(self.viewer.type == NIMTeamMemberTypeOwner && ![self.viewer.memberId isEqualToString:self.member.memberId]) {
                 self.memberTypeCell.userInteractionEnabled = YES;
+                self.memberTypeCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             } else {
                 self.memberTypeCell.userInteractionEnabled = NO;
+                self.memberTypeCell.accessoryType = UITableViewCellAccessoryNone;
             }
             return self.memberTypeCell;
         } break;
@@ -229,10 +276,11 @@ typedef NS_ENUM(NSInteger, TeamMemberCardSectionType) {
             [kickBtn setTitle:@"移出本群" forState:UIControlStateNormal];
             [kickBtn addTarget:self action:@selector(onKickBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             [cell addSubview:kickBtn];
-            if(self.viewer.type == NIMTeamMemberTypeNormal || [self.viewer.usrInfo.usrId isEqualToString:self.member.usrInfo.usrId]) {
+            if(self.viewer.type == NIMTeamMemberTypeNormal || [self.viewer.memberId isEqualToString:self.member.memberId]) {
                 kickBtn.hidden = YES;
                 cell.userInteractionEnabled = NO;
             } else {
+                kickBtn.hidden = NO;
                 cell.userInteractionEnabled = YES;
             }
             return cell;

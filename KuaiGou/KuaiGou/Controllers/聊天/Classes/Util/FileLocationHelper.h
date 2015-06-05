@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define kVideoExt   (@"mp4")
-#define kRDVideo    (@"video")
+#define VideoExt   (@"mp4")
+#define RDVideo    (@"video")
 
 @interface FileLocationHelper : NSObject
 

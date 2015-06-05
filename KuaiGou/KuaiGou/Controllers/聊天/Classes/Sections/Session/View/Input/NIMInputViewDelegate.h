@@ -30,6 +30,7 @@
 - (void)delegateVideoChatPressed;
 - (void)delegateAudioChatPressed;
 - (void)delegateCustomChatPressed;
+- (void)delegateCustomFileTrans;
 
 - (void)cancelRecording;
 - (void)stopRecording;

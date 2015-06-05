@@ -20,4 +20,5 @@
 - (void)toGalleryVC:(NIMImageObject *)object;
 - (void)toLocationVC:(NIMLocationObject *)object;
 - (void)toVideoVC:(NIMVideoObject *)object;
+- (void)toFileVC:(NIMFileObject *)object;
 @end

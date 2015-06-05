@@ -10,6 +10,6 @@
 
 @interface TeamAnnouncementListCell : UITableViewCell
 
-- (void)refreshData:(NSDictionary *)data;
+- (void)refreshData:(NSDictionary *)data team:(NIMTeam *)team;
 
 @end

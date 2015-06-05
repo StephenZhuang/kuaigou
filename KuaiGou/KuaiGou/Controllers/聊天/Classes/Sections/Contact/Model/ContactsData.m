@@ -11,6 +11,8 @@
 #import "ContactDataItem.h"
 #import "SessionUtil.h"
 #import "NSString+NIMDemo.h"
+#import "NIMDemoConfig.h"
+#import "FileLocationHelper.h"
 
 NSString *const ContactUpdateDidFinishedNotification = @"ContactUpdateDidFinishedNotification";
 @interface ContactsData () {
@@ -25,8 +27,10 @@ NSString *const ContactUpdateDidFinishedNotification = @"ContactUpdateDidFinishe
 - (instancetype)init {
     self = [super init];
     if(self) {
-        NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        _cachePath = [NSString stringWithFormat:@"%@/contacts_cache_%@", [dirs objectAtIndex:0], [[SessionUtil currentUsrId] MD5String]];
+        _cachePath = [[FileLocationHelper userDirectory] stringByAppendingPathComponent:@"contact_cache"];
+        _contactDict = [NSMutableDictionary dictionary];
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:_cachePath];
+        [self saveDictionaryToUsers:dict];
     }
     return self;
 }
@@ -52,7 +56,7 @@ NSString *const ContactUpdateDidFinishedNotification = @"ContactUpdateDidFinishe
 
 - (void)update {
     if(![self isUpdating]) {
-        NSString *urlStr = [NSString stringWithFormat:@"%@/getAddressBook", WebApiBaseURL];
+        NSString *urlStr = [NSString stringWithFormat:@"%@/getAddressBook", [[NIMDemoConfig sharedConfig] apiURL]];
         NIMHttpRequest *request = [NIMHttpRequest requestWithURL:[NSURL URLWithString:urlStr]];
         [request startAsyncWithComplete:^(NSInteger responseCode, NSDictionary *responseData) {
             _contactDict = [NSMutableDictionary dictionary];
@@ -63,22 +67,27 @@ NSString *const ContactUpdateDidFinishedNotification = @"ContactUpdateDidFinishe
             } else {
                 responseData = [NSDictionary dictionaryWithContentsOfFile:_cachePath];
             }
-            for (NSDictionary *item in [responseData objectForKey:@"list"]) {
-                
-                NSString *uid = [item objectForKey:@"uid"];
-                NSString *name = [item objectForKey:@"name"];
-                NSString *icon = [item objectForKey:@"icon"];
-                ContactDataMember *member = [[ContactDataMember alloc] init];
-                member.usrId = uid;
-                member.nick = name;
-                member.iconUrl = icon;
-                [_contactDict setObject:member forKey:uid];
-            }
+            [self saveDictionaryToUsers:responseData];
             [self setUpdating:NO];
         }];
     }
 }
 
+- (void)saveDictionaryToUsers:(NSDictionary *)dict
+{
+    for (NSDictionary *item in [dict objectForKey:@"list"]){
+        
+        NSString *uid = [item objectForKey:@"uid"];
+        NSString *name = [item objectForKey:@"name"];
+        NSString *icon = [item objectForKey:@"icon"];
+        ContactDataMember *member = [[ContactDataMember alloc] init];
+        member.usrId = uid;
+        member.nick = name;
+        member.iconUrl = icon;
+        [_contactDict setObject:member forKey:uid];
+    }
+
+}
 
 
 

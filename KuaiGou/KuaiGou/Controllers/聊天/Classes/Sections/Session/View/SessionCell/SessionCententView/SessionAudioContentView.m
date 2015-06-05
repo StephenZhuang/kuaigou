@@ -49,7 +49,6 @@
     _durationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _durationLabel.backgroundColor = [UIColor clearColor];
     _durationLabel.font = [UIFont systemFontOfSize:14.f];
-    _durationLabel.textColor = [UIColor lightGrayColor];
     [self addSubview:_durationLabel];
 }
 
@@ -57,6 +56,11 @@
     [super refresh:data];
     NIMAudioObject *object = data.msgData.messageObject;
     _durationLabel.text = [NSString stringWithFormat:@"%zd\"",object.duration/1000];
+    if (!data.isFromMe) {
+        _durationLabel.textColor = [UIColor blackColor];
+    }else{
+        _durationLabel.textColor = [UIColor whiteColor];
+    }
     [_durationLabel sizeToFit];
 }
 

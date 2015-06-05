@@ -32,7 +32,7 @@
 
 @property (nonatomic,assign) NIMTeamJoinMode joinMode;
 
-@property (nonatomic,strong) NSMutableArray *groupMembers;
+@property (nonatomic,strong) NSMutableArray *teamMembers;
 
 @end
 
@@ -42,7 +42,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         NSString *currentUserID = [[[NIMSDK sharedSDK] loginManager] currentAccount];
-        _groupMembers = [@[currentUserID] mutableCopy];
+        _teamMembers = [@[currentUserID] mutableCopy];
         _joinMode = NIMTeamJoinModeNeedAuth;
     }
     return self;
@@ -55,7 +55,7 @@
         ContactDataMember *contactMember = [ContactUtil queryContactByUsrId:userId];
         if(contactMember){
             _user = [[UserCardMemberItem alloc] initWithMember:contactMember];
-            [_groupMembers addObject:_user.memberId];
+            [_teamMembers addObject:_user.memberId];
         }else{
             DDLogError(@"user id error!");
         }
@@ -104,7 +104,7 @@
     teamName.action            = @selector(updateTeamInfoName);
     teamName.rowHeight         = 50.f;
     teamName.type              = TeamCardRowItemTypeCommon;
-    
+
     TeamCardRowItem *teamIntro = [[TeamCardRowItem alloc] init];
     teamIntro.title             = @"群介绍";
     teamIntro.subTitle          = self.teamIntro.length ? self.teamIntro : @"";
@@ -229,11 +229,11 @@
 
 - (void)addTeamMember{
     if (!self.teamName.length) {
-        [self.view makeToast:@"请填写组名"];
+        [self.view makeToast:@"请填写群名称"];
         return;
     }
-    if (!self.groupMembers) {
-        [self.view makeToast:@"组员数据有误"];
+    if (!self.teamMembers) {
+        [self.view makeToast:@"群成员数据有误"];
         return;
     }
     __weak typeof(self) wself = self;
@@ -245,7 +245,7 @@
     option.intro        = self.teamIntro;
     option.announcement = self.teamAnnouncement;
     [[NIMSDK sharedSDK].teamManager createTeam:option
-                                         users:self.groupMembers
+                                         users:self.teamMembers
                                     completion:^(NSError *error, NSString *teamId) {
                                         if (!error) {
                                             UINavigationController *nav = wself.navigationController;
@@ -270,12 +270,12 @@
     }
     switch (self.currentOpera) {
         case CardHeaderOpeatorAdd:{
-            [self.groupMembers addObjectsFromArray:selectedContacts];
+            [self.teamMembers addObjectsFromArray:selectedContacts];
             [self addHeaderDatas:array];
             break;
         }
         case CardHeaderOpeatorRemove:{
-            [self.groupMembers removeObjectsInArray:selectedContacts];
+            [self.teamMembers removeObjectsInArray:selectedContacts];
             [self removeHeaderDatas:array];
             break;
         }

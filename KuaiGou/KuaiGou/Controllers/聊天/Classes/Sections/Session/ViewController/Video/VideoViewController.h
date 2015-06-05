@@ -10,7 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 @interface VideoViewController : UIViewController
 
-- (instancetype)initWithContentURL:(NSURL *)contentURL NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithVideoObject:(NIMVideoObject *)videoObject NS_DESIGNATED_INITIALIZER;
 
 @property (nonatomic, readonly) MPMoviePlayerController *moviePlayer;
 

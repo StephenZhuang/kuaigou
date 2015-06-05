@@ -10,67 +10,49 @@
 #import "UIView+Toast.h"
 #import "Reachability.h"
 #import "UIAlertView+Block.h"
-
+#import "SVProgressHUD.h"
+#import "AFHTTPRequestOperation.h"
 @interface VideoViewController ()
+
+@property (nonatomic,strong) NIMVideoObject *videoObject;
 
 @end
 
 @implementation VideoViewController
+@synthesize moviePlayer = _moviePlayer;
 
-- (instancetype)initWithContentURL:(NSURL *)contentURL{
+- (instancetype)initWithVideoObject:(NIMVideoObject *)videoObject{
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:contentURL];
-        _moviePlayer.controlStyle = MPMovieControlStyleNone;
-        _moviePlayer.scalingMode = MPMovieScalingModeAspectFill;
-        _moviePlayer.fullscreen = YES;
-        self.wantsFullScreenLayout = YES;
-        if (IOS7) {
-            self.edgesForExtendedLayout = UIRectEdgeAll;
-        }
+        _videoObject = videoObject;
     }
     return self;
 }
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NIMSDK sharedSDK].resourceManager cancelTask:_videoObject.path];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"视频短片";
-    if (![Reachability reachabilityForInternetConnection].isReachable && !_moviePlayer.contentURL.isFileURL) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"网络异常请检查网咯" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert showAlertWithCompletionHandler:^(NSInteger idx) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }];
-        return;
+    self.wantsFullScreenLayout = YES;
+    if (IOS7) {
+        self.edgesForExtendedLayout = UIRectEdgeAll;
     }
-    self.moviePlayer.view.frame = self.view.bounds;
-    self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self.moviePlayer play];
-    [self.view addSubview:_moviePlayer.view];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moviePlaybackComplete:)
-                                                 name:MPMoviePlayerPlaybackDidFinishNotification
-                                               object:self.moviePlayer];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(moviePlayStateChanged:)
-                                                 name:MPMoviePlayerPlaybackStateDidChangeNotification
-                                               object:self.moviePlayer];
-    
-
-    CGRect bounds = self.moviePlayer.view.bounds;
-    CGRect tapViewFrame = CGRectMake(0, 0, bounds.size.width, bounds.size.height);
-    UIView *tapView = [[UIView alloc]initWithFrame:tapViewFrame];
-    [tapView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    tapView.backgroundColor = [UIColor clearColor];
-    [self.moviePlayer.view addSubview:tapView];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
-    [tapView  addGestureRecognizer:tap];
-
+    self.navigationItem.title = @"视频短片";
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.videoObject.path]) {
+        [self startPlay];
+    }else{
+        __weak typeof(self) wself = self;
+        [self downLoadVideo:^(NSError *error) {
+            if (!error) {
+                [wself startPlay];
+            }else{
+                [wself.view makeToast:@"下载失败，请检查网络"];
+            }
+        }];
+    }
 }
 
 - (void)viewWillDisappear: (BOOL)animated
@@ -84,11 +66,59 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear: animated];
-    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {
+    if (_moviePlayer.playbackState == MPMoviePlaybackStatePlaying) {//不要调用.get方法，会过早的初始化播放器
         [self topStatusUIHidden:YES];
     }else{
         [self topStatusUIHidden:NO];
     }
+}
+
+
+
+- (void)downLoadVideo:(void(^)(NSError *error))handler{
+    [SVProgressHUD show];
+    __weak typeof(self) wself = self;
+    [[NIMSDK sharedSDK].resourceManager download:self.videoObject.url filepath:self.videoObject.path progress:^(CGFloat progress) {
+        [SVProgressHUD showProgress:progress];
+    } completion:^(NSError *error) {
+        if (wself) {
+            [SVProgressHUD dismiss];
+            if (handler) {
+                handler(error);
+            }
+        }
+    }];
+}
+
+
+
+
+- (void)startPlay{
+    self.moviePlayer.view.frame = self.view.bounds;
+    self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    [self.moviePlayer play];
+    [self.view addSubview:self.moviePlayer.view];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlaybackComplete:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:self.moviePlayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayStateChanged:)
+                                                 name:MPMoviePlayerPlaybackStateDidChangeNotification
+                                               object:self.moviePlayer];
+    
+    
+    CGRect bounds = self.moviePlayer.view.bounds;
+    CGRect tapViewFrame = CGRectMake(0, 0, bounds.size.width, bounds.size.height);
+    UIView *tapView = [[UIView alloc]initWithFrame:tapViewFrame];
+    [tapView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+    tapView.backgroundColor = [UIColor clearColor];
+    [self.moviePlayer.view addSubview:tapView];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onTap:)];
+    [tapView  addGestureRecognizer:tap];
 }
 
 - (void)moviePlaybackComplete: (NSNotification *)aNotification
@@ -161,6 +191,17 @@
         default:
             break;
     }
+}
+
+
+- (MPMoviePlayerController*)moviePlayer{
+    if (!_moviePlayer) {
+        _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL fileURLWithPath:self.videoObject.path]];
+        _moviePlayer.controlStyle = MPMovieControlStyleNone;
+        _moviePlayer.scalingMode = MPMovieScalingModeAspectFill;
+        _moviePlayer.fullscreen = YES;
+    }
+    return _moviePlayer;
 }
 
 

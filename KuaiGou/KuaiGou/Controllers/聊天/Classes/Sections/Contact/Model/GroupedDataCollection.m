@@ -70,9 +70,17 @@
     }
     [_groupTtiles removeAllObjects];
     [_groups removeAllObjects];
+
     [tmp enumerateKeysAndObjectsUsingBlock:^(NSString *groupTitle, NSMutableArray *groupedMembers, BOOL *stop) {
-        [_groupTtiles addObject:groupTitle];
-        [_groups addObject:[[Pair alloc] initWithFirst:groupTitle second:groupedMembers]];
+        if (groupTitle.length) {
+            unichar character = [groupTitle characterAtIndex:0];
+            if (character >= 'A' && character <= 'Z') {
+                [_groupTtiles addObject:groupTitle];
+            }else{
+                [_groupTtiles addObject:@"#"];
+            }
+            [_groups addObject:[[Pair alloc] initWithFirst:groupTitle second:groupedMembers]];
+        }
     }];
     [self sort];
 }

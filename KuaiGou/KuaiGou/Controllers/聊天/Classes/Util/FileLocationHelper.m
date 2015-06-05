@@ -8,6 +8,7 @@
 
 #import "FileLocationHelper.h"
 #import <sys/stat.h>
+#import "NIMDemoConfig.h"
 
 @interface FileLocationHelper ()
 + (NSString *)filepathForDir: (NSString *)dirname filename: (NSString *)filename;
@@ -34,12 +35,20 @@
 + (NSString *)getAppDocumentPath
 {
     static NSString *appDocumentPath = nil;
-    if (appDocumentPath == nil)
-    {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSString *appKey = [[NIMDemoConfig sharedConfig] appKey];
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        appDocumentPath= [[NSString alloc]initWithFormat:@"%@/",[paths objectAtIndex:0]];
+        appDocumentPath= [[NSString alloc]initWithFormat:@"%@/%@/",[paths objectAtIndex:0],appKey];
+        if (![[NSFileManager defaultManager] fileExistsAtPath:appDocumentPath])
+        {
+            [[NSFileManager defaultManager] createDirectoryAtPath:appDocumentPath
+                                      withIntermediateDirectories:NO
+                                                       attributes:nil
+                                                            error:nil];
+        }
         [FileLocationHelper addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:appDocumentPath]];
-    }
+    });
     return appDocumentPath;
     
 }
@@ -89,7 +98,7 @@
 
 + (NSString *)filepathForVideo: (NSString *)filename
 {
-    return [FileLocationHelper filepathForDir:kRDVideo
+    return [FileLocationHelper filepathForDir:RDVideo
                                      filename:filename];
 }
 

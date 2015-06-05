@@ -8,7 +8,6 @@
 
 #import "NIMHttpRequest.h"
 #import "SessionUtil.h"
-#import "NIMKeychain.h"
 #import "AFNetworking.h"
 #import "TokenManager.h"
 
@@ -76,8 +75,8 @@
 - (void)startAsyncWithComplete:(CompleteBlock)result
 {
     if(![TokenManager sharedInstance].accessToken || [TokenManager sharedInstance].updating) {
-        result(kNIMHttpRequestCodeInvalidToken, nil);
-        [[TokenManager sharedInstance] updateWithUsrId:[SessionUtil currentUsrId] password:[SessionUtil currectUsrPassword] completeHandler:nil];
+        [[TokenManager sharedInstance] updateWithUsrId:[SessionUtil currentUsrId]
+                                              password:[SessionUtil currectUsrPassword] completeHandler:nil];
         DDLogDebug(@"%@", @"Invalid Token");
         if(result) result(kNIMHttpRequestCodeInvalidToken, nil);
         return;
@@ -122,7 +121,8 @@
                     errorCode = kNIMHttpRequestCodeFailed;
                     if(resCode.integerValue == 401) {
                         errorCode = kNIMHttpRequestCodeInvalidToken;
-                        [[TokenManager sharedInstance] updateWithUsrId:[SessionUtil currentUsrId] password:[SessionUtil currectUsrPassword] completeHandler:nil];
+                        [[TokenManager sharedInstance] updateWithUsrId:[SessionUtil currentUsrId]
+                                                              password:[SessionUtil currectUsrPassword] completeHandler:nil];
                     }
                     DDLogDebug(@"NIMHttp Request Error: %@", [result objectForKey:@"errmsg"] ? : @"");
                     break;

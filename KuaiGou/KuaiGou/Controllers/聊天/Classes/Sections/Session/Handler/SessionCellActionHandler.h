@@ -17,6 +17,8 @@ typedef NS_ENUM(NSInteger, SessionMessageEventID)
     SessionMessageEventIDOpenUrl,                              //根据url打开webview
     SessionMessageEventIDPreviewPicture,                       //点击查看图片
     SessionMessageEventIDPreviewLocation,                      //点击查看位置
+    SessionMessageEventIDPreviewFile,                          //点击查看文件
+
     
     SessionMessageEventIDStopAudioByViewVideo,     //查看视频时停止掉正正播放的语音
     SessionMessageEventIDRetrySendMsg,             //重发消息

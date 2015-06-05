@@ -9,9 +9,11 @@
 #import "TokenManager.h"
 #import "AFNetworking.h"
 #import "NIMHttpRequest.h"
-#import "NIMKeychain.h"
 #import "SessionUtil.h"
+#import "NIMDemoConfig.h"
+#import "FileLocationHelper.h"
 #import "NSString+NIMDemo.h"
+#import "NSString+ZXMD5.h"
 
 NSString *const TokenDidUpdatedNotification = @"TokenDidUpdatedNotification";
 NSString *const NIMDemoTokenErrorDomain = @"NIMDemoTokenErrorDomain";
@@ -27,9 +29,16 @@ NSString *const NIMDemoTokenErrorDomain = @"NIMDemoTokenErrorDomain";
 - (instancetype)init {
     self = [super init];
     if(self) {
-        _sdkToken = [[NIMKeychain defaultKeychain] passwordForService:@"sdkToken" account:[NSString stringWithFormat:@"NIMDemo-%@", [SessionUtil currentUsrId]] error:0];
-        _accessToken = [[NIMKeychain defaultKeychain] passwordForService:@"accessToken" account:[NSString stringWithFormat:@"NIMDemo-%@", [SessionUtil currentUsrId]] error:0];
         _handlers = [NSMutableArray array];
+        
+        _sdkToken = [[NSString alloc] initWithContentsOfFile:[self sdkTokenPath]
+                                                    encoding:NSUTF8StringEncoding
+                                                       error:nil];
+        
+        _accessToken = [[NSString alloc] initWithContentsOfFile:[self accessTokenPath]
+                                                       encoding:NSUTF8StringEncoding
+                                                          error:nil];
+
     }
     return self;
 }
@@ -44,12 +53,12 @@ NSString *const NIMDemoTokenErrorDomain = @"NIMDemoTokenErrorDomain";
             self.updating = YES;
             __weak typeof(self) weakSelf = self;
             // 注意这里使用http是为了简化demo，真实的业务场景中务必使用更安全的方法获取token
-            NSString *url = [[NSString alloc] initWithFormat:@"%@/token", WebApiBaseURL];
+            NSString *url = [[NSString alloc] initWithFormat:@"%@/token", [[NIMDemoConfig sharedConfig] apiURL]];
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:url]];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            NSDictionary *param = @{@"userid": usrId,
-                                    @"secret": [[password MD5String] lowercaseString],
+            NSDictionary *param = @{@"userid": @"18112339163",
+                                    @"secret": @"21218cca77804d2ba192",
                                     @"client_type": @(0)};
             
             NSData *data = [NSJSONSerialization dataWithJSONObject:param options:0 error:0];
@@ -74,18 +83,20 @@ NSString *const NIMDemoTokenErrorDomain = @"NIMDemoTokenErrorDomain";
                             NSString *sdkToken = [msg objectForKey:@"sdktoken"];
                             if(sdkToken) {
                                 _sdkToken = sdkToken;
-                                [[NIMKeychain defaultKeychain] setPassword:_sdkToken
-                                                                forService:@"sdkToken"
-                                                             accessibility:kSecAttrAccessibleWhenUnlocked
-                                                                   account:[NSString stringWithFormat:@"NIMDemo-%@", usrId] error:0];
+                                
+                                [_sdkToken writeToFile:[self sdkTokenPath]
+                                            atomically:YES
+                                              encoding:NSUTF8StringEncoding
+                                                 error:nil];
                             }
                             NSString *accessToken = [msg objectForKey:@"access_token"];
                             if(accessToken) {
                                 _accessToken = accessToken;
-                                [[NIMKeychain defaultKeychain] setPassword:_accessToken
-                                                                forService:@"accessToken"
-                                                             accessibility:kSecAttrAccessibleWhenUnlocked
-                                                                   account:[NSString stringWithFormat:@"NIMDemo-%@", usrId] error:0];
+                                
+                                [_accessToken writeToFile:[self accessTokenPath]
+                                               atomically:YES
+                                                 encoding:NSUTF8StringEncoding
+                                                    error:nil];
                             }
                         }
                         [[NSNotificationCenter defaultCenter] postNotificationName:TokenDidUpdatedNotification object:nil];
@@ -119,6 +130,17 @@ NSString *const NIMDemoTokenErrorDomain = @"NIMDemoTokenErrorDomain";
             handler(error);
         }
     });
+}
+
+- (NSString *)sdkTokenPath
+{
+    return [[FileLocationHelper userDirectory] stringByAppendingPathComponent:@"sdk_token"];
+}
+
+- (NSString *)accessTokenPath
+{
+    return [[FileLocationHelper userDirectory] stringByAppendingPathComponent:@"access_token"];
+
 }
 
 @end

@@ -126,8 +126,19 @@ extern NSInteger CustomMessageWidth;
 extern NSInteger CustomMessageHeight;
 
 
-extern NSInteger NotificationMessageWidth;
-extern NSInteger NotificationMessageHeight;
+extern NSInteger TeamNotificationMessageWidth;
+extern NSInteger TeamNotificationMessageHeight;
+
+extern NSInteger FileTransMessageWidth;
+extern NSInteger FileTransMessageHeight;
+extern NSInteger FileTransMessageIconLeft;
+extern NSInteger FileTransMessageProgressLeft;
+extern NSInteger FileTransMessageProgressRight;
+extern NSInteger FileTransMessageProgressTop;
+extern NSInteger FileTransMessageTitleLeft;
+extern NSInteger FileTransMessageTitleTop;
+extern NSInteger FileTransMessageSizeTitleRight;
+extern NSInteger FileTransMessageSizeTitleBottom;
 
 extern NSInteger UnknowMessageWidth;
 extern NSInteger UnknowMessageHeight;

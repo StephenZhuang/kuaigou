@@ -69,7 +69,8 @@ NSInteger ButtonBegintLeftX = 11;
                          @(MediaButtonCard):@"delegateCardPressed",
                          @(MediaButtonVideoChat):@"delegateVideoChatPressed",
                          @(MediaButtonAudioChat):@"delegateAudioChatPressed",
-                         @(MediaButtonCustom):@"delegateCustomChatPressed",};
+                         @(MediaButtonCustom):@"delegateCustomChatPressed",
+                         @(MediaButtonFileTrans):@"delegateCustomFileTrans"};
 
     });
     return actionsDict;

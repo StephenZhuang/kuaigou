@@ -89,9 +89,6 @@
             array = [[NSMutableArray alloc]init];
             for (NIMTeamMember *member in members) {
                 TeamCardMemberItem *item = [[TeamCardMemberItem alloc] initWithMember:member];
-                UsrInfo *info = [[UsrInfoData sharedInstance] queryUsrInfoById:item.memberId needRemoteFetch:NO fetchCompleteHandler:nil];
-                
-                item.usrInfo = info;
                 [array addObject:item];
             }
             wself.teamMembers = members;
@@ -105,13 +102,14 @@
 }
 
 - (NSArray*)buildOpearationData{
-    NIMTeam *group = [[NIMSDK sharedSDK].teamManager teamById:self.team.teamId];
+    NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:self.team.teamId];
     //加号
     TeamCardOperationItem *add = [[TeamCardOperationItem alloc] initWithOperation:CardHeaderOpeatorAdd];
     //减号
     TeamCardOperationItem *remove = [[TeamCardOperationItem alloc] initWithOperation:CardHeaderOpeatorRemove];
-    
-    if ([group.creator isEqualToString:[NIMSDK sharedSDK].loginManager.currentAccount]) {
+    NSString *uid = [NIMSDK sharedSDK].loginManager.currentAccount;
+    NIMTeamMember *member = [[NIMSDK sharedSDK].teamManager teamMember:uid inTeam:team.teamId];
+    if (member.type == NIMTeamMemberTypeOwner) {
         return @[add,remove];
     }
     return @[add];
@@ -122,7 +120,7 @@
     TeamCardRowItem *itemName = [[TeamCardRowItem alloc] init];
     itemName.title = @"群名称";
     itemName.subTitle = [self title];
-    itemName.action = @selector(updateGroupInfoName);
+    itemName.action = @selector(updateTeamInfoName);
     itemName.rowHeight = 50.f;
     itemName.type   = TeamCardRowItemTypeCommon;
     
@@ -151,7 +149,7 @@
 
 
 #pragma mark - UITableViewAction
-- (void)updateGroupInfoName{
+- (void)updateTeamInfoName{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"修改群名称" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     __block typeof(self) wself = self;
@@ -305,7 +303,7 @@
     
     if (memberId.length && self.team.type == NIMTeamTypeAdvanced) {
         NIMTeamMember *memberInfo = [self teamInfo:memberId];
-        if((myInfo.type == NIMTeamMemberTypeCreator || myInfo.type == NIMTeamMemberTypeManager) && ![myInfo.userId isEqualToString:memberInfo.userId]) {
+        if((myInfo.type == NIMTeamMemberTypeOwner || myInfo.type == NIMTeamMemberTypeManager) && ![myInfo.userId isEqualToString:memberInfo.userId]) {
             TeamMemberCardViewController *vc = [[TeamMemberCardViewController alloc] initWithNibName:nil bundle:nil];
             vc.delegate = self;
             vc.member = [[TeamCardMemberItem alloc] initWithMember:memberInfo];
@@ -333,7 +331,7 @@
     NIMTeamMember *memberInfo = [self teamInfo:memberId];
     [[NIMSDK sharedSDK].teamManager transferManagerWithTeam:self.team.teamId newOwnerId:memberId isLeave:isLeave completion:^(NSError *error) {
         if (!error) {
-            memberInfo.type = NIMTeamMemberTypeCreator;
+            memberInfo.type = NIMTeamMemberTypeOwner;
             [wself.view makeToast:@"修改成功"];
         }else{
             [wself.view makeToast:@"修改失败"];

@@ -7,7 +7,7 @@
 //
 
 #import "NIMMessageObjectProtocol.h"
-
+#import "NIMNetCallManagerProtocol.h"
 
 
 /**
@@ -64,25 +64,65 @@ typedef NS_ENUM(NSInteger, NIMTeamOperationType){
 };
 
 /**
+ *  网络电话类型
+ */
+typedef NS_ENUM(NSInteger, NIMNetCallEventType){
+    /**
+     *  对方拒接电话
+     */
+    NIMNetCallEventTypeReject = -1,
+    /**
+     *  对方无人接听
+     */
+    NIMNetCallEventTypeNoResponse = -2,
+    /**
+     *  未接电话
+     */
+    NIMNetCallEventTypeMiss = 101,
+    /**
+     *  电话回单
+     */
+    NIMNetCallEventTypeBill = 102,
+};
+
+/**
  *  群信息修改字段
  */
 typedef NS_ENUM(NSInteger, NIMTeamUpdateTag){
     /**
      *  群名
      */
-    NIMTeamUpdateTagName,
+    NIMTeamUpdateTagName            = 1,
     /**
      *  群简介
      */
-    NIMTeamUpdateTagIntro,
+    NIMTeamUpdateTagIntro           = 2,
     /**
      *  群公告
      */
-    NIMTeamUpdateTagAnouncement,
+    NIMTeamUpdateTagAnouncement     = 3,
     /**
      *  群验证方式
      */
-    NIMTeamUpdateTagJoinMode,
+    NIMTeamUpdateTagJoinMode        = 4,
+    /**
+     *  自定义拓展字段
+     */
+    NIMTeamUpdateTagCustom          = 5,
+};
+
+/**
+ *  通知类型
+ */
+typedef NS_ENUM(NSInteger, NIMNotificationType){
+    /**
+     *  群通知
+     */
+    NIMNotificationTypeTeam            = 1,
+    /**
+     *  网络电话通知
+     */
+    NIMNotificationTypeNetCall         = 2,
 };
 
 /**
@@ -114,6 +154,29 @@ typedef NS_ENUM(NSInteger, NIMTeamUpdateTag){
 
 
 /**
+ *  网络通话通知内容
+ */
+@interface NIMNetCallNotificationContent : NIMNotificationContent
+/**
+ *  网络通话类型
+ */
+@property (nonatomic,assign)   NIMNetCallType callType;
+/**
+ *  操作类型
+ */
+@property (nonatomic,assign)   NIMNetCallEventType eventType;
+/**
+ *  call id
+ */
+@property (nonatomic,assign)   UInt64 callID;
+/**
+ *  时长
+ */
+@property (nonatomic,assign)   NSTimeInterval duration;
+
+@end
+
+/**
  *  通知对象
  */
 @interface NIMNotificationObject : NSObject<NIMMessageObject>
@@ -121,5 +184,11 @@ typedef NS_ENUM(NSInteger, NIMTeamUpdateTag){
  *  通知内容
  */
 @property (nonatomic,strong,readonly)    NIMNotificationContent  *content;
+
+/**
+ *  通知类型
+ */
+@property (nonatomic,readonly) NIMNotificationType notificationType;
+
 @end
 

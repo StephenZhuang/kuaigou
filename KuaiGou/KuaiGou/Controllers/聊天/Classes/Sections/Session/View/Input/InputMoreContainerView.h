@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, InputMoreButtonType)
     MediaButtonCustom,         //自定义
     MediaButtonVideoChat,      //视频语音通话
     MediaButtonAudioChat,      //免费通话
+    MediaButtonFileTrans,      //文本传输
 };
 
 

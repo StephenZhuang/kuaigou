@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NIMTeam.h"
+#import "NIMTeamMember.h"
 
 /**
  *  通用的群组操作block
@@ -75,6 +76,13 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *  @param team 被移除的群组
  */
 - (void)onTeamRemoved:(NIMTeam *)team;
+
+/**
+ *  群组成员变动回调,包括数量增减以及成员属性变动
+ *
+ *  @param team 变动的群组
+ */
+- (void)onTeamMemberChanged:(NIMTeam *)team;
 
 @end
 
@@ -159,8 +167,8 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *  @param teamId   群组ID
  *  @param block    完成后的block回调
  */
-- (void)updateTeamName:(NSString*)teamName
-                teamId:(NSString*)teamId
+- (void)updateTeamName:(NSString *)teamName
+                teamId:(NSString *)teamId
             completion:(NIMTeamHandler)block;
 
 
@@ -172,7 +180,7 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *  @param block    完成后的block回调
  */
 - (void)updateTeamJoinMode:(NIMTeamJoinMode)joinMode
-                    teamId:(NSString*)teamId
+                    teamId:(NSString *)teamId
                 completion:(NIMTeamHandler)block;
 
 /**
@@ -182,8 +190,8 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *  @param teamId 群组ID
  *  @param block  完成后的block回调
  */
-- (void)updateTeamIntro:(NSString*)intro
-                 teamId:(NSString*)teamId
+- (void)updateTeamIntro:(NSString *)intro
+                 teamId:(NSString *)teamId
              completion:(NIMTeamHandler)block;
 
 
@@ -194,9 +202,21 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  *  @param teamId       群组ID
  *  @param block        完成后的block回调
  */
-- (void)updateTeamAnnouncement:(NSString*)announcement
-                        teamId:(NSString*)teamId
+- (void)updateTeamAnnouncement:(NSString *)announcement
+                        teamId:(NSString *)teamId
                     completion:(NIMTeamHandler)block;
+
+/**
+ *  更新群自定义信息
+ *
+ *  @param info         群自定义信息
+ *  @param teamId       群组ID
+ *  @param block        完成后的block回调
+ */
+- (void)updateTeamCustomInfo:(NSString *)info
+                      teamId:(NSString *)teamId
+                  completion:(NIMTeamHandler)block;
+
 
 
 /**
@@ -234,6 +254,20 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
                    userId:(NSString *)userId
              rejectReason:(NSString*)rejectReason
                completion:(NIMTeamHandler)block;
+
+
+/**
+ *  更新成员群昵称
+ *
+ *  @param userId       群成员ID
+ *  @param newNick      新的群成员昵称
+ *  @param teamId       群主ID
+ *  @param block        完成后的block回调
+ */
+- (void)updateUserNick:(NSString *)userId
+               newNick:(NSString *)newNick
+                inTeam:(NSString *)teamId
+            completion:(NIMTeamHandler)block;
 
 /**
  *  添加管理员
@@ -316,6 +350,21 @@ typedef void(^NIMTeamApplyHandler)(NSError *error,NIMTeamApplyStatus applyStatus
  */
 - (void)fetchTeamInfo:(NSString *)teamId
            completion:(NIMTeamFetchInfoHandler)block;
+
+
+/**
+ *  获取单个群成员信息
+ *
+ *  @param userId 用户ID
+ *  @param teamId 群组ID
+ *  @return       返回所有群组
+ *  @discussion   SDK并不保证群成员信息都能适时缓存在本地,几种情况下这个信息会返回nil
+ *                1.群为普通群且APP并没有调用过fetchTeamMembers:completion接口
+ *                2.群为高级群但本地同步群成员信息失败(较低概率)
+ *                在发生返回nil的情况推荐调用fetchTeamMembers:completion去刷新一次群成员信息
+ */
+- (NIMTeamMember *)teamMember:(NSString *)userId
+                       inTeam:(NSString *)teamId;
 
 /**
  *  添加群组委托

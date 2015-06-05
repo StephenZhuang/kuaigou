@@ -11,6 +11,8 @@
 #import <Toast/UIView+Toast.h>
 #import "ContactsData.h"
 #import "NIMNotificationCenter.h"
+#import "TokenManager.h"
+#import "SessionUtil.h"
 
 NSString *NotificationLogin = @"NIMLogin";
 NSString *NotificationLogout = @"NIMLogout";
@@ -68,19 +70,18 @@ NSString *NotificationLogout = @"NIMLogout";
 - (void)logoutWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion
 {
     if (self.isLogin) {
-//        NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-//        [parameters setObject:self.user.userid forKey:@"userid"];
-//        [parameters setObject:self.user.token forKey:@"token"];
-//        
-//        [[KGApiClient sharedClient] POST:@"/api/v1/account/logout" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+        [parameters setObject:self.user.token forKey:@"token"];
+        
+        [[KGApiClient sharedClient] POST:@"/api/v1/account/logout" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
             self.isLogin = NO;
             self.user = nil;
             [GVUserDefaults standardUserDefaults].user = nil;
-//            !completion?:completion(YES,@"");
-//        } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
-//            !completion?:completion(NO,errorInfo);
-//        }];
-        
+            !completion?:completion(YES,@"");
+        } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+            !completion?:completion(NO,errorInfo);
+        }];
+    
         [self doLogout];
     }
 }
@@ -113,7 +114,7 @@ NSString *NotificationLogout = @"NIMLogout";
 - (void)doYunxinLoginWithUsername:(NSString *)username password:(NSString *)password
 {
     [[[NIMSDK sharedSDK] loginManager] login:username
-                                       token:password
+                                       token:[[password md5] substringToIndex:20]
                                   completion:^(NSError *error) {
                                       if (error == nil)
                                       {
@@ -165,7 +166,17 @@ NSString *NotificationLogout = @"NIMLogout";
     if (step == NIMLoginStepSyncOK)
     {
         [[NIMNotificationCenter sharedInstance] start];
-        [[ContactsData sharedInstance] update];
+        if ([TokenManager sharedInstance].accessToken) {
+            [[ContactsData sharedInstance] update];
+        }else{
+            [[TokenManager sharedInstance] updateWithUsrId:[SessionUtil currentUsrId]
+                                                  password:[SessionUtil currectUsrPassword] completeHandler:^(NSError *error) {
+                                                      if (!error) {
+                                                          [[ContactsData sharedInstance] update];
+                                                      }
+                                                  }];
+        }
+        
     }
 }
 @end

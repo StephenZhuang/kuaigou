@@ -56,6 +56,8 @@ typedef NS_ENUM(NSInteger, AudioRecordPhase) {
 @property (strong, nonatomic) IBOutlet UIButton *moreMediaBtn;
 
 
+- (id)initWithFrame:(CGRect)frame sessionType:(NIMSessionType)sessionType;
+
 //外部设置
 - (void)setInputTextPlaceHolder:(NSString*)placeHolder;
 - (void)updateAudioRecordTime:(NSTimeInterval)time;

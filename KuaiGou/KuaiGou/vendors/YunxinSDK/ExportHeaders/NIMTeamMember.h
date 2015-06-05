@@ -17,9 +17,9 @@ typedef NS_ENUM(NSInteger, NIMTeamMemberType){
      */
     NIMTeamMemberTypeNormal = 0,
     /**
-     *  群创建者
+     *  群拥有者
      */
-    NIMTeamMemberTypeCreator = 1,
+    NIMTeamMemberTypeOwner = 1,
     /**
      *  群管理员
      */
@@ -54,5 +54,11 @@ typedef NS_ENUM(NSInteger, NIMTeamMemberType){
  *  群成员类型
  */
 @property (nonatomic,assign)                NIMTeamMemberType  type;
+
+
+/**
+ *  群昵称
+ */
+@property (nonatomic,copy)                  NSString *nickname;
 
 @end

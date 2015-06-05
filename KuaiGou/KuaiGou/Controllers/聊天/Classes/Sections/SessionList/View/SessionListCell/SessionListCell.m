@@ -63,7 +63,7 @@
         }else{
             self.avatarImageView.image = [UIImage imageNamed:@"DefaultAvatar"];
         }
-        self.nameLabel.text = contact.nick;
+        self.nameLabel.text = [SessionUtil showNick:lastMessage.session.sessionId inSession:lastMessage.session];
     }else if(recent.session.sessionType == NIMSessionTypeTeam){
         self.avatarImageView.clipPath = NO;
         NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:recent.session.sessionId];
@@ -77,7 +77,7 @@
     [self.messageLabel sizeToFit];
     self.messageLabel.width = self.messageLabel.width > MessageLabelMaxWidth ? MessageLabelMaxWidth : self.messageLabel.width;
 
-    self.timeLabel.text = [SessionUtil showTime:lastMessage.timestamp];
+    self.timeLabel.text = [SessionUtil showTime:lastMessage.timestamp showDetail:NO];
     [self.timeLabel sizeToFit];
     if (recent.unreadCount) {
         self.badgeView.hidden = NO;
@@ -108,27 +108,39 @@
         case NIMMessageTypeLocation:
             text = @"[位置]";
             break;
-        case NIMMessageTypeNotification:
-            return @"[群信息更新]";
+        case NIMMessageTypeNotification:{
+            return [self notificationMessageContent:lastMessage];
+        }
+        case NIMMessageTypeFile:
+            text = @"[文件]";
             break;
         case NIMMessageTypeCustom:
-            return @"[猜拳]";
+            text = @"[猜拳]";
             break;
         default:
             break;
     }
     NSString *currentUserID = [[[NIMSDK sharedSDK] loginManager] currentAccount];
-    if ([lastMessage.from isEqualToString:currentUserID]) {
+    if (!lastMessage.from || [lastMessage.from isEqualToString:currentUserID]) {
         return text;
     }
-    NSString *nickName = @"";
-    if (lastMessage.senderName.length) {
-        nickName = lastMessage.senderName;
-    }else{
-        ContactDataMember *contact = [ContactUtil queryContactByUsrId:lastMessage.from];
-        nickName = contact.nick.length ? contact.nick : lastMessage.from;
-    }
+    NSString *nickName = [SessionUtil showNickInMessage:lastMessage];
     return [nickName stringByAppendingFormat:@" : %@",text];
+}
+
+- (NSString *)notificationMessageContent:(NIMMessage *)lastMessage{
+    NIMNotificationObject *object = lastMessage.messageObject;
+    if (object.notificationType == NIMNotificationTypeNetCall) {
+        NIMNetCallNotificationContent *content = (NIMNetCallNotificationContent *)object.content;
+        if (content.callType == NIMNetCallTypeAudio) {
+            return @"[网络通话]";
+        }
+        return @"[视频聊天]";
+    }
+    if (object.notificationType == NIMNotificationTypeTeam) {
+        return @"[群信息更新]";
+    }
+    return @"[未知消息]";
 }
 
 

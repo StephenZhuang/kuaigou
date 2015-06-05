@@ -82,9 +82,19 @@ NSInteger CustomMessageWidth                = 44;
 NSInteger CustomMessageHeight               = 44;
 
 
-NSInteger NotificationMessageWidth          = 300;
-NSInteger NotificationMessageHeight         = 40;
+NSInteger TeamNotificationMessageWidth      = 300;
+NSInteger TeamNotificationMessageHeight     = 40;
 
+NSInteger FileTransMessageWidth             = 220;
+NSInteger FileTransMessageHeight            = 110;
+NSInteger FileTransMessageIconLeft          = 15;
+NSInteger FileTransMessageProgressLeft      = 90;
+NSInteger FileTransMessageProgressRight     = 20;
+NSInteger FileTransMessageProgressTop       = 75;
+NSInteger FileTransMessageTitleLeft         = 90;
+NSInteger FileTransMessageTitleTop          = 25;
+NSInteger FileTransMessageSizeTitleRight    = 15;
+NSInteger FileTransMessageSizeTitleBottom   = 15;
 
 NSInteger UnknowMessageWidth                = 100;
 NSInteger UnknowMessageHeight               = 40;
@@ -169,30 +179,25 @@ NSInteger SessionBadgeTimeRight             = 15;
 }
 
 - (NSString*)notificationFormatedMessage{
-    if (_notificationFormatedMessage) {
-        return _notificationFormatedMessage;
-    }
     NIMNotificationObject *object = self.msgData.messageObject;
     if (self.msgData.messageType == NIMMessageTypeNotification)
     {
-        if ([object.content isKindOfClass:[NIMTeamNotificationContent class]])
+        if (object.notificationType == NIMNotificationTypeTeam)
         {
             NIMTeamNotificationContent *content = (NIMTeamNotificationContent*)object.content;
             NSString *currentAccount = [[NIMSDK sharedSDK].loginManager currentAccount];
-            UsrInfo *sourceName = [[UsrInfoData sharedInstance] queryUsrInfoById:content.sourceID needRemoteFetch:NO fetchCompleteHandler:nil];
             NSString *source;
             if ([content.sourceID isEqualToString:currentAccount]) {
                 source = @"你";
             }else{
-                source = sourceName.nick.length ? sourceName.nick : content.sourceID;
+                source = [SessionUtil showNick:content.sourceID inSession:self.msgData.session];
             }
             NSMutableArray *targets = [[NSMutableArray alloc] init];
             for (NSString *item in content.targetIDs) {
                 if ([item isEqualToString:currentAccount]) {
                     [targets addObject:@"你"];
                 }else{
-                    UsrInfo *targetName = [[UsrInfoData sharedInstance] queryUsrInfoById:item needRemoteFetch:NO fetchCompleteHandler:nil];
-                    NSString *targetShowName = targetName.nick.length ? targetName.nick : item;
+                    NSString *targetShowName = [SessionUtil showNick:item inSession:self.msgData.session];
                     [targets addObject:targetShowName];
                 }
             }

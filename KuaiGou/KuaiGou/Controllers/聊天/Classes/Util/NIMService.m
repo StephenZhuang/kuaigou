@@ -1,5 +1,5 @@
 //
-//  YXManager.m
+//  NIMManager.m
 //  NIM
 //
 //  Created by amao on 11/13/13.

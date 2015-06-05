@@ -47,6 +47,7 @@
 #import "NIMTeamManagerProtocol.h"
 #import "NIMSystemNotificationManagerProtocol.h"
 #import "NIMApnsManagerProtocol.h"
-
+#import "NIMResourceManagerProtocol.h"
+#import "NIMNetCallManagerProtocol.h"
 
 #endif

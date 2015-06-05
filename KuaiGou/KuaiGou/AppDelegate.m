@@ -10,7 +10,7 @@
 #import "KGLoginManager.h"
 #import "NIMSDK.h"
 #import "LogManager.h"
-
+#import "NIMDemoConfig.h"
 
 @interface AppDelegate ()
 
@@ -98,11 +98,12 @@
 
 - (void)setupYunxin
 {
+    NSString *appKey = [[NIMDemoConfig sharedConfig] appKey];
 #ifdef DEBUG
-    [[NIMSDK sharedSDK] registerWithAppID:@"8eab09ecf072d611ca65fac1ba6a5098"
+    [[NIMSDK sharedSDK] registerWithAppID:appKey
                                   cerName:@"DEVELOPER"];
 #else
-    [[NIMSDK sharedSDK] registerWithAppID:@"8eab09ecf072d611ca65fac1ba6a5098"
+    [[NIMSDK sharedSDK] registerWithAppID:appKey
                                   cerName:@"ENTERPRISE"];
 #endif
     

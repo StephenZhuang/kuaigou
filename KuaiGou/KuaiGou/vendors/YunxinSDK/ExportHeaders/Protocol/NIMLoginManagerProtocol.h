@@ -68,13 +68,12 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
     /**
      *  被另外一个客户端踢下线
      */
-    NIMKickReasonByClient,
+    NIMKickReasonByClient = 1,
     /**
      *  被服务器踢下线
      */
-    NIMKickReasonByServer,
+    NIMKickReasonByServer = 2,
 };
-
 
 /**
  *  登录相关回调
@@ -103,6 +102,11 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
  *  @param error 失败原因
  */
 - (void)onAutoLoginFailed:(NSError *)error;
+
+/**
+ *  多端登录发生变化
+ */
+- (void)onMultiLoginClientsChanged;
 @end
 
 /**
@@ -134,6 +138,13 @@ typedef NS_ENUM(NSInteger, NIMKickReason)
  *  @return 当前登录账号,如果没有登录成功,这个地方会返回nil
  */
 - (NSString *)currentAccount;
+
+/**
+ *  返回当前登录的设备列表
+ *
+ *  @return 当前登录设备列表 内部是NIMLoginClient,不包括自己
+ */
+- (NSArray *)currentLoginClients;
 
 /**
  *  添加登录委托

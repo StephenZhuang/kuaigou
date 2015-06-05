@@ -22,7 +22,6 @@
 #import "NIMSDK.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AVFoundation/AVFoundation.h>
-#import "VideoViewController.h"
 #import "UIView+Toast.h"
 #import "CustomLeftBarView.h"
 #import "BadgeView.h"
@@ -37,7 +36,15 @@
 #import "RegularTeamCardViewController.h"
 #import "FileLocationHelper.h"
 #import "TeamAnnouncementListViewController.h"
-
+#import "FileTransSelectViewController.h"
+#import "FilePreViewController.h"
+#import "UIActionSheet+Block.h"
+#import "SessionLogicImpl.h"
+#import "SessionHistoryViewController.h"
+#import "SessionUtil.h"
+//#import "VideoChatViewController.h"
+//#import "AudioChatViewController.h"
+#import "Reachability.h"
 #define MaxTextInputLenth 1000
 @interface SessionViewController ()
 <UITableViewDataSource,
@@ -45,7 +52,6 @@ UITableViewDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
 NIMChatManagerDelegate,
-SessionLogicDelegate,
 InputActionDelegate,
 AVAudioRecorderDelegate,
 NIMConversationManagerDelegate,
@@ -53,19 +59,23 @@ CustomLeftBarItemItemProtocol,
 LocationViewControllerDelegate,
 NIMMediaManagerDelgate,
 NIMTeamManagerDelegate,
-M80TimerHolderDelegate>
+M80TimerHolderDelegate,
+NIMSystemNotificationManagerDelegate>
 {
     InputView       *_inputView;
     UIRefreshControl *_refreshControl;
     IBOutlet UIView *_teamTipView;
     IBOutlet UILabel *_teamTipTitleLabel;
     IBOutlet UILabel *_teamTipContentLabel;
+    IBOutlet UIView  *_teamIsMineView;
+    IBOutlet UILabel *_teamIsMineContentTip;
 }
 @property (nonatomic, strong) SessionViewLayoutManager *layoutManager;//管理输入框和tableview
+@property (nonatomic, strong) SessionLogicImpl *logicImpl;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 @property (nonatomic, strong) UserCommandSender *commandSender;
 @property (nonatomic, strong) M80TimerHolder *titleTimer;
-@property (nonatomic, strong) VideoViewController *playerViewController;
+
 @end
 
 @implementation SessionViewController
@@ -93,8 +103,7 @@ M80TimerHolderDelegate>
 
 - (NSString *)sessionTitle
 {
-    ContactDataMember *contact = [ContactUtil queryContactByUsrId:self.session.sessionId];
-    NSString *title = contact.nick;
+    NSString *title = [SessionUtil showNick:self.session.sessionId inSession:self.session];
     NIMSessionType type = self.session.sessionType;
     if (type == NIMSessionTypeTeam)
     {
@@ -128,7 +137,8 @@ M80TimerHolderDelegate>
     [_chatTableView addSubview:_refreshControl];
     
     //inputView
-    _inputView = [[InputView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds)-TopInputViewHeight, CGRectGetWidth(self.view.bounds), TopInputViewHeight)];
+    CGRect inputViewRect = CGRectMake(0, CGRectGetHeight(self.view.bounds)-TopInputViewHeight, CGRectGetWidth(self.view.bounds), TopInputViewHeight);
+    _inputView = [[InputView alloc] initWithFrame:inputViewRect sessionType:self.session.sessionType];
     _inputView.actionDelegate = self;
     _inputView.maxTextLength = MaxTextInputLenth;
     [self.view addSubview:_inputView];
@@ -145,12 +155,12 @@ M80TimerHolderDelegate>
     [enterTeamCard sizeToFit];
     UIBarButtonItem *enterTeamCardItem = [[UIBarButtonItem alloc] initWithCustomView:enterTeamCard];
     
-    UIButton *enterUInfo = [UIButton buttonWithType:UIButtonTypeCustom];
-    [enterUInfo addTarget:self action:@selector(enterUserCard:) forControlEvents:UIControlEventTouchUpInside];
-    [enterUInfo setImage:[UIImage imageNamed:@"icon_tinfo_normal"] forState:UIControlStateNormal];
-    [enterUInfo setImage:[UIImage imageNamed:@"icon_tinfo_pressed"] forState:UIControlStateHighlighted];
-    [enterUInfo sizeToFit];
-    UIBarButtonItem *enterUInfoItem = [[UIBarButtonItem alloc] initWithCustomView:enterUInfo];
+    UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [infoBtn addTarget:self action:@selector(onTouchUpInfoBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [infoBtn setImage:[UIImage imageNamed:@"icon_tinfo_normal"] forState:UIControlStateNormal];
+    [infoBtn setImage:[UIImage imageNamed:@"icon_tinfo_pressed"] forState:UIControlStateHighlighted];
+    [infoBtn sizeToFit];
+    UIBarButtonItem *enterUInfoItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
     
     UIButton *enterAnn = [UIButton buttonWithType:UIButtonTypeCustom];
     [enterAnn addTarget:self action:@selector(enterTeamAnn:) forControlEvents:UIControlEventTouchUpInside];
@@ -159,16 +169,24 @@ M80TimerHolderDelegate>
     [enterAnn sizeToFit];
     UIBarButtonItem *enterAnnItem = [[UIBarButtonItem alloc] initWithCustomView:enterAnn];
 
+    UIButton *historyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [historyBtn addTarget:self action:@selector(enterHistory:) forControlEvents:UIControlEventTouchUpInside];
+    [historyBtn setImage:[UIImage imageNamed:@"icon_message_normal"] forState:UIControlStateNormal];
+    [historyBtn setImage:[UIImage imageNamed:@"icon_message_pressed"] forState:UIControlStateHighlighted];
+    [historyBtn sizeToFit];
+    UIBarButtonItem *historyButtonItem = [[UIBarButtonItem alloc] initWithCustomView:historyBtn];
+
     if (self.session.sessionType == NIMSessionTypeTeam) {
         NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:self.session.sessionId];
         if (team.type == NIMTeamTypeAdvanced) {
-            self.navigationItem.rightBarButtonItems = @[enterTeamCardItem,enterAnnItem];
+            self.navigationItem.rightBarButtonItems = @[enterTeamCardItem,enterAnnItem,historyButtonItem];
         }else{
-            self.navigationItem.rightBarButtonItem  = enterTeamCardItem;
+            self.navigationItem.rightBarButtonItems  = @[enterTeamCardItem,historyButtonItem];
         }
     }else if(self.session.sessionType == NIMSessionTypeP2P){
-        self.navigationItem.rightBarButtonItem = enterUInfoItem;
+        self.navigationItem.rightBarButtonItems = @[enterUInfoItem,historyButtonItem];
     }
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -176,12 +194,14 @@ M80TimerHolderDelegate>
     [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NIMSDK sharedSDK].mediaManager stopPlay];
+}
+
 - (void)initHandlerAndDataSource
 {
 
-    //会话cell
-    _sessionCellHandler = [[SessionCellActionHandler alloc] init];
-    _sessionCellHandler.logicDelegate = self;
     
     _layoutManager = [[SessionViewLayoutManager alloc] initWithInputView:_inputView tableView:_chatTableView];
     
@@ -190,6 +210,13 @@ M80TimerHolderDelegate>
     [_chatTableView reloadData];
     [[[NIMSDK sharedSDK] chatManager] addDelegate:self];
     [[[NIMSDK sharedSDK] conversationManager] addDelegate:self];
+    [[[NIMSDK sharedSDK] systemNotificationManager] addDelegate:self];
+    
+    //会话cell
+    _sessionCellHandler    = [[SessionCellActionHandler alloc] init];
+    self.logicImpl = [[SessionLogicImpl alloc] initWithLayoutManager:_layoutManager dataSource:_sessionDataSource];
+    _sessionCellHandler.logicDelegate = self.logicImpl;
+    
     
     _commandSender = [[UserCommandSender alloc] init];
     
@@ -218,7 +245,6 @@ M80TimerHolderDelegate>
 
 -(void)viewWillLayoutSubviews
 {
-    self.tabBarController.view.frame = [UIScreen mainScreen].bounds;
     [self changeLeftBarBadge:[[NIMSDK sharedSDK] conversationManager].allUnreadCount];
     [_layoutManager setViewRect:self.view.frame];
     [_chatTableView scrollToBottom:NO];
@@ -241,9 +267,15 @@ M80TimerHolderDelegate>
 }
 
 #pragma mark - touches Event
-- (void)enterUserCard:(id)sender{
+- (void)onTouchUpInfoBtn:(id)sender{
     [_inputView endEditing:YES];
     CreateNormalTeamCardViewController *vc = [[CreateNormalTeamCardViewController alloc] initWithUser:self.session.sessionId];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)enterHistory:(id)sender{
+    [_inputView endEditing:YES];
+    SessionHistoryViewController *vc = [[SessionHistoryViewController alloc] initWithSession:self.session];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -305,6 +337,7 @@ M80TimerHolderDelegate>
         if ([cell isKindOfClass:[SessionViewCell class]]) {
             SessionViewCell * sessionCell = (SessionViewCell*)cell;
             sessionCell.cellEventHandlerDelegate = _sessionCellHandler;
+            sessionCell.needDelete = YES;
         }
         return cell;
     }
@@ -323,7 +356,10 @@ M80TimerHolderDelegate>
 //发送消息
 - (void)willSendMessage:(NIMMessage *)message
 {
-    [_layoutManager insertTableViewCellAtRows:[_sessionDataSource addMessages:@[message]]];
+    if ([message.session isEqual:_session]) {
+        [_layoutManager insertTableViewCellAtRows:[_sessionDataSource addMessages:@[message]]];
+        [_layoutManager updateCellUIAtIndex:[_sessionDataSource indexAtMsgArray:message] message:message];
+    }
 }
 
 //发送结果
@@ -367,9 +403,14 @@ M80TimerHolderDelegate>
     }
 }
 
-- (void)onRecvUserCommand:(NIMUserCommand *)command
+- (void)onReceiveCustomSystemNotification:(NIMCustomSystemNotification *)notification
 {
-    NSString *content = [command content];
+    //目前DEMO会话窗口只处理"正在输入"这种自定义通知,而这种通知必然是只发给在线用户,如果不是 直接丢弃
+    if (!notification.sendToOnlineUsersOnly) {
+        return;
+    }
+    
+    NSString *content = notification.content;
     NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];
     if (data)
     {
@@ -381,7 +422,8 @@ M80TimerHolderDelegate>
             if ([[dict objectForKey:NIMCommandID] integerValue] == NIMCommandTyping)
             {
                 if (self.session.sessionType == NIMSessionTypeP2P &&
-                    [command.session isEqual:self.session])
+                    notification.receiverType == NIMSessionTypeP2P &&
+                    [notification.sender isEqualToString:self.session.sessionId])
                 {
                     self.navigationItem.title = @"正在输入...";
                     if (_titleTimer == nil) //5秒后reset
@@ -392,11 +434,15 @@ M80TimerHolderDelegate>
                                    delegate:self
                                     repeats:NO];
                 }
-
+                
             }
         }
     }
+
 }
+
+
+
 
 #pragma mark - M80TimerDelegate
 - (void)onM80TimerFired:(M80TimerHolder *)holder
@@ -517,14 +563,24 @@ M80TimerHolderDelegate>
     [[NIMSDK sharedSDK].mediaManager cancelRecord];
 }
 
-- (void)delegateAudioChatPressed
-{
-    [self.view makeToast:@"该版本暂不支持该功能" duration:2.0 position:CSToastPositionCenter];
-}
-
 - (void)delegateCustomChatPressed
 {
     [self sendMessage:[SessionMsgConverter msgWithCustom:CustomMessageTypeJanKenPon]];
+}
+
+
+- (void)delegateCustomFileTrans{
+    FileTransSelectViewController *vc = [[FileTransSelectViewController alloc]
+                                         initWithNibName:nil bundle:nil];
+    vc.completionBlock = ^void(id sender,NSString *ext){
+        if ([sender isKindOfClass:[NSString class]]) {
+            [self sendMessage:[SessionMsgConverter msgWithFilePath:sender]];
+        }else if ([sender isKindOfClass:[NSData class]]){
+            [self sendMessage:[SessionMsgConverter msgWithFileData:sender extension:ext]];
+        }
+    };
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 
 - (void)delegateCardPressed
@@ -534,7 +590,22 @@ M80TimerHolderDelegate>
 
 - (void)delegateVideoChatPressed
 {
-    [self.view makeToast:@"该版本暂不支持该功能" duration:2.0 position:CSToastPositionCenter];
+    if (![[Reachability reachabilityForInternetConnection] isReachable]) {
+        [self.view makeToast:@"请检查网络" duration:2.0 position:CSToastPositionCenter];
+        return;
+    }
+//    VideoChatViewController *vc = [[VideoChatViewController alloc] initWithCallee:self.session.sessionId];
+//    [self presentViewController:vc animated:NO completion:nil];
+}
+
+- (void)delegateAudioChatPressed
+{
+    if (![[Reachability reachabilityForInternetConnection] isReachable]) {
+        [self.view makeToast:@"请检查网络" duration:2.0 position:CSToastPositionCenter];
+        return;
+    }
+//    AudioChatViewController *vc = [[AudioChatViewController alloc] initWithCallee:self.session.sessionId];
+//    [self presentViewController:vc animated:NO completion:nil];
 }
 
 #pragma mark - NIMMediaManagerDelgate
@@ -553,7 +624,7 @@ M80TimerHolderDelegate>
         AVURLAsset *urlAsset = [[AVURLAsset alloc]initWithURL:movieURL options:nil];
         CMTime time = urlAsset.duration;
         CGFloat mediaLength = CMTimeGetSeconds(time);
-        if(mediaLength < 3) {
+        if(mediaLength < 2) {
             [self.view makeToast:@"录音时间太短" duration:0.2f position:CSToastPositionCenter];
         } else {
             [self sendMessage:[SessionMsgConverter msgWithAudio:filePath]];
@@ -588,7 +659,7 @@ M80TimerHolderDelegate>
         [picker dismissViewControllerAnimated:YES completion:^{
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 NSURL *inputURL  = [info objectForKey:UIImagePickerControllerMediaURL];
-                NSString *outputFileName = [FileLocationHelper genFilenameWithExt:kVideoExt];
+                NSString *outputFileName = [FileLocationHelper genFilenameWithExt:VideoExt];
                 NSString *outputPath = [FileLocationHelper filepathForVideo:outputFileName];
                 AVURLAsset *asset = [AVURLAsset URLAssetWithURL:inputURL options:nil];
                 AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:asset
@@ -629,47 +700,19 @@ M80TimerHolderDelegate>
     [self sendMessage:[SessionMsgConverter msgWithLocation:locationPoint]];
 }
 
-#pragma mark - SessionLogicDelegate
-- (void)onDeleteMessage:(SessionMsgModel *)message
-{
-    [_layoutManager deleteCellAtRows:[_sessionDataSource deleteMessage:message]];
-}
-
-- (void)toGalleryVC:(NIMImageObject *)object
-{
-    GalleryItem *item   = [[GalleryItem alloc] init];
-    item.thumbPath      = [object thumbPath];
-    item.imageURL       = [object url];
-    item.name           = [object displayName];
-    GalleryViewController *vc = [[GalleryViewController alloc] initWithItem:item];
-    [self.navigationController pushViewController:vc
-                                         animated:YES];
-}
-
-- (void)toLocationVC:(NIMLocationObject *)object{
-    LocationPoint * locationPoint = [[LocationPoint alloc] initWithLocationObject:object];
-    LocationViewController * vc = [[LocationViewController alloc] initWithLocationPoint:locationPoint];
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (void)toVideoVC:(NIMVideoObject *)object{
-    NSURL *playUrl;
-    if ([[NSFileManager defaultManager] fileExistsAtPath:object.path]) {
-        playUrl = [NSURL fileURLWithPath:object.path];
-    }else{
-        playUrl = [NSURL URLWithString:object.url];
-    }
-    self.playerViewController = [[VideoViewController alloc] initWithContentURL:playUrl];
-    self.playerViewController.moviePlayer.shouldAutoplay = YES;
-    [self.navigationController pushViewController:self.playerViewController animated:YES];
-    [[NSNotificationCenter defaultCenter] removeObserver:self.playerViewController                                                        name:MPMoviePlayerPlaybackDidFinishNotification                                                      object:nil];
-}
 
 #pragma mark - NIMTeamManagerDelegate
 - (void)onTeamUpdated:(NIMTeam *)team{
     if ([team.teamId isEqualToString:self.session.sessionId]) {
         self.navigationItem.title = team.teamName;
         [self updateTeamAnnouncement];
+    }
+}
+
+- (void)onTeamMemberChanged:(NIMTeam *)team{
+    if ([team.teamId isEqualToString:self.session.sessionId]) {
+        [self.chatTableView reloadData];
+        self.navigationItem.title = [self sessionTitle];
     }
 }
 
@@ -685,6 +728,13 @@ M80TimerHolderDelegate>
 - (void)updateTeamAnnouncement {
     if(self.session.sessionType == NIMSessionTypeTeam) {
         NIMTeam *team = [[NIMSDK sharedSDK].teamManager teamById:self.session.sessionId];
+        if (![[NIMSDK sharedSDK].teamManager.allMyTeams containsObject:team]) {
+            _teamIsMineContentTip.text = @"您已退出该群";
+            _teamIsMineView.width = self.view.width;
+            [self.view addSubview:_teamIsMineView];
+            _teamIsMineView.top = [UIApplication sharedApplication].statusBarFrame.size.height + self.navigationController.navigationBar.height;
+            return;
+        }
         if(team.announcement.length) {
             NSArray *announcements = [NSJSONSerialization JSONObjectWithData:[team.announcement dataUsingEncoding:NSUTF8StringEncoding] options:0 error:0];
             if(announcements.lastObject) {

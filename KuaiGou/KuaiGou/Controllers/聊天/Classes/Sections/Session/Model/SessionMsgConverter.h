@@ -27,4 +27,8 @@
 
 + (NIMMessage*)msgWithCustom:(CustomMessageType)messageType;
 
++ (NIMMessage*)msgWithFilePath:(NSString*)path;
+
++ (NIMMessage*)msgWithFileData:(NSData*)data extension:(NSString*)extension;
+
 @end

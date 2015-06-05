@@ -32,7 +32,7 @@
     
     NSString *text = [data.msgData text];
     [_textLabel nim_setText:text];
-    if (data.msgData.isReceivedMsg) {
+    if (!data.isFromMe) {
         _textLabel.textColor = [UIColor blackColor];
     }else{
         _textLabel.textColor = [UIColor whiteColor];

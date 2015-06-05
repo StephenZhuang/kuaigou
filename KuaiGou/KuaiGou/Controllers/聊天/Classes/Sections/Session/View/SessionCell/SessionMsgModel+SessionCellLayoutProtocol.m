@@ -11,6 +11,7 @@
 #import "SessionCellLayoutConstant.h"
 #import "SessionUtil.h"
 #import "M80AttributedLabel+NIM.h"
+#import "NIMNotificationObject.h"
 
 @implementation SessionMsgModel (SessionCellLayoutProtocol)
 
@@ -131,7 +132,12 @@
             }
             case NIMMessageTypeNotification:
             {
-                contentSize = CGSizeMake(NotificationMessageWidth, NotificationMessageHeight);
+                contentSize = [self notificationBubbleViewSize];
+                break;
+            }
+            case NIMMessageTypeFile:
+            {
+                contentSize = CGSizeMake(FileTransMessageWidth, FileTransMessageHeight);
                 break;
             }
             case NIMMessageTypeCustom:
@@ -153,15 +159,40 @@
 }
 
 
+- (CGSize)notificationBubbleViewSize{
+    NIMNotificationObject *object = self.msgData.messageObject;
+    if ([object.content isKindOfClass:[NIMNetCallNotificationContent class]]) {
+        M80AttributedLabel *label = [[M80AttributedLabel alloc] initWithFrame:CGRectZero];
+        label.font = [UIFont systemFontOfSize:LABEL_FONT_SIZE];
+        NSString *text = [SessionUtil netcallMessageText:object];
+        [label nim_setText:text];
+        return [label sizeThatFits:CGSizeMake(MsgContentMaxWidth, CGFLOAT_MAX)];
+    }else{
+        return CGSizeMake(TeamNotificationMessageWidth, TeamNotificationMessageHeight);
+    }
+}
+
 - (UIEdgeInsets)bubbleViewInsets {
     CGFloat teamNickNameHeight = 0.0;
     if (self.msgData.messageType == NIMMessageTypeNotification) {
-        return UIEdgeInsetsZero;
+        return [self notificationBubbleViewInsets];
     }
     if([self.msgData.session sessionType] == NIMSessionTypeTeam && ![self isFromMe]) {
         teamNickNameHeight = OtherNickNameHeight;
     }
     return UIEdgeInsetsMake(CellTopToBubbleTop + teamNickNameHeight,OtherBubbleOriginX,CellBubbleButtomToCellButtom, 0);
+}
+
+- (UIEdgeInsets)notificationBubbleViewInsets{
+    NIMNotificationObject *object = self.msgData.messageObject;
+    if ([object.content isKindOfClass:[NIMNetCallNotificationContent class]]) {
+        CGFloat teamNickNameHeight = 0.0;
+        if([self.msgData.session sessionType] == NIMSessionTypeTeam && ![self isFromMe]) {
+            teamNickNameHeight = OtherNickNameHeight;
+        }
+        return UIEdgeInsetsMake(CellTopToBubbleTop + teamNickNameHeight,OtherBubbleOriginX,CellBubbleButtomToCellButtom, 0);
+    }
+    return UIEdgeInsetsZero;
 }
 
 - (UIEdgeInsets)contentViewInsets
@@ -183,6 +214,7 @@
         case NIMMessageTypeImage:
         case NIMMessageTypeLocation:
         case NIMMessageTypeVideo:
+        case NIMMessageTypeFile:
         case NIMMessageTypeCustom:
         {
             contentInsets = [self isFromMe]? UIEdgeInsetsMake(BubblePaddingForImage,BubblePaddingForImage,BubblePaddingForImage,BubblePaddingForImage + BubbleArrowWidthForImage):UIEdgeInsetsMake(BubblePaddingForImage,BubblePaddingForImage + BubbleArrowWidthForImage, BubblePaddingForImage,
@@ -201,7 +233,7 @@
             break;
         }
         case NIMMessageTypeNotification:
-            contentInsets = UIEdgeInsetsZero;
+            contentInsets = [self notifyContentViewInsets];
             break;
         default:
         {
@@ -215,6 +247,23 @@
     }
     
     return contentInsets;
+}
+
+- (UIEdgeInsets)notifyContentViewInsets{
+    //这里以后会有很多种类型 单独拿出来处理
+    NIMNotificationObject *object = self.msgData.messageObject;
+    if ([object.content isKindOfClass:[NIMNetCallNotificationContent class]]) {
+        return [self isFromMe]? UIEdgeInsetsMake(SelfBubbleTopToContentForText,
+                                                 SelfBubbleLeftToContentForText,
+                                                 SelfContentButtomToBubbleForText,
+                                                 SelfBubbleRightToContentForText):
+        UIEdgeInsetsMake(OtherBubbleTopToContentForText,
+                         OtherBubbleLeftToContentForText,
+                         OtherContentButtomToBubbleForText,
+                         OtherContentRightToBubbleForText);
+    }else{
+        return UIEdgeInsetsZero;
+    }
 }
 
 - (CGFloat)retryButtonBubblePadding {

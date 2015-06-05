@@ -16,7 +16,7 @@
 @end
 
 
-@interface CustomLeftBarView : UIView
+@interface CustomLeftBarView : UIButton
 
 @property (nonatomic, strong) BadgeView *badgeView;
 @property (nonatomic, assign) id<CustomLeftBarItemItemProtocol> delegate;

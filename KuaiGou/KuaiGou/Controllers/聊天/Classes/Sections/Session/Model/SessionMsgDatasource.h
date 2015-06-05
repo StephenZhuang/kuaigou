@@ -12,10 +12,11 @@
 #import <Foundation/Foundation.h>
 #import "SessionMsgModel.h"
 #import "SessionLogicDelegate.h"
+#import "SessionLogicImpl.h"
 
 @class NIMSession;
 @class NIMMessage;
-@interface SessionMsgDatasource : NSObject
+@interface SessionMsgDatasource : NSObject<SessionLogicDataSource>
 
 - (instancetype)initWithSession:(NIMSession*)session;
 
@@ -31,9 +32,6 @@
 - (NSInteger)loadHistoryMessages;
 - (NSArray*)addMessages:(NSArray*)msgs;
 - (NSArray*)deleteMessage:(SessionMsgModel*)msg;
-
-//更新已读回执状态
-- (void)updateOtherMessageHiddReceipt:(SessionMsgModel*)msgModel;
 
 //del
 - (void)deleteAllMessages;
