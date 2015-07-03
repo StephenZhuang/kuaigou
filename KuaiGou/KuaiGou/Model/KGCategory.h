@@ -14,6 +14,8 @@
 @property (nonatomic , copy) NSString *name;
 @property (nonatomic , copy) NSString *avatar;
 
+@property (nonatomic , strong) NSArray *childArray;
+
 + (void)getParentCategoryWithCompletion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
 
 + (void)getChildCategoryWithPid:(NSInteger)pid

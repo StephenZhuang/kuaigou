@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface KGNearbyViewController : UIViewController
-
+@property (nonatomic , weak) IBOutlet UIView *dropMenuView;
+@property (nonatomic , strong) NSMutableArray *categoryArray;
+@property (nonatomic , strong) NSArray *distanceArray;
+@property (nonatomic , strong) NSArray *sortNameArray;
+@property (nonatomic , strong) NSArray *sortArray;
 @end

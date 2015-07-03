@@ -536,6 +536,11 @@
 		774E928F1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */; };
 		774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E51B03433D0075FB50 /* KGApiClient.m */; };
 		774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E91B0348530075FB50 /* KGResponseObject.m */; };
+		775597F51B4668710023AD3C /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 775597F11B4668710023AD3C /* DOPDropDownMenu.m */; };
+		775597F61B4668710023AD3C /* icon_chose_arrow_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 775597F21B4668710023AD3C /* icon_chose_arrow_nor@2x.png */; };
+		775597F71B4668710023AD3C /* icon_chose_arrow_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 775597F31B4668710023AD3C /* icon_chose_arrow_sel@2x.png */; };
+		775597F81B4668710023AD3C /* icon_chose_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 775597F41B4668710023AD3C /* icon_chose_bottom@2x.png */; };
+		775597FB1B467F180023AD3C /* ZXRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 775597FA1B467F180023AD3C /* ZXRefreshTableViewController.m */; };
 		77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */; };
 		777AFCAC1B1C6D4E00A4C182 /* KGGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 777AFCAB1B1C6D4E00A4C182 /* KGGoods.m */; };
 		777AFCB01B1C80E600A4C182 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777AFCAF1B1C80E600A4C182 /* UIPlaceHolderTextView.m */; };
@@ -1285,6 +1290,13 @@
 		774EC8E51B03433D0075FB50 /* KGApiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGApiClient.m; sourceTree = "<group>"; };
 		774EC8E81B0348530075FB50 /* KGResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGResponseObject.h; sourceTree = "<group>"; };
 		774EC8E91B0348530075FB50 /* KGResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGResponseObject.m; sourceTree = "<group>"; };
+		775597F01B4668710023AD3C /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
+		775597F11B4668710023AD3C /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
+		775597F21B4668710023AD3C /* icon_chose_arrow_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chose_arrow_nor@2x.png"; sourceTree = "<group>"; };
+		775597F31B4668710023AD3C /* icon_chose_arrow_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chose_arrow_sel@2x.png"; sourceTree = "<group>"; };
+		775597F41B4668710023AD3C /* icon_chose_bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chose_bottom@2x.png"; sourceTree = "<group>"; };
+		775597F91B467F180023AD3C /* ZXRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXRefreshTableViewController.h; sourceTree = "<group>"; };
+		775597FA1B467F180023AD3C /* ZXRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXRefreshTableViewController.m; sourceTree = "<group>"; };
 		77590EE81B09E4DE0086E2C9 /* NSString+ZXMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXMD5.h"; sourceTree = "<group>"; };
 		77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXMD5.m"; sourceTree = "<group>"; };
 		777AFCAA1B1C6D4E00A4C182 /* KGGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGGoods.h; sourceTree = "<group>"; };
@@ -2476,6 +2488,7 @@
 		770669451B01AA1F004E1396 /* 附近 */ = {
 			isa = PBXGroup;
 			children = (
+				775597EE1B4668710023AD3C /* views */,
 				7706694E1B01ABBA004E1396 /* Nearby.storyboard */,
 				77AD455F1B01B0410094326D /* KGNearbyViewController.h */,
 				77AD45601B01B0410094326D /* KGNearbyViewController.m */,
@@ -2645,6 +2658,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		775597EE1B4668710023AD3C /* views */ = {
+			isa = PBXGroup;
+			children = (
+				775597EF1B4668710023AD3C /* DOPDropDownMenu */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		775597EF1B4668710023AD3C /* DOPDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				775597F01B4668710023AD3C /* DOPDropDownMenu.h */,
+				775597F11B4668710023AD3C /* DOPDropDownMenu.m */,
+				775597F21B4668710023AD3C /* icon_chose_arrow_nor@2x.png */,
+				775597F31B4668710023AD3C /* icon_chose_arrow_sel@2x.png */,
+				775597F41B4668710023AD3C /* icon_chose_bottom@2x.png */,
+			);
+			path = DOPDropDownMenu;
+			sourceTree = "<group>";
+		};
 		777AFCAD1B1C80E600A4C182 /* PlaceHolderTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2667,6 +2700,8 @@
 		77AD45651B01EB470094326D /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				775597F91B467F180023AD3C /* ZXRefreshTableViewController.h */,
+				775597FA1B467F180023AD3C /* ZXRefreshTableViewController.m */,
 				77AD45661B01EB6F0094326D /* KGTabBarController.h */,
 				77AD45671B01EB6F0094326D /* KGTabBarController.m */,
 			);
@@ -2941,6 +2976,7 @@
 				7702A3CD1B2180C60020CE6E /* emoji_148@2x.png in Resources */,
 				7702A4D11B2180C60020CE6E /* Record_voice_disable@2x.png in Resources */,
 				7702A4B41B2180C60020CE6E /* btn_vcancel_normal@2x.png in Resources */,
+				775597F61B4668710023AD3C /* icon_chose_arrow_nor@2x.png in Resources */,
 				7702A41B1B2180C60020CE6E /* emoji_79@2x.png in Resources */,
 				7702A4DB1B2180C60020CE6E /* Session_Multi_Delete_HL@3x.png in Resources */,
 				7702A47E1B2180C60020CE6E /* icon_tann_normal@3x.png in Resources */,
@@ -2948,6 +2984,7 @@
 				7702A3C51B2180C60020CE6E /* emoji_140@2x.png in Resources */,
 				7702A4991B2180C60020CE6E /* MessageVideoPlay@2x.png in Resources */,
 				7702A4481B2180C60020CE6E /* bk_media_position_pressed@3x.png in Resources */,
+				775597F81B4668710023AD3C /* icon_chose_bottom@2x.png in Resources */,
 				7702A1C41B217EC20020CE6E /* SystemNotificationCell.xib in Resources */,
 				7702A4A51B2180C60020CE6E /* btn_mute_disable@2x.png in Resources */,
 				7702A42C1B2180C60020CE6E /* emoji_96@2x.png in Resources */,
@@ -2978,6 +3015,7 @@
 				7702A49F1B2180C60020CE6E /* btn_camera_disabled@2x.png in Resources */,
 				7702A3EF1B2180C60020CE6E /* emoji_35@2x.png in Resources */,
 				7702A4B61B2180C60020CE6E /* btn_vcancel_pressed@2x.png in Resources */,
+				775597F71B4668710023AD3C /* icon_chose_arrow_sel@2x.png in Resources */,
 				7702A4EA1B2180C60020CE6E /* ToolViewKeyboardHL@3x.png in Resources */,
 				7702A3D11B2180C60020CE6E /* emoji_151@2x.png in Resources */,
 				7702A40D1B2180C60020CE6E /* emoji_65@2x.png in Resources */,
@@ -3342,6 +3380,7 @@
 				77050A461B0AE297009FCA6A /* KGRegisterViewController.m in Sources */,
 				7702A1D31B217EC20020CE6E /* SessionMsgModel.m in Sources */,
 				7702A1E11B217EC20020CE6E /* SessionLocationContentView.m in Sources */,
+				775597F51B4668710023AD3C /* DOPDropDownMenu.m in Sources */,
 				7702A1CB1B217EC20020CE6E /* SessionCellActionHandler.m in Sources */,
 				7702A2071B217EC20020CE6E /* ContactUtil.m in Sources */,
 				77AD455B1B01B01A0094326D /* KGMineViewController.m in Sources */,
@@ -3416,6 +3455,7 @@
 				7702A1B81B217EC20020CE6E /* GroupedDataCollection.m in Sources */,
 				7702A1F11B217EC20020CE6E /* GalleryViewController.m in Sources */,
 				77FB2BA51B1EDA140091560D /* UIColor+ZXLazy.m in Sources */,
+				775597FB1B467F180023AD3C /* ZXRefreshTableViewController.m in Sources */,
 				7702A18B1B217EC20020CE6E /* M80AttributedLabel+NIM.m in Sources */,
 				7702A1A21B217EC20020CE6E /* TeamCardHeaderCell.m in Sources */,
 				774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */,
