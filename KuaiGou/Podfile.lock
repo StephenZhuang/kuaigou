@@ -1,32 +1,32 @@
 PODS:
-  - AFNetworking (2.5.3):
-    - AFNetworking/NSURLConnection (= 2.5.3)
-    - AFNetworking/NSURLSession (= 2.5.3)
-    - AFNetworking/Reachability (= 2.5.3)
-    - AFNetworking/Security (= 2.5.3)
-    - AFNetworking/Serialization (= 2.5.3)
-    - AFNetworking/UIKit (= 2.5.3)
-  - AFNetworking/NSURLConnection (2.5.3):
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.3):
+  - AFNetworking/NSURLSession (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.3)
-  - AFNetworking/Security (2.5.3)
-  - AFNetworking/Serialization (2.5.3)
-  - AFNetworking/UIKit (2.5.3):
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - CocoaLumberjack (2.0.0):
-    - CocoaLumberjack/Default (= 2.0.0)
-    - CocoaLumberjack/Extensions (= 2.0.0)
-  - CocoaLumberjack/Core (2.0.0)
-  - CocoaLumberjack/Default (2.0.0):
+  - CocoaLumberjack (2.0.1):
+    - CocoaLumberjack/Default (= 2.0.1)
+    - CocoaLumberjack/Extensions (= 2.0.1)
+  - CocoaLumberjack/Core (2.0.1)
+  - CocoaLumberjack/Default (2.0.1):
     - CocoaLumberjack/Core
-  - CocoaLumberjack/Extensions (2.0.0):
+  - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
@@ -37,16 +37,16 @@ PODS:
   - M80AttributedLabel (1.3.1)
   - MBProgressHUD (0.9.1)
   - MJExtension (2.3.7)
-  - MJRefresh (1.4.7)
+  - MJRefresh (2.2.0)
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
   - ObjectiveSugar (1.1.0)
   - pop (1.0.7)
   - PureLayout (2.0.6)
-  - Qiniu (7.0.9.1):
+  - Qiniu (7.0.11.1):
     - AFNetworking (~> 2.0)
   - RDVTabBarController (1.1.9)
-  - Reachability (3.1.1)
+  - Reachability (3.2)
   - Reveal-iOS-SDK (1.5.1)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
@@ -54,63 +54,63 @@ PODS:
   - SVProgressHUD (1.1.3)
   - tinyxml (2.1.0)
   - Toast (2.4)
-  - TPKeyboardAvoiding (1.2.6)
+  - TPKeyboardAvoiding (1.2.8)
   - UITableView+FDTemplateLayoutCell (1.3)
   - UIView+FDCollapsibleConstraints (1.1)
-  - UMengAnalytics-NO-IDFA (3.4.7)
-  - VTAcknowledgementsViewController (0.13)
+  - UMengAnalytics-NO-IDFA (3.5.9)
+  - VTAcknowledgementsViewController (0.14)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.3)
-  - CocoaLumberjack (~> 2.0.0-rc2)
+  - CocoaLumberjack (~> 2.0.1)
   - FMDB (~> 2.5)
   - GVUserDefaults (~> 1.0.1)
   - M80AttributedLabel (~> 1.3.1)
   - MBProgressHUD (~> 0.9)
   - MJExtension (~> 2.3.1)
-  - MJRefresh (~> 1.4.7)
+  - MJRefresh (~> 2.2.0)
   - ObjectiveRecord (~> 1.5.0)
   - pop (~> 1.0.7)
   - PureLayout (~> 2.0.3)
-  - Qiniu (~> 7.0.9.1)
+  - Qiniu (~> 7.0.11.1)
   - RDVTabBarController (~> 1.1.9)
-  - Reachability (~> 3.1.1)
+  - Reachability (~> 3.2)
   - Reveal-iOS-SDK
   - SDWebImage (~> 3.7.1)
   - SVProgressHUD (~> 1.1.2)
   - tinyxml (~> 2.1.0)
   - Toast (~> 2.4)
-  - TPKeyboardAvoiding (~> 1.2.6)
+  - TPKeyboardAvoiding (~> 1.2.8)
   - UITableView+FDTemplateLayoutCell (~> 1.3)
   - UIView+FDCollapsibleConstraints (~> 1.1)
-  - UMengAnalytics-NO-IDFA (~> 3.4.5)
-  - VTAcknowledgementsViewController (~> 0.13)
+  - UMengAnalytics-NO-IDFA (~> 3.5.9)
+  - VTAcknowledgementsViewController (~> 0.14)
 
 SPEC CHECKSUMS:
-  AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GVUserDefaults: acb40729f70984008d0650e49d7e422f1bbfa597
   M80AttributedLabel: 7bb3456dcdf847b111fac6695e7c40650ab2b6d2
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJExtension: ab4e7c529b2c7a705e6f78f73e33d97929a42b39
-  MJRefresh: 6b140993028fa30f1fcb88e82925a7c7911415cf
+  MJRefresh: 65a2bf14abb6feeaed8696aa1551f70e15ab0a08
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PureLayout: f25f0bb904d5ccfe6e31da3cb869185259f02e0d
-  Qiniu: cd281425298a3f30495135ab9a9442bf400dab28
+  Qiniu: 080a6728b969f6b0e77c9de574ede37e78b0912b
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
-  Reachability: dd9aa4fb6667b9f787690a74f53cb7634ce99893
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   tinyxml: 41d718babd106ac5d39d4e98b43c835d3b9080d8
   Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
-  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
+  TPKeyboardAvoiding: f1ef0028fe9ba98ef2871cf55b4bbc39cae0267b
   UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
   UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd
-  UMengAnalytics-NO-IDFA: 68a71671c10067315339fc3fd1283be416f02a8b
-  VTAcknowledgementsViewController: f2391b007c3abafd3b3afccda7d8914a59b44309
+  UMengAnalytics-NO-IDFA: c5302a2246061c356641bb3056e89dfbdeb37424
+  VTAcknowledgementsViewController: 11a869dd69598a852f12699aeaf36e2589d3fc1b
 
 COCOAPODS: 0.36.1
