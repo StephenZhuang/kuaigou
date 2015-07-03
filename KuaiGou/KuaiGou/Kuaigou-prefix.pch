@@ -20,5 +20,16 @@
 #import "KGTabBarController.h"
 #import "UIViewController+KGStoryboard.h"
 #import "KGApiClient.h"
+
+#import "GlobalMacro.h"
+#import "NIMSDK.h"
+
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+#ifdef DEBUG
+static DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static DDLogLevel ddLogLevel = DDLogLevelInfo;
+#endif
 #endif
 #endif

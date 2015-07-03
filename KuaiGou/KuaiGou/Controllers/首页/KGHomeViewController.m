@@ -26,13 +26,15 @@
  
     [KGAds getZtWithCompletion:^(BOOL success, NSString *errorInfo, NSArray *array) {
         if (success) {
-            NSMutableArray *imageArray = [[NSMutableArray alloc] init];
-            for (KGAds *ads in array) {
-                [imageArray addObject:[KGImageUrlHelper imageUrlWithKey:ads.adspic]];
+            if (array.count > 0) {                
+                NSMutableArray *imageArray = [[NSMutableArray alloc] init];
+                for (KGAds *ads in array) {
+                    [imageArray addObject:[KGImageUrlHelper imageUrlWithKey:ads.adspic]];
+                }
+                [_adsView startAdsWithImageArray:imageArray block:^(NSInteger clickIndex) {
+                    NSLog(@"%@",@(clickIndex));
+                }];
             }
-            [_adsView startAdsWithImageArray:imageArray block:^(NSInteger clickIndex) {
-                NSLog(@"%@",@(clickIndex));
-            }];
         }
     }];
     
