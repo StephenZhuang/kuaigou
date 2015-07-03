@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZXRefreshTableViewController.h"
 
-@interface KGNearbyViewController : UIViewController
+@interface KGNearbyViewController : ZXRefreshTableViewController
 @property (nonatomic , weak) IBOutlet UIView *dropMenuView;
 @property (nonatomic , strong) NSMutableArray *categoryArray;
 @property (nonatomic , strong) NSArray *distanceArray;
