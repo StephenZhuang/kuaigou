@@ -7,6 +7,7 @@
 //
 
 #import "ZXRefreshTableViewController.h"
+#import "UITableView+ZXTableViewLine.h"
 
 NSString *const MJTableViewCellIdentifier = @"cell";
 
@@ -25,7 +26,7 @@ NSString *const MJTableViewCellIdentifier = @"cell";
     [self addFooter];
     [self setExtrueLineHidden];
     [self.tableView setBackgroundColor:[UIColor clearColor]];
-    [self.tableView setSeparatorColor:[UIColor colorWithRed:237/255.0 green:235/255.0 blue:229/255.0 alpha:1.0]];
+//    [self.tableView setSeparatorColor:[UIColor colorWithRed:237/255.0 green:235/255.0 blue:229/255.0 alpha:1.0]];
 }
 
 - (void)addFooter
