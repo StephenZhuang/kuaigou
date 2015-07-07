@@ -8,6 +8,7 @@
 
 #import "KGApiClient.h"
 #import "KGResponseObject.h"
+#import "KGLoginManager.h"
 
 static NSString * const KGAPIBaseURLString = @"http://www.kgapp.net/";
 
@@ -81,6 +82,14 @@ static NSString * const KGAPIBaseURLString = @"http://www.kgapp.net/";
         if (object.code == 1) {
             if (success) {
                 success(task , object.data);
+            }
+        } else if (object.code == 2) {
+            [KGLoginManager sharedInstance].isLogin = NO;
+            [KGLoginManager sharedInstance].user = nil;
+            [GVUserDefaults standardUserDefaults].user = nil;
+            [[KGLoginManager sharedInstance] doLogout];
+            if (failure) {
+                failure(task, object.message);
             }
         } else {
             if (failure) {

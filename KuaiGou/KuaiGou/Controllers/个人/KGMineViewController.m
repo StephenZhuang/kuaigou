@@ -18,7 +18,7 @@
 - (IBAction)logoutAction:(id)sender
 {
     [[KGLoginManager sharedInstance] logoutWithCompletion:^(BOOL success, NSString *errorInfo) {
-        
+        [self.rdv_tabBarController setSelectedIndex:0];
     }];
 }
 @end

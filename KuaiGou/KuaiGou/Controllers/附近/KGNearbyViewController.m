@@ -225,6 +225,14 @@
     KGGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KGGoodsCell"];
     KGGoods *goods = [self.dataArray objectAtIndex:indexPath.row];
     [cell configureUIWithGoods:goods];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 耗时的操作
+        double distance = [[KGLocationManager sharedInstance] distanceBetweenPoint1:CLLocationCoordinate2DMake(lat.doubleValue, lng.doubleValue) point2:CLLocationCoordinate2DMake(goods.lat.doubleValue, goods.lng.doubleValue)];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 更新界面
+            [cell.distanceLabel setText:[NSString stringWithFormat:@"%.2fm",distance]];
+        });
+    });
     return cell;
 }
 

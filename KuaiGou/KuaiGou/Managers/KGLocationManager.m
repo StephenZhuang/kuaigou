@@ -26,4 +26,12 @@
     }
     return _locationService;
 }
+
+- (double)distanceBetweenPoint1:(CLLocationCoordinate2D)point1 point2:(CLLocationCoordinate2D)point2
+{
+    BMKMapPoint bpoint1 = BMKMapPointForCoordinate(point1);
+    BMKMapPoint bpoint2 = BMKMapPointForCoordinate(point2);
+    CLLocationDistance distance = BMKMetersBetweenMapPoints(bpoint1,bpoint2);
+    return distance;
+}
 @end

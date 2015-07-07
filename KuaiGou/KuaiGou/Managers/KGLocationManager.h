@@ -12,4 +12,5 @@
 @interface KGLocationManager : NSObject<BMKLocationServiceDelegate,BMKGeoCodeSearchDelegate>
 @property (nonatomic , strong) BMKLocationService *locationService;
 + (instancetype)sharedInstance;
+- (double)distanceBetweenPoint1:(CLLocationCoordinate2D)point1 point2:(CLLocationCoordinate2D)point2;
 @end
