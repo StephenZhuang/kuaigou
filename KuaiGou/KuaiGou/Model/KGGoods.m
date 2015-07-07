@@ -94,4 +94,36 @@
         !completion?:completion(NO,errorInfo);
     }];
 }
+
++ (void)getNearbyGoodsWithLat:(NSNumber *)lat
+                          lng:(NSNumber *)lng
+                       catpid:(NSInteger)catpid
+                        catid:(NSInteger)catid
+                         sort:(NSString *)sort
+                     sortmode:(NSString *)sortmode
+                   pagenumber:(NSInteger)pagenumber
+                     pagesize:(NSInteger)pagesize
+                          dis:(NSInteger)dis
+                   completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:lat forKey:@"lat"];
+    [parameters setObject:lng forKey:@"lng"];
+    [parameters setObject:@(catpid) forKey:@"catpid"];
+    [parameters setObject:@(catid) forKey:@"catid"];
+    [parameters setObject:sort forKey:@"sort"];
+    [parameters setObject:sortmode forKey:@"sortmode"];
+    [parameters setObject:@(pagenumber) forKey:@"pagenumber"];
+    [parameters setObject:@(pagesize) forKey:@"pagesize"];
+    [parameters setObject:@(dis) forKey:@"dis"];
+    [[KGApiClient sharedClient] POST:@"/api/v1/items/near" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        NSDictionary *dic = data;
+        NSArray *arr = [dic objectForKey:@"list"];
+        NSArray *array = [KGGoods objectArrayWithKeyValuesArray:arr];
+        !completion?:completion(YES,@"",array);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo,nil);
+    }];
+}
+
 @end

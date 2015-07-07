@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ZXRefreshTableViewController.h"
+#import "KGLocationManager.h"
 
-@interface KGNearbyViewController : ZXRefreshTableViewController
+@interface KGNearbyViewController : ZXRefreshTableViewController<BMKLocationServiceDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , weak) IBOutlet UIView *dropMenuView;
 @property (nonatomic , strong) NSMutableArray *categoryArray;
 @property (nonatomic , strong) NSArray *distanceArray;

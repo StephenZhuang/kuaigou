@@ -9,9 +9,20 @@
 #import "KGNearbyViewController.h"
 #import "DOPDropDownMenu.h"
 #import "KGCategory.h"
+#import "KGGoods.h"
+#import "KGGoodsCell.h"
 
 @interface KGNearbyViewController ()<DOPDropDownMenuDelegate,DOPDropDownMenuDataSource>
-
+{
+    NSInteger pid;
+    NSInteger catid;
+    NSNumber *lat;
+    NSNumber *lng;
+    NSString *sort;
+    NSString *sortmode;
+    NSInteger dis;
+    
+}
 @end
 
 @implementation KGNearbyViewController
@@ -23,6 +34,17 @@
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bt_navb_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"KGGoodsCell" bundle:nil] forCellReuseIdentifier:@"KGGoodsCell"];
+    
+    pid = -1;
+    catid = -1;
+    sortmode = @"desc";
+    sort = @"price";
+    dis = 1;
+    
+    [KGLocationManager sharedInstance].locationService.delegate = self;
+    [[KGLocationManager sharedInstance].locationService startUserLocationService];
     
     DOPDropDownMenu *menu = [[DOPDropDownMenu alloc] initWithOrigin:CGPointMake(0, 0) andHeight:44];
     menu.delegate = self;
@@ -41,11 +63,41 @@
             }
         }
     }];
+    
 }
 
 - (void)searchAction
 {
     
+}
+
+- (void)addHeader
+{
+    __weak __typeof(&*self)weakSelf = self;
+    
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        if (!hasMore) {
+            [weakSelf.tableView.footer resetNoMoreData];
+        }
+        page = 1;
+        hasMore = YES;
+        [weakSelf loadData];
+    }];
+}
+
+- (void)loadData
+{
+    if (lat && lng && sort && sortmode) {
+        [KGGoods getNearbyGoodsWithLat:lat lng:lng catpid:pid catid:catid sort:sort sortmode:sortmode pagenumber:page pagesize:pageCount dis:dis completion:^(BOOL success, NSString *errorInfo, NSArray *array) {
+            [self configureArray:array];
+        }];
+    } else {
+//        if (page == 1) {
+//            [self.tableView.header endRefreshing];
+//        } else {
+//            [self.tableView.footer endRefreshing];
+//        }
+    }
 }
 
 #pragma mark - dropmenu delegate
@@ -107,8 +159,79 @@
     }else {
         NSLog(@"点击了 %ld - %ld 项目",indexPath.column,indexPath.row);
     }
+    
+    if (indexPath.column == 0) {
+        KGCategory *category = [self.categoryArray objectAtIndex:indexPath.row];
+        
+        if (indexPath.item >= 0) {
+            KGCategory *child = [category.childArray objectAtIndex:indexPath.item];
+            catid = child.catid;
+        } else {
+            pid = category.catid;
+            if (category.childArray.count == 0) {
+                catid = -1;
+            }
+        }
+    } else if (indexPath.column == 1) {
+        if (indexPath.row == 0) {
+            sort = @"price";
+        } else {
+            sort = @"sells";
+        }
+        
+    } else if (indexPath.column == 2) {
+        NSString *kmString = [self.distanceArray objectAtIndex:indexPath.row];
+        if ([kmString hasSuffix:@"km"]) {
+            dis = [[kmString substringToIndex:kmString.length - 2] integerValue];
+        }
+    } else {
+        if (indexPath.row == 0) {
+            sortmode = @"desc";
+        } else {
+            sortmode = @"asc";
+        }
+    }
+    [self.tableView.header beginRefreshing];
 }
 
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    [[KGLocationManager sharedInstance].locationService stopUserLocationService];
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    lat = @(userLocation.location.coordinate.latitude);
+    lng = @(userLocation.location.coordinate.longitude);
+    [self loadData];
+}
+
+#pragma mark - tableview delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 85;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    KGGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KGGoodsCell"];
+    KGGoods *goods = [self.dataArray objectAtIndex:indexPath.row];
+    [cell configureUIWithGoods:goods];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 #pragma mark - setters and getters
 - (NSMutableArray *)categoryArray

@@ -533,6 +533,9 @@
 		773880311B047B4000A66961 /* KGUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880301B047B4000A66961 /* KGUploadManager.m */; };
 		773880341B04995100A66961 /* NSString+KGhmac_sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880331B04995100A66961 /* NSString+KGhmac_sha1.m */; };
 		773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880361B049ABC00A66961 /* KGImageUrlHelper.m */; };
+		773C3DE61B4B9D35009CACBA /* KGLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 773C3DE51B4B9D35009CACBA /* KGLocationManager.m */; };
+		773C3DE91B4BABE3009CACBA /* KGGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 773C3DE81B4BABE3009CACBA /* KGGoodsCell.m */; };
+		773C3DEB1B4BAC48009CACBA /* KGGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773C3DEA1B4BAC48009CACBA /* KGGoodsCell.xib */; };
 		774E928F1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */; };
 		774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E51B03433D0075FB50 /* KGApiClient.m */; };
 		774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E91B0348530075FB50 /* KGResponseObject.m */; };
@@ -1285,6 +1288,11 @@
 		773880331B04995100A66961 /* NSString+KGhmac_sha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+KGhmac_sha1.m"; sourceTree = "<group>"; };
 		773880351B049ABC00A66961 /* KGImageUrlHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGImageUrlHelper.h; sourceTree = "<group>"; };
 		773880361B049ABC00A66961 /* KGImageUrlHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGImageUrlHelper.m; sourceTree = "<group>"; };
+		773C3DE41B4B9D35009CACBA /* KGLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGLocationManager.h; sourceTree = "<group>"; };
+		773C3DE51B4B9D35009CACBA /* KGLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGLocationManager.m; sourceTree = "<group>"; };
+		773C3DE71B4BABE3009CACBA /* KGGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGGoodsCell.h; sourceTree = "<group>"; };
+		773C3DE81B4BABE3009CACBA /* KGGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGGoodsCell.m; sourceTree = "<group>"; };
+		773C3DEA1B4BAC48009CACBA /* KGGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KGGoodsCell.xib; sourceTree = "<group>"; };
 		774E928D1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGRegisterPasswordViewControlelr.h; sourceTree = "<group>"; };
 		774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGRegisterPasswordViewControlelr.m; sourceTree = "<group>"; };
 		774EC8E41B03433D0075FB50 /* KGApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGApiClient.h; sourceTree = "<group>"; };
@@ -2532,6 +2540,8 @@
 				77AD456B1B01F1360094326D /* KGLoginManager.m */,
 				7738802F1B047B4000A66961 /* KGUploadManager.h */,
 				773880301B047B4000A66961 /* KGUploadManager.m */,
+				773C3DE41B4B9D35009CACBA /* KGLocationManager.h */,
+				773C3DE51B4B9D35009CACBA /* KGLocationManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -2667,6 +2677,9 @@
 			isa = PBXGroup;
 			children = (
 				775597EF1B4668710023AD3C /* DOPDropDownMenu */,
+				773C3DE71B4BABE3009CACBA /* KGGoodsCell.h */,
+				773C3DE81B4BABE3009CACBA /* KGGoodsCell.m */,
+				773C3DEA1B4BAC48009CACBA /* KGGoodsCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -3092,6 +3105,7 @@
 				7702A3DF1B2180C60020CE6E /* emoji_200@2x.png in Resources */,
 				7702A4A71B2180C60020CE6E /* btn_mute_normal@2x.png in Resources */,
 				7702A4181B2180C60020CE6E /* emoji_76@2x.png in Resources */,
+				773C3DEB1B4BAC48009CACBA /* KGGoodsCell.xib in Resources */,
 				7702A4DE1B2180C60020CE6E /* sharemore_videovoip@3x.png in Resources */,
 				7702A4CC1B2180C60020CE6E /* ReceiverVoiceNodePlaying002@3x.png in Resources */,
 				7702A4CE1B2180C60020CE6E /* ReceiverVoiceNodePlaying003@3x.png in Resources */,
@@ -3363,6 +3377,7 @@
 				7702A1B91B217EC20020CE6E /* GroupedUsrInfo.m in Sources */,
 				77AD455E1B01B02D0094326D /* KGChatListViewController.m in Sources */,
 				7702A1B11B217EC20020CE6E /* TeamListViewController.m in Sources */,
+				773C3DE91B4BABE3009CACBA /* KGGoodsCell.m in Sources */,
 				7702A1BA1B217EC20020CE6E /* ContactDataCell.m in Sources */,
 				7702A2151B217EC20020CE6E /* SpellingCenter.mm in Sources */,
 				7702A1991B217EC20020CE6E /* PageView.m in Sources */,
@@ -3427,6 +3442,7 @@
 				774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */,
 				7702A1951B217EC20020CE6E /* BadgeView.m in Sources */,
 				7702A1CC1B217EC20020CE6E /* SessionLogicImpl.m in Sources */,
+				773C3DE61B4B9D35009CACBA /* KGLocationManager.m in Sources */,
 				7702A1A51B217EC20020CE6E /* CreateRegularTeamCardViewController.m in Sources */,
 				7702A1EA1B217EC20020CE6E /* SessionTipCell.m in Sources */,
 				7702A1921B217EC20020CE6E /* UITableView+ScrollToBottom.m in Sources */,

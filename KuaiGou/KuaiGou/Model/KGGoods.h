@@ -48,4 +48,15 @@
 
 + (void)uncollectGoodsWithItemid:(NSString *)itemid
                       completion:(void(^)(BOOL success,NSString *errorInfo))completion;
+
++ (void)getNearbyGoodsWithLat:(NSNumber *)lat
+                          lng:(NSNumber *)lng
+                       catpid:(NSInteger)catpid
+                        catid:(NSInteger)catid
+                         sort:(NSString *)sort
+                     sortmode:(NSString *)sortmode
+                   pagenumber:(NSInteger)pagenumber
+                     pagesize:(NSInteger)pagesize
+                          dis:(NSInteger)dis
+                   completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
 @end
