@@ -13,6 +13,7 @@
 #import "KGImageCell.h"
 #import "KGCategoryCollectionViewCell.h"
 #import "KGCategory.h"
+#import "JSRSA.h"
 
 @implementation KGHomeViewController
 - (void)viewDidLoad
@@ -51,7 +52,11 @@
 
 - (void)searchAction
 {
-    
+    NSString *string = @"itemid=123456&promoterid=111111";
+    NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
+    NSLog(@"secret = %@",encode);
+    NSString *decode = [[JSRSA sharedInstance] publicDecrypt:encode];
+    NSLog(@"string = %@",decode);
 }
 
 #pragma mark - JXBAdPageViewDelegate

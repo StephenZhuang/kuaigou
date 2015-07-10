@@ -11,6 +11,7 @@
 #import "NIMSDK.h"
 #import "LogManager.h"
 #import "NIMDemoConfig.h"
+#import "JSRSA.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +24,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [JSRSA sharedInstance].publicKey = @"public_key.pem";
+    [JSRSA sharedInstance].privateKey = @"private_key.pem";
     
     [self setupYunxin];
     if ([KGLoginManager sharedInstance].isLogin) {
