@@ -546,6 +546,7 @@
 		775597FB1B467F180023AD3C /* ZXRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 775597FA1B467F180023AD3C /* ZXRefreshTableViewController.m */; };
 		775597FE1B4682330023AD3C /* UITableView+ZXTableViewLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 775597FD1B4682330023AD3C /* UITableView+ZXTableViewLine.m */; };
 		77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */; };
+		776653AB1B4F9DD400F6A518 /* KGGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 776653AA1B4F9DD400F6A518 /* KGGoodsDetailViewController.m */; };
 		7774FAA71B4E4AB90000DC06 /* js_base_64.c in Sources */ = {isa = PBXBuildFile; fileRef = 7774FA9E1B4E4AB90000DC06 /* js_base_64.c */; };
 		7774FAA81B4E4AB90000DC06 /* js_rsa.c in Sources */ = {isa = PBXBuildFile; fileRef = 7774FAA01B4E4AB90000DC06 /* js_rsa.c */; };
 		7774FAA91B4E4AB90000DC06 /* JSRSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 7774FAA31B4E4AB90000DC06 /* JSRSA.m */; };
@@ -1317,6 +1318,8 @@
 		775597FD1B4682330023AD3C /* UITableView+ZXTableViewLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+ZXTableViewLine.m"; sourceTree = "<group>"; };
 		77590EE81B09E4DE0086E2C9 /* NSString+ZXMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZXMD5.h"; sourceTree = "<group>"; };
 		77590EE91B09E4DE0086E2C9 /* NSString+ZXMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZXMD5.m"; sourceTree = "<group>"; };
+		776653A91B4F9DD400F6A518 /* KGGoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGGoodsDetailViewController.h; sourceTree = "<group>"; };
+		776653AA1B4F9DD400F6A518 /* KGGoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGGoodsDetailViewController.m; sourceTree = "<group>"; };
 		7774FA9E1B4E4AB90000DC06 /* js_base_64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = js_base_64.c; sourceTree = "<group>"; };
 		7774FA9F1B4E4AB90000DC06 /* js_base_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = js_base_64.h; sourceTree = "<group>"; };
 		7774FAA01B4E4AB90000DC06 /* js_rsa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = js_rsa.c; sourceTree = "<group>"; };
@@ -2599,6 +2602,8 @@
 				7706694E1B01ABBA004E1396 /* Nearby.storyboard */,
 				77AD455F1B01B0410094326D /* KGNearbyViewController.h */,
 				77AD45601B01B0410094326D /* KGNearbyViewController.m */,
+				776653A91B4F9DD400F6A518 /* KGGoodsDetailViewController.h */,
+				776653AA1B4F9DD400F6A518 /* KGGoodsDetailViewController.m */,
 			);
 			path = "附近";
 			sourceTree = "<group>";
@@ -3681,6 +3686,7 @@
 				7702A1CE1B217EC20020CE6E /* UserCommandSender.m in Sources */,
 				77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */,
 				7702A1D81B217EC20020CE6E /* InputMoreContainerView.m in Sources */,
+				776653AB1B4F9DD400F6A518 /* KGGoodsDetailViewController.m in Sources */,
 				7702A2081B217EC20020CE6E /* EmoticonManager.mm in Sources */,
 				77AD45681B01EB6F0094326D /* KGTabBarController.m in Sources */,
 				7702A1D61B217EC20020CE6E /* InputEmoticonContainerView.m in Sources */,
