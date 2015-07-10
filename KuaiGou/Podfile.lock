@@ -34,6 +34,7 @@ PODS:
   - FMDB/standard (2.5):
     - FMDB/common
   - GVUserDefaults (1.0.1)
+  - HCSStarRatingView (1.0)
   - M80AttributedLabel (1.3.1)
   - MBProgressHUD (0.9.1)
   - MJExtension (2.3.7)
@@ -61,10 +62,11 @@ PODS:
   - VTAcknowledgementsViewController (0.14)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.5.3)
+  - AFNetworking (~> 2.5.4)
   - CocoaLumberjack (~> 2.0.1)
   - FMDB (~> 2.5)
   - GVUserDefaults (~> 1.0.1)
+  - HCSStarRatingView (from `https://github.com/hugocampossousa/HCSStarRatingView.git`)
   - M80AttributedLabel (~> 1.3.1)
   - MBProgressHUD (~> 0.9)
   - MJExtension (~> 2.3.1)
@@ -86,11 +88,21 @@ DEPENDENCIES:
   - UMengAnalytics-NO-IDFA (~> 3.5.9)
   - VTAcknowledgementsViewController (~> 0.14)
 
+EXTERNAL SOURCES:
+  HCSStarRatingView:
+    :git: https://github.com/hugocampossousa/HCSStarRatingView.git
+
+CHECKOUT OPTIONS:
+  HCSStarRatingView:
+    :commit: 52fcff0ec04ba7d1f8c8219c2f24c8ec71258b93
+    :git: https://github.com/hugocampossousa/HCSStarRatingView.git
+
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GVUserDefaults: acb40729f70984008d0650e49d7e422f1bbfa597
+  HCSStarRatingView: 6fb5c03b4ae2b8a1cca712da20fca99898c69af1
   M80AttributedLabel: 7bb3456dcdf847b111fac6695e7c40650ab2b6d2
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJExtension: ab4e7c529b2c7a705e6f78f73e33d97929a42b39

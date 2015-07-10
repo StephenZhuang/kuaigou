@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HCSStarRatingView.h>
 
 @interface KGGoodsDetailViewController : UIViewController
-
+@property (nonatomic , assign) NSString *itemid;
 @end

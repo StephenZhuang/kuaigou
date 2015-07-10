@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="1314" y="230"/>
         </scene>
-        <!--View Controller-->
+        <!--Goods Detail View Controller-->
         <scene sceneID="83f-Wx-F6h">
             <objects>
-                <viewController id="0iS-Vw-rRY" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KGGoodsDetailViewController" id="0iS-Vw-rRY" customClass="KGGoodsDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sJE-cn-CH4"/>
                         <viewControllerLayoutGuide type="bottom" id="bYl-ko-s84"/>
@@ -159,14 +159,58 @@
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-iz-Www" customClass="HCSStarRatingView">
+                                                        <rect key="frame" x="60" y="34" width="100" height="16"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="tintColor" red="0.99215686274509807" green="0.51764705882352946" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="16" id="Mi5-wf-c7W"/>
+                                                            <constraint firstAttribute="width" constant="100" id="Tp9-9A-gYe"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海长宁" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKD-Gh-q9A">
+                                                        <rect key="frame" x="534" y="10" width="56" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.5km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kd7-Nz-hGX">
+                                                        <rect key="frame" x="550" y="35" width="40" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="hXO-lp-tcq" firstAttribute="leading" secondItem="dfi-ls-DfI" secondAttribute="leading" constant="10" id="1Ei-Vl-NuB"/>
+                                                    <constraint firstItem="hXO-lp-tcq" firstAttribute="bottom" secondItem="WCt-iz-Www" secondAttribute="bottom" id="3JK-uL-Fgd"/>
                                                     <constraint firstAttribute="height" constant="100" id="7QG-Dj-css"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kd7-Nz-hGX" secondAttribute="trailing" constant="10" id="BE5-Ou-uRt"/>
                                                     <constraint firstItem="7Uc-zV-LTW" firstAttribute="leading" secondItem="hXO-lp-tcq" secondAttribute="trailing" constant="10" id="Cx4-r1-ABH"/>
+                                                    <constraint firstItem="rKD-Gh-q9A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7Uc-zV-LTW" secondAttribute="trailing" constant="10" id="KmO-Oh-dUC"/>
+                                                    <constraint firstItem="kd7-Nz-hGX" firstAttribute="top" secondItem="rKD-Gh-q9A" secondAttribute="bottom" constant="8" id="LKz-R0-BrY"/>
+                                                    <constraint firstItem="rKD-Gh-q9A" firstAttribute="top" secondItem="hXO-lp-tcq" secondAttribute="top" id="NAU-KL-WDa"/>
                                                     <constraint firstItem="hXO-lp-tcq" firstAttribute="top" secondItem="7Uc-zV-LTW" secondAttribute="top" id="Whk-MQ-klB"/>
                                                     <constraint firstItem="hXO-lp-tcq" firstAttribute="top" secondItem="dfi-ls-DfI" secondAttribute="top" constant="10" id="ebk-pC-fBM"/>
+                                                    <constraint firstItem="WCt-iz-Www" firstAttribute="leading" secondItem="hXO-lp-tcq" secondAttribute="trailing" constant="10" id="m7W-xY-JxG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="rKD-Gh-q9A" secondAttribute="trailing" constant="10" id="omY-7o-6So"/>
+                                                    <constraint firstItem="kd7-Nz-hGX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WCt-iz-Www" secondAttribute="trailing" constant="10" id="zUY-Xl-KDh"/>
                                                 </constraints>
                                             </view>
                                         </subviews>

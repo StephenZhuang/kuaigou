@@ -96,6 +96,12 @@
 #define COCOAPODS_VERSION_MINOR_GVUserDefaults 0
 #define COCOAPODS_VERSION_PATCH_GVUserDefaults 1
 
+// HCSStarRatingView
+#define COCOAPODS_POD_AVAILABLE_HCSStarRatingView
+#define COCOAPODS_VERSION_MAJOR_HCSStarRatingView 1
+#define COCOAPODS_VERSION_MINOR_HCSStarRatingView 0
+#define COCOAPODS_VERSION_PATCH_HCSStarRatingView 0
+
 // M80AttributedLabel
 #define COCOAPODS_POD_AVAILABLE_M80AttributedLabel
 #define COCOAPODS_VERSION_MAJOR_M80AttributedLabel 1

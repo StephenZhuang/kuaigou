@@ -11,6 +11,7 @@
 #import "KGCategory.h"
 #import "KGGoods.h"
 #import "KGGoodsCell.h"
+#import "KGGoodsDetailViewController.h"
 
 @interface KGNearbyViewController ()<DOPDropDownMenuDelegate,DOPDropDownMenuDataSource>
 {
@@ -238,6 +239,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    KGGoods *goods = [self.dataArray objectAtIndex:indexPath.row];
+    KGGoodsDetailViewController *vc = [KGGoodsDetailViewController viewControllerFromStoryboard:@"Nearby"];
+    vc.itemid = goods.itemid;
+    [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
