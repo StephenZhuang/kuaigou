@@ -8,6 +8,7 @@
 
 #import "KGGoods.h"
 #import "KGLoginManager.h"
+#import "KGLoginManager.h"
 
 @implementation KGGoods
 - (instancetype)init
@@ -121,6 +122,23 @@
         NSArray *arr = [dic objectForKey:@"list"];
         NSArray *array = [KGGoods objectArrayWithKeyValuesArray:arr];
         !completion?:completion(YES,@"",array);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo,nil);
+    }];
+}
+
++ (void)getGoodsDetailWithItemid:(NSString *)itemid
+                      completion:(void(^)(BOOL success,NSString *errorInfo,KGGoods *goods))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:itemid forKey:@"itemid"];
+    if ([KGLoginManager sharedInstance].isLogin) {
+        [parameters setObject:[KGLoginManager sharedInstance].user.token forKey:@"token"];
+    }
+    
+    [[KGApiClient sharedClient] POST:@"/api/v1/item/detailes" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        KGGoods *goods = [KGGoods objectWithKeyValues:data];
+        !completion?:completion(YES,@"",goods);
     } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
         !completion?:completion(NO,errorInfo,nil);
     }];

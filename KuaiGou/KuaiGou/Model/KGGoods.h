@@ -59,4 +59,7 @@
                      pagesize:(NSInteger)pagesize
                           dis:(NSInteger)dis
                    completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
+
++ (void)getGoodsDetailWithItemid:(NSString *)itemid
+                      completion:(void(^)(BOOL success,NSString *errorInfo,KGGoods *goods))completion;
 @end

@@ -536,6 +536,7 @@
 		773C3DE61B4B9D35009CACBA /* KGLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 773C3DE51B4B9D35009CACBA /* KGLocationManager.m */; };
 		773C3DE91B4BABE3009CACBA /* KGGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 773C3DE81B4BABE3009CACBA /* KGGoodsCell.m */; };
 		773C3DEB1B4BAC48009CACBA /* KGGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 773C3DEA1B4BAC48009CACBA /* KGGoodsCell.xib */; };
+		773CB7AA1B4FC10600C99976 /* StrikeThroughLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 773CB7A91B4FC10600C99976 /* StrikeThroughLabel.m */; };
 		774E928F1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = 774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */; };
 		774EC8E61B03433D0075FB50 /* KGApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E51B03433D0075FB50 /* KGApiClient.m */; };
 		774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 774EC8E91B0348530075FB50 /* KGResponseObject.m */; };
@@ -1301,6 +1302,8 @@
 		773C3DE71B4BABE3009CACBA /* KGGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGGoodsCell.h; sourceTree = "<group>"; };
 		773C3DE81B4BABE3009CACBA /* KGGoodsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGGoodsCell.m; sourceTree = "<group>"; };
 		773C3DEA1B4BAC48009CACBA /* KGGoodsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KGGoodsCell.xib; sourceTree = "<group>"; };
+		773CB7A81B4FC10600C99976 /* StrikeThroughLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrikeThroughLabel.h; sourceTree = "<group>"; };
+		773CB7A91B4FC10600C99976 /* StrikeThroughLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrikeThroughLabel.m; sourceTree = "<group>"; };
 		774E928D1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGRegisterPasswordViewControlelr.h; sourceTree = "<group>"; };
 		774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGRegisterPasswordViewControlelr.m; sourceTree = "<group>"; };
 		774EC8E41B03433D0075FB50 /* KGApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGApiClient.h; sourceTree = "<group>"; };
@@ -2746,6 +2749,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		773CB7A71B4FC10600C99976 /* StrikeThroughLabel */ = {
+			isa = PBXGroup;
+			children = (
+				773CB7A81B4FC10600C99976 /* StrikeThroughLabel.h */,
+				773CB7A91B4FC10600C99976 /* StrikeThroughLabel.m */,
+			);
+			path = StrikeThroughLabel;
+			sourceTree = "<group>";
+		};
 		774EC8E31B0343120075FB50 /* HTTPClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -3012,6 +3024,7 @@
 		77FB2BB01B1EF6CF0091560D /* vendors */ = {
 			isa = PBXGroup;
 			children = (
+				773CB7A71B4FC10600C99976 /* StrikeThroughLabel */,
 				7774FA9D1B4E4AB90000DC06 /* RSA-objc */,
 				7702A03F1B217E790020CE6E /* YunxinSDK */,
 				77FB2BB11B1EF6CF0091560D /* BaiduMap */,
@@ -3685,6 +3698,7 @@
 				7702A19F1B217EC20020CE6E /* TeamAnnouncementListCell.m in Sources */,
 				7702A1CE1B217EC20020CE6E /* UserCommandSender.m in Sources */,
 				77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */,
+				773CB7AA1B4FC10600C99976 /* StrikeThroughLabel.m in Sources */,
 				7702A1D81B217EC20020CE6E /* InputMoreContainerView.m in Sources */,
 				776653AB1B4F9DD400F6A518 /* KGGoodsDetailViewController.m in Sources */,
 				7702A2081B217EC20020CE6E /* EmoticonManager.mm in Sources */,

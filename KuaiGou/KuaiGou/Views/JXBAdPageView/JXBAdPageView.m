@@ -53,10 +53,13 @@
     
     _imgPrev = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     _imgPrev.layer.contentsGravity = kCAGravityResizeAspectFill;
+    _imgPrev.layer.masksToBounds = YES;
     _imgCurrent = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
     _imgCurrent.layer.contentsGravity = kCAGravityResizeAspectFill;
+    _imgCurrent.layer.masksToBounds = YES;
     _imgNext = [[UIImageView alloc] initWithFrame:CGRectMake(2*self.frame.size.width, 0, self.frame.size.width, self.frame.size.height)];
     _imgNext.layer.contentsGravity = kCAGravityResizeAspectFill;
+    _imgNext.layer.masksToBounds = YES;
     
     [_scView addSubview:_imgPrev];
     [_scView addSubview:_imgCurrent];

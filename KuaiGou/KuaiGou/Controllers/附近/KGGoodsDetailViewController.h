@@ -8,7 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import <HCSStarRatingView.h>
+#import "JXBAdPageView.h"
+#import "KGGoods.h"
 
-@interface KGGoodsDetailViewController : UIViewController
+@interface KGGoodsDetailViewController : UIViewController<JXBAdPageViewDelegate>
 @property (nonatomic , assign) NSString *itemid;
+@property (nonatomic , weak) IBOutlet JXBAdPageView *adsView;
+@property (nonatomic , weak) IBOutlet UIImageView *headImg;
+@property (nonatomic , weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic , weak) IBOutlet UILabel *addressLabel;
+@property (nonatomic , weak) IBOutlet UILabel *distanceLabel;
+@property (nonatomic , weak) IBOutlet UILabel *tipLabel;
+@property (nonatomic , weak) IBOutlet UILabel *priceLabel;
+@property (nonatomic , weak) IBOutlet UILabel *originPriceLabel;
+@property (nonatomic , weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic , weak) IBOutlet UILabel *contentLabel;
+@property (nonatomic , weak) IBOutlet UIButton *shareButton;
+@property (nonatomic , weak) IBOutlet HCSStarRatingView *ratingView;
+
+@property (nonatomic , strong) KGGoods *goods;
 @end
