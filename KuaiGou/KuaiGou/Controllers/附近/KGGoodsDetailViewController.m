@@ -28,13 +28,11 @@
 {
     [super viewWillAppear:animated];
     [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
-    _adsView.delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    _adsView.delegate = nil;
 }
 
 - (void)updateUI
@@ -48,17 +46,13 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             // 更新界面
-            [_adsView startAdsWithImageArray:imageArray block:^(NSInteger clickIndex) {
-                NSLog(@"%@",@(clickIndex));
-            }];
+            [_adsView configUIWithArray:imageArray];
+            _adsView.clickAtIndex = ^(NSInteger index) {
+                
+            };
         });
     });
     
-}
-
-- (void)setWebImage:(UIImageView *)imgView imgUrl:(NSString *)imgUrl
-{
-    [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:[UIImage imageNamed:@"bg_product_def"]];
 }
 
 - (void)didReceiveMemoryWarning {

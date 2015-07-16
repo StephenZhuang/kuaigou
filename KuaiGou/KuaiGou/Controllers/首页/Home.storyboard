@@ -24,21 +24,12 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="275"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jz8-o0-cet" customClass="JXBAdPageView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jz8-o0-cet" customClass="AdScrollView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="130" id="7K1-Vf-mq4"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bWebImage" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="iDisplayTime">
-                                                    <integer key="value" value="2"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <outlet property="delegate" destination="XNx-8Q-Dgg" id="kl6-0L-vcP"/>
-                                            </connections>
                                         </view>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="65w-0r-wOW">
                                             <rect key="frame" x="0.0" y="130" width="600" height="145"/>
@@ -135,7 +126,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="iL4-8T-Tfu"/>
                     <connections>
-                        <outlet property="adsView" destination="jz8-o0-cet" id="09B-rH-HU2"/>
+                        <outlet property="adsView" destination="jz8-o0-cet" id="ghg-Bo-vUA"/>
                         <outlet property="collectionView" destination="65w-0r-wOW" id="BVr-k3-WDE"/>
                         <outlet property="tableView" destination="2Ks-9X-1mJ" id="Rrn-8s-8Te"/>
                     </connections>

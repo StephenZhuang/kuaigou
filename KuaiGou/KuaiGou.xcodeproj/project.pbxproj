@@ -515,7 +515,6 @@
 		771B62441B1FE4920057FD19 /* KGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62431B1FE4920057FD19 /* KGCategory.m */; };
 		771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62461B1FEF380057FD19 /* UIImage+Resize.m */; };
 		771B624A1B1FEFAA0057FD19 /* UIImage+KGCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62491B1FEFAA0057FD19 /* UIImage+KGCompress.m */; };
-		771B624E1B1FFD3B0057FD19 /* JXBAdPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B624D1B1FFD3B0057FD19 /* JXBAdPageView.m */; };
 		771B62511B20038F0057FD19 /* KGAds.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62501B20038F0057FD19 /* KGAds.m */; };
 		771B62551B2025920057FD19 /* KGImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62541B2025920057FD19 /* KGImageCell.m */; };
 		771B62581B203E1E0057FD19 /* KGCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62571B203E1E0057FD19 /* KGCategoryCollectionViewCell.m */; };
@@ -569,6 +568,8 @@
 		77AD45741B01F2EB0094326D /* UIViewController+KGStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD45731B01F2EB0094326D /* UIViewController+KGStoryboard.m */; };
 		77AD45761B01F4660094326D /* Release.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77AD45751B01F4660094326D /* Release.storyboard */; };
 		77AD45791B01F4770094326D /* KGReleaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77AD45781B01F4770094326D /* KGReleaseViewController.m */; };
+		77C56FE41B57A031002C7DBC /* AdScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C56FE01B57A031002C7DBC /* AdScrollView.m */; };
+		77C56FE51B57A031002C7DBC /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C56FE31B57A031002C7DBC /* StyledPageControl.m */; };
 		77FB2B7C1B1EAF020091560D /* ZXImagePickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B7B1B1EAF020091560D /* ZXImagePickCell.m */; };
 		77FB2B7F1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B7E1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m */; };
 		77FB2B821B1ECF7F0091560D /* KGTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B811B1ECF7F0091560D /* KGTextFieldCell.m */; };
@@ -1266,8 +1267,6 @@
 		771B62461B1FEF380057FD19 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		771B62481B1FEFAA0057FD19 /* UIImage+KGCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KGCompress.h"; sourceTree = "<group>"; };
 		771B62491B1FEFAA0057FD19 /* UIImage+KGCompress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KGCompress.m"; sourceTree = "<group>"; };
-		771B624C1B1FFD3B0057FD19 /* JXBAdPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXBAdPageView.h; sourceTree = "<group>"; };
-		771B624D1B1FFD3B0057FD19 /* JXBAdPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXBAdPageView.m; sourceTree = "<group>"; };
 		771B624F1B20038F0057FD19 /* KGAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGAds.h; sourceTree = "<group>"; };
 		771B62501B20038F0057FD19 /* KGAds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGAds.m; sourceTree = "<group>"; };
 		771B62531B2025920057FD19 /* KGImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGImageCell.h; sourceTree = "<group>"; };
@@ -1437,6 +1436,10 @@
 		77AD45751B01F4660094326D /* Release.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Release.storyboard; sourceTree = "<group>"; };
 		77AD45771B01F4770094326D /* KGReleaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGReleaseViewController.h; sourceTree = "<group>"; };
 		77AD45781B01F4770094326D /* KGReleaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGReleaseViewController.m; sourceTree = "<group>"; };
+		77C56FDF1B57A031002C7DBC /* AdScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdScrollView.h; sourceTree = "<group>"; };
+		77C56FE01B57A031002C7DBC /* AdScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdScrollView.m; sourceTree = "<group>"; };
+		77C56FE21B57A031002C7DBC /* StyledPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyledPageControl.h; sourceTree = "<group>"; };
+		77C56FE31B57A031002C7DBC /* StyledPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyledPageControl.m; sourceTree = "<group>"; };
 		77FB2B7A1B1EAF020091560D /* ZXImagePickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXImagePickCell.h; sourceTree = "<group>"; };
 		77FB2B7B1B1EAF020091560D /* ZXImagePickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXImagePickCell.m; sourceTree = "<group>"; };
 		77FB2B7D1B1EAF3A0091560D /* ZXBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXBaseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2651,22 +2654,13 @@
 		770669491B01AA1F004E1396 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				771B624B1B1FFD3B0057FD19 /* JXBAdPageView */,
+				77C56FDE1B57A031002C7DBC /* AdScrollView */,
 				77FB2B951B1EDA140091560D /* SZCalendarPicker */,
 				777AFCAD1B1C80E600A4C182 /* PlaceHolderTextView */,
 				770669521B01AC41004E1396 /* KGNavigationBar.h */,
 				770669531B01AC41004E1396 /* KGNavigationBar.m */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		771B624B1B1FFD3B0057FD19 /* JXBAdPageView */ = {
-			isa = PBXGroup;
-			children = (
-				771B624C1B1FFD3B0057FD19 /* JXBAdPageView.h */,
-				771B624D1B1FFD3B0057FD19 /* JXBAdPageView.m */,
-			);
-			path = JXBAdPageView;
 			sourceTree = "<group>";
 		};
 		771B62521B2025780057FD19 /* View */ = {
@@ -2974,6 +2968,25 @@
 				771B62401B1FE0880057FD19 /* KGCategoryViewController.m */,
 			);
 			path = "发布";
+			sourceTree = "<group>";
+		};
+		77C56FDE1B57A031002C7DBC /* AdScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				77C56FDF1B57A031002C7DBC /* AdScrollView.h */,
+				77C56FE01B57A031002C7DBC /* AdScrollView.m */,
+				77C56FE11B57A031002C7DBC /* PageControl */,
+			);
+			path = AdScrollView;
+			sourceTree = "<group>";
+		};
+		77C56FE11B57A031002C7DBC /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				77C56FE21B57A031002C7DBC /* StyledPageControl.h */,
+				77C56FE31B57A031002C7DBC /* StyledPageControl.m */,
+			);
+			path = PageControl;
 			sourceTree = "<group>";
 		};
 		77FB2B791B1EAF020091560D /* view */ = {
@@ -3670,7 +3683,6 @@
 				7702A1AB1B217EC20020CE6E /* RegularTeamCardViewController.m in Sources */,
 				7702A1E61B217EC20020CE6E /* SessionTextContentView.m in Sources */,
 				7702A19C1B217EC20020CE6E /* TeamCardRowItem.m in Sources */,
-				771B624E1B1FFD3B0057FD19 /* JXBAdPageView.m in Sources */,
 				7702A1A31B217EC20020CE6E /* BaseCardViewController.m in Sources */,
 				7702A1ED1B217EC20020CE6E /* FilePreViewController.m in Sources */,
 				7702A19D1B217EC20020CE6E /* UsrInfoData.m in Sources */,
@@ -3734,6 +3746,7 @@
 				7702A2121B217EC20020CE6E /* NIMService.m in Sources */,
 				7702A1CF1B217EC20020CE6E /* LocationPoint.m in Sources */,
 				77AD45611B01B0410094326D /* KGNearbyViewController.m in Sources */,
+				77C56FE51B57A031002C7DBC /* StyledPageControl.m in Sources */,
 				77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */,
 				7702A1E21B217EC20020CE6E /* SessionMessageContentView.m in Sources */,
 				7702A1911B217EC20020CE6E /* UIResponder+Router.m in Sources */,
@@ -3749,6 +3762,7 @@
 				7702A1901B217EC20020CE6E /* UIImage+Color.m in Sources */,
 				7702A2021B217EC20020CE6E /* SessionListCell.m in Sources */,
 				7702A1C11B217EC20020CE6E /* ContactViewController.m in Sources */,
+				77C56FE41B57A031002C7DBC /* AdScrollView.m in Sources */,
 				77050A4C1B0AE8EC009FCA6A /* ZXValidateHelper.m in Sources */,
 				773880311B047B4000A66961 /* KGUploadManager.m in Sources */,
 				7702A1931B217EC20020CE6E /* UIView+NIMDemo.m in Sources */,

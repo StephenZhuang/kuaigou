@@ -34,6 +34,9 @@
 @property (nonatomic , copy) NSString *status;
 @property (nonatomic , copy) NSString *image;
 @property (nonatomic , copy) NSString *userid;
+@property (nonatomic , assign) NSInteger u_level;
+@property (nonatomic , copy) NSString *u_nickname;
+@property (nonatomic , copy) NSString *u_avatar;
 
 @property (nonatomic , copy) NSString *catNames;
 

@@ -32,9 +32,10 @@
                 for (KGAds *ads in array) {
                     [imageArray addObject:[KGImageUrlHelper imageUrlWithKey:ads.adspic]];
                 }
-                [_adsView startAdsWithImageArray:imageArray block:^(NSInteger clickIndex) {
-                    NSLog(@"%@",@(clickIndex));
-                }];
+                [_adsView configUIWithArray:imageArray];
+                _adsView.clickAtIndex = ^(NSInteger index) {
+                    
+                };
             }
         }
     }];
@@ -57,12 +58,6 @@
     NSLog(@"secret = %@",encode);
     NSString *decode = [[JSRSA sharedInstance] publicDecrypt:encode];
     NSLog(@"string = %@",decode);
-}
-
-#pragma mark - JXBAdPageViewDelegate
-- (void)setWebImage:(UIImageView *)imgView imgUrl:(NSString *)imgUrl
-{
-    [imgView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:[UIImage imageNamed:@"bg_product_def"]];
 }
 
 #pragma mark - tableview delegate

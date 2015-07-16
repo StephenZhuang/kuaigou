@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <HCSStarRatingView.h>
-#import "JXBAdPageView.h"
 #import "KGGoods.h"
+#import "AdScrollView.h"
 
-@interface KGGoodsDetailViewController : UIViewController<JXBAdPageViewDelegate>
+@interface KGGoodsDetailViewController : UIViewController
 @property (nonatomic , assign) NSString *itemid;
-@property (nonatomic , weak) IBOutlet JXBAdPageView *adsView;
+@property (nonatomic , weak) IBOutlet AdScrollView *adsView;
 @property (nonatomic , weak) IBOutlet UIImageView *headImg;
 @property (nonatomic , weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic , weak) IBOutlet UILabel *addressLabel;

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JXBAdPageView.h"
+#import "AdScrollView.h"
 
-@interface KGHomeViewController : UIViewController<JXBAdPageViewDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
-@property (nonatomic , weak) IBOutlet JXBAdPageView *adsView;
+@interface KGHomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
+@property (nonatomic , weak) IBOutlet AdScrollView *adsView;
 @property (nonatomic , strong) NSMutableArray *adsArray;
 @property (nonatomic , strong) NSMutableArray *dataArray;
 @property (nonatomic , strong) NSMutableArray *catArray;
