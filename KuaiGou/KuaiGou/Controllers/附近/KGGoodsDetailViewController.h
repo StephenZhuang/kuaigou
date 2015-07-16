@@ -10,8 +10,9 @@
 #import <HCSStarRatingView.h>
 #import "KGGoods.h"
 #import "AdScrollView.h"
+#import "KGLocationManager.h"
 
-@interface KGGoodsDetailViewController : UIViewController
+@interface KGGoodsDetailViewController : UIViewController<BMKLocationServiceDelegate>
 @property (nonatomic , assign) NSString *itemid;
 @property (nonatomic , weak) IBOutlet AdScrollView *adsView;
 @property (nonatomic , weak) IBOutlet UIImageView *headImg;
