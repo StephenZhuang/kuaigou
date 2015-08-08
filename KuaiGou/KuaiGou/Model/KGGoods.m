@@ -25,6 +25,16 @@
     return self;
 }
 
+- (CGFloat)displayPrice
+{
+    if (self.isdiscount.integerValue == 1) {
+        CGFloat price = self.price * self.discount;
+        return price;
+    } else {
+        return self.price;
+    }
+}
+
 + (void)addGoodsWithGoods:(KGGoods *)goods
                completion:(void(^)(BOOL success,NSString *errorInfo))completion
 {

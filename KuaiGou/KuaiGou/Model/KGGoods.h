@@ -65,4 +65,6 @@
 
 + (void)getGoodsDetailWithItemid:(NSString *)itemid
                       completion:(void(^)(BOOL success,NSString *errorInfo,KGGoods *goods))completion;
+
+- (CGFloat)displayPrice;
 @end

@@ -12,6 +12,7 @@
 #import "KGLoginViewController.h"
 #import <SDWebImageDownloader.h>
 #import "JSRSA.h"
+#import "KGAddOrderViewController.h"
 
 @interface KGGoodsDetailViewController ()
 
@@ -134,6 +135,21 @@
         KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard:@"Login"];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
+    }
+}
+
+- (IBAction)buyAction:(id)sender
+{
+    if (self.goods && self.goods.stock > 0) {
+        if ([[KGLoginManager sharedInstance] isLogin]) {
+            KGAddOrderViewController *vc = [KGAddOrderViewController viewControllerFromStoryboard:@"Nearby"];
+            vc.goods = self.goods;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard:@"Login"];
+            UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nav animated:YES completion:nil];
+        }
     }
 }
 

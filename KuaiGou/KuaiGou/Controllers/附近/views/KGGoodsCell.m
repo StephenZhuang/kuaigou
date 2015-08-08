@@ -25,7 +25,7 @@
         [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[KGImageUrlHelper imageUrlWithKey:key]] placeholderImage:[UIImage imageNamed:@"bg_product_def"]];
     }
     [self.titleLabel setText:goods.title];
-    [self.priceLabel setText:[NSString stringWithFormat:@"￥ %@",@(goods.price)]];
+    [self.priceLabel setText:[NSString stringWithFormat:@"￥ %.2f",[goods displayPrice]]];
     NSArray *arr = @[@"送货上门",@"上门自提"];
     [self.tipLabel setText:arr[goods.trademodeid -1]];
 }
