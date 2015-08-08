@@ -572,6 +572,11 @@
 		77C56FE51B57A031002C7DBC /* StyledPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C56FE31B57A031002C7DBC /* StyledPageControl.m */; };
 		77D8C2481B76200400B77EF9 /* KGAddOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C2471B76200400B77EF9 /* KGAddOrderViewController.m */; };
 		77D8C24B1B76247200B77EF9 /* KGAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C24A1B76247200B77EF9 /* KGAddress.m */; };
+		77D8C24E1B762BD000B77EF9 /* KGAddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C24D1B762BD000B77EF9 /* KGAddAddressViewController.m */; };
+		77D8C2511B762C0200B77EF9 /* KGAddressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C2501B762C0200B77EF9 /* KGAddressListViewController.m */; };
+		77D8C2571B762D0B00B77EF9 /* Kuaigou.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C2551B762D0B00B77EF9 /* Kuaigou.xcdatamodeld */; };
+		77D8C25A1B762D5B00B77EF9 /* KGCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C2591B762D5B00B77EF9 /* KGCity.m */; };
+		77D8C25D1B762E3900B77EF9 /* NSManagedObject+ZXRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C25C1B762E3900B77EF9 /* NSManagedObject+ZXRecord.m */; };
 		77FB2B7C1B1EAF020091560D /* ZXImagePickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B7B1B1EAF020091560D /* ZXImagePickCell.m */; };
 		77FB2B7F1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B7E1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m */; };
 		77FB2B821B1ECF7F0091560D /* KGTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B811B1ECF7F0091560D /* KGTextFieldCell.m */; };
@@ -1446,6 +1451,15 @@
 		77D8C2471B76200400B77EF9 /* KGAddOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGAddOrderViewController.m; sourceTree = "<group>"; };
 		77D8C2491B76247200B77EF9 /* KGAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGAddress.h; sourceTree = "<group>"; };
 		77D8C24A1B76247200B77EF9 /* KGAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGAddress.m; sourceTree = "<group>"; };
+		77D8C24C1B762BD000B77EF9 /* KGAddAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGAddAddressViewController.h; sourceTree = "<group>"; };
+		77D8C24D1B762BD000B77EF9 /* KGAddAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGAddAddressViewController.m; sourceTree = "<group>"; };
+		77D8C24F1B762C0200B77EF9 /* KGAddressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGAddressListViewController.h; sourceTree = "<group>"; };
+		77D8C2501B762C0200B77EF9 /* KGAddressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGAddressListViewController.m; sourceTree = "<group>"; };
+		77D8C2561B762D0B00B77EF9 /* Kuaigou.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Kuaigou.xcdatamodel; sourceTree = "<group>"; };
+		77D8C2581B762D5B00B77EF9 /* KGCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCity.h; sourceTree = "<group>"; };
+		77D8C2591B762D5B00B77EF9 /* KGCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCity.m; sourceTree = "<group>"; };
+		77D8C25B1B762E3900B77EF9 /* NSManagedObject+ZXRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ZXRecord.h"; sourceTree = "<group>"; };
+		77D8C25C1B762E3900B77EF9 /* NSManagedObject+ZXRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ZXRecord.m"; sourceTree = "<group>"; };
 		77FB2B7A1B1EAF020091560D /* ZXImagePickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXImagePickCell.h; sourceTree = "<group>"; };
 		77FB2B7B1B1EAF020091560D /* ZXImagePickCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXImagePickCell.m; sourceTree = "<group>"; };
 		77FB2B7D1B1EAF3A0091560D /* ZXBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXBaseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2539,6 +2553,8 @@
 		770669401B01AA1F004E1396 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				77D8C25B1B762E3900B77EF9 /* NSManagedObject+ZXRecord.h */,
+				77D8C25C1B762E3900B77EF9 /* NSManagedObject+ZXRecord.m */,
 				775597FC1B4682330023AD3C /* UITableView+ZXTableViewLine.h */,
 				775597FD1B4682330023AD3C /* UITableView+ZXTableViewLine.m */,
 				771B62451B1FEF380057FD19 /* UIImage+Resize.h */,
@@ -2618,6 +2634,10 @@
 				776653AA1B4F9DD400F6A518 /* KGGoodsDetailViewController.m */,
 				77D8C2461B76200400B77EF9 /* KGAddOrderViewController.h */,
 				77D8C2471B76200400B77EF9 /* KGAddOrderViewController.m */,
+				77D8C24C1B762BD000B77EF9 /* KGAddAddressViewController.h */,
+				77D8C24D1B762BD000B77EF9 /* KGAddAddressViewController.m */,
+				77D8C24F1B762C0200B77EF9 /* KGAddressListViewController.h */,
+				77D8C2501B762C0200B77EF9 /* KGAddressListViewController.m */,
 			);
 			path = "附近";
 			sourceTree = "<group>";
@@ -2772,6 +2792,7 @@
 		774EC8E71B0348240075FB50 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				77D8C2541B762CFA00B77EF9 /* CoreData */,
 				774EC8E81B0348530075FB50 /* KGResponseObject.h */,
 				774EC8E91B0348530075FB50 /* KGResponseObject.m */,
 				77050A381B0ACB68009FCA6A /* KGUser.h */,
@@ -2997,6 +3018,16 @@
 				77C56FE31B57A031002C7DBC /* StyledPageControl.m */,
 			);
 			path = PageControl;
+			sourceTree = "<group>";
+		};
+		77D8C2541B762CFA00B77EF9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				77D8C2551B762D0B00B77EF9 /* Kuaigou.xcdatamodeld */,
+				77D8C2581B762D5B00B77EF9 /* KGCity.h */,
+				77D8C2591B762D5B00B77EF9 /* KGCity.m */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		77FB2B791B1EAF020091560D /* view */ = {
@@ -3697,6 +3728,7 @@
 				7702A19C1B217EC20020CE6E /* TeamCardRowItem.m in Sources */,
 				7702A1A31B217EC20020CE6E /* BaseCardViewController.m in Sources */,
 				7702A1ED1B217EC20020CE6E /* FilePreViewController.m in Sources */,
+				77D8C25A1B762D5B00B77EF9 /* KGCity.m in Sources */,
 				7702A19D1B217EC20020CE6E /* UsrInfoData.m in Sources */,
 				7702A2031B217EC20020CE6E /* SessionListHeader.m in Sources */,
 				77AD45741B01F2EB0094326D /* UIViewController+KGStoryboard.m in Sources */,
@@ -3707,6 +3739,7 @@
 				7702A2091B217EC20020CE6E /* EmoticonParser.m in Sources */,
 				774EC8EA1B0348530075FB50 /* KGResponseObject.m in Sources */,
 				7702A1951B217EC20020CE6E /* BadgeView.m in Sources */,
+				77D8C2511B762C0200B77EF9 /* KGAddressListViewController.m in Sources */,
 				7702A1CC1B217EC20020CE6E /* SessionLogicImpl.m in Sources */,
 				773C3DE61B4B9D35009CACBA /* KGLocationManager.m in Sources */,
 				7702A1A51B217EC20020CE6E /* CreateRegularTeamCardViewController.m in Sources */,
@@ -3762,6 +3795,7 @@
 				77C56FE51B57A031002C7DBC /* StyledPageControl.m in Sources */,
 				77590EEA1B09E4DE0086E2C9 /* NSString+ZXMD5.m in Sources */,
 				7702A1E21B217EC20020CE6E /* SessionMessageContentView.m in Sources */,
+				77D8C2571B762D0B00B77EF9 /* Kuaigou.xcdatamodeld in Sources */,
 				7702A1911B217EC20020CE6E /* UIResponder+Router.m in Sources */,
 				7702A1BC1B217EC20020CE6E /* ContactPickedView.m in Sources */,
 				7702A1F71B217EC20020CE6E /* SessionViewController.m in Sources */,
@@ -3779,6 +3813,7 @@
 				77050A4C1B0AE8EC009FCA6A /* ZXValidateHelper.m in Sources */,
 				773880311B047B4000A66961 /* KGUploadManager.m in Sources */,
 				7702A1931B217EC20020CE6E /* UIView+NIMDemo.m in Sources */,
+				77D8C25D1B762E3900B77EF9 /* NSManagedObject+ZXRecord.m in Sources */,
 				773880341B04995100A66961 /* NSString+KGhmac_sha1.m in Sources */,
 				7702A1B51B217EC20020CE6E /* TeamMemberListViewController.m in Sources */,
 				77FB2BA31B1EDA140091560D /* SZCalendarPicker.m in Sources */,
@@ -3795,6 +3830,7 @@
 				771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */,
 				7702A20C1B217EC20020CE6E /* LogViewController.m in Sources */,
 				7702A1E91B217EC20020CE6E /* SessionMsgModel+SessionCellLayoutProtocol.m in Sources */,
+				77D8C24E1B762BD000B77EF9 /* KGAddAddressViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4091,6 +4127,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		77D8C2551B762D0B00B77EF9 /* Kuaigou.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				77D8C2561B762D0B00B77EF9 /* Kuaigou.xcdatamodel */,
+			);
+			currentVersion = 77D8C2561B762D0B00B77EF9 /* Kuaigou.xcdatamodel */;
+			path = Kuaigou.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 77376C521B00ADFE00DA19D8 /* Project object */;
 }

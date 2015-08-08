@@ -13,6 +13,7 @@
 #import "NIMDemoConfig.h"
 #import "JSRSA.h"
 #import "KGGoodsDetailViewController.h"
+#import <CoreDataManager.h>
 
 @interface AppDelegate ()
 
@@ -28,6 +29,10 @@
     
     [JSRSA sharedInstance].publicKey = @"public_key.pem";
     [JSRSA sharedInstance].privateKey = @"private_key.pem";
+    
+    CoreDataManager *manager = [CoreDataManager sharedManager];
+    manager.databaseName = @"Kuaigou";
+    manager.modelName = @"Kuaigou";
     
     [self setupYunxin];
     if ([KGLoginManager sharedInstance].isLogin) {
@@ -157,6 +162,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[CoreDataManager sharedManager] saveContext];
 }
 
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
