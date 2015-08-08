@@ -3134,6 +3134,7 @@
 				TargetAttributes = {
 					77376C591B00ADFE00DA19D8 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 5278FLQBJV;
 					};
 					77376C721B00ADFE00DA19D8 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -3901,6 +3902,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KuaiGou",
@@ -3948,6 +3951,7 @@
 					"$(PROJECT_DIR)/KuaiGou/vendors/RSA-objc/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -3957,6 +3961,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KuaiGou",
@@ -4004,6 +4010,7 @@
 					"$(PROJECT_DIR)/KuaiGou/vendors/RSA-objc/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

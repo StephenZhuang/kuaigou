@@ -51,6 +51,12 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
+}
+
 - (void)searchAction
 {
     NSString *string = @"itemid=123456&promoterid=111111";

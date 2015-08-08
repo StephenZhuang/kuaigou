@@ -8,6 +8,10 @@
 
 #import "KGGoodsDetailViewController.h"
 #import "KGImageUrlHelper.h"
+#import "KGLoginManager.h"
+#import "KGLoginViewController.h"
+#import <SDWebImageDownloader.h>
+#import "JSRSA.h"
 
 @interface KGGoodsDetailViewController ()
 
@@ -97,6 +101,40 @@
             [self.distanceLabel setText:[NSString stringWithFormat:@"%.2fm",distance]];
         });
     });
+}
+
+- (IBAction)showAction:(id)sender
+{
+    if ([[KGLoginManager sharedInstance] isLogin]) {
+        NSString *imgUrl = [KGImageUrlHelper imageUrlWithKey:[[self.goods.image componentsSeparatedByString:@","] firstObject]];
+        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:imgUrl] options:SDWebImageDownloaderLowPriority progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+        
+            NSDate *date = [NSDate new];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString *time = [formatter stringFromDate:date];
+            
+            NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
+            NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
+            NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:encode];
+            
+            NSArray *activityItems = @[self.goods.title,[NSURL URLWithString:urlString],image];
+            UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+            activityController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+                if (completed) {
+                    
+                }
+            };
+            [self presentViewController:activityController animated:YES completion:nil];
+        }];
+        
+        
+        
+    } else {
+        KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard:@"Login"];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nav animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

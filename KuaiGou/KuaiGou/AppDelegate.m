@@ -12,6 +12,7 @@
 #import "LogManager.h"
 #import "NIMDemoConfig.h"
 #import "JSRSA.h"
+#import "KGGoodsDetailViewController.h"
 
 @interface AppDelegate ()
 
@@ -168,5 +169,32 @@
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
 {
     DDLogDebug(@"fail to get apns token :%@",error);
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    NSString *goodsPrefix = @"kuaigou://";
+    if ([url.absoluteString hasPrefix:goodsPrefix]) {
+        NSString *param = [url.absoluteString substringFromIndex:goodsPrefix.length];
+        NSLog(@"param=%@",param);
+        
+        NSString *decode = [[JSRSA sharedInstance] publicDecrypt:param];
+        NSLog(@"string = %@",decode);
+        
+        NSArray *arr = [decode componentsSeparatedByString:@"&"];
+        if (arr.count > 1) {
+            NSString *itemid = [[arr[0] componentsSeparatedByString:@"="] lastObject];
+            NSString *promoterid = [[arr[1] componentsSeparatedByString:@"="] lastObject];
+            RDVTabBarController *tabbarVC = (RDVTabBarController *)self.window.rootViewController;
+            UINavigationController *nav = (UINavigationController *)tabbarVC.selectedViewController;
+            
+            KGGoodsDetailViewController *vc = [KGGoodsDetailViewController viewControllerFromStoryboard:@"Nearby"];
+            vc.itemid = itemid;
+            vc.promoterid = promoterid;
+            [nav pushViewController:vc animated:YES];
+        }
+        
+    }
+    return YES;
 }
 @end

@@ -68,29 +68,31 @@
 #pragma mark - 5秒换图片
 - (void) handleTimer: (NSTimer *) timer
 {
-    if (TimeNum % 5 == 0 ) {
-        
-        if (!Tend) {
-            page.currentPage++;
-            if (page.currentPage==page.numberOfPages-1) {
-                Tend=YES;
+    if (Arr.count > 1) {        
+        if (TimeNum % 5 == 0 ) {
+            
+            if (!Tend) {
+                page.currentPage++;
+                if (page.currentPage==page.numberOfPages-1) {
+                    Tend=YES;
+                }
+            }else{
+                page.currentPage--;
+                if (page.currentPage==0) {
+                    Tend=NO;
+                }
             }
-        }else{
-            page.currentPage--;
-            if (page.currentPage==0) {
-                Tend=NO;
+            
+            if (page.currentPage*self.bounds.size.width <= sv.contentSize.width) {
+                [UIView animateWithDuration:0.7 //速度0.7秒
+                                 animations:^{//修改坐标
+                                     sv.contentOffset = CGPointMake(page.currentPage*self.bounds.size.width,0);
+                                 }];
             }
+            
         }
-        
-        if (page.currentPage*self.bounds.size.width <= sv.contentSize.width) {
-        [UIView animateWithDuration:0.7 //速度0.7秒
-                         animations:^{//修改坐标
-                             sv.contentOffset = CGPointMake(page.currentPage*self.bounds.size.width,0);
-                         }];
-        }
-        
+        TimeNum ++;
     }
-    TimeNum ++;
 }
 
 -(void)AdImg:(NSArray*)arr{

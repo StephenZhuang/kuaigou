@@ -28,4 +28,5 @@
 @property (nonatomic , weak) IBOutlet HCSStarRatingView *ratingView;
 
 @property (nonatomic , strong) KGGoods *goods;
+@property (nonatomic , copy) NSString *promoterid;
 @end

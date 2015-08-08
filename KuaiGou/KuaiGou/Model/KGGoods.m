@@ -19,6 +19,8 @@
         self.catpid = -1;
         self.trademodeid = 1;
         self.discount = 1;
+        self.isdiscount = @"0";
+        self.ispromote = @"0";
     }
     return self;
 }
