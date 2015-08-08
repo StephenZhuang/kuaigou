@@ -26,7 +26,7 @@
     }
     [self.titleLabel setText:goods.title];
     [self.priceLabel setText:[NSString stringWithFormat:@"￥ %@",@(goods.price)]];
-    NSArray *arr = @[@"送货上门",@"上门自提",@"快递方式"];
+    NSArray *arr = @[@"送货上门",@"上门自提"];
     [self.tipLabel setText:arr[goods.trademodeid -1]];
 }
 @end

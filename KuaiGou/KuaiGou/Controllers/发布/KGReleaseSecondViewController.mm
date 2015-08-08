@@ -260,7 +260,7 @@
 - (NSArray *)tradeModeArray
 {
     if (!_tradeModeArray) {
-        _tradeModeArray = @[@"送货上门",@"上门自提",@"快递方式"];
+        _tradeModeArray = @[@"送货上门",@"上门自提"];
     }
     return _tradeModeArray;
 }
