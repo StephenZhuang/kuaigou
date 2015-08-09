@@ -170,6 +170,12 @@
     [[NIMSDK sharedSDK] updateApnsToken:deviceToken];
 }
 
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application { // 清除内存中的图片缓存
+    SDWebImageManager *mgr = [SDWebImageManager sharedManager];
+    [mgr cancelAll];
+    [mgr.imageCache clearMemory];
+    [mgr.imageCache clearDisk];
+}
 
 
 - (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
