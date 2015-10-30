@@ -528,7 +528,6 @@
 		77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C621B00ADFE00DA19D8 /* AppDelegate.m */; };
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
 		77376C6E1B00ADFE00DA19D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6C1B00ADFE00DA19D8 /* LaunchScreen.xib */; };
-		77376C7A1B00ADFE00DA19D8 /* KuaiGouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C791B00ADFE00DA19D8 /* KuaiGouTests.m */; };
 		773880311B047B4000A66961 /* KGUploadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880301B047B4000A66961 /* KGUploadManager.m */; };
 		773880341B04995100A66961 /* NSString+KGhmac_sha1.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880331B04995100A66961 /* NSString+KGhmac_sha1.m */; };
 		773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 773880361B049ABC00A66961 /* KGImageUrlHelper.m */; };
@@ -600,16 +599,6 @@
 		77FB2BC81B1F16E30091560D /* KGProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2BC71B1F16E30091560D /* KGProgressCell.m */; };
 		E1E9EAC45E11C58E516EC596 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB8456D71D88851ECD5672D /* libPods.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		77376C741B00ADFE00DA19D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 77376C521B00ADFE00DA19D8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 77376C591B00ADFE00DA19D8;
-			remoteInfo = KuaiGou;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D21E7AD8975E791CAE57B5C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1294,7 +1283,6 @@
 		77376C621B00ADFE00DA19D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		77376C6A1B00ADFE00DA19D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		77376C6D1B00ADFE00DA19D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		77376C731B00ADFE00DA19D8 /* KuaiGouTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KuaiGouTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C781B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C791B00ADFE00DA19D8 /* KuaiGouTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KuaiGouTests.m; sourceTree = "<group>"; };
 		7738802F1B047B4000A66961 /* KGUploadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGUploadManager.h; sourceTree = "<group>"; };
@@ -1518,13 +1506,6 @@
 				77FB2BB51B1EF9030091560D /* CoreLocation.framework in Frameworks */,
 				77FB2BB31B1EF6CF0091560D /* BaiduMapAPI.framework in Frameworks */,
 				E1E9EAC45E11C58E516EC596 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		77376C701B00ADFE00DA19D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2717,7 +2698,6 @@
 			isa = PBXGroup;
 			children = (
 				77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */,
-				77376C731B00ADFE00DA19D8 /* KuaiGouTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3145,24 +3125,6 @@
 			productReference = 77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */;
 			productType = "com.apple.product-type.application";
 		};
-		77376C721B00ADFE00DA19D8 /* KuaiGouTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 77376C801B00ADFE00DA19D8 /* Build configuration list for PBXNativeTarget "KuaiGouTests" */;
-			buildPhases = (
-				77376C6F1B00ADFE00DA19D8 /* Sources */,
-				77376C701B00ADFE00DA19D8 /* Frameworks */,
-				77376C711B00ADFE00DA19D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				77376C751B00ADFE00DA19D8 /* PBXTargetDependency */,
-			);
-			name = KuaiGouTests;
-			productName = KuaiGouTests;
-			productReference = 77376C731B00ADFE00DA19D8 /* KuaiGouTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -3176,10 +3138,6 @@
 					77376C591B00ADFE00DA19D8 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 5278FLQBJV;
-					};
-					77376C721B00ADFE00DA19D8 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 77376C591B00ADFE00DA19D8;
 					};
 				};
 			};
@@ -3197,7 +3155,6 @@
 			projectRoot = "";
 			targets = (
 				77376C591B00ADFE00DA19D8 /* KuaiGou */,
-				77376C721B00ADFE00DA19D8 /* KuaiGouTests */,
 			);
 		};
 /* End PBXProject section */
@@ -3612,13 +3569,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77376C711B00ADFE00DA19D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -3834,23 +3784,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		77376C6F1B00ADFE00DA19D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				77376C7A1B00ADFE00DA19D8 /* KuaiGouTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		77376C751B00ADFE00DA19D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 77376C591B00ADFE00DA19D8 /* KuaiGou */;
-			targetProxy = 77376C741B00ADFE00DA19D8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		77376C6C1B00ADFE00DA19D8 /* LaunchScreen.xib */ = {
@@ -3881,6 +3815,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3903,6 +3838,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "ebbaf75a-4620-41a2-9395-586fb9145344";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3924,6 +3860,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3939,6 +3876,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "ebbaf75a-4620-41a2-9395-586fb9145344";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3952,6 +3890,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KuaiGou",
@@ -4011,6 +3950,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/KuaiGou",
@@ -4062,40 +4002,6 @@
 			};
 			name = Release;
 		};
-		77376C811B00ADFE00DA19D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = KuaiGouTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KuaiGou.app/KuaiGou";
-			};
-			name = Debug;
-		};
-		77376C821B00ADFE00DA19D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = KuaiGouTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KuaiGou.app/KuaiGou";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -4113,15 +4019,6 @@
 			buildConfigurations = (
 				77376C7E1B00ADFE00DA19D8 /* Debug */,
 				77376C7F1B00ADFE00DA19D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		77376C801B00ADFE00DA19D8 /* Build configuration list for PBXNativeTarget "KuaiGouTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				77376C811B00ADFE00DA19D8 /* Debug */,
-				77376C821B00ADFE00DA19D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
