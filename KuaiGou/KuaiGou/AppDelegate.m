@@ -14,6 +14,7 @@
 #import "JSRSA.h"
 #import "KGGoodsDetailViewController.h"
 #import <CoreDataManager.h>
+#import "BNCoreServices.h"
 
 @interface AppDelegate ()
 
@@ -104,6 +105,9 @@
     if (!ret) {
         NSLog(@"manager start failed!");
     }
+    
+    [BNCoreServices_Instance initServices:@"DxFTRtVq8LnWRoZpXrag2RqG"];
+    [BNCoreServices_Instance startServicesAsyn:nil fail:nil];
 }
 
 - (void)setupYunxin
