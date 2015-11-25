@@ -204,7 +204,7 @@
             RDVTabBarController *tabbarVC = (RDVTabBarController *)self.window.rootViewController;
             UINavigationController *nav = (UINavigationController *)tabbarVC.selectedViewController;
             
-            KGGoodsDetailViewController *vc = [KGGoodsDetailViewController viewControllerFromStoryboard:@"Nearby"];
+            KGGoodsDetailViewController *vc = [KGGoodsDetailViewController viewControllerFromStoryboard];
             vc.itemid = itemid;
             vc.promoterid = promoterid;
             [nav pushViewController:vc animated:YES];

@@ -11,6 +11,11 @@
 #import "MBProgressHUD+ZXAdditon.h"
 
 @implementation KGRegisterPasswordViewControlelr
++ (instancetype)viewControllerFromStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+}
 
 - (void)viewDidLoad
 {

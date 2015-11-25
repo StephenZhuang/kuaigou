@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KGLoginViewController : UIViewController<UITextFieldDelegate>
+@interface KGLoginViewController : KGBaseViewController<UITextFieldDelegate>
 @property (nonatomic , weak) IBOutlet UITextField *usernameTextField;
 @property (nonatomic , weak) IBOutlet UITextField *passwordTextField;
 @end

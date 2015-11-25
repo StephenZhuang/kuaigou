@@ -15,6 +15,11 @@
 @end
 
 @implementation KGLoginViewController
++ (instancetype)viewControllerFromStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

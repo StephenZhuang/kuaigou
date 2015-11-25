@@ -15,6 +15,12 @@
 #import "KGUploadManager.h"
 
 @implementation KGReleaseSecondViewController
++ (instancetype)viewControllerFromStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Release" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -173,7 +179,7 @@
 {
     if (indexPath.section == 0) {
         __weak __typeof(&*self)weakSelf = self;
-        KGCategoryViewController *vc = [KGCategoryViewController viewControllerFromStoryboard:@"Release"];
+        KGCategoryViewController *vc = [KGCategoryViewController viewControllerFromStoryboard];
         vc.categoryBlock = ^(NSInteger catpid,NSInteger catid,NSString *name) {
             weakSelf.goods.catid = catid;
             weakSelf.goods.catpid = catpid;

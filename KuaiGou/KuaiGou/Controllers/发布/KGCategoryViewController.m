@@ -10,6 +10,12 @@
 #import "KGCategory.h"
 
 @implementation KGCategoryViewController
++ (instancetype)viewControllerFromStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Release" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

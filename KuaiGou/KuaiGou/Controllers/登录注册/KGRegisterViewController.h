@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KGRegisterViewController : UIViewController<UITextFieldDelegate>
+@interface KGRegisterViewController : KGBaseViewController<UITextFieldDelegate>
 {
     NSString *codeString;
 }

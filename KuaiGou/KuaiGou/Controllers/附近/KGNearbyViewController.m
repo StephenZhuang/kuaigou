@@ -246,7 +246,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     KGGoods *goods = [self.dataArray objectAtIndex:indexPath.row];
-    KGGoodsDetailViewController *vc = [KGGoodsDetailViewController viewControllerFromStoryboard:@"Nearby"];
+    KGGoodsDetailViewController *vc = [KGGoodsDetailViewController viewControllerFromStoryboard];
     vc.itemid = goods.itemid;
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KGAddAddressViewController : UIViewController
+@interface KGAddAddressViewController : KGBaseViewController
 
 @end

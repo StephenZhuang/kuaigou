@@ -10,7 +10,7 @@
 #import "KGGoods.h"
 #import "AdScrollView.h"
 
-@interface KGAddOrderViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface KGAddOrderViewController : KGBaseViewController<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger num;
 }

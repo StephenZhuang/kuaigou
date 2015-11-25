@@ -20,6 +20,11 @@
 @end
 
 @implementation KGGoodsDetailViewController
++ (instancetype)viewControllerFromStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Nearby" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -110,30 +115,32 @@
     if ([[KGLoginManager sharedInstance] isLogin]) {
         NSString *imgUrl = [KGImageUrlHelper imageUrlWithKey:[[self.goods.image componentsSeparatedByString:@","] firstObject]];
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:imgUrl] options:SDWebImageDownloaderLowPriority progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-        
-            NSDate *date = [NSDate new];
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-            NSString *time = [formatter stringFromDate:date];
-            
-            NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
-            NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
-            NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:encode];
-            
-            NSArray *activityItems = @[self.goods.title,[NSURL URLWithString:urlString],image];
-            UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-            activityController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
-                if (completed) {
-                    
-                }
-            };
-            [self presentViewController:activityController animated:YES completion:nil];
+            if (finished) {                
+                NSDate *date = [NSDate new];
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                NSString *time = [formatter stringFromDate:date];
+                
+                NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
+                NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
+                NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:encode];
+                NSURL *url = [[NSURL alloc] initWithString:urlString];
+                
+                NSArray *activityItems = @[self.goods.title,url,image];
+                UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+                activityController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+                    if (completed) {
+                        
+                    }
+                };
+                [self presentViewController:activityController animated:YES completion:nil];
+            }
         }];
         
         
         
     } else {
-        KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard:@"Login"];
+        KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:YES completion:nil];
     }
@@ -148,7 +155,7 @@
 //            [self.navigationController pushViewController:vc animated:YES];
             [self startNavi];
         } else {
-            KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard:@"Login"];
+            KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard];
             UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
             [self presentViewController:nav animated:YES completion:nil];
         }

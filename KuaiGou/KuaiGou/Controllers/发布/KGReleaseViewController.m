@@ -20,6 +20,11 @@
 @end
 
 @implementation KGReleaseViewController
++ (instancetype)viewControllerFromStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Release" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,7 +48,7 @@
         return;
     }
     
-    KGReleaseSecondViewController *vc = [KGReleaseSecondViewController viewControllerFromStoryboard:@"Release"];
+    KGReleaseSecondViewController *vc = [KGReleaseSecondViewController viewControllerFromStoryboard];
     vc.goods = self.goods;
     vc.imageArray = self.imageArray;
     [self.navigationController pushViewController:vc animated:YES];

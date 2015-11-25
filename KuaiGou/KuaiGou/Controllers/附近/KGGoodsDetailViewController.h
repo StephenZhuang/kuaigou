@@ -12,7 +12,7 @@
 #import "AdScrollView.h"
 #import "KGLocationManager.h"
 
-@interface KGGoodsDetailViewController : UIViewController<BMKLocationServiceDelegate>
+@interface KGGoodsDetailViewController : KGBaseViewController<BMKLocationServiceDelegate>
 @property (nonatomic , assign) NSString *itemid;
 @property (nonatomic , weak) IBOutlet AdScrollView *adsView;
 @property (nonatomic , weak) IBOutlet UIImageView *headImg;

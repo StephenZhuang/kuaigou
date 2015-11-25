@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KGMineViewController : UIViewController
+@interface KGMineViewController : KGBaseViewController
 
 @end

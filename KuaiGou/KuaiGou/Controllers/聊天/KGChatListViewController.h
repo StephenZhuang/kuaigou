@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KGChatListViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface KGChatListViewController : KGBaseViewController<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong) IBOutlet UITableView * tableView;
 @end

@@ -55,7 +55,7 @@
     NSString *code = [_codeTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     NSString *phone = [_usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if ([code isEqualToString:codeString]) {
-        KGRegisterPasswordViewControlelr *vc = [KGRegisterPasswordViewControlelr viewControllerFromStoryboard:@"Login"];
+        KGRegisterPasswordViewControlelr *vc = [KGRegisterPasswordViewControlelr viewControllerFromStoryboard];
         vc.phone = phone;
         [self.navigationController pushViewController:vc animated:YES];
     } else {

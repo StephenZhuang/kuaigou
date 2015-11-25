@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KGRegisterPasswordViewControlelr : UIViewController<UITextFieldDelegate>
+@interface KGRegisterPasswordViewControlelr : KGBaseViewController<UITextFieldDelegate>
 @property (nonatomic , copy) NSString *phone;
 @property (nonatomic , weak) IBOutlet UITextField *passwordTextField;
 @property (nonatomic , weak) IBOutlet UITextField *passwordAgainTextField;

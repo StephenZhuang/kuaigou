@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AdScrollView.h"
 
-@interface KGHomeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface KGHomeViewController : KGBaseViewController<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic , weak) IBOutlet AdScrollView *adsView;
 @property (nonatomic , strong) NSMutableArray *adsArray;
 @property (nonatomic , strong) NSMutableArray *dataArray;

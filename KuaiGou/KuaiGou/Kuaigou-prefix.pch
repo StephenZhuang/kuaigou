@@ -18,11 +18,11 @@
 #import "VersionMacro.h"
 #import <UMengAnalytics-NO-IDFA/MobClick.h>
 #import "KGTabBarController.h"
-#import "UIViewController+KGStoryboard.h"
 #import "KGApiClient.h"
 
 #import "GlobalMacro.h"
 #import "NIMSDK.h"
+#import "KGBaseViewController.h"
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
 

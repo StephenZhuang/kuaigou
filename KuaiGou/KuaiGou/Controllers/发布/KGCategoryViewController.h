@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KGCategoryViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface KGCategoryViewController : KGBaseViewController<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , weak) IBOutlet UITableView *parentTableView;
 @property (nonatomic , weak) IBOutlet UITableView *childTableView;
 @property (nonatomic , strong) NSMutableArray *parentArray;

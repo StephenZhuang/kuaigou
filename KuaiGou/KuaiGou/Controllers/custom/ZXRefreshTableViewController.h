@@ -8,7 +8,7 @@
 
 #import "MJRefresh.h"
 
-@interface ZXRefreshTableViewController : UIViewController<UITableViewDelegate ,UITableViewDataSource>
+@interface ZXRefreshTableViewController : KGBaseViewController<UITableViewDelegate ,UITableViewDataSource>
 {
 @protected
     BOOL hasMore;

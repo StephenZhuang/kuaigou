@@ -14,6 +14,7 @@
 #import "KGCategoryCollectionViewCell.h"
 #import "KGCategory.h"
 #import "JSRSA.h"
+#import "UITableView+ZXTableViewLine.h"
 
 @implementation KGHomeViewController
 - (void)viewDidLoad
@@ -49,6 +50,8 @@
         [self.catArray addObjectsFromArray:array];
         [self.collectionView reloadData];
     }];
+    
+    [self.tableView setExtrueLineHidden];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,11 +62,7 @@
 
 - (void)searchAction
 {
-    NSString *string = @"itemid=123456&promoterid=111111";
-    NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
-    NSLog(@"secret = %@",encode);
-    NSString *decode = [[JSRSA sharedInstance] publicDecrypt:encode];
-    NSLog(@"string = %@",decode);
+
 }
 
 #pragma mark - tableview delegate
