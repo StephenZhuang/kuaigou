@@ -102,6 +102,8 @@
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         // 耗时的操作
+        self.lat = userLocation.location.coordinate.latitude;
+        self.lng = userLocation.location.coordinate.longitude;
         double distance = [[KGLocationManager sharedInstance] distanceBetweenPoint1:CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude) point2:CLLocationCoordinate2DMake(self.goods.lat.doubleValue, self.goods.lng.doubleValue)];
         dispatch_async(dispatch_get_main_queue(), ^{
             // 更新界面
@@ -171,16 +173,16 @@
     //起点
     BNRoutePlanNode *startNode = [[BNRoutePlanNode alloc] init];
     startNode.pos = [[BNPosition alloc] init];
-    startNode.pos.x = 113.936392;
-    startNode.pos.y = 22.547058;
+    startNode.pos.x = self.lng;
+    startNode.pos.y = self.lat;
     startNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:startNode];
     
     //终点
     BNRoutePlanNode *endNode = [[BNRoutePlanNode alloc] init];
     endNode.pos = [[BNPosition alloc] init];
-    endNode.pos.x = 114.077075;
-    endNode.pos.y = 22.543634;
+    endNode.pos.x = self.goods.lng.floatValue;
+    endNode.pos.y = self.goods.lat.floatValue;
     endNode.pos.eType = BNCoordinate_BaiduMapSDK;
     [nodesArray addObject:endNode];
     //发起路径规划

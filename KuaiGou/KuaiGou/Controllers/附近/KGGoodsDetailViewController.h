@@ -29,4 +29,6 @@
 
 @property (nonatomic , strong) KGGoods *goods;
 @property (nonatomic , copy) NSString *promoterid;
+@property (nonatomic , assign) float lat;
+@property (nonatomic , assign) float lng;
 @end
