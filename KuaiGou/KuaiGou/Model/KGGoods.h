@@ -66,5 +66,12 @@
 + (void)getGoodsDetailWithItemid:(NSString *)itemid
                       completion:(void(^)(BOOL success,NSString *errorInfo,KGGoods *goods))completion;
 
++ (void)getHomeGoodsWithLat:(NSNumber *)lat
+                        lng:(NSNumber *)lng
+                 pagenumber:(NSInteger)pagenumber
+                   pagesize:(NSInteger)pagesize
+                        dis:(NSInteger)dis
+                 completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
+
 - (CGFloat)displayPrice;
 @end

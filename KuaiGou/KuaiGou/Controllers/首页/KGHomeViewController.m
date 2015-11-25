@@ -15,6 +15,9 @@
 #import "KGCategory.h"
 #import "JSRSA.h"
 #import "UITableView+ZXTableViewLine.h"
+#import "KGGoods.h"
+#import "KGGoodsCell.h"
+#import "KGGoodsDetailViewController.h"
 
 @implementation KGHomeViewController
 - (void)viewDidLoad
@@ -26,6 +29,8 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bt_navb_search"] style:UIBarButtonItemStylePlain target:self action:@selector(searchAction)];
     self.navigationItem.rightBarButtonItem = rightItem;
  
+    [self.tableView registerNib:[UINib nibWithNibName:@"KGGoodsCell" bundle:nil] forCellReuseIdentifier:@"KGGoodsCell"];
+    
     [KGAds getZtWithCompletion:^(BOOL success, NSString *errorInfo, NSArray *array) {
         if (success) {
             if (array.count > 0) {                
@@ -65,6 +70,29 @@
 
 }
 
+- (void)loadData
+{
+    if (self.lat && self.lng) {
+        [KGGoods getHomeGoodsWithLat:@(self.lat) lng:@(self.lng) pagenumber:page pagesize:pageCount dis:10 completion:^(BOOL success, NSString *errorInfo, NSArray *array) {
+            [self configureArray:array];
+        }];
+        
+    } else {
+        [KGLocationManager sharedInstance].locationService.delegate = self;
+        [[KGLocationManager sharedInstance].locationService startUserLocationService];
+    }
+}
+
+//处理位置坐标更新
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
+{
+    [[KGLocationManager sharedInstance].locationService stopUserLocationService];
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    self.lat = userLocation.location.coordinate.latitude;
+    self.lng = userLocation.location.coordinate.longitude;
+    [self loadData];
+}
+
 #pragma mark - tableview delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -101,14 +129,37 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KGAds *ads = [self.adsArray objectAtIndex:indexPath.section];
-    KGImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KGImageCell" forIndexPath:indexPath];
-    [cell.logoImage sd_setImageWithURL:[NSURL URLWithString:[KGImageUrlHelper imageUrlWithKey:ads.adspic]] placeholderImage:[UIImage imageNamed:@"bg_product_def"]];
-    return cell;
+    if (indexPath.section < self.adsArray.count) {
+        KGAds *ads = [self.adsArray objectAtIndex:indexPath.section];
+        KGImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KGImageCell" forIndexPath:indexPath];
+        [cell.logoImage sd_setImageWithURL:[NSURL URLWithString:[KGImageUrlHelper imageUrlWithKey:ads.adspic]] placeholderImage:[UIImage imageNamed:@"bg_product_def"]];
+        return cell;
+    } else {
+        KGGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KGGoodsCell"];
+        KGGoods *goods = [self.dataArray objectAtIndex:indexPath.row];
+        [cell configureUIWithGoods:goods];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            // 耗时的操作
+            double distance = [[KGLocationManager sharedInstance] distanceBetweenPoint1:CLLocationCoordinate2DMake(self.lat, self.lng) point2:CLLocationCoordinate2DMake(goods.lat.doubleValue, goods.lng.doubleValue)];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // 更新界面
+                [cell.distanceLabel setText:[NSString stringWithFormat:@"%.2fm",distance]];
+            });
+        });
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section < self.adsArray.count) {
+        
+    } else {
+        KGGoods *goods = [self.dataArray objectAtIndex:indexPath.row];
+        KGGoodsDetailViewController *vc = [KGGoodsDetailViewController viewControllerFromStoryboard];
+        vc.itemid = goods.itemid;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -149,14 +200,6 @@
         _adsArray = [[NSMutableArray alloc] init];
     }
     return _adsArray;
-}
-
-- (NSMutableArray *)dataArray
-{
-    if (!_dataArray) {
-        _dataArray = [[NSMutableArray alloc] init];
-    }
-    return _dataArray;
 }
 
 - (NSMutableArray *)catArray
