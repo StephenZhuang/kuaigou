@@ -73,5 +73,17 @@
                         dis:(NSInteger)dis
                  completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
 
++ (void)getMyGoodsWithUserid:(NSString *)userid
+                       token:(NSString *)token
+                  pagenumber:(NSInteger)pagenumber
+                    pagesize:(NSInteger)pagesize
+                  completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
+
++ (void)getMyPromoteGoodsWithUserid:(NSString *)userid
+                              token:(NSString *)token
+                         pagenumber:(NSInteger)pagenumber
+                           pagesize:(NSInteger)pagesize
+                         completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
+
 - (CGFloat)displayPrice;
 @end

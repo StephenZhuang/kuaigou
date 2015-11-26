@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KGSelectedButton.h"
+#import "ZXRefreshTableViewController.h"
+#import "KGLocationManager.h"
 
-@interface KGMineViewController : KGBaseViewController
-
+@interface KGMineViewController : ZXRefreshTableViewController<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
+@property (nonatomic , weak) IBOutlet KGSelectedButton *myGoodsButton;
+@property (nonatomic , weak) IBOutlet KGSelectedButton *myPromoteButton;
+@property (nonatomic , assign) float lat;
+@property (nonatomic , assign) float lng;
+@property (nonatomic , assign) NSInteger selectedIndex;
 @end

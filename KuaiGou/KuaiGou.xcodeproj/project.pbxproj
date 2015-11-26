@@ -596,6 +596,7 @@
 		77D8C2571B762D0B00B77EF9 /* Kuaigou.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C2551B762D0B00B77EF9 /* Kuaigou.xcdatamodeld */; };
 		77D8C25A1B762D5B00B77EF9 /* KGCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C2591B762D5B00B77EF9 /* KGCity.m */; };
 		77D8C25D1B762E3900B77EF9 /* NSManagedObject+ZXRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 77D8C25C1B762E3900B77EF9 /* NSManagedObject+ZXRecord.m */; };
+		77ED5FE21C0732C90071EE4E /* KGSelectedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77ED5FE11C0732C90071EE4E /* KGSelectedButton.m */; };
 		77EFAAEC1C05DD5D004FAC21 /* KGBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77EFAAEB1C05DD5D004FAC21 /* KGBaseViewController.m */; };
 		77FB2B7C1B1EAF020091560D /* ZXImagePickCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B7B1B1EAF020091560D /* ZXImagePickCell.m */; };
 		77FB2B7F1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FB2B7E1B1EAF3A0091560D /* ZXBaseCollectionViewCell.m */; };
@@ -1515,6 +1516,8 @@
 		77D8C2591B762D5B00B77EF9 /* KGCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCity.m; sourceTree = "<group>"; };
 		77D8C25B1B762E3900B77EF9 /* NSManagedObject+ZXRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+ZXRecord.h"; sourceTree = "<group>"; };
 		77D8C25C1B762E3900B77EF9 /* NSManagedObject+ZXRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+ZXRecord.m"; sourceTree = "<group>"; };
+		77ED5FE01C0732C90071EE4E /* KGSelectedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGSelectedButton.h; sourceTree = "<group>"; };
+		77ED5FE11C0732C90071EE4E /* KGSelectedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGSelectedButton.m; sourceTree = "<group>"; };
 		77EFAAEA1C05DD5D004FAC21 /* KGBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGBaseViewController.h; sourceTree = "<group>"; };
 		77EFAAEB1C05DD5D004FAC21 /* KGBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGBaseViewController.m; sourceTree = "<group>"; };
 		77FB2B7A1B1EAF020091560D /* ZXImagePickCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXImagePickCell.h; sourceTree = "<group>"; };
@@ -2645,6 +2648,7 @@
 		770669421B01AA1F004E1396 /* 个人 */ = {
 			isa = PBXGroup;
 			children = (
+				77ED5FDF1C0732B10071EE4E /* views */,
 				7706694A1B01AB70004E1396 /* Mine.storyboard */,
 				77AD45591B01B01A0094326D /* KGMineViewController.h */,
 				77AD455A1B01B01A0094326D /* KGMineViewController.m */,
@@ -3181,6 +3185,15 @@
 				77D8C2591B762D5B00B77EF9 /* KGCity.m */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		77ED5FDF1C0732B10071EE4E /* views */ = {
+			isa = PBXGroup;
+			children = (
+				77ED5FE01C0732C90071EE4E /* KGSelectedButton.h */,
+				77ED5FE11C0732C90071EE4E /* KGSelectedButton.m */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		77FB2B791B1EAF020091560D /* view */ = {
@@ -3890,6 +3903,7 @@
 				7702A19A1B217EC20020CE6E /* CardMemberItem.m in Sources */,
 				7702A19F1B217EC20020CE6E /* TeamAnnouncementListCell.m in Sources */,
 				7702A1CE1B217EC20020CE6E /* UserCommandSender.m in Sources */,
+				77ED5FE21C0732C90071EE4E /* KGSelectedButton.m in Sources */,
 				77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */,
 				77B7D1481BEA2BA800D64084 /* NSDictionary_JSONExtensions.m in Sources */,
 				773CB7AA1B4FC10600C99976 /* StrikeThroughLabel.m in Sources */,

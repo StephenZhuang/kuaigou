@@ -179,4 +179,46 @@
         !completion?:completion(NO,errorInfo,nil);
     }];
 }
+
++ (void)getMyGoodsWithUserid:(NSString *)userid
+                       token:(NSString *)token
+                  pagenumber:(NSInteger)pagenumber
+                    pagesize:(NSInteger)pagesize
+                  completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:userid forKey:@"userid"];
+    [parameters setObject:token forKey:@"token"];
+    [parameters setObject:@(pagenumber) forKey:@"pagenumber"];
+    [parameters setObject:@(pagesize) forKey:@"pagesize"];
+    [[KGApiClient sharedClient] POST:@"api/v1/items/pubs" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        NSDictionary *dic = data;
+        NSArray *arr = [dic objectForKey:@"list"];
+        NSArray *array = [KGGoods objectArrayWithKeyValuesArray:arr];
+        !completion?:completion(YES,@"",array);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo,nil);
+    }];
+}
+
++ (void)getMyPromoteGoodsWithUserid:(NSString *)userid
+                              token:(NSString *)token
+                         pagenumber:(NSInteger)pagenumber
+                           pagesize:(NSInteger)pagesize
+                         completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:userid forKey:@"userid"];
+    [parameters setObject:token forKey:@"token"];
+    [parameters setObject:@(pagenumber) forKey:@"pagenumber"];
+    [parameters setObject:@(pagesize) forKey:@"pagesize"];
+    [[KGApiClient sharedClient] POST:@"api/v1/aff" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        NSDictionary *dic = data;
+        NSArray *arr = [dic objectForKey:@"list"];
+        NSArray *array = [KGGoods objectArrayWithKeyValuesArray:arr];
+        !completion?:completion(YES,@"",array);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo,nil);
+    }];
+}
 @end
