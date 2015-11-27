@@ -12,7 +12,7 @@
 #import "KGLocationManager.h"
 #import "HCSStarRatingView.h"
 
-@interface KGMineViewController : ZXRefreshTableViewController<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
+@interface KGMineViewController : ZXRefreshTableViewController<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic , weak) IBOutlet KGSelectedButton *myGoodsButton;
 @property (nonatomic , weak) IBOutlet KGSelectedButton *myPromoteButton;
 @property (nonatomic , assign) float lat;

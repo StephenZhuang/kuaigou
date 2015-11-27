@@ -82,16 +82,15 @@
                                         <rect key="frame" x="15" y="8" width="30" height="30"/>
                                         <state key="normal" image="bt_navb_set"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ric-JE-RG0">
-                                        <rect key="frame" x="265" y="8" width="70" height="70"/>
-                                        <state key="normal" image="bg_usercenter_head_def"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrx-fa-dGz">
                                         <rect key="frame" x="275" y="91" width="51" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.47450980392156861" green="0.49019607843137253" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="nicknameAction:" destination="ISF-gX-XWC" eventType="touchUpInside" id="PK0-6X-iid"/>
+                                        </connections>
                                     </button>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6O-sq-ek9" customClass="HCSStarRatingView">
                                         <rect key="frame" x="250" y="132" width="100" height="16"/>
@@ -117,6 +116,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ric-JE-RG0">
+                                        <rect key="frame" x="265" y="8" width="70" height="70"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="ih9-IN-7bq"/>
+                                            <constraint firstAttribute="height" constant="70" id="vrI-dX-qYT"/>
+                                        </constraints>
+                                        <state key="normal" image="bg_usercenter_head_def"/>
+                                        <connections>
+                                            <action selector="headAction:" destination="ISF-gX-XWC" eventType="touchUpInside" id="zEI-97-uhW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>

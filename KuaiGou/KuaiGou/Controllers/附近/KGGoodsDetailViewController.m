@@ -108,7 +108,7 @@
         double distance = [[KGLocationManager sharedInstance] distanceBetweenPoint1:CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude, userLocation.location.coordinate.longitude) point2:CLLocationCoordinate2DMake(self.goods.lat.doubleValue, self.goods.lng.doubleValue)];
         dispatch_async(dispatch_get_main_queue(), ^{
             // 更新界面
-            [self.distanceLabel setText:[NSString stringWithFormat:@"%.2fm",distance]];
+            [self.distanceLabel setText:[NSString stringWithFormat:@"%.2fkm",distance]];
         });
     });
 }

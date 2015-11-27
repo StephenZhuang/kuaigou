@@ -31,7 +31,7 @@
 {
     BMKMapPoint bpoint1 = BMKMapPointForCoordinate(point1);
     BMKMapPoint bpoint2 = BMKMapPointForCoordinate(point2);
-    CLLocationDistance distance = BMKMetersBetweenMapPoints(bpoint1,bpoint2);
+    CLLocationDistance distance = BMKMetersBetweenMapPoints(bpoint1,bpoint2) * 0.001;
     return distance;
 }
 @end

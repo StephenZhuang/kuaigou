@@ -16,4 +16,7 @@
 @property (nonatomic , copy) NSString *avatar;
 @property (nonatomic , copy) NSString *userid;
 @property (nonatomic , copy) NSString *token;
+
+- (void)updateAvatarWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion;
+- (void)updateNicknameWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion;
 @end
