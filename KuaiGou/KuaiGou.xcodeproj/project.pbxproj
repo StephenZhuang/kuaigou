@@ -498,7 +498,6 @@
 		7702A4F41B2180C60020CE6E /* video_chat_tip_receiver.aac in Resources */ = {isa = PBXBuildFile; fileRef = 7702A3891B2180C60020CE6E /* video_chat_tip_receiver.aac */; };
 		7702A4F51B2180C60020CE6E /* video_chat_tip_sender.aac in Resources */ = {isa = PBXBuildFile; fileRef = 7702A38A1B2180C60020CE6E /* video_chat_tip_sender.aac */; };
 		7702A4F61B2180C60020CE6E /* video_connect_chat_tip_sender.aac in Resources */ = {isa = PBXBuildFile; fileRef = 7702A38B1B2180C60020CE6E /* video_connect_chat_tip_sender.aac */; };
-		7702A4F81B218A320020CE6E /* Files in Resources */ = {isa = PBXBuildFile; fileRef = 7702A4F71B218A320020CE6E /* Files */; };
 		77050A3A1B0ACB68009FCA6A /* KGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 77050A391B0ACB68009FCA6A /* KGUser.m */; };
 		77050A3F1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 77050A3D1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.m */; };
 		77050A401B0AD388009FCA6A /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77050A3E1B0AD388009FCA6A /* ProgressHUD.bundle */; };
@@ -1261,7 +1260,6 @@
 		7702A3891B2180C60020CE6E /* video_chat_tip_receiver.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_chat_tip_receiver.aac; sourceTree = "<group>"; };
 		7702A38A1B2180C60020CE6E /* video_chat_tip_sender.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_chat_tip_sender.aac; sourceTree = "<group>"; };
 		7702A38B1B2180C60020CE6E /* video_connect_chat_tip_sender.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_connect_chat_tip_sender.aac; sourceTree = "<group>"; };
-		7702A4F71B218A320020CE6E /* Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Files; sourceTree = "<group>"; };
 		77050A381B0ACB68009FCA6A /* KGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGUser.h; sourceTree = "<group>"; };
 		77050A391B0ACB68009FCA6A /* KGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGUser.m; sourceTree = "<group>"; };
 		77050A3C1B0AD388009FCA6A /* MBProgressHUD+ZXAdditon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+ZXAdditon.h"; sourceTree = "<group>"; };
@@ -2823,7 +2821,6 @@
 		77376C5D1B00ADFE00DA19D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7702A4F71B218A320020CE6E /* Files */,
 				77376C5E1B00ADFE00DA19D8 /* Info.plist */,
 				77376C5F1B00ADFE00DA19D8 /* main.m */,
 				77AD45521B01AE5C0094326D /* Kuaigou-prefix.pch */,
@@ -3376,7 +3373,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7702A4F81B218A320020CE6E /* Files in Resources */,
 				7702A3BA1B2180C60020CE6E /* emoji_130@2x.png in Resources */,
 				7702A4241B2180C60020CE6E /* emoji_88@2x.png in Resources */,
 				7702A3FC1B2180C60020CE6E /* emoji_48@2x.png in Resources */,
@@ -4120,8 +4116,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xu wenchun (5278FLQBJV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xu wenchun (5278FLQBJV)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4184,8 +4180,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: xu wenchun (5278FLQBJV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xu wenchun (5278FLQBJV)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
