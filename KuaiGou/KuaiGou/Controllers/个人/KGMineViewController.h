@@ -10,6 +10,7 @@
 #import "KGSelectedButton.h"
 #import "ZXRefreshTableViewController.h"
 #import "KGLocationManager.h"
+#import "HCSStarRatingView.h"
 
 @interface KGMineViewController : ZXRefreshTableViewController<UITableViewDelegate,UITableViewDataSource,BMKLocationServiceDelegate>
 @property (nonatomic , weak) IBOutlet KGSelectedButton *myGoodsButton;
@@ -17,4 +18,8 @@
 @property (nonatomic , assign) float lat;
 @property (nonatomic , assign) float lng;
 @property (nonatomic , assign) NSInteger selectedIndex;
+
+@property (nonatomic , weak) IBOutlet UIButton *headButton;
+@property (nonatomic , weak) IBOutlet UIButton *nameButton;
+@property (nonatomic , weak) IBOutlet HCSStarRatingView *ratingView;
 @end

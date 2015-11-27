@@ -10,6 +10,7 @@
 #import "KGLoginManager.h"
 #import "KGGoodsCell.h"
 #import "KGGoodsDetailViewController.h"
+#import "KGImageUrlHelper.h"
 
 @implementation KGMineViewController
 - (void)viewDidLoad
@@ -18,6 +19,15 @@
     self.myGoodsButton.selected = YES;
     self.selectedIndex = 1;
     [self.tableView registerNib:[UINib nibWithNibName:@"KGGoodsCell" bundle:nil] forCellReuseIdentifier:@"KGGoodsCell"];
+    [self configureHead];
+}
+
+- (void)configureHead
+{
+    KGUser *user = [KGLoginManager sharedInstance].user;
+    [self.headButton sd_setImageWithURL:[NSURL URLWithString:[KGImageUrlHelper imageUrlWithKey:user.avatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"bg_usercenter_head_def"]];
+    [self.nameButton setTitle:user.nickname?user.nickname:@"手机用户" forState:UIControlStateNormal];
+    [self.ratingView setValue:5];
 }
 
 - (IBAction)logoutAction:(id)sender
@@ -31,7 +41,7 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
-    [self.rdv_tabBarController setTabBarHidden:YES animated:YES];
+    [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
 }
 
 - (IBAction)myGoodsAction:(id)sender

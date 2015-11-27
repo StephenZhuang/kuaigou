@@ -194,10 +194,10 @@
         NSString *param = [url.absoluteString substringFromIndex:goodsPrefix.length];
         NSLog(@"param=%@",param);
         
-        NSString *decode = [[JSRSA sharedInstance] publicDecrypt:param];
-        NSLog(@"string = %@",decode);
+//        NSString *decode = [[JSRSA sharedInstance] publicDecrypt:param];
+//        NSLog(@"string = %@",decode);
         
-        NSArray *arr = [decode componentsSeparatedByString:@"&"];
+        NSArray *arr = [param componentsSeparatedByString:@"&"];
         if (arr.count > 1) {
             NSString *itemid = [[arr[0] componentsSeparatedByString:@"="] lastObject];
             NSString *promoterid = [[arr[1] componentsSeparatedByString:@"="] lastObject];

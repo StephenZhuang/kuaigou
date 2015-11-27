@@ -125,8 +125,8 @@
                 NSString *time = [formatter stringFromDate:date];
                 
                 NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
-                NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
-                NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:encode];
+//                NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
+                NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:string];
                 NSURL *url = [[NSURL alloc] initWithString:urlString];
                 
                 NSArray *activityItems = @[self.goods.title,url,image];

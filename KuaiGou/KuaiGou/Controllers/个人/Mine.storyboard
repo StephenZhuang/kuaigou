@@ -78,20 +78,67 @@
                                             <outlet property="titleLabel" destination="gAo-Hd-Ycu" id="hrd-5R-kNU"/>
                                         </connections>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8K-Em-OGn">
+                                        <rect key="frame" x="15" y="8" width="30" height="30"/>
+                                        <state key="normal" image="bt_navb_set"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ric-JE-RG0">
+                                        <rect key="frame" x="265" y="8" width="70" height="70"/>
+                                        <state key="normal" image="bg_usercenter_head_def"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrx-fa-dGz">
+                                        <rect key="frame" x="275" y="91" width="51" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.47450980392156861" green="0.49019607843137253" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6O-sq-ek9" customClass="HCSStarRatingView">
+                                        <rect key="frame" x="250" y="132" width="100" height="16"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.99215686270000003" green="0.51764705879999995" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="72O-Un-18k"/>
+                                            <constraint firstAttribute="width" constant="100" id="nuk-Ob-mYA"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="spacing">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="ric-JE-RG0" firstAttribute="centerX" secondItem="SDO-Yh-Djw" secondAttribute="centerX" id="0Ew-Md-Vog"/>
                                     <constraint firstItem="Dzb-iP-7eG" firstAttribute="top" secondItem="6Mq-4v-zf5" secondAttribute="bottom" id="2Np-NG-y4Z"/>
+                                    <constraint firstItem="Dzb-iP-7eG" firstAttribute="top" secondItem="p6O-sq-ek9" secondAttribute="bottom" constant="17" id="3ga-R6-Afy"/>
+                                    <constraint firstItem="u8K-Em-OGn" firstAttribute="leading" secondItem="SDO-Yh-Djw" secondAttribute="leading" constant="15" id="4qw-G0-9Cj"/>
                                     <constraint firstAttribute="bottom" secondItem="Dzb-iP-7eG" secondAttribute="bottom" id="5L6-LK-5ct"/>
                                     <constraint firstAttribute="height" constant="215" id="8Tf-vC-AYZ"/>
                                     <constraint firstAttribute="bottom" secondItem="NMP-6V-DIc" secondAttribute="bottom" id="BHD-Kd-jId"/>
+                                    <constraint firstItem="vrx-fa-dGz" firstAttribute="centerX" secondItem="SDO-Yh-Djw" secondAttribute="centerX" id="GQJ-JN-rls"/>
                                     <constraint firstItem="6Mq-4v-zf5" firstAttribute="top" secondItem="SDO-Yh-Djw" secondAttribute="top" id="GjR-Al-wF3"/>
                                     <constraint firstItem="Dzb-iP-7eG" firstAttribute="leading" secondItem="NMP-6V-DIc" secondAttribute="trailing" id="HL9-Nb-JIN"/>
                                     <constraint firstItem="Dzb-iP-7eG" firstAttribute="width" secondItem="NMP-6V-DIc" secondAttribute="width" id="JKH-In-h62"/>
+                                    <constraint firstItem="vrx-fa-dGz" firstAttribute="centerY" secondItem="SDO-Yh-Djw" secondAttribute="centerY" id="UdO-dt-ECX"/>
                                     <constraint firstItem="NMP-6V-DIc" firstAttribute="top" secondItem="6Mq-4v-zf5" secondAttribute="bottom" id="WkF-SK-tgy"/>
+                                    <constraint firstItem="p6O-sq-ek9" firstAttribute="centerX" secondItem="SDO-Yh-Djw" secondAttribute="centerX" id="aJv-Ux-h0W"/>
                                     <constraint firstItem="NMP-6V-DIc" firstAttribute="leading" secondItem="SDO-Yh-Djw" secondAttribute="leading" id="gjR-Dg-YTi"/>
                                     <constraint firstAttribute="trailing" secondItem="6Mq-4v-zf5" secondAttribute="trailing" id="j9Y-O7-SgO"/>
+                                    <constraint firstItem="u8K-Em-OGn" firstAttribute="top" secondItem="SDO-Yh-Djw" secondAttribute="top" constant="8" id="kd4-3v-Dm0"/>
                                     <constraint firstAttribute="trailing" secondItem="Dzb-iP-7eG" secondAttribute="trailing" id="mY3-hE-xpo"/>
+                                    <constraint firstItem="ric-JE-RG0" firstAttribute="top" secondItem="SDO-Yh-Djw" secondAttribute="top" constant="8" id="xJJ-gs-6dT"/>
                                     <constraint firstItem="6Mq-4v-zf5" firstAttribute="leading" secondItem="SDO-Yh-Djw" secondAttribute="leading" id="zyn-XE-F2x"/>
                                 </constraints>
                             </view>
@@ -118,8 +165,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="ypW-8b-skV"/>
                     <connections>
+                        <outlet property="headButton" destination="ric-JE-RG0" id="6Vk-os-CjM"/>
                         <outlet property="myGoodsButton" destination="NMP-6V-DIc" id="2Sp-gj-dN9"/>
                         <outlet property="myPromoteButton" destination="Dzb-iP-7eG" id="y3W-40-HnV"/>
+                        <outlet property="nameButton" destination="vrx-fa-dGz" id="nXO-Pc-SWj"/>
+                        <outlet property="ratingView" destination="p6O-sq-ek9" id="EVr-2W-w7z"/>
                         <outlet property="tableView" destination="pr0-TS-LHp" id="dJN-oW-Ctb"/>
                     </connections>
                 </viewController>
@@ -147,7 +197,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bg_usercenter_head_def" width="70" height="70"/>
         <image name="bg_usercenter_t" width="213" height="110"/>
+        <image name="bt_navb_set" width="30" height="30"/>
         <image name="bt_usercenter_menu_01_n" width="30" height="30"/>
         <image name="bt_usercenter_menu_01_s" width="30" height="30"/>
         <image name="bt_usercenter_menu_04_n" width="30" height="30"/>
