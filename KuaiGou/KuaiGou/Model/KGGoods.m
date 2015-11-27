@@ -221,4 +221,23 @@
         !completion?:completion(NO,errorInfo,nil);
     }];
 }
+
++ (void)searchGoodsWithString:(NSString *)string
+                   pagenumber:(NSInteger)pagenumber
+                     pagesize:(NSInteger)pagesize
+                   completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:string forKey:@"q"];
+    [parameters setObject:@(pagenumber) forKey:@"pagenumber"];
+    [parameters setObject:@(pagesize) forKey:@"pagesize"];
+    [[KGApiClient sharedClient] POST:@"api/v1/items/search" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        NSDictionary *dic = data;
+        NSArray *arr = [dic objectForKey:@"list"];
+        NSArray *array = [KGGoods objectArrayWithKeyValuesArray:arr];
+        !completion?:completion(YES,@"",array);
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo,nil);
+    }];
+}
 @end

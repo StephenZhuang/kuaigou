@@ -12,6 +12,7 @@
 #import "KGGoods.h"
 #import "KGGoodsCell.h"
 #import "KGGoodsDetailViewController.h"
+#import "KGSearchViewController.h"
 
 @interface KGNearbyViewController ()<DOPDropDownMenuDelegate,DOPDropDownMenuDataSource>
 {
@@ -75,7 +76,8 @@
 
 - (void)searchAction
 {
-    
+    KGSearchViewController *vc = [KGSearchViewController viewControllerFromStoryboard];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)addHeader

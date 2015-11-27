@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VDZ-0V-qGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="910"/>
+            <point key="canvasLocation" x="1296" y="894"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SzV-Na-izy">
@@ -190,6 +190,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceq-WC-ee9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="637" y="230"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="nAi-bk-ONT">
+            <objects>
+                <viewController storyboardIdentifier="KGSearchViewController" id="pru-aO-IV6" customClass="KGSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p21-Sm-F74"/>
+                        <viewControllerLayoutGuide type="bottom" id="y47-FK-w48"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bIM-1d-qWX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tOi-Ac-wmN">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="pru-aO-IV6" id="Xpx-Cf-AZv"/>
+                                    <outlet property="delegate" destination="pru-aO-IV6" id="PH1-7J-pa0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tOi-Ac-wmN" firstAttribute="leading" secondItem="bIM-1d-qWX" secondAttribute="leading" id="JpJ-tF-6HI"/>
+                            <constraint firstAttribute="trailing" secondItem="tOi-Ac-wmN" secondAttribute="trailing" id="bnu-Sd-AcX"/>
+                            <constraint firstItem="y47-FK-w48" firstAttribute="top" secondItem="tOi-Ac-wmN" secondAttribute="bottom" id="e5r-6g-8hS"/>
+                            <constraint firstItem="tOi-Ac-wmN" firstAttribute="top" secondItem="p21-Sm-F74" secondAttribute="bottom" id="vYc-kG-cac"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="tOi-Ac-wmN" id="d6z-JP-BqC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4U-x8-Zqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="894"/>
         </scene>
     </scenes>
 </document>

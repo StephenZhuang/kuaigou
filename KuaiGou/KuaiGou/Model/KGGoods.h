@@ -85,5 +85,10 @@
                            pagesize:(NSInteger)pagesize
                          completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
 
++ (void)searchGoodsWithString:(NSString *)string
+                   pagenumber:(NSInteger)pagenumber
+                     pagesize:(NSInteger)pagesize
+                   completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
+
 - (CGFloat)displayPrice;
 @end

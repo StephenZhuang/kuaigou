@@ -19,6 +19,7 @@
 #import "KGGoodsCell.h"
 #import "KGGoodsDetailViewController.h"
 #import "KGCategoryGoodsViewController.h"
+#import "KGSearchViewController.h"
 
 @implementation KGHomeViewController
 - (void)viewDidLoad
@@ -68,7 +69,8 @@
 
 - (void)searchAction
 {
-
+    KGSearchViewController *vc = [KGSearchViewController viewControllerFromStoryboard];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)loadData
