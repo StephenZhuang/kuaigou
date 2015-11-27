@@ -513,6 +513,7 @@
 		770669541B01AC41004E1396 /* KGNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 770669531B01AC41004E1396 /* KGNavigationBar.m */; };
 		77199F611C084CA90088CADB /* KGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77199F601C084CA90088CADB /* KGSettingViewController.m */; };
 		77199F641C08598E0088CADB /* KGFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77199F631C08598E0088CADB /* KGFeedbackViewController.m */; };
+		77199F671C086FBC0088CADB /* KGCategoryGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77199F661C086FBC0088CADB /* KGCategoryGoodsViewController.m */; };
 		771B62411B1FE0880057FD19 /* KGCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62401B1FE0880057FD19 /* KGCategoryViewController.m */; };
 		771B62441B1FE4920057FD19 /* KGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62431B1FE4920057FD19 /* KGCategory.m */; };
 		771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62461B1FEF380057FD19 /* UIImage+Resize.m */; };
@@ -1283,6 +1284,8 @@
 		77199F601C084CA90088CADB /* KGSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGSettingViewController.m; sourceTree = "<group>"; };
 		77199F621C08598E0088CADB /* KGFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGFeedbackViewController.h; sourceTree = "<group>"; };
 		77199F631C08598E0088CADB /* KGFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGFeedbackViewController.m; sourceTree = "<group>"; };
+		77199F651C086FBC0088CADB /* KGCategoryGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategoryGoodsViewController.h; sourceTree = "<group>"; };
+		77199F661C086FBC0088CADB /* KGCategoryGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCategoryGoodsViewController.m; sourceTree = "<group>"; };
 		771B623F1B1FE0880057FD19 /* KGCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategoryViewController.h; sourceTree = "<group>"; };
 		771B62401B1FE0880057FD19 /* KGCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCategoryViewController.m; sourceTree = "<group>"; };
 		771B62421B1FE4920057FD19 /* KGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategory.h; sourceTree = "<group>"; };
@@ -2717,6 +2720,8 @@
 				770669501B01ABC1004E1396 /* Home.storyboard */,
 				77AD45621B01B04E0094326D /* KGHomeViewController.h */,
 				77AD45631B01B04E0094326D /* KGHomeViewController.m */,
+				77199F651C086FBC0088CADB /* KGCategoryGoodsViewController.h */,
+				77199F661C086FBC0088CADB /* KGCategoryGoodsViewController.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -3845,6 +3850,7 @@
 				771B62411B1FE0880057FD19 /* KGCategoryViewController.m in Sources */,
 				7702A1D91B217EC20020CE6E /* InputView.mm in Sources */,
 				773880371B049ABC00A66961 /* KGImageUrlHelper.m in Sources */,
+				77199F671C086FBC0088CADB /* KGCategoryGoodsViewController.m in Sources */,
 				7702A2041B217EC20020CE6E /* SessionListViewController.m in Sources */,
 				7702A18C1B217EC20020CE6E /* NSDictionary+Json.m in Sources */,
 				7702A1C31B217EC20020CE6E /* SystemNotificationCell.m in Sources */,

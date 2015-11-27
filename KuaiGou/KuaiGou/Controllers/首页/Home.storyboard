@@ -136,6 +136,43 @@
             </objects>
             <point key="canvasLocation" x="1314" y="230"/>
         </scene>
+        <!--Category Goods View Controller-->
+        <scene sceneID="b3X-X5-Ndc">
+            <objects>
+                <viewController storyboardIdentifier="KGCategoryGoodsViewController" id="cq2-6M-KCS" customClass="KGCategoryGoodsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pgX-zN-3cL"/>
+                        <viewControllerLayoutGuide type="bottom" id="d98-MQ-KQL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5bx-D1-pcX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xcI-g1-cWY">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="cq2-6M-KCS" id="wAO-zr-tnk"/>
+                                    <outlet property="delegate" destination="cq2-6M-KCS" id="eGX-xd-gHA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xcI-g1-cWY" firstAttribute="leading" secondItem="5bx-D1-pcX" secondAttribute="leading" id="TPb-a5-xPP"/>
+                            <constraint firstItem="xcI-g1-cWY" firstAttribute="top" secondItem="pgX-zN-3cL" secondAttribute="bottom" id="bxI-nt-bji"/>
+                            <constraint firstItem="d98-MQ-KQL" firstAttribute="top" secondItem="xcI-g1-cWY" secondAttribute="bottom" id="gjf-Qt-jid"/>
+                            <constraint firstAttribute="trailing" secondItem="xcI-g1-cWY" secondAttribute="trailing" id="vbX-Jh-7gi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="xcI-g1-cWY" id="jgS-qG-XGN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VDZ-0V-qGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1314" y="910"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="SzV-Na-izy">
             <objects>

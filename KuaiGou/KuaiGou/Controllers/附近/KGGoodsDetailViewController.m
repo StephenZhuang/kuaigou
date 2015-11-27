@@ -14,6 +14,7 @@
 #import "JSRSA.h"
 #import "KGAddOrderViewController.h"
 #import "BNCoreServices.h"
+#import "SessionViewController.h"
 
 @interface KGGoodsDetailViewController ()<BNNaviRoutePlanDelegate>
 
@@ -33,6 +34,10 @@
         self.goods = goods;
         [self updateUI];
     }];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chatAction:)];
+    [self.headImg addGestureRecognizer:tap];
+    self.headImg.userInteractionEnabled = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -199,6 +204,13 @@
     
     //路径规划成功，开始导航
     [BNCoreServices_UI showNaviUI: BN_NaviTypeReal delegete:self isNeedLandscape:YES];
+}
+
+- (IBAction)chatAction:(id)sender
+{
+    NIMSession *session = [NIMSession session:self.goods.userid type:NIMSessionTypeP2P];
+    SessionViewController *vc = [[SessionViewController alloc] initWithSession:session];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

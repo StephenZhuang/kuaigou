@@ -18,6 +18,7 @@
 #import "KGGoods.h"
 #import "KGGoodsCell.h"
 #import "KGGoodsDetailViewController.h"
+#import "KGCategoryGoodsViewController.h"
 
 @implementation KGHomeViewController
 - (void)viewDidLoad
@@ -171,7 +172,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.catArray.count + 1;
+    return self.catArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -190,7 +191,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    KGCategory *category = [self.catArray objectAtIndex:indexPath.row];
+    KGCategoryGoodsViewController *vc = [KGCategoryGoodsViewController viewControllerFromStoryboard];
+    vc.category = category;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - setters and getters
