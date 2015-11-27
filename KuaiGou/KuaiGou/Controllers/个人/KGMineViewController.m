@@ -13,6 +13,7 @@
 #import "KGImageUrlHelper.h"
 #import "MBProgressHUD+ZXAdditon.h"
 #import "KGUploadManager.h"
+#import "KGSettingViewController.h"
 
 @implementation KGMineViewController
 - (void)viewDidLoad
@@ -21,7 +22,7 @@
     self.myGoodsButton.selected = YES;
     self.selectedIndex = 1;
     [self.tableView registerNib:[UINib nibWithNibName:@"KGGoodsCell" bundle:nil] forCellReuseIdentifier:@"KGGoodsCell"];
-    [self configureHead];
+    
 }
 
 - (void)configureHead
@@ -34,18 +35,12 @@
     self.headButton.layer.masksToBounds = YES;
 }
 
-- (IBAction)logoutAction:(id)sender
-{
-    [[KGLoginManager sharedInstance] logoutWithCompletion:^(BOOL success, NSString *errorInfo) {
-        [self.rdv_tabBarController setSelectedIndex:0];
-    }];
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
+    [self configureHead];
 }
 
 - (IBAction)myGoodsAction:(id)sender
@@ -277,5 +272,11 @@
             }
         }
     }
+}
+
+- (IBAction)settingAction:(id)sender
+{
+    KGSettingViewController *vc = [KGSettingViewController viewControllerFromStoryboard];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

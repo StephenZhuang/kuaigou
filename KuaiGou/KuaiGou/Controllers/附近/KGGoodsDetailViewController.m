@@ -70,7 +70,9 @@
     [self.addressLabel setText:self.goods.address];
     [self.ratingView setValue:self.goods.u_level];
     NSArray *arr = @[@"送货上门",@"上门自提"];
-    [self.tipLabel setText:arr[self.goods.trademodeid -1]];
+    if (self.goods.trademodeid > 0) {
+        [self.tipLabel setText:arr[self.goods.trademodeid -1]];
+    }
     if (self.goods.isdiscount.integerValue == 1) {
         [self.originPriceLabel setText:[NSString stringWithFormat:@"￥ %.2f",self.goods.price]];
         CGFloat price = self.goods.price * self.goods.discount;

@@ -38,7 +38,7 @@
     [self setupYunxin];
     if ([KGLoginManager sharedInstance].isLogin) {
         [KGLoginManager sharedInstance].user = [KGUser objectWithKeyValues:[GVUserDefaults standardUserDefaults].user];
-        [[KGLoginManager sharedInstance] doYunxinLoginWithUsername:[GVUserDefaults standardUserDefaults].username password:[GVUserDefaults standardUserDefaults].password];
+        [[KGLoginManager sharedInstance] doYunxinLoginWithUsername:[KGLoginManager sharedInstance].user.userid password:[KGLoginManager sharedInstance].user.token];
     }
     
     [self setUpBaiduMap];

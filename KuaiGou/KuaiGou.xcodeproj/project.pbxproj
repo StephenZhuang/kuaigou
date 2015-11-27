@@ -511,6 +511,8 @@
 		7706694F1B01ABBA004E1396 /* Nearby.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7706694E1B01ABBA004E1396 /* Nearby.storyboard */; };
 		770669511B01ABC1004E1396 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770669501B01ABC1004E1396 /* Home.storyboard */; };
 		770669541B01AC41004E1396 /* KGNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 770669531B01AC41004E1396 /* KGNavigationBar.m */; };
+		77199F611C084CA90088CADB /* KGSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77199F601C084CA90088CADB /* KGSettingViewController.m */; };
+		77199F641C08598E0088CADB /* KGFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77199F631C08598E0088CADB /* KGFeedbackViewController.m */; };
 		771B62411B1FE0880057FD19 /* KGCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62401B1FE0880057FD19 /* KGCategoryViewController.m */; };
 		771B62441B1FE4920057FD19 /* KGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62431B1FE4920057FD19 /* KGCategory.m */; };
 		771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 771B62461B1FEF380057FD19 /* UIImage+Resize.m */; };
@@ -1277,6 +1279,10 @@
 		770669501B01ABC1004E1396 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		770669521B01AC41004E1396 /* KGNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNavigationBar.h; sourceTree = "<group>"; };
 		770669531B01AC41004E1396 /* KGNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGNavigationBar.m; sourceTree = "<group>"; };
+		77199F5F1C084CA90088CADB /* KGSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGSettingViewController.h; sourceTree = "<group>"; };
+		77199F601C084CA90088CADB /* KGSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGSettingViewController.m; sourceTree = "<group>"; };
+		77199F621C08598E0088CADB /* KGFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGFeedbackViewController.h; sourceTree = "<group>"; };
+		77199F631C08598E0088CADB /* KGFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGFeedbackViewController.m; sourceTree = "<group>"; };
 		771B623F1B1FE0880057FD19 /* KGCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategoryViewController.h; sourceTree = "<group>"; };
 		771B62401B1FE0880057FD19 /* KGCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGCategoryViewController.m; sourceTree = "<group>"; };
 		771B62421B1FE4920057FD19 /* KGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGCategory.h; sourceTree = "<group>"; };
@@ -2652,6 +2658,10 @@
 				7706694A1B01AB70004E1396 /* Mine.storyboard */,
 				77AD45591B01B01A0094326D /* KGMineViewController.h */,
 				77AD455A1B01B01A0094326D /* KGMineViewController.m */,
+				77199F5F1C084CA90088CADB /* KGSettingViewController.h */,
+				77199F601C084CA90088CADB /* KGSettingViewController.m */,
+				77199F621C08598E0088CADB /* KGFeedbackViewController.h */,
+				77199F631C08598E0088CADB /* KGFeedbackViewController.m */,
 			);
 			path = "个人";
 			sourceTree = "<group>";
@@ -3904,6 +3914,7 @@
 				7702A19F1B217EC20020CE6E /* TeamAnnouncementListCell.m in Sources */,
 				7702A1CE1B217EC20020CE6E /* UserCommandSender.m in Sources */,
 				77ED5FE21C0732C90071EE4E /* KGSelectedButton.m in Sources */,
+				77199F641C08598E0088CADB /* KGFeedbackViewController.m in Sources */,
 				77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */,
 				77B7D1481BEA2BA800D64084 /* NSDictionary_JSONExtensions.m in Sources */,
 				773CB7AA1B4FC10600C99976 /* StrikeThroughLabel.m in Sources */,
@@ -3913,6 +3924,7 @@
 				7702A2081B217EC20020CE6E /* EmoticonManager.mm in Sources */,
 				77AD45681B01EB6F0094326D /* KGTabBarController.m in Sources */,
 				7702A1D61B217EC20020CE6E /* InputEmoticonContainerView.m in Sources */,
+				77199F611C084CA90088CADB /* KGSettingViewController.m in Sources */,
 				7702A1DF1B217EC20020CE6E /* SessionFileTransContentView.m in Sources */,
 				77B7D14A1BEA2BA800D64084 /* CJSONDataSerializer.m in Sources */,
 				7702A1BE1B217EC20020CE6E /* ContactUtilItem.m in Sources */,

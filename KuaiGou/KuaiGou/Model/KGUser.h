@@ -19,4 +19,6 @@
 
 - (void)updateAvatarWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion;
 - (void)updateNicknameWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion;
+- (void)feedbackWithContent:(NSString *)content
+                 completion:(void(^)(BOOL success,NSString *errorInfo))completion;
 @end

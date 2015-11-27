@@ -59,12 +59,15 @@ NSString *NotificationLogout = @"NIMLogout";
         self.user = user;
         self.isLogin = YES;
         [GVUserDefaults standardUserDefaults].user = [user keyValues];
+        
+        [self doYunxinLoginWithUsername:user.userid password:user.token];
+        
         !completion?:completion(YES,@"");
     } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
         !completion?:completion(NO,errorInfo);
     }];
     
-    [self doYunxinLoginWithUsername:username password:password];
+    
 }
 
 - (void)logoutWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion
@@ -114,13 +117,11 @@ NSString *NotificationLogout = @"NIMLogout";
 - (void)doYunxinLoginWithUsername:(NSString *)username password:(NSString *)password
 {
     [[[NIMSDK sharedSDK] loginManager] login:username
-                                       token:[[password md5] substringToIndex:20]
+                                       token:password
                                   completion:^(NSError *error) {
                                       if (error == nil)
                                       {
-                                          [GVUserDefaults standardUserDefaults].username = username;
-                                          [GVUserDefaults standardUserDefaults].password = password;
-                                          
+
                                           [[NIMServiceManager sharedManager] start];
                                       }
                                       else
@@ -140,8 +141,6 @@ NSString *NotificationLogout = @"NIMLogout";
 - (void)doLogout
 {
     [[NIMServiceManager sharedManager] destory];
-    [GVUserDefaults standardUserDefaults].username = nil;
-    [GVUserDefaults standardUserDefaults].password = nil;
 }
 
 - (void)dealloc
