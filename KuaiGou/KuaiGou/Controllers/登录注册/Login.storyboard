@@ -99,7 +99,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="d4r-bB-aqQ" kind="show" id="StT-90-Fph"/>
+                                    <action selector="registerAction:" destination="EJn-0Z-qHE" eventType="touchUpInside" id="7Eg-yi-ylY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mme-6t-mSh">
@@ -109,6 +109,9 @@
                                     <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgetAction:" destination="EJn-0Z-qHE" eventType="touchUpInside" id="FKs-PV-qNs"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015@KGapp.net" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrD-fx-eeC">
                                 <rect key="frame" x="233" y="500" width="134" height="21"/>
@@ -172,11 +175,11 @@
                         <viewControllerLayoutGuide type="bottom" id="eD6-aH-iPL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Oyp-dU-JeL">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y48-7G-Hgm">
-                                <rect key="frame" x="0.0" y="40" width="600" height="45"/>
+                                <rect key="frame" x="0.0" y="60" width="600" height="45"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_user" translatesAutoresizingMaskIntoConstraints="NO" id="qSr-Gb-63t">
                                         <rect key="frame" x="12" y="10" width="25" height="25"/>
@@ -202,7 +205,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6HW-Du-kf0">
-                                <rect key="frame" x="0.0" y="95" width="600" height="45"/>
+                                <rect key="frame" x="0.0" y="115" width="600" height="45"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qth-6L-nBt">
                                         <rect key="frame" x="15" y="8" width="482" height="30"/>
@@ -248,19 +251,19 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015@KGapp.net" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJi-fi-hU5">
-                                <rect key="frame" x="233" y="500" width="134" height="21"/>
+                                <rect key="frame" x="233" y="564" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.53333333329999999" green="0.53333333329999999" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即视为您同意" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0so-Rd-qli">
-                                <rect key="frame" x="175" y="160" width="136" height="21"/>
+                                <rect key="frame" x="175" y="180" width="136" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccC-2Z-ZT3">
-                                <rect key="frame" x="175" y="201" width="250" height="40"/>
+                                <rect key="frame" x="175" y="221" width="250" height="40"/>
                                 <color key="backgroundColor" red="0.38823529410000002" green="0.72941176470000002" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="DCN-3k-3Tr"/>
@@ -282,7 +285,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeV-yo-cYg">
-                                <rect key="frame" x="319" y="156" width="120" height="30"/>
+                                <rect key="frame" x="319" y="176" width="120" height="30"/>
                                 <state key="normal" title="《快购隐私政策》"/>
                                 <connections>
                                     <action selector="privacyAction:" destination="d4r-bB-aqQ" eventType="touchUpInside" id="I9t-Xa-X6b"/>

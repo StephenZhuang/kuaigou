@@ -15,4 +15,5 @@
 @property (nonatomic , weak) IBOutlet UITextField *usernameTextField;
 @property (nonatomic , weak) IBOutlet UITextField *codeTextField;
 @property (nonatomic , weak) IBOutlet UIButton *countDownButton;
+@property (nonatomic , assign) BOOL isRegister;
 @end

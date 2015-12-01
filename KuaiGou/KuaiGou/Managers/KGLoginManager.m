@@ -89,25 +89,39 @@ NSString *NotificationLogout = @"NIMLogout";
     }
 }
 
-- (void)checkPhone:(NSString *)phone completion:(void(^)(BOOL success,NSString *code))completion
+- (void)checkPhone:(NSString *)phone isRegister:(BOOL)isRegister completion:(void(^)(BOOL success,NSString *code))completion
 {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setObject:phone forKey:@"phone"];
     
-    [[KGApiClient sharedClient] POST:@"/api/v1/account/reg/step1" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+    NSString *url = @"";
+    if (isRegister) {
+        url = @"/api/v1/account/reg/step1";
+    } else {
+        url = @"/api/v1/account/password/step1";
+    }
+    
+    [[KGApiClient sharedClient] POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
         !completion?:completion(YES,data);
     } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
         !completion?:completion(NO,errorInfo);
     }];
 }
 
-- (void)registerWithPhone:(NSString *)phone password:(NSString *)password completion:(void(^)(BOOL success,NSString *errorInfo))completion
+- (void)registerWithPhone:(NSString *)phone password:(NSString *)password isRegister:(BOOL)isRegister completion:(void(^)(BOOL success,NSString *errorInfo))completion
 {
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setObject:phone forKey:@"phone"];
     [parameters setObject:[password md5] forKey:@"password"];
     
-    [[KGApiClient sharedClient] POST:@"/api/v1/account/reg/step2" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+    NSString *url = @"";
+    if (isRegister) {
+        url = @"/api/v1/account/reg/step2";
+    } else {
+        url = @"/api/v1/account/password/step2";
+    }
+    
+    [[KGApiClient sharedClient] POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
         !completion?:completion(YES,@"");
     } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
         !completion?:completion(NO,errorInfo);

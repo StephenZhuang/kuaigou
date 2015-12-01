@@ -20,7 +20,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"注册";
+    if (self.isRegister) {
+        self.title = @"注册";
+    } else {
+        self.title = @"忘记密码";
+    }
 }
 
 - (IBAction)registerAction:(id)sender
@@ -35,7 +39,7 @@
     }
     
     if (password.length >= 6 && password.length <= 12) {
-        [[KGLoginManager sharedInstance] registerWithPhone:_phone password:password completion:^(BOOL success, NSString *errorInfo) {
+        [[KGLoginManager sharedInstance] registerWithPhone:_phone password:password isRegister:self.isRegister completion:^(BOOL success, NSString *errorInfo) {
             if (success) {
                 [hud turnToSuccess:@""];
                 [self.navigationController popToRootViewControllerAnimated:YES];

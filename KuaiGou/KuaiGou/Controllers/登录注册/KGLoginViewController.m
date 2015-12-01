@@ -9,6 +9,7 @@
 #import "KGLoginViewController.h"
 #import "KGLoginManager.h"
 #import "MBProgressHUD+ZXAdditon.h"
+#import "KGRegisterViewController.h"
 
 @interface KGLoginViewController ()
 
@@ -65,6 +66,20 @@
         [textField resignFirstResponder];
     }
     return YES;
+}
+
+- (IBAction)registerAction:(id)sender
+{
+    KGRegisterViewController *vc = [KGRegisterViewController viewControllerFromStoryboard];
+    vc.isRegister = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)forgetAction:(id)sender
+{
+    KGRegisterViewController *vc = [KGRegisterViewController viewControllerFromStoryboard];
+    vc.isRegister = NO;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

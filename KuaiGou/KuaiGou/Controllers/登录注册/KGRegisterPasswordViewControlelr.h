@@ -12,4 +12,5 @@
 @property (nonatomic , copy) NSString *phone;
 @property (nonatomic , weak) IBOutlet UITextField *passwordTextField;
 @property (nonatomic , weak) IBOutlet UITextField *passwordAgainTextField;
+@property (nonatomic , assign) BOOL isRegister;
 @end

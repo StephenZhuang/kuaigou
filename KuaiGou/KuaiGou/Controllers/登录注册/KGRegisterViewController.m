@@ -15,10 +15,20 @@
 #import "KGPrvacyViewController.h"
 
 @implementation KGRegisterViewController
++ (instancetype)viewControllerFromStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    return [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+}
+
 - (void) viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"注册";
+    if (self.isRegister) {
+        self.title = @"注册";
+    } else {
+        self.title = @"忘记密码";
+    }
 }
 
 #pragma -mark textfield delegate
@@ -35,7 +45,7 @@
     NSString *phone = [_usernameTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if ([ZXValidateHelper checkTel:phone needsWarning:YES]) {
         MBProgressHUD *hud = [MBProgressHUD showWaiting:@"验证手机中" toView:self.view];
-        [[KGLoginManager sharedInstance] checkPhone:phone completion:^(BOOL success, NSString *code) {
+        [[KGLoginManager sharedInstance] checkPhone:phone isRegister:self.isRegister completion:^(BOOL success, NSString *code) {
             if (success) {
                 [hud hide:YES];
                 NSLog(@"验证码：%@",code);
@@ -58,6 +68,7 @@
     if ([code isEqualToString:codeString]) {
         KGRegisterPasswordViewControlelr *vc = [KGRegisterPasswordViewControlelr viewControllerFromStoryboard];
         vc.phone = phone;
+        vc.isRegister = self.isRegister;
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         [MBProgressHUD showError:@"验证码不正确" toView:self.view];
