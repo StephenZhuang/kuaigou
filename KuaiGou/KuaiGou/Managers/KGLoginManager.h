@@ -22,4 +22,6 @@
 - (void)registerWithPhone:(NSString *)phone password:(NSString *)password isRegister:(BOOL)isRegister completion:(void(^)(BOOL success,NSString *errorInfo))completion;
 
 - (void)doYunxinLoginWithUsername:(NSString *)username password:(NSString *)password;
+
+- (void)changePasswordWithNewpassword:(NSString *)password completion:(void(^)(BOOL success,NSString *errorInfo))completion;
 @end

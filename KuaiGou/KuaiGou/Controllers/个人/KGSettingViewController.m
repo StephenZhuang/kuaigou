@@ -9,6 +9,7 @@
 #import "KGSettingViewController.h"
 #import "KGLoginManager.h"
 #import "KGFeedbackViewController.h"
+#import "KGChangePasswordViewController.h"
 
 @implementation KGSettingViewController
 + (instancetype)viewControllerFromStoryboard
@@ -46,7 +47,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -57,13 +58,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (indexPath.row == 0) {
+        [cell.textLabel setText:@"意见反馈"];
+    } else {
+        [cell.textLabel setText:@"修改密码"];
+    }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    KGFeedbackViewController *vc = [KGFeedbackViewController viewControllerFromStoryboard];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (indexPath.row == 0) {
+        KGFeedbackViewController *vc = [KGFeedbackViewController viewControllerFromStoryboard];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        KGChangePasswordViewController *vc = [KGChangePasswordViewController viewControllerFromStoryboard];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

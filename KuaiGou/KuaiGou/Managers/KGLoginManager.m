@@ -128,6 +128,21 @@ NSString *NotificationLogout = @"NIMLogout";
     }];
 }
 
+- (void)changePasswordWithNewpassword:(NSString *)password completion:(void(^)(BOOL success,NSString *errorInfo))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:self.user.token forKey:@"token"];
+    [parameters setObject:[password md5] forKey:@"password"];
+    
+    NSString *url = @"/api/v1/account/password/reset";
+    
+    [[KGApiClient sharedClient] POST:url parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        [self logoutWithCompletion:completion];
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo);
+    }];
+}
+
 - (void)doYunxinLoginWithUsername:(NSString *)username password:(NSString *)password
 {
     [[[NIMSDK sharedSDK] loginManager] login:username

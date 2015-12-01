@@ -530,6 +530,7 @@
 		772678011C0D421200B6C717 /* Cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 772677FF1C0D421200B6C717 /* Cities.plist */; };
 		772678021C0D421200B6C717 /* privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = 772678001C0D421200B6C717 /* privacy.html */; };
 		772678051C0D422B00B6C717 /* KGPrvacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772678041C0D422B00B6C717 /* KGPrvacyViewController.m */; };
+		772678081C0DA61F00B6C717 /* KGChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772678071C0DA61F00B6C717 /* KGChangePasswordViewController.m */; };
 		77376C601B00ADFE00DA19D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C5F1B00ADFE00DA19D8 /* main.m */; };
 		77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C621B00ADFE00DA19D8 /* AppDelegate.m */; };
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
@@ -1315,6 +1316,8 @@
 		772678001C0D421200B6C717 /* privacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy.html; sourceTree = "<group>"; };
 		772678031C0D422B00B6C717 /* KGPrvacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGPrvacyViewController.h; sourceTree = "<group>"; };
 		772678041C0D422B00B6C717 /* KGPrvacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGPrvacyViewController.m; sourceTree = "<group>"; };
+		772678061C0DA61F00B6C717 /* KGChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGChangePasswordViewController.h; sourceTree = "<group>"; };
+		772678071C0DA61F00B6C717 /* KGChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGChangePasswordViewController.m; sourceTree = "<group>"; };
 		77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuaiGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C5E1B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C5F1B00ADFE00DA19D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2673,6 +2676,8 @@
 				77199F601C084CA90088CADB /* KGSettingViewController.m */,
 				77199F621C08598E0088CADB /* KGFeedbackViewController.h */,
 				77199F631C08598E0088CADB /* KGFeedbackViewController.m */,
+				772678061C0DA61F00B6C717 /* KGChangePasswordViewController.h */,
+				772678071C0DA61F00B6C717 /* KGChangePasswordViewController.m */,
 			);
 			path = "个人";
 			sourceTree = "<group>";
@@ -3931,6 +3936,7 @@
 				7702A1A51B217EC20020CE6E /* CreateRegularTeamCardViewController.m in Sources */,
 				7702A1EA1B217EC20020CE6E /* SessionTipCell.m in Sources */,
 				7702A1921B217EC20020CE6E /* UITableView+ScrollToBottom.m in Sources */,
+				772678081C0DA61F00B6C717 /* KGChangePasswordViewController.m in Sources */,
 				7702A1E71B217EC20020CE6E /* SessionUnknowContentView.m in Sources */,
 				7702A1C71B217EC20020CE6E /* SettingViewController.m in Sources */,
 				7702A1E51B217EC20020CE6E /* SessionNotificationContentView.m in Sources */,
