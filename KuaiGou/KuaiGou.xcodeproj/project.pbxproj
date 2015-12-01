@@ -527,6 +527,9 @@
 		771B627F1B20525A0057FD19 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 771B627E1B20525A0057FD19 /* libz.dylib */; };
 		771B62811B2052620057FD19 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 771B62801B2052620057FD19 /* libstdc++.6.0.9.dylib */; };
 		771B62831B20526A0057FD19 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 771B62821B20526A0057FD19 /* libsqlite3.0.dylib */; };
+		772678011C0D421200B6C717 /* Cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 772677FF1C0D421200B6C717 /* Cities.plist */; };
+		772678021C0D421200B6C717 /* privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = 772678001C0D421200B6C717 /* privacy.html */; };
+		772678051C0D422B00B6C717 /* KGPrvacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 772678041C0D422B00B6C717 /* KGPrvacyViewController.m */; };
 		77376C601B00ADFE00DA19D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C5F1B00ADFE00DA19D8 /* main.m */; };
 		77376C631B00ADFE00DA19D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77376C621B00ADFE00DA19D8 /* AppDelegate.m */; };
 		77376C6B1B00ADFE00DA19D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77376C6A1B00ADFE00DA19D8 /* Images.xcassets */; };
@@ -1308,6 +1311,10 @@
 		771B62801B2052620057FD19 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		771B62821B20526A0057FD19 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		771B64021B206CD20057FD19 /* GlobalMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalMacro.h; sourceTree = "<group>"; };
+		772677FF1C0D421200B6C717 /* Cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Cities.plist; sourceTree = "<group>"; };
+		772678001C0D421200B6C717 /* privacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy.html; sourceTree = "<group>"; };
+		772678031C0D422B00B6C717 /* KGPrvacyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGPrvacyViewController.h; sourceTree = "<group>"; };
+		772678041C0D422B00B6C717 /* KGPrvacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGPrvacyViewController.m; sourceTree = "<group>"; };
 		77376C5A1B00ADFE00DA19D8 /* KuaiGou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KuaiGou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77376C5E1B00ADFE00DA19D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77376C5F1B00ADFE00DA19D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2680,6 +2687,8 @@
 				77050A451B0AE297009FCA6A /* KGRegisterViewController.m */,
 				774E928D1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.h */,
 				774E928E1B0B09B60007A1D3 /* KGRegisterPasswordViewControlelr.m */,
+				772678031C0D422B00B6C717 /* KGPrvacyViewController.h */,
+				772678041C0D422B00B6C717 /* KGPrvacyViewController.m */,
 			);
 			path = "登录注册";
 			sourceTree = "<group>";
@@ -2778,6 +2787,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		772677FE1C0D421200B6C717 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				772677FF1C0D421200B6C717 /* Cities.plist */,
+				772678001C0D421200B6C717 /* privacy.html */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		77376C511B00ADFE00DA19D8 = {
 			isa = PBXGroup;
 			children = (
@@ -2800,6 +2818,7 @@
 		77376C5C1B00ADFE00DA19D8 /* KuaiGou */ = {
 			isa = PBXGroup;
 			children = (
+				772677FE1C0D421200B6C717 /* Resources */,
 				77FB2BB01B1EF6CF0091560D /* vendors */,
 				774EC8E71B0348240075FB50 /* Model */,
 				774EC8E31B0343120075FB50 /* HTTPClient */,
@@ -3550,6 +3569,7 @@
 				7702A40F1B2180C60020CE6E /* emoji_67@2x.png in Resources */,
 				7702A4561B2180C60020CE6E /* btn_launch_button_pressed@2x.png in Resources */,
 				7702A48A1B2180C60020CE6E /* input_send_btn_pressed@2x.png in Resources */,
+				772678021C0D421200B6C717 /* privacy.html in Resources */,
 				7702A4A01B2180C60020CE6E /* btn_camera_disabled@3x.png in Resources */,
 				77050A401B0AD388009FCA6A /* ProgressHUD.bundle in Resources */,
 				7702A1F61B217EC20020CE6E /* SessionHistoryViewController.xib in Resources */,
@@ -3730,6 +3750,7 @@
 				7702A4051B2180C60020CE6E /* emoji_57@2x.png in Resources */,
 				7702A3AB1B2180C60020CE6E /* emoji_117@2x.png in Resources */,
 				7702A3B31B2180C60020CE6E /* emoji_124@2x.png in Resources */,
+				772678011C0D421200B6C717 /* Cities.plist in Resources */,
 				7702A4E91B2180C60020CE6E /* ToolViewKeyboardHL@2x.png in Resources */,
 				7702A4821B2180C60020CE6E /* icon_tinfo_normal@3x.png in Resources */,
 				7702A3FB1B2180C60020CE6E /* emoji_47@2x.png in Resources */,
@@ -4003,6 +4024,7 @@
 				7702A1981B217EC20020CE6E /* MarginButton.m in Sources */,
 				77FB2B851B1ECFB50091560D /* KGTextViewCell.m in Sources */,
 				77AD456C1B01F1360094326D /* KGLoginManager.m in Sources */,
+				772678051C0D422B00B6C717 /* KGPrvacyViewController.m in Sources */,
 				77FB2B821B1ECF7F0091560D /* KGTextFieldCell.m in Sources */,
 				7702A1DE1B217EC20020CE6E /* SessionCustomContentView.m in Sources */,
 				771B62471B1FEF380057FD19 /* UIImage+Resize.m in Sources */,
@@ -4116,8 +4138,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: xu wenchun (5278FLQBJV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xu wenchun (5278FLQBJV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4180,8 +4202,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: xu wenchun (5278FLQBJV)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: xu wenchun (5278FLQBJV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

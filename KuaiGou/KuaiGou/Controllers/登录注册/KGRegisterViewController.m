@@ -12,6 +12,7 @@
 #import "MBProgressHUD+ZXAdditon.h"
 #import "ZXValidateHelper.h"
 #import "KGRegisterPasswordViewControlelr.h"
+#import "KGPrvacyViewController.h"
 
 @implementation KGRegisterViewController
 - (void) viewDidLoad
@@ -80,5 +81,11 @@
         _countDownButton.userInteractionEnabled = YES;
         _countDownButton.selected = NO;
     }];
+}
+
+- (IBAction)privacyAction:(id)sender
+{
+    KGPrvacyViewController *vc = [KGPrvacyViewController viewControllerFromStoryboard];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end
