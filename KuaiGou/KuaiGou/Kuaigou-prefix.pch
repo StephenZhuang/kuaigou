@@ -20,7 +20,7 @@
 #import "KGTabBarController.h"
 #import "KGApiClient.h"
 
-#import "GlobalMacro.h"
+#import "NIMGlobalMacro.h"
 #import "NIMSDK.h"
 #import "KGBaseViewController.h"
 
