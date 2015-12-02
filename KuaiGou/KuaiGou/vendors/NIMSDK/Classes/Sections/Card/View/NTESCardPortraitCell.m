@@ -11,7 +11,7 @@
 #import "NTESCommonTableData.h"
 #import "UIView+NTES.h"
 #import "NTESSessionUtil.h"
-
+#import "KGImageUrlHelper.h"
 
 @interface NTESCardPortraitCell()
 
@@ -62,7 +62,7 @@
         self.nameLabel.text   = info.showName ;
         self.accountLabel.text = [NSString stringWithFormat:@"帐号：%@",uid];
         [self.accountLabel sizeToFit];
-        [self.avatar nim_setImageWithURL:[NSURL URLWithString:info.avatarUrlString] placeholderImage:info.avatarImage];
+        [self.avatar nim_setImageWithURL:[NSURL URLWithString:[KGImageUrlHelper imageUrlWithKey:info.avatarUrlString]] placeholderImage:info.avatarImage];
         if (user.userInfo.gender == NIMUserGenderMale) {
             _genderIcon.image = [UIImage imageNamed:@"icon_gender_male"];
             _genderIcon.hidden = NO;
