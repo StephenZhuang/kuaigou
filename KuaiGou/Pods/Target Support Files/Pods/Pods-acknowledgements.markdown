@@ -469,11 +469,6 @@ SOFTWARE.
 
 
 
-## UMengAnalytics-NO-IDFA
-
-Copyright 2011 - 2015 UMeng.com. All rights reserved.
-
-
 ## VTAcknowledgementsViewController
 
 Copyright (c) 2013-2015 Vincent Tourraine (http://www.vtourraine.net)
