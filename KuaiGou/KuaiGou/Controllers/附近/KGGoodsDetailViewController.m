@@ -34,10 +34,6 @@
         self.goods = goods;
         [self updateUI];
     }];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(chatAction:)];
-    [self.headImg addGestureRecognizer:tap];
-    self.headImg.userInteractionEnabled = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -74,6 +74,7 @@ extern NSString *NotificationLogout;
     
 //    NSString *userID = [[[NIMSDK sharedSDK] loginManager] currentAccount];
 //    self.navigationItem.titleView  = [self titleView:userID];
+    [self addBackButton];
 }
 
 - (void)addBackButton

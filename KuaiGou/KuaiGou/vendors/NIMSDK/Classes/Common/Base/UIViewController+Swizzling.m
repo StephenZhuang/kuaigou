@@ -38,11 +38,11 @@
 #pragma mark - ViewDidLoad
 - (void)swizzling_viewDidLoad{
     if (self.navigationController) {
-        UIImage *buttonNormal = [[UIImage imageNamed:@"icon_back_normal.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        [self.navigationController.navigationBar setBackIndicatorImage:buttonNormal];
-        [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:buttonNormal];
-        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-        self.navigationItem.backBarButtonItem = backItem;
+//        UIImage *buttonNormal = [[UIImage imageNamed:@"icon_back_normal.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        [self.navigationController.navigationBar setBackIndicatorImage:buttonNormal];
+//        [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:buttonNormal];
+//        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+//        self.navigationItem.backBarButtonItem = backItem;
     }
     [self swizzling_viewDidLoad];
 }

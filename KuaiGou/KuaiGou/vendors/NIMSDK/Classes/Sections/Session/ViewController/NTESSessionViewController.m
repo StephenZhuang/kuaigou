@@ -762,6 +762,7 @@ NIMContactSelectDelegate>
     [enterTeamCard setImage:[UIImage imageNamed:@"icon_session_info_pressed"] forState:UIControlStateHighlighted];
     [enterTeamCard sizeToFit];
     UIBarButtonItem *enterTeamCardItem = [[UIBarButtonItem alloc] initWithCustomView:enterTeamCard];
+    enterTeamCardItem.tintColor = [UIColor whiteColor];
     
     UIButton *infoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [infoBtn addTarget:self action:@selector(onTouchUpInfoBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -769,6 +770,7 @@ NIMContactSelectDelegate>
     [infoBtn setImage:[UIImage imageNamed:@"icon_session_info_pressed"] forState:UIControlStateHighlighted];
     [infoBtn sizeToFit];
     UIBarButtonItem *enterUInfoItem = [[UIBarButtonItem alloc] initWithCustomView:infoBtn];
+    enterUInfoItem.tintColor = [UIColor whiteColor];
     
     UIButton *historyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [historyBtn addTarget:self action:@selector(enterHistory:) forControlEvents:UIControlEventTouchUpInside];
@@ -776,6 +778,7 @@ NIMContactSelectDelegate>
     [historyBtn setImage:[UIImage imageNamed:@"icon_history_pressed"] forState:UIControlStateHighlighted];
     [historyBtn sizeToFit];
     UIBarButtonItem *historyButtonItem = [[UIBarButtonItem alloc] initWithCustomView:historyBtn];
+    historyButtonItem.tintColor = [UIColor whiteColor];
     
     
     
