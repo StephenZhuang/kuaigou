@@ -11,7 +11,7 @@
 #import "objc/runtime.h"
 #import "UIView+NIMWebCacheOperation.h"
 #import "NIMKit.h"
-
+#import "KGImageUrlHelper.h"
 
 static char imageURLKey;
 
@@ -107,7 +107,7 @@ CGRect NIMKit_CGRectWithCenterAndSize(CGPoint center, CGSize size){
     }else{
         info = [[NIMKit sharedKit] infoByUser:session.sessionId];
     }
-    NSURL *url = info.avatarUrlString ? [NSURL URLWithString:info.avatarUrlString] : nil;
+    NSURL *url = info.avatarUrlString ? [NSURL URLWithString:[KGImageUrlHelper imageUrlWithKey:info.avatarUrlString]] : nil;
     [self nim_setImageWithURL:url placeholderImage:info.avatarImage];
 }
 

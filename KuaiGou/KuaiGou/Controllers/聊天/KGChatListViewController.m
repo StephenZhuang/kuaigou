@@ -76,6 +76,15 @@ extern NSString *NotificationLogout;
 //    self.navigationItem.titleView  = [self titleView:userID];
 }
 
+- (void)addBackButton
+{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    item.tintColor = [UIColor whiteColor];
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.view setBackgroundColor: [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]];
+}
+
 - (void)reload{
     [super reload];
     self.emptyTipLabel.hidden = self.recentSessions.count;
