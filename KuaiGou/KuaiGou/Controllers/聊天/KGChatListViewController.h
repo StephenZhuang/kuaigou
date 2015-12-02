@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NIMSessionListViewController.h"
 
-@interface KGChatListViewController : KGBaseViewController<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic,strong) IBOutlet UITableView * tableView;
+@interface KGChatListViewController : NIMSessionListViewController<UITableViewDataSource,UITableViewDelegate,NIMLoginManagerDelegate>
+@property (nonatomic,strong) UILabel *emptyTipLabel;
 @end

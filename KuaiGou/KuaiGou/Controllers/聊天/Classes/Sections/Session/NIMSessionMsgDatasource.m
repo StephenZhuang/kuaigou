@@ -61,8 +61,10 @@
         [self.dataProvider pullDown:nil handler:^(NSError *error, NSArray *messages) {
             NIMKit_Dispatch_Async_Main(^{
                 [wself appendMessages:messages];
-                wself.firstTimeInterval = [messages.firstObject timestamp];
-                wself.lastTimeInterval  = [messages.lastObject timestamp];
+                NIMMessage *first = messages.firstObject;
+                wself.firstTimeInterval = [first timestamp];
+                NIMMessage *last = messages.lastObject;
+                wself.lastTimeInterval  = [last timestamp];
                 if ([self.delegate respondsToSelector:@selector(messageDataIsReady)]) {
                     [self.delegate messageDataIsReady];
                 }
@@ -75,8 +77,10 @@
                                                                                    message:nil
                                                                                      limit:_messageLimit];
         [self appendMessages:messages];
-        self.firstTimeInterval = [messages.firstObject timestamp];
-        self.lastTimeInterval  = [messages.lastObject timestamp];
+        NIMMessage *first = messages.firstObject;
+        self.firstTimeInterval = [first timestamp];
+        NIMMessage *last = messages.lastObject;
+        self.lastTimeInterval  = [last timestamp];
         if ([self.delegate respondsToSelector:@selector(messageDataIsReady)]) {
             [self.delegate messageDataIsReady];
         }

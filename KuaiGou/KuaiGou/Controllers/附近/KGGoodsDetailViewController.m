@@ -14,9 +14,9 @@
 #import "JSRSA.h"
 #import "KGAddOrderViewController.h"
 #import "BNCoreServices.h"
-#import "SessionViewController.h"
+#import "NIMSessionViewController.h"
 
-@interface KGGoodsDetailViewController ()<BNNaviRoutePlanDelegate>
+@interface KGGoodsDetailViewController ()<BNNaviRoutePlanDelegate,BNNaviUIManagerDelegate>
 
 @end
 
@@ -209,7 +209,7 @@
 - (IBAction)chatAction:(id)sender
 {
     NIMSession *session = [NIMSession session:self.goods.userid type:NIMSessionTypeP2P];
-    SessionViewController *vc = [[SessionViewController alloc] initWithSession:session];
+    NIMSessionViewController *vc = [[NIMSessionViewController alloc] initWithSession:session];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -35,6 +35,7 @@ PODS:
     - FMDB/common
   - GVUserDefaults (1.0.1)
   - HCSStarRatingView (1.0)
+  - M80AttributedLabel (1.3.1)
   - MBProgressHUD (0.9.1)
   - MJExtension (2.3.7)
   - MJRefresh (2.2.0)
@@ -52,7 +53,7 @@ PODS:
   - SDWebImage/Core (3.7.2)
   - SVProgressHUD (1.1.3)
   - tinyxml (2.1.0)
-  - Toast (2.4)
+  - Toast (3.0)
   - TPKeyboardAvoiding (1.2.8)
   - UITableView+FDTemplateLayoutCell (1.3)
   - UIView+FDCollapsibleConstraints (1.1)
@@ -65,6 +66,7 @@ DEPENDENCIES:
   - FMDB (~> 2.5)
   - GVUserDefaults (~> 1.0.1)
   - HCSStarRatingView (from `https://github.com/hugocampossousa/HCSStarRatingView.git`)
+  - M80AttributedLabel
   - MBProgressHUD (~> 0.9)
   - MJExtension (~> 2.3.1)
   - MJRefresh (~> 2.2.0)
@@ -77,7 +79,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7.1)
   - SVProgressHUD (~> 1.1.2)
   - tinyxml (~> 2.1.0)
-  - Toast (~> 2.4)
+  - Toast
   - TPKeyboardAvoiding (~> 1.2.8)
   - UITableView+FDTemplateLayoutCell (~> 1.3)
   - UIView+FDCollapsibleConstraints (~> 1.1)
@@ -99,6 +101,7 @@ SPEC CHECKSUMS:
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   GVUserDefaults: acb40729f70984008d0650e49d7e422f1bbfa597
   HCSStarRatingView: 6fb5c03b4ae2b8a1cca712da20fca99898c69af1
+  M80AttributedLabel: 7bb3456dcdf847b111fac6695e7c40650ab2b6d2
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJExtension: ab4e7c529b2c7a705e6f78f73e33d97929a42b39
   MJRefresh: 65a2bf14abb6feeaed8696aa1551f70e15ab0a08
@@ -112,7 +115,7 @@ SPEC CHECKSUMS:
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   tinyxml: 41d718babd106ac5d39d4e98b43c835d3b9080d8
-  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
   TPKeyboardAvoiding: f1ef0028fe9ba98ef2871cf55b4bbc39cae0267b
   UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
   UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd

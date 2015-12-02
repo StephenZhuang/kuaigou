@@ -9,10 +9,9 @@
 #import "KGLoginManager.h"
 #import "NSString+ZXMD5.h"
 #import <Toast/UIView+Toast.h>
-#import "ContactsData.h"
-#import "NIMNotificationCenter.h"
-#import "TokenManager.h"
-#import "SessionUtil.h"
+#import "NTESAppTokenManager.h"
+#import "NTESLoginManager.h"
+#import "NTESService.h"
 
 NSString *NotificationLogin = @"NIMLogin";
 NSString *NotificationLogout = @"NIMLogout";
@@ -145,22 +144,34 @@ NSString *NotificationLogout = @"NIMLogout";
 
 - (void)doYunxinLoginWithUsername:(NSString *)username password:(NSString *)password
 {
+    
     [[[NIMSDK sharedSDK] loginManager] login:username
                                        token:password
                                   completion:^(NSError *error) {
                                       if (error == nil)
                                       {
-
-                                          [[NIMServiceManager sharedManager] start];
+                                          LoginData *sdkData = [[LoginData alloc] init];
+                                          sdkData.account   = username;
+                                          sdkData.token     = password;
+                                          [[NTESLoginManager sdkManager] setCurrentLoginData:sdkData];
+                                          
+                                          
+                                          LoginData *appData = [[LoginData alloc] init];
+                                          appData.account    = username;
+                                          appData.token      = password;
+                                          [[NTESLoginManager appManager] setCurrentLoginData:appData];
+                                          
+                                          
+                                          [[NTESServiceManager sharedManager] start];
                                       }
                                       else
                                       {
-                                          [[UIApplication sharedApplication].keyWindow makeToast:@"云信登录失败" duration:2.0 position:CSToastPositionCenter];
+                                        [[UIApplication sharedApplication].keyWindow makeToast:@"云信登录失败" duration:2.0 position:CSToastPositionCenter];
                                       }
                                   }];
 }
 
--(void)logout:(NSNotification*)note
+- (void)logout:(NSNotification*)note
 {
     [self logoutWithCompletion:^(BOOL success, NSString *errorInfo) {
         
@@ -169,7 +180,14 @@ NSString *NotificationLogout = @"NIMLogout";
 
 - (void)doLogout
 {
-    [[NIMServiceManager sharedManager] destory];
+    [[NIMSDK sharedSDK].loginManager logout:^(NSError *error) {
+        
+    }];
+    [[NTESLoginManager sdkManager] setCurrentLoginData:nil];
+    [[NTESLoginManager appManager] setCurrentLoginData:nil];
+    [[NTESAppTokenManager sharedManager] cleanAppToken];
+    [[NTESServiceManager sharedManager] destory];
+    
 }
 
 - (void)dealloc
@@ -189,22 +207,4 @@ NSString *NotificationLogout = @"NIMLogout";
     }];
 }
 
-- (void)onLogin:(NIMLoginStep)step
-{
-    if (step == NIMLoginStepSyncOK)
-    {
-        [[NIMNotificationCenter sharedInstance] start];
-        if ([TokenManager sharedInstance].accessToken) {
-            [[ContactsData sharedInstance] update];
-        }else{
-            [[TokenManager sharedInstance] updateWithUsrId:[SessionUtil currentUsrId]
-                                                  password:[SessionUtil currectUsrPassword] completeHandler:^(NSError *error) {
-                                                      if (!error) {
-                                                          [[ContactsData sharedInstance] update];
-                                                      }
-                                                  }];
-        }
-        
-    }
-}
 @end
