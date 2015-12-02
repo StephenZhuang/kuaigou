@@ -222,6 +222,13 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-dM-xbS">
+                                                        <rect key="frame" x="560" y="66" width="30" height="30"/>
+                                                        <state key="normal" image="bt_menu_talk_n"/>
+                                                        <connections>
+                                                            <action selector="chatAction:" destination="0iS-Vw-rRY" eventType="touchUpInside" id="9dz-GB-Bih"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -243,6 +250,8 @@
                                                     <constraint firstItem="hXO-lp-tcq" firstAttribute="top" secondItem="dfi-ls-DfI" secondAttribute="top" constant="10" id="ebk-pC-fBM"/>
                                                     <constraint firstItem="WCt-iz-Www" firstAttribute="leading" secondItem="hXO-lp-tcq" secondAttribute="trailing" constant="10" id="m7W-xY-JxG"/>
                                                     <constraint firstAttribute="trailing" secondItem="rKD-Gh-q9A" secondAttribute="trailing" constant="10" id="omY-7o-6So"/>
+                                                    <constraint firstAttribute="trailing" secondItem="eC4-dM-xbS" secondAttribute="trailing" constant="10" id="rnX-Iu-vHY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="eC4-dM-xbS" secondAttribute="bottom" constant="4" id="udk-Na-Lqa"/>
                                                     <constraint firstItem="kd7-Nz-hGX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WCt-iz-Www" secondAttribute="trailing" constant="10" id="zUY-Xl-KDh"/>
                                                 </constraints>
                                             </view>
@@ -368,5 +377,6 @@
     </scenes>
     <resources>
         <image name="bg_menu" width="3" height="49"/>
+        <image name="bt_menu_talk_n" width="30" height="30"/>
     </resources>
 </document>

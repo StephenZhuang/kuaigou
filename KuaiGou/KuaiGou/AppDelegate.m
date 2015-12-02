@@ -9,12 +9,16 @@
 #import "AppDelegate.h"
 #import "KGLoginManager.h"
 #import "NIMSDK.h"
-#import "LogManager.h"
-#import "NIMDemoConfig.h"
 #import "JSRSA.h"
 #import "KGGoodsDetailViewController.h"
 #import <CoreDataManager.h>
 #import "BNCoreServices.h"
+#import "NTESDemoConfig.h"
+#import "NTESLogManager.h"
+#import "NTESCustomAttachmentDecoder.h"
+#import "NIMKit.h"
+#import "NTESDataProvider.h"
+#import "NTESNotificationCenter.h"
 
 @interface AppDelegate ()
 
@@ -112,7 +116,8 @@
 
 - (void)setupYunxin
 {
-    NSString *appKey = [[NIMDemoConfig sharedConfig] appKey];
+    NSString *appKey = [[NTESDemoConfig sharedConfig] appKey];
+    
 #ifdef DEBUG
     [[NIMSDK sharedSDK] registerWithAppID:appKey
                                   cerName:@"DEVELOPER"];
@@ -121,9 +126,18 @@
                                   cerName:@"ENTERPRISE"];
 #endif
     
-    [[LogManager sharedManager] start];
+    [NIMCustomObject registerCustomDecoder:[NTESCustomAttachmentDecoder new]];
+    
+    [[NIMKit sharedKit] setProvider:[NTESDataProvider new]];
+    [self setupServices];
     
     [self registerAPNs];
+}
+
+- (void)setupServices
+{
+    [[NTESLogManager sharedManager] start];
+    [[NTESNotificationCenter sharedCenter] start];
 }
 
 #pragma mark - misc
@@ -131,7 +145,7 @@
 {
     if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)])
     {
-        UIUserNotificationType types = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert;
+        UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types
                                                                                  categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];

@@ -7,58 +7,32 @@
 //
 
 #import "KGChatListViewController.h"
-#import "SessionViewController.h"
-#import "SessionUtil.h"
-#import "NIMSDK.h"
-#import "NIMSession.h"
-#import "NIMRecentSession.h"
-#import "SessionListCell.h"
-#import "UIView+NIMDemo.h"
-#import "SessionListHeader.h"
-#import "LogManager.h"
-#import "ContactsData.h"
+#import "NTESSessionViewController.h"
+#import "UIView+NTES.h"
+#import "NTESBundleSetting.h"
+#import "NTESListHeader.h"
+#import "NTESClientsTableViewController.h"
+#import "NTESSnapchatAttachment.h"
+#import "NTESJanKenPonAttachment.h"
+#import "NTESChartletAttachment.h"
+#import "NTESWhiteboardAttachment.h"
+#import "NTESSessionUtil.h"
+#import "NTESPersonalCardViewController.h"
 
 #define SessionListTitle @"快聊"
 
 extern NSString *NotificationLogout;
 
-@interface KGChatListViewController ()<NIMConversationManagerDelegate,UIAlertViewDelegate,UIActionSheetDelegate, NIMSystemNotificationManagerDelegate,NIMLoginManagerDelegate>
+@interface KGChatListViewController ()<NIMConversationManagerDelegate,NIMTeamManagerDelegate,NIMUserManagerDelegate,NIMLoginManagerDelegate,NTESListHeaderDelegate>
 {
 }
-@property (nonatomic,strong) NSMutableArray * recentSessions;
 
 @property (nonatomic,strong) UILabel *titleLabel;
 
-@property (nonatomic,assign) NIMLoginStep lastStep;
-
+@property (nonatomic,strong) NTESListHeader *header;
 @end
 
 @implementation KGChatListViewController
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.title = @"快聊";
-    
-    [[NIMSDK sharedSDK].loginManager addDelegate:self];
-    
-    self.tableView.delegate        = self;
-    self.tableView.dataSource      = self;
-    self.tableView.tableFooterView = [[UIView alloc] init];
-    
-    NSString *userID = [[[NIMSDK sharedSDK] loginManager] currentAccount];
-    self.navigationItem.titleView  = [self titleView:userID];
-    
-    self.recentSessions = [[NIMSDK sharedSDK].conversationManager.allRecentSession mutableCopy];
-    
-    if (!self.recentSessions) {
-        self.recentSessions = [NSMutableArray array];
-    }
-    [[NIMSDK sharedSDK].conversationManager addDelegate:self];
-    [[NIMSDK sharedSDK].systemNotificationManager addDelegate:self];
-    
-//    extern NSString *ContactUpdateDidFinishedNotification;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onContactsDidFinishedUpdate:) name:ContactUpdateDidFinishedNotification object:nil];
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -66,8 +40,107 @@ extern NSString *NotificationLogout;
     [self.rdv_tabBarController setTabBarHidden:NO animated:YES];
 }
 
+- (void)dealloc{
+    [[NIMSDK sharedSDK].conversationManager removeDelegate:self];
+    [[NIMSDK sharedSDK].teamManager removeDelegate:self];
+    [[NIMSDK sharedSDK].loginManager removeDelegate:self];
+    [[NIMSDK sharedSDK].userManager removeDelegate:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.autoRemoveRemoteSession = [[NTESBundleSetting sharedConfig] autoRemoveRemoteSession];
+    }
+    return self;
+}
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    [[NIMSDK sharedSDK].loginManager addDelegate:self];
+    self.title = @"快聊";
+//    self.header = [[NTESListHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 0)];
+//    self.header.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//    self.header.delegate = self;
+//    [self.view addSubview:self.header];
+    
+    self.emptyTipLabel = [[UILabel alloc] init];
+    self.emptyTipLabel.text = @"还没有会话，在通讯录中找个人聊聊吧";
+    [self.emptyTipLabel sizeToFit];
+    self.emptyTipLabel.hidden = self.recentSessions.count;
+    [self.view addSubview:self.emptyTipLabel];
+    
+//    NSString *userID = [[[NIMSDK sharedSDK] loginManager] currentAccount];
+//    self.navigationItem.titleView  = [self titleView:userID];
+    [self addBackButton];
+}
+
+- (void)addBackButton
+{
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:nil action:nil];
+    item.tintColor = [UIColor whiteColor];
+    self.navigationItem.backBarButtonItem = item;
+    
+    [self.view setBackgroundColor: [UIColor colorWithRed:233/255.0 green:233/255.0 blue:233/255.0 alpha:1.0]];
+}
+
+- (void)reload{
+    [super reload];
+    self.emptyTipLabel.hidden = self.recentSessions.count;
+}
+
+- (void)onSelectedRecent:(NIMRecentSession *)recent atIndexPath:(NSIndexPath *)indexPath{
+    NTESSessionViewController *vc = [[NTESSessionViewController alloc] initWithSession:recent.session];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)onSelectedAvatar:(NIMRecentSession *)recent
+             atIndexPath:(NSIndexPath *)indexPath{
+    if (recent.session.sessionType == NIMSessionTypeP2P) {
+        NTESPersonalCardViewController *vc = [[NTESPersonalCardViewController alloc] initWithUserId:recent.session.sessionId];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+- (void)onDeleteRecentAtIndexPath:(NIMRecentSession *)recent atIndexPath:(NSIndexPath *)indexPath{
+    [super onDeleteRecentAtIndexPath:recent atIndexPath:indexPath];
+    self.emptyTipLabel.hidden = self.recentSessions.count;
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [self refreshSubview];
+}
+
+
+- (NSString *)nameForRecentSession:(NIMRecentSession *)recent{
+    if ([recent.session.sessionId isEqualToString:[[NIMSDK sharedSDK].loginManager currentAccount]]) {
+        return @"我的电脑";
+    }
+    return [super nameForRecentSession:recent];
+}
+
+#pragma mark - SessionListHeaderDelegate
+
+- (void)didSelectRowType:(NTESListHeaderType)type{
+    //多人登录
+    switch (type) {
+        case ListHeaderTypeLoginClients:{
+            NTESClientsTableViewController *vc = [[NTESClientsTableViewController alloc] initWithNibName:nil bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+
 #pragma mark - NIMLoginManagerDelegate
 - (void)onLogin:(NIMLoginStep)step{
+    [super onLogin:step];
     switch (step) {
         case NIMLoginStepLinkFailed:
             self.titleLabel.text = [SessionListTitle stringByAppendingString:@"(未连接)"];
@@ -87,15 +160,26 @@ extern NSString *NotificationLogout;
     }
     [self.titleLabel sizeToFit];
     self.titleLabel.centerX   = self.navigationItem.titleView.width * .5f;
-    UIView *headerView = [SessionListHeader instanceWithStauts:step];
-    [headerView sizeToFit];
-    self.tableView.tableHeaderView = headerView;
+    [self.header refreshWithType:ListHeaderTypeNetStauts value:@(step)];
+    [self.view setNeedsLayout];
 }
 
-- (void)onContactsDidFinishedUpdate:(NSNotification *)note {
-    [_tableView reloadData];
+- (void)onMultiLoginClientsChanged
+{
+    [self.header refreshWithType:ListHeaderTypeLoginClients value:[NIMSDK sharedSDK].loginManager.currentLoginClients];
+    [self.view setNeedsLayout];
 }
 
+#pragma mark - Private
+- (void)refreshSubview{
+    [self.titleLabel sizeToFit];
+    self.titleLabel.centerX   = self.navigationItem.titleView.width * .5f;
+    self.tableView.top = self.header.height;
+    self.tableView.height = self.view.height - self.tableView.top;
+    self.header.bottom    = self.tableView.top + self.tableView.contentInset.top;
+    self.emptyTipLabel.centerX = self.view.width * .5f;
+    self.emptyTipLabel.centerY = self.tableView.height * .5f;
+}
 
 - (UIView*)titleView:(NSString*)userID{
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -106,6 +190,7 @@ extern NSString *NotificationLogout;
     subLabel.textColor = [UIColor grayColor];
     subLabel.font = [UIFont systemFontOfSize:12.f];
     subLabel.text = userID;
+    subLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [subLabel sizeToFit];
     
     UIView *titleView = [[UIView alloc] init];
@@ -115,122 +200,35 @@ extern NSString *NotificationLogout;
     subLabel.bottom = titleView.height;
     [titleView addSubview:self.titleLabel];
     [titleView addSubview:subLabel];
-    
     return titleView;
 }
 
-- (void)reload{
-    if (!self.recentSessions.count) {
-        
-        self.tableView.hidden = YES;
-    }else{
-        [self.tableView reloadData];
-    }
-    
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-#pragma mark - UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NIMRecentSession * recentSession = self.recentSessions[indexPath.row];
-    SessionViewController * vc = [[SessionViewController alloc] initWithSession:recentSession.session];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 70.f;
-}
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NIMRecentSession * recentSession = self.recentSessions[indexPath.row];
-        [[NIMSDK sharedSDK].conversationManager deleteRecentSession:recentSession];
-        [self.recentSessions removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-        [[[NIMSDK sharedSDK] conversationManager] deleteAllmessagesInSession:recentSession.session];
-    }
-}
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.recentSessions.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellId = @"cellId";
-    SessionListCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
-    if (!cell) {
-        cell = [[SessionListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
-    }
-    NIMRecentSession *session = self.recentSessions[indexPath.row];
-    [cell refresh:session];
-    return cell;
-}
-
-
-#pragma mark - NIMConversationManagerDelegate
-- (void)didAddRecentSession:(NIMRecentSession *)recentSession
-           totalUnreadCount:(NSInteger)totalUnreadCount{
-    NSInteger find = [self findRecentSession:recentSession];
-    if (find >=0) {
-        [self.recentSessions removeObjectAtIndex:find];
-    }
-    NSInteger insert = [self findInsertPlace:recentSession];
-    [self.recentSessions insertObject:recentSession atIndex:insert];
-    [self reload];
-    
-}
-
-
-- (void)didUpdateRecentSession:(NIMRecentSession *)recentSession
-              totalUnreadCount:(NSInteger)totalUnreadCount{
-    NSInteger find = [self findRecentSession:recentSession];
-    if (find >=0) {
-        [self.recentSessions replaceObjectAtIndex:find withObject:recentSession];
-        [self reload];
-    }
-    
-}
-
-
-- (void)didRemoveRecentSession:(NIMRecentSession *)recentSession totalUnreadCount:(NSInteger)totalUnreadCount{
-    
-}
-
-
-
-
-- (NSInteger)findRecentSession:(NIMRecentSession *)recentSession{
-    __block NSUInteger matchIdx = -1;
-    [self.recentSessions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        if ([recentSession isEqual:obj]) {
-            *stop = YES;
-            matchIdx = idx;
+- (NSString *)contentForRecentSession:(NIMRecentSession *)recent{
+    if (recent.lastMessage.messageType == NIMMessageTypeCustom) {
+        NIMCustomObject *object = recent.lastMessage.messageObject;
+        NSString *text = @"";
+        if ([object.attachment isKindOfClass:[NTESSnapchatAttachment class]]) {
+            text = @"[阅后即焚]";
         }
-    }];
-    return matchIdx;
-}
-
-
-- (NSInteger)findInsertPlace:(NIMRecentSession *)recentSession{
-    __block NSUInteger matchIdx = 0;
-    [self.recentSessions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NIMRecentSession *item = obj;
-        if (item.lastMessage.timestamp <= recentSession.lastMessage.timestamp) {
-            *stop = YES;
-            matchIdx = idx;
+        else if ([object.attachment isKindOfClass:[NTESJanKenPonAttachment class]]) {
+            text = @"[猜拳]";
         }
-    }];
-    return matchIdx;
+        else if ([object.attachment isKindOfClass:[NTESChartletAttachment class]]) {
+            text = @"[贴图]";
+        }
+        else if ([object.attachment isKindOfClass:[NTESWhiteboardAttachment class]]) {
+            text = @"[白板]";
+        }else{
+            text = @"[未知消息]";
+        }
+        if (recent.session.sessionType == NIMSessionTypeP2P) {
+            return text;
+        }else{
+            NSString *nickName = [NTESSessionUtil showNick:recent.lastMessage.from inSession:recent.lastMessage.session];
+            return nickName.length ? [nickName stringByAppendingFormat:@" : %@",text] : @"";
+        }
+    }
+    return [super contentForRecentSession:recent];
 }
 @end

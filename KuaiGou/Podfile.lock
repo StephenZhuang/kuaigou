@@ -48,13 +48,12 @@ PODS:
     - AFNetworking (~> 2.0)
   - RDVTabBarController (1.1.9)
   - Reachability (3.2)
-  - Reveal-iOS-SDK (1.5.1)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
   - SVProgressHUD (1.1.3)
   - tinyxml (2.1.0)
-  - Toast (2.4)
+  - Toast (3.0)
   - TPKeyboardAvoiding (1.2.8)
   - UITableView+FDTemplateLayoutCell (1.3)
   - UIView+FDCollapsibleConstraints (1.1)
@@ -67,7 +66,7 @@ DEPENDENCIES:
   - FMDB (~> 2.5)
   - GVUserDefaults (~> 1.0.1)
   - HCSStarRatingView (from `https://github.com/hugocampossousa/HCSStarRatingView.git`)
-  - M80AttributedLabel (~> 1.3.1)
+  - M80AttributedLabel
   - MBProgressHUD (~> 0.9)
   - MJExtension (~> 2.3.1)
   - MJRefresh (~> 2.2.0)
@@ -77,11 +76,10 @@ DEPENDENCIES:
   - Qiniu (~> 7.0.11.1)
   - RDVTabBarController (~> 1.1.9)
   - Reachability (~> 3.2)
-  - Reveal-iOS-SDK
   - SDWebImage (~> 3.7.1)
   - SVProgressHUD (~> 1.1.2)
   - tinyxml (~> 2.1.0)
-  - Toast (~> 2.4)
+  - Toast
   - TPKeyboardAvoiding (~> 1.2.8)
   - UITableView+FDTemplateLayoutCell (~> 1.3)
   - UIView+FDCollapsibleConstraints (~> 1.1)
@@ -114,15 +112,14 @@ SPEC CHECKSUMS:
   Qiniu: 080a6728b969f6b0e77c9de574ede37e78b0912b
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  Reveal-iOS-SDK: c9c55cad2729c85f6ced415f1b21857c9a2d8ef9
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
   tinyxml: 41d718babd106ac5d39d4e98b43c835d3b9080d8
-  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+  Toast: 32c59229abfcf41850162b83bb9259dc84372473
   TPKeyboardAvoiding: f1ef0028fe9ba98ef2871cf55b4bbc39cae0267b
   UITableView+FDTemplateLayoutCell: d5be6056b5060313f5955a2590ecd33142ad713d
   UIView+FDCollapsibleConstraints: 9357eaf03b4e088263ab74a3b86a382a64ce38dd
   UMengAnalytics-NO-IDFA: c5302a2246061c356641bb3056e89dfbdeb37424
   VTAcknowledgementsViewController: 11a869dd69598a852f12699aeaf36e2589d3fc1b
 
-COCOAPODS: 0.36.1
+COCOAPODS: 0.38.2
