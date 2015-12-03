@@ -90,5 +90,7 @@
                      pagesize:(NSInteger)pagesize
                    completion:(void(^)(BOOL success,NSString *errorInfo,NSArray *array))completion;
 
+- (void)deleteGoodsWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion;
+
 - (CGFloat)displayPrice;
 @end

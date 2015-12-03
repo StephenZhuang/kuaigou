@@ -100,6 +100,19 @@
     [KGLocationManager sharedInstance].locationService.delegate = self;
     [[KGLocationManager sharedInstance].locationService startUserLocationService];
     
+    if ([self.goods.userid isEqualToString:[KGLoginManager sharedInstance].user.userid]) {
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStylePlain target:self action:@selector(deleteAction)];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+}
+
+- (void)deleteAction
+{
+    MBProgressHUD *hud = [MBProgressHUD showWaiting:@"" toView:self.view];
+    [self.goods deleteGoodsWithCompletion:^(BOOL success, NSString *errorInfo) {
+        [hud turnToSuccess:@"删除成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation

@@ -240,4 +240,18 @@
         !completion?:completion(NO,errorInfo,nil);
     }];
 }
+
+- (void)deleteGoodsWithCompletion:(void(^)(BOOL success,NSString *errorInfo))completion
+{
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setObject:[KGLoginManager sharedInstance].user.token forKey:@"token"];
+    [parameters setObject:self.itemid forKey:@"itemid"];
+    [parameters setObject:@"delete" forKey:@"action"];
+    
+    [[KGApiClient sharedClient] POST:@"/api/v1/item" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        !completion?:completion(YES,@"");
+    } failure:^(NSURLSessionDataTask *task, NSString *errorInfo) {
+        !completion?:completion(NO,errorInfo);
+    }];
+}
 @end
