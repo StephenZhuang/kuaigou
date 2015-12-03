@@ -129,7 +129,10 @@
             
             NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
 //                NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
-            NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:string];
+            NSData* sampleData = [string dataUsingEncoding:NSUTF8StringEncoding];
+            
+            NSString * base64String = [sampleData base64EncodedStringWithOptions:0];
+            NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:base64String];
             NSString * encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL,  kCFStringEncodingUTF8 ));
             
             NSURL *url = [[NSURL alloc] initWithString:encodedString];

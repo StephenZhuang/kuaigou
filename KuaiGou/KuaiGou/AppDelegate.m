@@ -210,8 +210,9 @@
         
 //        NSString *decode = [[JSRSA sharedInstance] publicDecrypt:param];
 //        NSLog(@"string = %@",decode);
-        
-        NSArray *arr = [param componentsSeparatedByString:@"&"];
+        NSData* dataFromString = [[NSData alloc] initWithBase64EncodedString:param options:0];
+        NSString *paramString = [[NSString alloc] initWithData:dataFromString encoding:NSUTF8StringEncoding];
+        NSArray *arr = [paramString componentsSeparatedByString:@"&"];
         if (arr.count > 1) {
             NSString *itemid = [[arr[0] componentsSeparatedByString:@"="] lastObject];
             NSString *promoterid = [[arr[1] componentsSeparatedByString:@"="] lastObject];
