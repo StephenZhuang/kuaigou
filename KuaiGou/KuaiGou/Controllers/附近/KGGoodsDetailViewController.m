@@ -15,6 +15,7 @@
 #import "KGAddOrderViewController.h"
 #import "BNCoreServices.h"
 #import "NIMSessionViewController.h"
+#import "MBProgressHUD+ZXAdditon.h"
 
 @interface KGGoodsDetailViewController ()<BNNaviRoutePlanDelegate,BNNaviUIManagerDelegate>
 
@@ -30,7 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    MBProgressHUD *hud = [MBProgressHUD showWaiting:@"" toView:self.view];
     [KGGoods getGoodsDetailWithItemid:_itemid completion:^(BOOL success, NSString *errorInfo, KGGoods *goods) {
+        [hud hide:YES];
         self.goods = goods;
         [self updateUI];
     }];
@@ -97,6 +100,19 @@
     [KGLocationManager sharedInstance].locationService.delegate = self;
     [[KGLocationManager sharedInstance].locationService startUserLocationService];
     
+    if ([self.goods.userid isEqualToString:[KGLoginManager sharedInstance].user.userid]) {
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStylePlain target:self action:@selector(deleteAction)];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+}
+
+- (void)deleteAction
+{
+    MBProgressHUD *hud = [MBProgressHUD showWaiting:@"" toView:self.view];
+    [self.goods deleteGoodsWithCompletion:^(BOOL success, NSString *errorInfo) {
+        [hud turnToSuccess:@"删除成功"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
@@ -120,30 +136,32 @@
 {
     if ([[KGLoginManager sharedInstance] isLogin]) {
         NSString *imgUrl = [KGImageUrlHelper imageUrlWithKey:[[self.goods.image componentsSeparatedByString:@","] firstObject]];
-        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:imgUrl] options:SDWebImageDownloaderLowPriority|SDWebImageDownloaderUseNSURLCache progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-            if (finished) {                
-                NSDate *date = [NSDate new];
-                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                NSString *time = [formatter stringFromDate:date];
-                
-                NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
+        UIImageView *imageView = [[UIImageView alloc] init];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imgUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            NSDate *date = [NSDate new];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString *time = [formatter stringFromDate:date];
+            
+            NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
 //                NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
-                NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:string];
-                NSURL *url = [[NSURL alloc] initWithString:urlString];
-                
-                NSArray *activityItems = @[self.goods.title,url,image];
-                UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-                activityController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
-                    if (completed) {
-                        
-                    }
-                };
-                [self presentViewController:activityController animated:YES completion:nil];
-            }
+            NSData* sampleData = [string dataUsingEncoding:NSUTF8StringEncoding];
+            
+            NSString * base64String = [sampleData base64EncodedStringWithOptions:0];
+            NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:base64String];
+            NSString * encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL,  kCFStringEncodingUTF8 ));
+            
+            NSURL *url = [[NSURL alloc] initWithString:encodedString];
+            
+            NSArray *activityItems = @[self.goods.title,url?url:urlString,image];
+            UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+            activityController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+                if (completed) {
+                    
+                }
+            };
+            [self presentViewController:activityController animated:YES completion:nil];
         }];
-        
-        
         
     } else {
         KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard];

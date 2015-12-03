@@ -292,6 +292,17 @@
     }
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField.tag == 1) {
+        
+    } else {
+        if (textField.text.floatValue == 0) {
+            textField.text = @"";
+        }
+    }
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     if (textField.tag == 2) {

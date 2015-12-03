@@ -11,7 +11,6 @@
 #import "KGProgressCell.h"
 #import "KGTextViewCell.h"
 #import "KGCategoryViewController.h"
-#import "MBProgressHUD+ZXAdditon.h"
 #import "KGUploadManager.h"
 
 @implementation KGReleaseSecondViewController
@@ -80,7 +79,10 @@
             rowNum = 2;
             break;
         case 2:
-            rowNum = 2;
+            rowNum = 0;
+            break;
+        case 3:
+            rowNum = 0;
             break;
         default:
             rowNum = 1;
@@ -189,8 +191,8 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     } else if (indexPath.section == 3) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"交易方式" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:self.tradeModeArray[0],self.tradeModeArray[1],self.tradeModeArray[2], nil];
-        [actionSheet showInView:self.view];
+//        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"交易方式" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:self.tradeModeArray[0],self.tradeModeArray[1],self.tradeModeArray[2], nil];
+//        [actionSheet showInView:self.view];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -208,6 +210,7 @@
 - (IBAction)location:(id)sender
 {
     //初始化BMKLocationService
+    _locationHUD = [MBProgressHUD showWaiting:@"" toView:self.view];
     self.locationService.delegate = self;
     //启动LocationService
     [self.locationService startUserLocationService];
@@ -241,9 +244,11 @@
   if (error == BMK_SEARCH_NO_ERROR) {
       self.goods.address = result.address;
       [self.tableView reloadData];
+      [_locationHUD hide:YES];
   }
   else {
       NSLog(@"抱歉，未找到结果");
+      [_locationHUD turnToError:@"抱歉，未找到结果"];
   }
 }
 
@@ -266,7 +271,7 @@
 - (NSArray *)tradeModeArray
 {
     if (!_tradeModeArray) {
-        _tradeModeArray = @[@"送货上门",@"上门自提"];
+        _tradeModeArray = @[@"上门自提"];
     }
     return _tradeModeArray;
 }

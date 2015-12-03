@@ -165,18 +165,6 @@
                                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海长宁" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKD-Gh-q9A">
-                                                        <rect key="frame" x="534" y="10" width="56" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.5km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kd7-Nz-hGX">
-                                                        <rect key="frame" x="552" y="35" width="38" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="送货上门" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzQ-9P-X2k">
                                                         <rect key="frame" x="60" y="55" width="56" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -229,6 +217,12 @@
                                                             <action selector="chatAction:" destination="0iS-Vw-rRY" eventType="touchUpInside" id="9dz-GB-Bih"/>
                                                         </connections>
                                                     </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.5km" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kd7-Nz-hGX">
+                                                        <rect key="frame" x="552" y="10" width="38" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -239,17 +233,14 @@
                                                     <constraint firstAttribute="height" constant="100" id="7QG-Dj-css"/>
                                                     <constraint firstAttribute="trailing" secondItem="kd7-Nz-hGX" secondAttribute="trailing" constant="10" id="BE5-Ou-uRt"/>
                                                     <constraint firstItem="7Uc-zV-LTW" firstAttribute="leading" secondItem="hXO-lp-tcq" secondAttribute="trailing" constant="10" id="Cx4-r1-ABH"/>
-                                                    <constraint firstItem="rKD-Gh-q9A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7Uc-zV-LTW" secondAttribute="trailing" constant="10" id="KmO-Oh-dUC"/>
-                                                    <constraint firstItem="kd7-Nz-hGX" firstAttribute="top" secondItem="rKD-Gh-q9A" secondAttribute="bottom" constant="8" id="LKz-R0-BrY"/>
+                                                    <constraint firstItem="kd7-Nz-hGX" firstAttribute="top" secondItem="7Uc-zV-LTW" secondAttribute="top" id="FYv-TS-c3W"/>
                                                     <constraint firstItem="XzQ-9P-X2k" firstAttribute="leading" secondItem="7Uc-zV-LTW" secondAttribute="leading" id="MfS-cz-6LO"/>
-                                                    <constraint firstItem="rKD-Gh-q9A" firstAttribute="top" secondItem="hXO-lp-tcq" secondAttribute="top" id="NAU-KL-WDa"/>
                                                     <constraint firstItem="Bfd-jF-fRX" firstAttribute="leading" secondItem="1uk-sh-gpC" secondAttribute="trailing" constant="5" id="OJP-Qi-Dnv"/>
                                                     <constraint firstItem="hXO-lp-tcq" firstAttribute="top" secondItem="7Uc-zV-LTW" secondAttribute="top" id="Whk-MQ-klB"/>
                                                     <constraint firstItem="1uk-sh-gpC" firstAttribute="leading" secondItem="7Uc-zV-LTW" secondAttribute="leading" id="XnE-kN-lPm"/>
                                                     <constraint firstItem="XzQ-9P-X2k" firstAttribute="top" secondItem="WCt-iz-Www" secondAttribute="bottom" constant="5" id="dTh-fC-QZB"/>
                                                     <constraint firstItem="hXO-lp-tcq" firstAttribute="top" secondItem="dfi-ls-DfI" secondAttribute="top" constant="10" id="ebk-pC-fBM"/>
                                                     <constraint firstItem="WCt-iz-Www" firstAttribute="leading" secondItem="hXO-lp-tcq" secondAttribute="trailing" constant="10" id="m7W-xY-JxG"/>
-                                                    <constraint firstAttribute="trailing" secondItem="rKD-Gh-q9A" secondAttribute="trailing" constant="10" id="omY-7o-6So"/>
                                                     <constraint firstAttribute="trailing" secondItem="eC4-dM-xbS" secondAttribute="trailing" constant="10" id="rnX-Iu-vHY"/>
                                                     <constraint firstAttribute="bottom" secondItem="eC4-dM-xbS" secondAttribute="bottom" constant="4" id="udk-Na-Lqa"/>
                                                     <constraint firstItem="kd7-Nz-hGX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WCt-iz-Www" secondAttribute="trailing" constant="10" id="zUY-Xl-KDh"/>
@@ -320,7 +311,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addressLabel" destination="rKD-Gh-q9A" id="my8-lL-3Wc"/>
                         <outlet property="adsView" destination="IpG-nS-Cpf" id="sPt-dG-h0K"/>
                         <outlet property="contentLabel" destination="98W-5a-Css" id="rla-6J-C1z"/>
                         <outlet property="distanceLabel" destination="kd7-Nz-hGX" id="nKa-Ue-V9E"/>
