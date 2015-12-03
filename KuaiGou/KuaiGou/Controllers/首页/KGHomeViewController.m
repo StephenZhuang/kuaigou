@@ -41,8 +41,12 @@
                     [imageArray addObject:[KGImageUrlHelper imageUrlWithKey:ads.adspic]];
                 }
                 [_adsView configUIWithArray:imageArray];
+                __weak __typeof(&*self)weakSelf = self;
                 _adsView.clickAtIndex = ^(NSInteger index) {
-                    
+                    KGAds *ads = [array objectAtIndex:index];
+                    KGGoodsDetailViewController *vc = [KGGoodsDetailViewController viewControllerFromStoryboard];
+                    vc.itemid = ads.itemid;
+                    [weakSelf.navigationController pushViewController:vc animated:YES];
                 };
             }
         }
