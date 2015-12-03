@@ -120,30 +120,29 @@
 {
     if ([[KGLoginManager sharedInstance] isLogin]) {
         NSString *imgUrl = [KGImageUrlHelper imageUrlWithKey:[[self.goods.image componentsSeparatedByString:@","] firstObject]];
-        [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:[NSURL URLWithString:imgUrl] options:SDWebImageDownloaderLowPriority|SDWebImageDownloaderUseNSURLCache progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-            if (finished) {                
-                NSDate *date = [NSDate new];
-                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                NSString *time = [formatter stringFromDate:date];
-                
-                NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
+        UIImageView *imageView = [[UIImageView alloc] init];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imgUrl] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            NSDate *date = [NSDate new];
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+            NSString *time = [formatter stringFromDate:date];
+            
+            NSString *string = [NSString stringWithFormat:@"itemid=%@&promoterid=%@&promotetime=%@",self.goods.itemid,[KGLoginManager sharedInstance].user.userid,time];
 //                NSString *encode = [[JSRSA sharedInstance] privateEncrypt:string];
-                NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:string];
-                NSURL *url = [[NSURL alloc] initWithString:urlString];
-                
-                NSArray *activityItems = @[self.goods.title,url,image];
-                UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
-                activityController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
-                    if (completed) {
-                        
-                    }
-                };
-                [self presentViewController:activityController animated:YES completion:nil];
-            }
+            NSString *urlString = [@"http://www.kgapp.net/skip?p=" stringByAppendingString:string];
+            NSString * encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes( kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL,  kCFStringEncodingUTF8 ));
+            
+            NSURL *url = [[NSURL alloc] initWithString:encodedString];
+            
+            NSArray *activityItems = @[self.goods.title,url?url:urlString,image];
+            UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+            activityController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+                if (completed) {
+                    
+                }
+            };
+            [self presentViewController:activityController animated:YES completion:nil];
         }];
-        
-        
         
     } else {
         KGLoginViewController *vc = [KGLoginViewController viewControllerFromStoryboard];
