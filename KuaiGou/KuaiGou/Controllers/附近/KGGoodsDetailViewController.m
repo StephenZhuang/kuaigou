@@ -15,6 +15,7 @@
 #import "KGAddOrderViewController.h"
 #import "BNCoreServices.h"
 #import "NIMSessionViewController.h"
+#import "MBProgressHUD+ZXAdditon.h"
 
 @interface KGGoodsDetailViewController ()<BNNaviRoutePlanDelegate,BNNaviUIManagerDelegate>
 
@@ -30,7 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    MBProgressHUD *hud = [MBProgressHUD showWaiting:@"" toView:self.view];
     [KGGoods getGoodsDetailWithItemid:_itemid completion:^(BOOL success, NSString *errorInfo, KGGoods *goods) {
+        [hud hide:YES];
         self.goods = goods;
         [self updateUI];
     }];
