@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -21,16 +21,10 @@
                             <constraint firstAttribute="width" constant="65" id="RE0-ir-YMm"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMI-zN-vo2">
-                        <rect key="frame" x="85" y="10" width="45" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMI-zN-vo2">
+                        <rect key="frame" x="85" y="10" width="44" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBP-RS-d1i">
-                        <rect key="frame" x="274" y="10" width="36" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAd-2L-GDq">
@@ -45,17 +39,23 @@
                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBP-RS-d1i">
+                        <rect key="frame" x="274" y="58" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="A8W-KQ-57K" secondAttribute="trailing" constant="10" id="435-HW-sTm"/>
                     <constraint firstItem="DmF-zA-BOQ" firstAttribute="top" secondItem="e5H-4K-EhL" secondAttribute="top" constant="10" id="6rE-SC-tHu"/>
-                    <constraint firstItem="TBP-RS-d1i" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WMI-zN-vo2" secondAttribute="trailing" constant="10" id="8za-Q1-Kk8"/>
                     <constraint firstAttribute="trailing" secondItem="TBP-RS-d1i" secondAttribute="trailing" constant="10" id="Glv-pp-MXa"/>
                     <constraint firstItem="WMI-zN-vo2" firstAttribute="top" secondItem="e5H-4K-EhL" secondAttribute="top" constant="10" id="Hwj-NE-C6r"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WMI-zN-vo2" secondAttribute="trailing" constant="10" id="KXv-d8-1Td"/>
                     <constraint firstItem="A8W-KQ-57K" firstAttribute="centerY" secondItem="DmF-zA-BOQ" secondAttribute="centerY" id="Mpz-dF-mnQ"/>
                     <constraint firstItem="cAd-2L-GDq" firstAttribute="leading" secondItem="DmF-zA-BOQ" secondAttribute="trailing" constant="10" id="NbA-xD-2vt"/>
                     <constraint firstItem="WMI-zN-vo2" firstAttribute="leading" secondItem="DmF-zA-BOQ" secondAttribute="trailing" constant="10" id="Pz7-vl-7KX"/>
-                    <constraint firstItem="TBP-RS-d1i" firstAttribute="top" secondItem="e5H-4K-EhL" secondAttribute="top" constant="10" id="SxL-9z-LsY"/>
+                    <constraint firstAttribute="bottom" secondItem="TBP-RS-d1i" secondAttribute="bottom" constant="9" id="cbY-Fi-new"/>
                     <constraint firstItem="A8W-KQ-57K" firstAttribute="leading" secondItem="DmF-zA-BOQ" secondAttribute="trailing" constant="10" id="fgq-3A-Cud"/>
                     <constraint firstItem="cAd-2L-GDq" firstAttribute="bottom" secondItem="DmF-zA-BOQ" secondAttribute="bottom" id="qb3-iS-cBL"/>
                     <constraint firstItem="DmF-zA-BOQ" firstAttribute="leading" secondItem="e5H-4K-EhL" secondAttribute="leading" constant="10" id="tt3-Gb-BAG"/>

@@ -73,7 +73,7 @@
     [self.nameLabel setText:self.goods.u_nickname];
     [self.addressLabel setText:self.goods.address];
     [self.ratingView setValue:self.goods.u_level];
-    NSArray *arr = @[@"送货上门",@"上门自提"];
+    NSArray *arr = @[@"上门自提"];
     if (self.goods.trademodeid > 0) {
         [self.tipLabel setText:arr[self.goods.trademodeid -1]];
     }

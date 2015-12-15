@@ -170,7 +170,7 @@
     [parameters setObject:@(pagenumber) forKey:@"pagenumber"];
     [parameters setObject:@(pagesize) forKey:@"pagesize"];
     [parameters setObject:@(dis) forKey:@"dis"];
-    [[KGApiClient sharedClient] POST:@"/api/v1/items/near" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+    [[KGApiClient sharedClient] POST:@"/api/v1/items/hot" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
         NSDictionary *dic = data;
         NSArray *arr = [dic objectForKey:@"list"];
         NSArray *array = [KGGoods objectArrayWithKeyValuesArray:arr];
