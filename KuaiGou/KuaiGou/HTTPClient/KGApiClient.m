@@ -10,7 +10,7 @@
 #import "KGResponseObject.h"
 #import "KGLoginManager.h"
 
-static NSString * const KGAPIBaseURLString = @"http://www.kgapp.net/";
+static NSString * const KGAPIBaseURLString = @"http://www.t9o.net/";
 
 @implementation KGApiClient
 + (instancetype)sharedClient {
