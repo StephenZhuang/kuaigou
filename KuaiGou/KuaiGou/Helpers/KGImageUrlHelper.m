@@ -16,7 +16,7 @@ static NSString * const KGImageBaseUrl = @"http://7xidkl.com1.z0.glb.clouddn.com
 + (NSString *)imageUrlWithKey:(NSString *)key
 {
     NSString *secretKey = QNSecretKey;
-    NSString *downloadUrl = [NSString stringWithFormat:@"%@%@?e=1451491200",KGImageBaseUrl,key];
+    NSString *downloadUrl = [NSString stringWithFormat:@"%@%@?e=1483113600",KGImageBaseUrl,key];
     NSString *sign = [downloadUrl HmacSha1WithSecret:secretKey];
     NSString *token = [NSString stringWithFormat:@"%@:%@",QNAppKey,sign];
     NSString *imageUrl = [downloadUrl stringByAppendingFormat:@"&token=%@",token];
