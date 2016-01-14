@@ -239,6 +239,26 @@
     }
 }
 
+- (void)didFailToLocateUserWithError:(NSError *)error
+{
+    [self.locationService stopUserLocationService];
+    self.goods.lat = @"39.92";
+    self.goods.lng = @"116.46";
+    self.searcher.delegate = self;
+    CLLocationCoordinate2D pt = CLLocationCoordinate2DMake(39.92, 116.46);
+    BMKReverseGeoCodeOption *reverseGeoCodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeoCodeSearchOption.reverseGeoPoint = pt;
+    BOOL flag = [self.searcher reverseGeoCode:reverseGeoCodeSearchOption];
+    if(flag)
+    {
+        NSLog(@"反geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"反geo检索发送失败");
+    }
+}
+
 //接收反向地理编码结果
 - (void)onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error{
   if (error == BMK_SEARCH_NO_ERROR) {

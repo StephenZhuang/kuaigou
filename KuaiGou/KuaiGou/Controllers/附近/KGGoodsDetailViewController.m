@@ -132,6 +132,21 @@
     });
 }
 
+- (void)didFailToLocateUserWithError:(NSError *)error
+{
+    [[KGLocationManager sharedInstance].locationService stopUserLocationService];
+    self.lat = 39.92;
+    self.lng = 116.46;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 耗时的操作
+        double distance = [[KGLocationManager sharedInstance] distanceBetweenPoint1:CLLocationCoordinate2DMake(self.lat, self.lng) point2:CLLocationCoordinate2DMake(self.goods.lat.doubleValue, self.goods.lng.doubleValue)];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 更新界面
+            [self.distanceLabel setText:[NSString stringWithFormat:@"%.2fkm",distance]];
+        });
+    });
+}
+
 - (IBAction)showAction:(id)sender
 {
     if ([[KGLoginManager sharedInstance] isLogin]) {

@@ -94,6 +94,14 @@
     [self loadData];
 }
 
+- (void)didFailToLocateUserWithError:(NSError *)error
+{
+    [[KGLocationManager sharedInstance].locationService stopUserLocationService];
+    self.lat = 39.92;
+    self.lng = 116.46;
+    [self loadData];
+}
+
 #pragma mark - tableview delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
